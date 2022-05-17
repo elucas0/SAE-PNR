@@ -3,7 +3,7 @@ package donnee;
 public interface IObs<T> {
 
 	/**
-	 * 
+	 * AEs
 	 * @param obs
 	 */
 	void ajouteObs(T obs);
