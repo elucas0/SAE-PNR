@@ -10,7 +10,7 @@ public class Chouette implements lObs<ObsChouette>{
 
 
 	/**
-	 * The owl's gender
+	 * The owl's gender hghgjgj
 	 */
 	private Sexe sexe;
 
