@@ -15,13 +15,29 @@ public class NidGCI implements lObs {
 	 * @param plage
 	 */
 	public NidGCI(int id, String plage) {
-		// TODO - implement NidGCI.NidGCI
-		throw new UnsupportedOperationException();
+		if(id<0)
+			throw new IllegalArgumentException("id nidGCI < 0");
+		else if (plage == null)
+			throw new NullPointerException("plage null");
+		else {
+			this.idNid = id;
+			this.nomPlage = plage;
+			this.lesObservations = new ArrayList<ObsGCI>();
+			this.nbEnvol = 0;
+		}
 	}
 
 	public Date dateDEbutObs() {
-		// TODO - implement NidGCI.dateDEbutObs
-		throw new UnsupportedOperationException();
+		if (this.lesObservations.isEmpty())
+			return null;
+		else {
+			Date d = this.lesObservations.iterator().next().dateDEbutObs();
+			for (ObsGCI o : this.lesObservations) {
+				if (o.geDate().before(d))
+					d = o.geDate();
+			}
+			return d;
+		}	
 	}
 
 	public Date dateFinObs() {
