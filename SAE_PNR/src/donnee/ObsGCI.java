@@ -56,6 +56,10 @@ public class ObsGCI extends Observation {
 		return idObs;
 	}
 
+	public Date geDate() {
+		return dateObs;
+	}
+
 	@Override
 	public EspeceObservee especeObs() {
 		// TODO Auto-generated method stub
