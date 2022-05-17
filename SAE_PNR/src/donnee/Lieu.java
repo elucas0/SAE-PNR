@@ -6,12 +6,13 @@ public class Lieu {
 	private double yCoord;
 
 	/**
-	 * 
-	 * @param x
-	 * @param y
+	 * Constructeur pour crée l'objet lieu
+	 * @param x coordonnée de x
+	 * @param y coordonnée de y
 	 */
 	public Lieu(double x, double y) {
-		// TODO - implement Lieu.Lieu
+		this.xCoord = x;
+		this.yCoord = y;
 		throw new UnsupportedOperationException();
 	}
 
