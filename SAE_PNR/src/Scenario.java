@@ -10,7 +10,6 @@ import donnee.Observateur;
 import java.sql.*;
 
 public class Scenario {
-    ObsBatracien batracien;
     public static void main(String[] args) {
         testObsBatracien();
         testObsLoutre();
@@ -35,7 +34,6 @@ public class Scenario {
 
     public static void testObsLoutre(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
-        int[] obs = new int[1];
         Lieu lieu = new Lieu(785, 154);
         ObsLoutre loutre = new ObsLoutre(1, new Date(1), new Time(1) , lieu, observateurs,IndiceLoutre.POSITIF);
         System.out.println(loutre.getIndice());
