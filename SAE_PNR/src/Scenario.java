@@ -1,18 +1,6 @@
 import java.util.ArrayList;
-import java.util.Timer;
 
-import donnee.Chouette;
-import donnee.EspeceBatracien;
-import donnee.EspeceChouette;
-import donnee.EspeceObservee;
-import donnee.IndiceLoutre;
-import donnee.Lieu;
-import donnee.ObsBatracien;
-import donnee.ObsChouette;
-import donnee.ObsLoutre;
-import donnee.Observateur;
-import donnee.Sexe;
-import donnee.TypeObservation;
+import donnee.*;
 
 import java.sql.*;
 
