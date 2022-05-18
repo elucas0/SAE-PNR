@@ -1,47 +1,43 @@
 package donnee;
-import java.sql.Date;
+import java.util.ArrayList;
 import java.sql.Time;
-import java.util.*;
-/**Classe pour cree les observations des loutres */
+import java.sql.Date;
+
+/**
+ * 
+ */
 public class ObsLoutre extends Observation {
-	/**Parametre pour les indices des loutres */
+
 	private IndiceLoutre indice;
 
 	/**
-	 * Constructeur pour crée les observations des batraciens
-	 * @param id l'id de observation
-	 * @param date date de l'observation
-	 * @param heure heure de l'observation
-	 * @param lieu lieu de l'observation
-	 * @param observateurs nom des observateurs
+	 * Create the observed otter
+	 * @param id id of the observation
+	 * @param date date of the observation
+	 * @param heure time of the observation
+	 * @param lieu location of the observation
+	 * @param observateur list of the observers
+	 * @param indice the state of the place(not visited, with otter, or without otter)
 	 */
-	public ObsLoutre(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, IndiceLoutre indice) {
-		super(id, date, heure, lieu, observateurs);
+	public ObsLoutre(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateur, IndiceLoutre indice) {
+		super(id, date, heure, lieu, observateur);
+
 		if(indice != null){
+
 			this.indice = indice;
+		}else{
+
+			throw new UnsupportedOperationException("ObsLoutre : indice must not be null");
 		}
-		else{
-			System.err.println("ObsLoutre : paramètre érroné");
-		}
-		throw new UnsupportedOperationException();
+
 	}
+
 	/**
-	 * Methode pour avoir l'indice
-	 * @return l'inice
+	 * Get the specie
 	 */
-	public IndiceLoutre getIndice() {
-		return indice;
+	public EspeceObservee especeObs() {
+		return EspeceObservee.LOUTRE;
 	}
-	/**
-	 * Methode pour changer l'indice
-	 * @param indice le nouvel indice
-	 */
-	public void setIndice(IndiceLoutre indice) {
-		if(indice != null){
-			this.indice = indice;
-		}
-		else{
-			System.err.println("setIndice : paramètre érroné");
-		}
-	}
+
+
 }
