@@ -1,5 +1,5 @@
 package donnee;
-class Observateur{
+public class Observateur{
 	//Id of the observer
 	private int idObservateur;
 	//lastname of the observer
