@@ -26,6 +26,13 @@ public class ObsChouette extends Observation {
 	 */
 	public ObsChouette(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateur, TypeObservation type) {
 		super(id, date, heure, lieu, observateur);
+		if(type !=null){
+
+			this.typeObs = type;
+		}else{
+
+			throw new IllegalArgumentException("ObsChouette : type must not be null");
+		}
 		
 	}
 

@@ -1,4 +1,5 @@
 package donnee;
+import java.util.*;
 
 public interface IObs<T> {
 

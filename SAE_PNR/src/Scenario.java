@@ -1,16 +1,10 @@
 import java.util.ArrayList;
-import java.util.Timer;
 
-import donnee.EspeceBatracien;
-import donnee.IndiceLoutre;
-import donnee.Lieu;
-import donnee.ObsBatracien;
-import donnee.ObsLoutre;
-import donnee.Observateur;
+import donnee.*;
+
 import java.sql.*;
 
 public class Scenario {
-    ObsBatracien batracien;
     public static void main(String[] args) {
         testObsBatracien();
         testObsLoutre();
@@ -35,7 +29,6 @@ public class Scenario {
 
     public static void testObsLoutre(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
-        int[] obs = new int[1];
         Lieu lieu = new Lieu(785, 154);
         ObsLoutre loutre = new ObsLoutre(1, new Date(1), new Time(1) , lieu, observateurs,IndiceLoutre.POSITIF);
         System.out.println(loutre.getIndice());
@@ -51,7 +44,7 @@ public class Scenario {
 
         Chouette chouette1 = new Chouette("1", Sexe.MALE, EspeceChouette.CHEVECHE);
         Chouette chouette2 = new Chouette(null, null, null);
-        Lieu test = new Lieu(5, 5);
+        Lieu test = new Lieu(5.0, 5.0);
         Time heure = new Time(1);
         Date date = new Date(1);
 

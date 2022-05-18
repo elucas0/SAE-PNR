@@ -2,7 +2,7 @@ package donnee;
 
 import java.util.*;
 
-public class NidGCI implements lObs {
+public class NidGCI implements lObs<ObsGCI> {
 
 	private Collection<ObsGCI> lesObservations;
 	private int idNid;
@@ -136,5 +136,11 @@ public class NidGCI implements lObs {
 	public void ajoutePlsObs(ArrayList obs) {
 		if(obs != null)
 			this.lesObservations.addAll(obs);
+	}
+
+	@Override
+	public void ajouteObs(ObsGCI obs) {
+		// TODO Auto-generated method stub
+		
 	}
 }

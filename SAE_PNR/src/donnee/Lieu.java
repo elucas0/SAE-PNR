@@ -1,19 +1,28 @@
 package donnee;
-
-public class Lieu {
-
+public class Lieu{
+	//Longitude coordinate
 	private double xCoord;
+	//Latitude coordinate
 	private double yCoord;
-
-	/**
-	 * Constructeur pour crée l'objet lieu
-	 * @param x coordonnée de x
-	 * @param y coordonnée de y
-	 */
-	public Lieu(double x, double y) {
-		this.xCoord = x;
-		this.yCoord = y;
-		throw new UnsupportedOperationException();
+	/**Constructor dof the class Lieu
+	 * @param x Longitude coordinate
+	 * @param y Latitude coordinate*/
+	public Lieu(double x, double y){
+		this.xCoord=x;
+		this.yCoord=y;
+	}
+	/**Getter et Setter*/
+	public double getCoordX(){
+		return this.xCoord;
+	}
+	public void setCoordX(double x){
+		this.xCoord=x;
 	}
 
+	public double getCoordY(){
+		return this.yCoord;
+	}
+	public void setCoordY(double y){
+		this.yCoord=y;
+	}
 }
