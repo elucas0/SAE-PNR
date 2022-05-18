@@ -27,22 +27,38 @@ public class NidGCI implements lObs {
 		}
 	}
 
-	public Date dateDEbutObs() {
+	/**
+	 * Returns the date at wich the observation began
+	 * @return the date at wich the observation began
+	 */
+	public Date dateDebutObs() {
 		if (this.lesObservations.isEmpty())
 			return null;
 		else {
-			Date d = this.lesObservations.iterator().next().dateDEbutObs();
+			Date d = this.lesObservations.iterator().next().getDate();
 			for (ObsGCI o : this.lesObservations) {
-				if (o.geDate().before(d))
-					d = o.geDate();
+				if (o.getDate().before(d))
+					d = o.getDate();
 			}
 			return d;
 		}	
 	}
 
+	/**
+	 * Returns the date at wich the observation ended
+	 * @return the date at wich the observation ended
+	 */
 	public Date dateFinObs() {
-		// TODO - implement NidGCI.dateFinObs
-		throw new UnsupportedOperationException();
+		if (this.lesObservations.isEmpty())
+			return null;
+		else {
+			Date d = this.lesObservations.iterator().next().getDate();
+			for (ObsGCI o : this.lesObservations) {
+				if (o.getDate().after(d))
+					d = o.getDate();
+			}
+			return d;
+		}	
 	}
 
 	//Getters and setters
