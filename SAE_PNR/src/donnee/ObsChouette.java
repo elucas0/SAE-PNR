@@ -1,4 +1,4 @@
-package src.modele.donnee;
+package donnee;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.Time;

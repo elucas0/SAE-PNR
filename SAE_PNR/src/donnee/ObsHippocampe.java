@@ -82,4 +82,10 @@ public class ObsHippocampe extends Observation {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public EspeceObservee especeObs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

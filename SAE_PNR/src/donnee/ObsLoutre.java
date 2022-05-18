@@ -32,5 +32,16 @@ public class ObsLoutre extends Observation {
 	public IndiceLoutre getIndice() {
 		return indice;
 	}
-
+	/**
+	 * Methode pour changer l'indice
+	 * @param indice le nouvel indice
+	 */
+	public void setIndice(IndiceLoutre indice) {
+		if(indice != null){
+			this.indice = indice;
+		}
+		else{
+			System.err.println("setIndice : paramètre érroné");
+		}
+	}
 }
