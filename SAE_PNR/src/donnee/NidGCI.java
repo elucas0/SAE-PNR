@@ -124,12 +124,6 @@ public class NidGCI implements lObs<ObsGCI> {
 		this.lesObservations.clear();
 	}
 
-	public void ajouteObs(Object obs) {
-		if(obs instanceof ObsGCI) {
-			this.lesObservations.add((ObsGCI) obs);
-		}
-	}
-
 	/**
 	 * Adds a list of observations to the list of observations.
 	 */
@@ -140,7 +134,8 @@ public class NidGCI implements lObs<ObsGCI> {
 
 	@Override
 	public void ajouteObs(ObsGCI obs) {
-		// TODO Auto-generated method stub
-		
+		if(obs instanceof ObsGCI) {
+			this.lesObservations.add((ObsGCI) obs);
+		}
 	}
 }
