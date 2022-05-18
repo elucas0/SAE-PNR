@@ -6,8 +6,10 @@ import java.sql.*;
 
 public class Scenario {
     public static void main(String[] args) {
-        testObsBatracien();
-        testObsLoutre();
+        //testObsBatracien();
+        //testObsLoutre();
+
+        test_Chouette_obsChouette();
     }
 
     public static void testObsBatracien(){
