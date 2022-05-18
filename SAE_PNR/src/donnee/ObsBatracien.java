@@ -1,31 +1,45 @@
-package donnee;
+package src.modele.donnee;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.Time;
 
-
-/**Class pour crée les observations des batraciens */
+/**
+ * Create an observation about a batracian
+ */
 public class ObsBatracien extends Observation {
-	/**Parametre pour les especes de Batraciens */
-	EspeceBatracien espece;
-	/**Parametre pour le nombre d'adultes */
+
+	/**
+	 * the batracian's specie
+	 */
+	private EspeceBatracien espece;
+
+	/**
+	 * The number of adults
+	 */
 	private int nombreAdultes;
-	/**Parametre pour le nombre d'amplexus */
+
+	/**
+	 * The number of Amplexus
+	 */
 	private int nombreAmplexus;
-	/**Parametre pour le nombre de tétard */
+
+	/**
+	 * The number of tadpole
+	 */
 	private int nombreTetard;
-	/**Parametre pour le nombre de ponte */
+
+	/**
+	 * Get the number of laying
+	 */
 	private int nombrePonte;
 
 	/**
-	 * Constructeur pour crée les observations des batraciens
-	 * @param id l'id de observation
-	 * @param date date de l'observation
-	 * @param heure heure de l'observation
-	 * @param lieu lieu de l'observation
-	 * @param observateurs nom des observateurs
-	 * @param resObs 
-	 * @param lEspece espece de l'observation
+	 * Generate a battracian observed
+	 * @param id id of the observation
+	 * @param date date of the observation
+	 * @param heure time of the observation
+	 * @param lieu location of the observation
+	 * @param observateur list of the observers
 	 */
 	public ObsBatracien(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, int[] resObs, EspeceBatracien lEspece) {
 		super(id, date, heure, lieu, observateurs);
@@ -53,175 +67,127 @@ public class ObsBatracien extends Observation {
 	 * return the specie of the observation ()
 	 */
 	public EspeceObservee especeObs() {
-		// TODO Auto-generated method stub
 		return EspeceObservee.BATRACIEN;
 	}
 
-
 	/**
-	 * Methode pour avoir l'espece du batracien
-	 * @return l'espece de l'animal
+	 * Get the batracian's specie
+	 * @return the batracian's specie
 	 */
 	public EspeceBatracien getEspece() {
 		return espece;
 	}
+
 	/**
-	 * Methode pour avoir le nombre d'adultes
-	 * @return le nombre d'adulte
+	 * Set the batracian's specie to a wanted one
+	 * @param espece the wanted specie
+	 */
+	public void setEspece(EspeceBatracien espece) {
+
+		if(espece != null){
+			this.espece = espece;
+		}else{
+
+			System.err.println("setEspece : espece must not be null");
+		}
+	}
+
+
+	/**
+	 * Get the number of adults
+	 * @return the number of adults
 	 */
 	public int getNombreAdultes() {
 		return nombreAdultes;
 	}
+
+
 	/**
-	 * Methode pour avoir le nombre d'amplexus
-	 * @return le nombre d'amplexus
+	 * Set the number of adults to a wanted number
+	 * @param nombreAdultes the wanted number of adults
+	 */
+	public void setNombreAdultes(int nombreAdultes) {
+
+		if(nombreAdultes >= 0){
+
+			this.nombreAdultes = nombreAdultes;
+		}else{
+
+			System.err.println("setNombreAdultes : nombreAdultes must be at least 0.");
+		}
+	}
+
+
+	/**
+	 * Get the number of Amplexus
+	 * @return the number of Amplexus
 	 */
 	public int getNombreAmplexus() {
 		return nombreAmplexus;
 	}
+
+
 	/**
-	 * Methode pour avoir le nombre de ponte
-	 * @return le nombre de ponte
+	 * Set the number of amplexus to a wanted one
+	 * @param nombreAmplexus the wanted number of Amplexus
 	 */
-	public int getNombrePonte() {
-		return nombrePonte;
+	public void setNombreAmplexus(int nombreAmplexus) {
+		if(nombreAmplexus >= 0){
+
+			this.nombreAmplexus = nombreAmplexus;
+		}else{
+
+			System.err.println("setNombreAdmplexus : nombreAmplexus must be at least 0.");
+		}
 	}
+
+
 	/**
-	 * Methode pour avoir le nombre de tetard
-	 * @return le nombre de tetard
+	 * Get the number of tadpole
+	 * @return
 	 */
 	public int getNombreTetard() {
 		return nombreTetard;
 	}
 
+
 	/**
-	 * Methode pour changer l'espece des batraciens
-	 * @param espece la nouvelle espece
-	 */
-	public void setEspece(EspeceBatracien espece) {
-		if(espece != null){
-			this.espece = espece;
-		}
-		else{
-			System.err.println("setEspece : paramètre érroné.");
-		}
-	}
-	/**
-	 * Methode pour changer le nombre d'adulte
-	 * @param nombreAdultes le nouveau nombre d'adulte
-	 */
-	public void setNombreAdultes(int nombreAdultes) {
-		if(nombreAdultes >= 0){
-			this.nombreAdultes = nombreAdultes;
-		}
-		else{
-			System.err.println("setNombreAdultes : paramètre érroné.");
-		}
-	}
-	/**
-	 * Methode pour changer le nombre d'amplexus
-	 * @param nombreAmplexus le nouveau nombre d'amplexus
-	 */
-	public void setNombreAmplexus(int nombreAmplexus) {
-		if(nombreAmplexus >= 0){
-			this.nombreAmplexus = nombreAmplexus;
-		}
-		else{
-			System.err.println("setNombreAmplexus : paramètre érroné.");
-		}
-	}
-	/**
-	 * Methode pour changer le nombre de ponte
-	 * @param nombrePonte le nouveau nombre de ponte
-	 */
-	public void setNombrePonte(int nombrePonte) {
-		if(nombrePonte >= 0){
-			this.nombrePonte = nombrePonte;
-		}
-		else{
-			System.out.println("setNombrePonte : paramètre érroné.");
-		}
-	}
-	/**
-	 * Methode pour changer le nombre de tetard
-	 * @param nombreTetard le nouveau nombre de tetard
+	 * Set the number of tadpole to a wanted one
+	 * @param nombreTetard the wanted number of tadpole
 	 */
 	public void setNombreTetard(int nombreTetard) {
 		if(nombreTetard >= 0){
+
 			this.nombreTetard = nombreTetard;
-		}
-		else{
-			System.err.println("setNombreTetard : paramètre érroné.");
+		}else{
+
+			System.err.println("setNombreTetard : nombreTetard must be at least 0.");
 		}
 	}
 
-	
-	@Override
-	public Date getDateObs() {
-		return super.getDateObs();
-	}
-	@Override
-	public Time getHeureObs() {
-		return super.getHeureObs();
-	}
-	@Override
-	public int getIdObs() {
-		return super.getIdObs();
-	}
-	@Override
-	public Collection<Observateur> getLesObservateurs() {
-		return super.getLesObservateurs();
-	}
-	@Override
-	public Lieu getLieuObs() {
-		return super.getLieuObs();
+
+	/**
+	 * Get the number of laying
+	 * @return the number of laying
+	 */
+	public int getNombrePonte() {
+		return nombrePonte;
 	}
 
-	@Override
-	public void setDateObs(Date dateObs) {
-		if(dateObs != null){
-			super.setDateObs(dateObs);
-		}
-		else{
-			System.err.println("setDateObs : paramètre érroné.");
-		}
-	}
-	@Override
-	public void setHeureObs(Time heureObs) {
-		if(heureObs != null){
-			super.setHeureObs(heureObs);
-		}
-		else{
-			System.err.println("setHeureObs : paramètre érroné.");
+	/**
+	 * Set the number of laying to a wanter one
+	 * @param nombrePonte the wanted number of laying
+	 */
+	public void setNombrePonte(int nombrePonte) {
+		if(nombrePonte >= 0){
+
+			this.nombrePonte = nombrePonte;
+		}else{
+
+			System.err.println("setNombrePonte : nombrePonte must be at least 0.");
 		}
 	}
-	@Override
-	public void setIdObs(int idObs) {
-		if(idObs >= 0){
-			super.setIdObs(idObs);
-		}
-		else{
-			System.err.println("setIdObs : paramètre érroné.");
-		}
-	}
-	@Override
-	public void setLesObservateurs(Collection<Observateur> lesObservateurs) {
-		if(lesObservateurs != null){
-			super.setLesObservateurs(lesObservateurs);
-		}
-		else{
-			System.err.println("setLesObservateur : paramètre érroné.");
-		}
-	}
-	@Override
-	public void setLieuObs(Lieu lieuObs) {
-		if(lieuObs != null){
-			super.setLieuObs(lieuObs);
-		}
-		else{
-			System.err.println("setLieuObs : paramètre érroné.");
-		}
-	}
+
 
 
 
