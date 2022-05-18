@@ -21,9 +21,8 @@ public class ObsLoutre extends Observation {
 			this.indice = indice;
 		}
 		else{
-			System.err.println("ObsLoutre : paramètre érroné");
+			throw new IllegalArgumentException("ObsLoutre : indice should not be null");
 		}
-		throw new UnsupportedOperationException();
 	}
 	/**
 	 * Methode pour avoir l'indice
