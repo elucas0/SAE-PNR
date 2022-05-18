@@ -7,6 +7,7 @@ class Observateur{
 	//firstname of the observer
 	private String prenom;
 
+<<<<<<< HEAD
 	/**Constructor of the class Observateur
 	 * @param id Id of the observer
 	 * @param leNom lastname of the observer
@@ -40,6 +41,16 @@ class Observateur{
 	}
 	public void setNom(String leNom){
 		this.nom=leNom;
+=======
+	/**
+	 * 
+	 * @param id
+	 * @param leNom
+	 * @param lePrenom
+	 */
+	public Observateur(int id, String leNom, String lePrenom) {
+		//TODO
+>>>>>>> 86d0bcdafc3e85d116aef9d34aba8c0a87cb87d0
 	}
 
 	public String getPrenom(){
