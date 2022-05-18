@@ -8,7 +8,6 @@ import donnee.ObsBatracien;
 import donnee.ObsLoutre;
 import donnee.Observateur;
 import java.sql.*;
-//c'est de la merde
 
 public class Scenario {
     ObsBatracien batracien;
