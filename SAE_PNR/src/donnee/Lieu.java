@@ -1,5 +1,5 @@
 package donnee;
-class Lieu{
+public class Lieu{
 	//Longitude coordinate
 	private double xCoord;
 	//Latitude coordinate
