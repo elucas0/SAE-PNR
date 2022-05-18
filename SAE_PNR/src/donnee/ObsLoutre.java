@@ -44,4 +44,8 @@ public class ObsLoutre extends Observation {
 			System.err.println("setIndice : paramètre érroné");
 		}
 	}
+	@Override
+	public EspeceObservee especeObs() {
+		return EspeceObservee.LOUTRE;
+	}
 }
