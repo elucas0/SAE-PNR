@@ -56,7 +56,7 @@ public class ObsGCI extends Observation {
 		return idObs;
 	}
 
-	public Date geDate() {
+	public Date getDate() {
 		return dateObs;
 	}
 
