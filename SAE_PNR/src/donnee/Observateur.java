@@ -14,7 +14,6 @@ public class Observateur {
 	 */
 	public Observateur(int id, String leNom, String lePrenom) {
 		//TODO
-		//z
 	}
 
 
