@@ -1,4 +1,4 @@
-package donnee;
+package src.modele.donnee;
 import java.util.ArrayList;
 
 
@@ -10,7 +10,7 @@ public class Chouette implements lObs<ObsChouette>{
 
 
 	/**
-	 * The owl's gender hghgjgj
+	 * The owl's gender
 	 */
 	private Sexe sexe;
 
