@@ -58,7 +58,7 @@ public class NidGCI implements lObs<ObsGCI> {
 					d = o.getDate();
 			}
 			return d;
-		}	
+		}
 	}
 
 	//Getters and setters
