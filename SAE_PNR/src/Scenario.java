@@ -47,7 +47,7 @@ public class Scenario {
         System.out.println(loutre.getIndice());
     }
 
-/*
+
     public static void test_Chouette_obsChouette(){
 
         System.out.println("-----Test ObsChouette et Chouette-----");
@@ -102,5 +102,5 @@ public class Scenario {
         obsChouette1.setTypeObs(TypeObservation.SONORE_VISUELLE);
         obsChouette1.setTypeObs(null);
     }
-    */
+    
 }
