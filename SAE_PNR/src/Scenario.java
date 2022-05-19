@@ -172,15 +172,7 @@ public class Scenario {
         obsGCI1.setLieu(null);
 
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
-
->>>>>>> 6605bd61b31c90e951b1a1a93115617f9e026c83
         obsGCI1.getLesObservateurs();
         obsGCI2.getLesObservateurs();
     }
->>>>>>> 5ac2a5035432e1fc2c09d1e6cd984070034e4651
 }
