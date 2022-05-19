@@ -21,7 +21,7 @@ public  abstract  class Observation {
 	 * @param heure Hours of the observation
 	 * @param lieu Lieu de l'observation
 	 * @param observateurs List of the observer
-	 * */
+	 */
 	public Observation(int id, Date date, Time heure, Lieu lieu,ArrayList<Observateur> observateurs){
 		if(id<1){
 			System.err.println("Erreur dans l'id ");
