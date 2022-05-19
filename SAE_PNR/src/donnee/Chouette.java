@@ -155,14 +155,19 @@ public class Chouette implements lObs<ObsChouette>{
 
 		boolean ret = false;
 
-		if((idObs >= 0) && (idObs < this.lesObservations.size())){
+		if(this.lesObservations.size() > 0){
+			if((idObs >= 0) && (idObs < this.lesObservations.size())){
 
-			ret = true;
-		}else{
+				ret = true;
+			}else{
+	
+				ret = false;
+			}
 
-			ret = false;
 		}
 		return ret;
+
+
 	}
 
 
