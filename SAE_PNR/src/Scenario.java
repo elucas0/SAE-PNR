@@ -6,8 +6,8 @@ import java.sql.*;
 
 public class Scenario {
     public static void main(String[] args) {
-        //testObsBatracien();
-        //testObsLoutre();
+        testObsBatracien();
+        testObsLoutre();
 
         test_Chouette_obsChouette();
     }
@@ -18,7 +18,15 @@ public class Scenario {
         observateurs.add(obs4);
         int[] obs = {1, 2, 3, 4};
         Lieu lieu = new Lieu(785, 154);
-        ObsBatracien batracien = new ObsBatracien(1, new Date(1), new Time(1) , lieu, observateurs, obs, EspeceBatracien.PELODYTE);
+        ObsBatracien batracien = null;
+        ObsBatracien batracienErreur;
+        try{
+            batracienErreur = new ObsBatracien(0, null, null, null, null, null, null);
+            batracien = new ObsBatracien(1, new Date(1), new Time(1) , lieu, observateurs, obs, EspeceBatracien.PELODYTE);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         System.out.println(batracien.getEspece());
         System.out.println(batracien.getNombreAdultes());
         System.out.println(batracien.getNombreAmplexus());
@@ -162,5 +170,5 @@ public class Scenario {
         obsGCI1.setLieu(null);
 
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
-    
+
 }
