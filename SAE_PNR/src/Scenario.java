@@ -6,10 +6,10 @@ import java.sql.*;
 
 public class Scenario {
     public static void main(String[] args) {
-        //testObsBatracien();
-        //testObsLoutre();
+        testObsBatracien();
+        testObsLoutre();
 
-        test_Chouette_obsChouette();
+        //test_Chouette_obsChouette();
     }
 
     public static void testObsBatracien(){
@@ -37,7 +37,7 @@ public class Scenario {
         loutre.setIndice(IndiceLoutre.NEGATIF);
     }
 
-
+/*
     public static void test_Chouette_obsChouette(){
 
         System.out.println("-----Test ObsChouette et Chouette-----");
@@ -92,4 +92,5 @@ public class Scenario {
         obsChouette1.setTypeObs(TypeObservation.SONORE_VISUELLE);
         obsChouette1.setTypeObs(null);
     }
+    */
 }
