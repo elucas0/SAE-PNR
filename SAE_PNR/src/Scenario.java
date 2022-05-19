@@ -21,8 +21,9 @@ public class Scenario {
         ObsBatracien batracien = null;
         ObsBatracien batracienErreur;
         try{
-            batracienErreur = new ObsBatracien(0, null, null, null, null, null, null);
             batracien = new ObsBatracien(1, new Date(1), new Time(1) , lieu, observateurs, obs, EspeceBatracien.PELODYTE);
+
+            batracienErreur = new ObsBatracien(0, null, null, null, null, null, null);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -123,7 +124,7 @@ public class Scenario {
         System.out.println("fin");
     }
 
-    
+    /*
     public static void test_ObsGCI_NidGCI(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu test = new Lieu(5.0, 5.0);
@@ -174,5 +175,5 @@ public class Scenario {
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
         obsGCI1.getLesObservateurs();
         obsGCI2.getLesObservateurs();
-    }
+    }*/
 }
