@@ -54,8 +54,13 @@ public class Scenario {
 
         System.out.println("-----Test Chouette constructeur-----");
 
-        Chouette chouette1 = new Chouette("1", Sexe.MALE, EspeceChouette.CHEVECHE);
-        Chouette chouette2 = new Chouette(null, null, null);
+        Chouette chouette1;
+        try{
+            chouette1 = new Chouette("1", Sexe.MALE, EspeceChouette.CHEVECHE);
+            Chouette chouette2 = new Chouette(null, null, null);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         Lieu test = new Lieu(5.0, 5.0);
         Time heure = new Time(1);
         Date date = new Date(1);
@@ -63,8 +68,14 @@ public class Scenario {
         ArrayList<Observateur> obs = new ArrayList<>();
 
         System.out.println("-----Test ObsChouette constructeur-----");
-        ObsChouette obsChouette1 = new ObsChouette(1, (java.sql.Date) date, heure, test, obs, TypeObservation.SONORE);
-        ObsChouette obsChouette2 = new ObsChouette(-1, null, null, null, null, null);
+        ObsChouette obsChouette1;
+        try{
+            obsChouette1 = new ObsChouette(1, (java.sql.Date) date, heure, test, obs, TypeObservation.SONORE);
+            ObsChouette obsChouette2 = new ObsChouette(-1, null, null, null, null, null);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
 
         ArrayList<ObsChouette> test2 = new ArrayList<ObsChouette>();
@@ -101,6 +112,7 @@ public class Scenario {
         obsChouette1.getTypeObs();
         obsChouette1.setTypeObs(TypeObservation.SONORE_VISUELLE);
         obsChouette1.setTypeObs(null);
+        System.out.println("fin");
     }
     
 }

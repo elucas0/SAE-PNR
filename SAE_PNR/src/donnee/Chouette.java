@@ -41,7 +41,7 @@ public class Chouette implements lObs<ObsChouette>{
 			this.idChouette = id;
 		}else{
 
-			throw new UnsupportedOperationException("Chouette : id must not be null");
+			throw new IllegalAccessException("Chouette : id must not be null");
 		}
 
 		if(leSexe != null){
@@ -49,7 +49,7 @@ public class Chouette implements lObs<ObsChouette>{
 			this.sexe = leSexe;
 		}else{
 
-			throw new UnsupportedOperationException("Chouette : leSexe must not be null");
+			throw new IllegalAccessException("Chouette : leSexe must not be null");
 		}
 
 		if(lEspece != null){
@@ -57,7 +57,7 @@ public class Chouette implements lObs<ObsChouette>{
 			this.espece = lEspece;
 		}else{
 
-			throw new UnsupportedOperationException("Chouette : lEspece must not be null");
+			throw new IllegalAccessException("Chouette : lEspece must not be null");
 		}
 	}
 
