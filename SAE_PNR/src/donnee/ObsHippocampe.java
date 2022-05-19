@@ -1,6 +1,8 @@
 package donnee;
+import java.sql.Date;
+import java.sql.Time;
 
-public class ObsHippocampe extends Observation {
+public class ObsHippocampe extends Observation{
 
 	private Peche typePeche;
 	private EspeceHippocampe espece;
@@ -125,7 +127,7 @@ public class ObsHippocampe extends Observation {
 	 * @param gestant le nouvelle etat
 	 */
 	public void setEstGestant(boolean gestant){
-		if(sexe == MALE){
+		if(sexe == Sexe.MALE){
 			if(gestant){
 				this.estGestant = true;
 			}
@@ -133,7 +135,7 @@ public class ObsHippocampe extends Observation {
 				this.estGestant = false;
 			}
 		}
-		else if(sexe==FEMELLE){
+		else if(sexe==Sexe.FEMELLE){
 			if(gestant){
 				System.out.println("Erreur : un hippocampe femelle ne peut être gestant");
 			}
@@ -145,78 +147,16 @@ public class ObsHippocampe extends Observation {
 		else{
 			if(gestant){
 				this.estGestant = true;
-				this.sexe = MALE;
+				this.sexe = Sexe.MALE;
             }
 
 		}
 	}
 	
+	@Override
+	public EspeceObservee especeObs() {
 
-	@Override
-	public Date getDateObs() {
-		return super.getDateObs();
-	}
-	@Override
-	public Time getHeureObs() {
-		return super.getHeureObs();
-	}
-	@Override
-	public int getIdObs() {
-		return super.getIdObs();
-	}
-	@Override
-	public Collection<Observateur> getLesObservateurs() {
-		return super.getLesObservateurs();
-	}
-	@Override
-	public Lieu getLieuObs() {
-		return super.getLieuObs();
-	}
-
-	@Override
-	public void setDateObs(Date dateObs) {
-		if(dateObs != null){
-			super.setDateObs(dateObs);
-		}
-		else{
-			System.err.println("setDateObs : paramètre erroné.");
-		}
-	}
-	@Override
-	public void setHeureObs(Time heureObs) {
-		if(heureObs != null){
-			super.setHeureObs(heureObs);
-		}
-		else{
-			System.err.println("setHeureObs : paramètre erroné.");
-		}
-	}
-	@Override
-	public void setIdObs(int idObs) {
-		if(idObs >= 0){
-			super.setIdObs(idObs);
-		}
-		else{
-			System.err.println("setIdObs : paramètre erroné.");
-		}
-	}
-	@Override
-	public void setLesObservateurs(Collection<Observateur> lesObservateurs) {
-		if(lesObservateurs != null){
-			super.setLesObservateurs(lesObservateurs);
-		}
-		else{
-			System.err.println("setLesObservateur : paramètre erroné.");
-		}
-	}
-	@Override
-	public void setLieuObs(Lieu lieuObs) {
-		if(lieuObs != null){
-			super.setLieuObs(lieuObs);
-		}
-		else{
-			System.err.println("setLieuObs : paramètre erroné.");
-		}
+		return EspeceObservee.HIPPOCAMPE;
 	}
 }
 
