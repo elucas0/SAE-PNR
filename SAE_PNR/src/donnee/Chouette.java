@@ -131,7 +131,6 @@ public class Chouette implements lObs<ObsChouette>{
 
 			throw new UnsupportedOperationException("ajoutePlsObs : obs must not be null");
 		}
-		
 	}
 
 
