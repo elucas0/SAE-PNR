@@ -2,7 +2,7 @@ package donnee;
 
 import java.util.*;
 
-public class NidGCI implements lObs<ObsGCI> {
+public class NidGCI implements IObs<ObsGCI> {
 
 	private Collection<ObsGCI> lesObservations;
 	private int idNid;
@@ -127,7 +127,7 @@ public class NidGCI implements lObs<ObsGCI> {
 	/**
 	 * Adds a list of observations to the list of observations.
 	 */
-	public void ajoutePlsObs(ArrayList obs) {
+	public void ajoutePlsObs(ArrayList<ObsGCI> obs) {
 		if(obs != null)
 			this.lesObservations.addAll(obs);
 	}

@@ -94,7 +94,7 @@ public class Scenario {
         System.out.println(chouette1.nbObs());
 
 
-        Observateur obs4 = new Observateur(1, "Doe", "Jhon");
+        Observateur obs4 = new Observateur(1, "Doe", "John");
         
         obsChouette1.ajouteObservateur(obs4);
         obsChouette1.ajouteObservateur(null);
