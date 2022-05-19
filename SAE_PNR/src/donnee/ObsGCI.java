@@ -60,6 +60,26 @@ public class ObsGCI extends Observation {
 		return dateObs;
 	}
 
+	public Time getHeure() {
+		return heureObs;
+	}
+
+	public Lieu getLieu() {
+		return lieuObs;
+	}
+
+	public ContenuNid getNature() {
+		return natureObs;
+	}
+	
+	public void setNature(ContenuNid nature) {
+		this.natureObs = nature;
+	}
+
+	public ArrayList<Observateur> getLesObservateurs() {
+		return lesObservateurs;
+	}
+
 	@Override
 	public EspeceObservee especeObs() {
 		// TODO Auto-generated method stub

@@ -104,26 +104,27 @@ public class Scenario {
     }
 
     public static void test_ObsGCI_NidGCI(){
+        ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu test = new Lieu(5.0, 5.0);
-        Time heure = new Time(1);
-        Date date = new Date(1);
+
         Observateur obs = new Observateur(7, "Leroux", "Andreas");
+        observateurs.add(obs);
 
         System.out.println("-----Test ObsGCI et NidGCI-----");
 
         System.out.println("-----Test ObsGCI constructeur-----");
         
 
-        ObsGCI obsGCI1 = new ObsGCI(1, new Time(1), new Time(1), test, obs, nature, leNombre)
-        ObsGCI obsGCI2 = new ObsGCI(2, date, heure, lieu, observateur, nature, leNombre)
+        ObsGCI obsGCI1 = new ObsGCI(1, new Date(1), new Time(1), test, observateurs, ContenuNid.OEUF, 3);
+        ObsGCI obsGCI2 = new ObsGCI(-1, null, null, null, null, null, (Integer) null);
 
-        System.out.println("-----Test ObsGCI getTypeObs()----");
-        obsGCI1.getTypeObs();
-        obsGCI2.getTypeObs();
+        System.out.println("-----Test ObsGCI getNature()----");
+        System.out.println(obsGCI1.getNature());
+        System.out.println(obsGCI2.getNature());
 
-        System.out.println("-----Test ObsGCI setTypeObs()----");
-        obsGCI1.setTypeObs(TypeObservation.SONORE_VISUELLE);
-        obsGCI1.setTypeObs(null);
+        System.out.println("-----Test ObsGCI setNature()----");
+        obsGCI1.setNature(ContenuNid.POUSSIN);
+        obsGCI1.setNature(null);
 
         System.out.println("-----Test ObsGCI getDate()----");
         obsGCI1.getDate();
@@ -150,5 +151,7 @@ public class Scenario {
         obsGCI1.setLieu(null);
 
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
-    
+        obsGCI1.getLesObservateurs();
+        obsGCI2.getLesObservateurs();
+    }
 }
