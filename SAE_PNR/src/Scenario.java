@@ -62,7 +62,7 @@ public class Scenario {
 
         System.out.println("-----Test Chouette constructeur-----");
 
-        Chouette chouette1;
+        Chouette chouette1 = null;
         try{
             chouette1 = new Chouette("1", Sexe.MALE, EspeceChouette.CHEVECHE);
             Chouette chouette2 = new Chouette(null, null, null);
@@ -76,7 +76,7 @@ public class Scenario {
         ArrayList<Observateur> obs = new ArrayList<>();
 
         System.out.println("-----Test ObsChouette constructeur-----");
-        ObsChouette obsChouette1;
+        ObsChouette obsChouette1 = null;
         try{
             obsChouette1 = new ObsChouette(1, (java.sql.Date) date, heure, test, obs, TypeObservation.SONORE);
             ObsChouette obsChouette2 = new ObsChouette(-1, null, null, null, null, null);
@@ -123,6 +123,7 @@ public class Scenario {
         System.out.println("fin");
     }
 
+    
     public static void test_ObsGCI_NidGCI(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu test = new Lieu(5.0, 5.0);
@@ -172,8 +173,12 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+
+>>>>>>> 6605bd61b31c90e951b1a1a93115617f9e026c83
         obsGCI1.getLesObservateurs();
         obsGCI2.getLesObservateurs();
     }

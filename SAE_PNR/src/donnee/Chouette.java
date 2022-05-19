@@ -1,5 +1,6 @@
 package donnee;
 import java.util.ArrayList;
+import java.lang.IllegalAccessException;
 
 
 /**
@@ -34,8 +35,9 @@ public class Chouette implements lObs<ObsChouette>{
 	 * @param id the owl's id number
 	 * @param leSexe the owl's gender
 	 * @param lEspece the owl's specie
+	 * @throws IllegalAccessException
 	 */
-	public Chouette(String id, Sexe leSexe, EspeceChouette lEspece) {
+	public Chouette(String id, Sexe leSexe, EspeceChouette lEspece) throws IllegalAccessException {
 		if(id != null){
 
 			this.idChouette = id;
@@ -59,6 +61,8 @@ public class Chouette implements lObs<ObsChouette>{
 
 			throw new IllegalAccessException("Chouette : lEspece must not be null");
 		}
+
+		this.lesObservations = new ArrayList<ObsChouette>();
 	}
 
 
@@ -129,7 +133,7 @@ public class Chouette implements lObs<ObsChouette>{
 			}
 		}else{
 
-			throw new UnsupportedOperationException("ajoutePlsObs : obs must not be null");
+			System.err.println("ajoutePlsObs : obs must not be null");
 		}
 	}
 
