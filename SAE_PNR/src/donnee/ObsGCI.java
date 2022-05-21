@@ -82,7 +82,6 @@ public class ObsGCI extends Observation {
 
 	@Override
 	public EspeceObservee especeObs() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

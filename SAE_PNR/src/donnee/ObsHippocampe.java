@@ -37,12 +37,12 @@ public class ObsHippocampe extends Observation {
 
 	/**
 	 * Constructor that create the observation about the seahorse
-	 * @param id
-	 * @param date
-	 * @param heure
-	 * @param lieu
-	 * @param observateur
-	 * @param laTaille
+	 * @param id id of the observation
+	 * @param date date of the observation
+	 * @param heure time of the observation
+	 * @param lieu location of the observation
+	 * @param observateur list of the observers
+	 * @param laTaille the seahorse's height
 	 * @param leTypePeche the fishing's type
 	 * @param lEspece the seahorse's specie
 	 * @param leSexe the seahorse's gender

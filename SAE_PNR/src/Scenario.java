@@ -156,7 +156,7 @@ public class Scenario {
         
 
         ObsGCI obsGCI1 = new ObsGCI(1, new Date(1), new Time(1), test, observateurs, ContenuNid.OEUF, 3);
-        ObsGCI obsGCI2 = new ObsGCI(-1, null, null, null, null, null, (Integer) null);
+        ObsGCI obsGCI2 = new ObsGCI(-1, null, null, null, null, null, -3);
 
         System.out.println("-----Test ObsGCI getNature()----");
         System.out.println(obsGCI1.getNature());
