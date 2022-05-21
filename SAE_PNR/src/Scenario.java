@@ -10,8 +10,13 @@ public class Scenario {
         testObsLoutre();
 
         test_Chouette_obsChouette();
+        test_ObsGCI_NidGCI();
+        testObsHippocampe();
     }
 
+    /**
+     * test the class ObsBatracien
+     */
     public static void testObsBatracien(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Observateur obs4 = new Observateur(1, "LeBars", "Floraian");
@@ -46,6 +51,9 @@ public class Scenario {
         System.out.println(batracien.getNombreTetard());
     }
 
+    /**
+     * Test the class ObsLoutre
+     */
     public static void testObsLoutre(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu lieu = new Lieu(785, 154);
@@ -57,6 +65,9 @@ public class Scenario {
     }
 
 
+    /**
+     * Test the classes Chouette and ObsChouette
+     */
     public static void test_Chouette_obsChouette(){
 
         System.out.println("-----Test ObsChouette et Chouette-----");
@@ -124,6 +135,9 @@ public class Scenario {
     }
 
     
+    /**
+     * Test the class ObsGCI and NidGCI
+     */
     public static void test_ObsGCI_NidGCI(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu test = new Lieu(5.0, 5.0);
@@ -175,4 +189,47 @@ public class Scenario {
         obsGCI1.getLesObservateurs();
         obsGCI2.getLesObservateurs();
     }
+
+
+    /**
+     * Test the class ObsHippocampe
+     */
+    public static void testObsHippocampe(){
+        ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
+        Observateur obs4 = new Observateur(1, "Legrand", "Leo");
+        observateurs.add(obs4);
+        int[] obs = {1, 2, 3, 4};
+        Lieu lieu = new Lieu(785, 154);
+
+        ObsHippocampe hippocampe = null;
+        ObsHippocampe hippocampeErreur;
+        try{
+            hippocampe = new ObsHippocampe(1, new Date(1), new Time(1) , lieu, observateurs, 10,  Peche.PETIT_FILET,EspeceHippocampe.HIPPOCAMPUS_HIPPOCAMPUS, Sexe.MALE);
+            hippocampeErreur = new ObsHippocampe(0, null, null, null, null, 0, null, null, null);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println(hippocampe.getEspece());
+        System.out.println(hippocampe.getSexe());
+        System.out.println(hippocampe.getTaille());
+        System.out.println(hippocampe.getTypePeche());
+        System.out.println(hippocampe.getEstGestant());
+        hippocampe.setEspece(EspeceHippocampe.HIPPOCAMPUS_HIPPOCAMPUS);
+        hippocampe.setSexe(Sexe.MALE);
+        hippocampe.setTaille(10);
+        hippocampe.setTypePeche(Peche.PETIT_FILET);
+        hippocampe.setEstGestant(true);
+
+
+        System.out.println("CHANGEMENT AVEC LES SET");
+        System.out.println(hippocampe.getEspece());
+        System.out.println(hippocampe.getSexe());
+        System.out.println(hippocampe.getTaille());
+        System.out.println(hippocampe.getTypePeche());
+        System.out.println(hippocampe.getEstGestant());
+    }
+
+
 }
