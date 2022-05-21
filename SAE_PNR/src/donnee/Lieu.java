@@ -11,17 +11,31 @@ public class Lieu{
 		this.xCoord=x;
 		this.yCoord=y;
 	}
-	/**Getter et Setter*/
+
+	/**
+	 * Get the x coordinate 
+	 * @return the x coordinate 
+	 */
 	public double getCoordX(){
 		return this.xCoord;
 	}
+
 	public void setCoordX(double x){
 		this.xCoord=x;
 	}
 
+	/**
+	 * Get the y coordinate 
+	 * @return the y coordinate 
+	 */
 	public double getCoordY(){
 		return this.yCoord;
 	}
+
+	/**
+	 * Set the y coordinate to a wanted one
+	 * @param y the wanted y coordinate
+	 */
 	public void setCoordY(double y){
 		this.yCoord=y;
 	}
