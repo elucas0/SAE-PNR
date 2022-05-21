@@ -123,7 +123,7 @@ public class Scenario {
         obsChouette1.setTypeObs(null);
     }
 
-    /*
+    
     public static void test_ObsGCI_NidGCI(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu test = new Lieu(5.0, 5.0);
@@ -174,5 +174,5 @@ public class Scenario {
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
         obsGCI1.getLesObservateurs();
         obsGCI2.getLesObservateurs();
-    }*/
+    }
 }
