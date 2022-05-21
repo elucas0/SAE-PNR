@@ -6,8 +6,8 @@ import java.sql.*;
 
 public class Scenario {
     public static void main(String[] args) {
-        /*testObsBatracien();
-        testObsLoutre();*/
+        testObsBatracien();
+        testObsLoutre();
 
         test_Chouette_obsChouette();
     }
@@ -121,7 +121,6 @@ public class Scenario {
         obsChouette1.getTypeObs();
         obsChouette1.setTypeObs(TypeObservation.SONORE_VISUELLE);
         obsChouette1.setTypeObs(null);
-        System.out.println("fin");
     }
 
     /*

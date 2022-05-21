@@ -98,7 +98,13 @@ public class Chouette implements lObs<ObsChouette>{
 	 * @param lesObservations the wanted observation type
 	 */
 	public void setLesObservations(ArrayList<ObsChouette> lesObservations) {
-		this.lesObservations = lesObservations;
+		if(lesObservations != null){
+
+			this.lesObservations = lesObservations;
+		}else{
+
+			System.err.println("setLesObservations : lesObservations must not be null");
+		}
 	}
 
 
