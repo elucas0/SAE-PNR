@@ -1,28 +1,51 @@
 package donnee;
-import java.sql.Date;
 import java.sql.Time;
+import java.sql.Date;
 import java.util.ArrayList;
 
-public class ObsHippocampe extends Observation{
 
-	private Peche typePeche;
-	private EspeceHippocampe espece;
-	private Sexe sexe;
-	private double taille;
-	private boolean estGestant;
-	private int attribute;
+/**
+ * Create an observation about a seahorse
+ */
+public class ObsHippocampe extends Observation {
+
 
 	/**
-	 * 
+	 * The fishing's type
+	 */
+	private Peche typePeche;
+
+	/**
+	 * The specie
+	 */
+	private EspeceHippocampe espece;
+
+	/**
+	 * The gender
+	 */
+	private Sexe sexe;
+
+	/**
+	 * The height
+	 */
+	private double taille;
+
+	/**
+	 * If the seahorse is pregnant
+	 */
+	private boolean estGestant;
+
+	/**
+	 * Constructor that create the observation about the seahorse
 	 * @param id
 	 * @param date
 	 * @param heure
 	 * @param lieu
 	 * @param observateur
 	 * @param laTaille
-	 * @param leTypePeche
-	 * @param lEspece
-	 * @param leSexe
+	 * @param leTypePeche the fishing's type
+	 * @param lEspece the seahorse's specie
+	 * @param leSexe the seahorse's gender
 	 */
 	public ObsHippocampe(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, double laTaille, Peche leTypePeche, EspeceHippocampe lEspece, Sexe leSexe) {
 		super(id, date, heure, lieu, observateurs);
@@ -40,6 +63,8 @@ public class ObsHippocampe extends Observation{
 	
 
 	}
+
+
 	/**
 	 * Methode pour avoir l'espece de l'hippocampes
 	 * @return l'espece de l'hippocampes
@@ -47,6 +72,8 @@ public class ObsHippocampe extends Observation{
 	public EspeceHippocampe getEspece() {
 		return espece;
 	}
+
+
 	/**
 	 * Methode pour avoir le sexe de l'hihppocampes
 	 * @return le sexe de l'hippocampes
@@ -54,6 +81,8 @@ public class ObsHippocampe extends Observation{
 	public Sexe getSexe() {
 		return sexe;
 	}
+
+
 	/**
 	 * Methode pour avoir la taille de l'ihppocampes
 	 * @return la taille de l'hippocampes
@@ -61,6 +90,8 @@ public class ObsHippocampe extends Observation{
 	public double getTaille() {
 		return taille;
 	}
+
+
 	/**
 	 * Methode pour avoir le type de peche de l'hippocampes
 	 * @return le type de peche
@@ -68,6 +99,8 @@ public class ObsHippocampe extends Observation{
 	public Peche getTypePeche() {
 		return typePeche;
 	}
+
+
 	/**
 	 * Methode pour savoir si l'hippocampes est gestant
 	 * @return true si gestant, false sinon
@@ -75,6 +108,8 @@ public class ObsHippocampe extends Observation{
 	public boolean getEstGestant(){
 		return estGestant;
 	}
+
+
 	/**
 	 * Methode pour changer l'espece de l'hippocampe
 	 * @param espece la nouvelle espece
@@ -87,6 +122,8 @@ public class ObsHippocampe extends Observation{
 			System.err.println("setEspece : paramètre erroné.");
 		}
 	}
+
+
 	/**
 	 * Methode pour changer le sexe de l'hippocampes
 	 * @param sexe le nouveau sexe
@@ -99,6 +136,8 @@ public class ObsHippocampe extends Observation{
 			System.err.println("setSexe : paramètre erroné.");
 		}
 	}
+
+
 	/**
 	 * Methode pour changer la taille de l'hippocampes
 	 * @param taille la nouvelle taille
@@ -111,6 +150,8 @@ public class ObsHippocampe extends Observation{
 			System.err.println("setTaille : paramètre erroné.");
 		}
 	}
+
+
 	/**
 	 * Methode pour changer le type de peche
 	 * @param typePeche le nouveau type de peche
@@ -123,6 +164,8 @@ public class ObsHippocampe extends Observation{
 			System.err.println("setTypePeche : paramètre erroné");
 		}
 	}
+
+
 	/**
 	 * Methode pour changer l'etat de gestation de l'hippocampes
 	 * @param gestant le nouvelle etat
@@ -136,7 +179,7 @@ public class ObsHippocampe extends Observation{
 				this.estGestant = false;
 			}
 		}
-		else if(sexe==Sexe.FEMELLE){
+		else if(sexe == Sexe.FEMELLE){
 			if(gestant){
 				System.out.println("Erreur : un hippocampe femelle ne peut être gestant");
 			}
@@ -154,9 +197,11 @@ public class ObsHippocampe extends Observation{
 		}
 	}
 	
-	@Override
-	public EspeceObservee especeObs() {
 
+	/**
+	 * Get the class' specie
+	 */
+	public EspeceObservee especeObs() {
 		return EspeceObservee.HIPPOCAMPE;
 	}
 }
