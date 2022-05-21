@@ -5,6 +5,11 @@ import donnee.*;
 import java.sql.*;
 
 public class Scenario {
+
+    /**
+     * The class' main method. Test all the classes
+     * @param args some arguments
+     */
     public static void main(String[] args) {
         testObsBatracien();
         testObsLoutre();
