@@ -4,6 +4,10 @@ import donnee.*;
 
 import java.sql.*;
 
+
+/**
+ * Class that tes all the classes in the package donnee
+ */
 public class Scenario {
 
     /**
