@@ -58,10 +58,7 @@ public class ObsHippocampe extends Observation {
 		}
 		else{
 			System.err.println("ObsHippocampe : paramètre erroné.");
-		}		
-        throw new UnsupportedOperationException();
-	
-
+		}			
 	}
 
 
