@@ -8,7 +8,7 @@ import java.sql.*;
 /**
  * Class that tes all the classes in the package donnee
  */
-public class Scenario {
+public class ScenarioDonnee {
 
     /**
      * The class' main method. Test all the classes
