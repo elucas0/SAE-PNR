@@ -19,8 +19,8 @@ public class Scenario {
         testObsLoutre();
 
         test_Chouette_obsChouette();
-        test_ObsGCI_NidGCI();
         testObsHippocampe();
+        test_ObsGCI_NidGCI();
     }
 
     /**
@@ -209,11 +209,13 @@ public class Scenario {
         observateurs.add(obs4);
         int[] obs = {1, 2, 3, 4};
         Lieu lieu = new Lieu(785, 154);
+        Time heure = new Time(1);
+        Date date = new Date(1);
 
         ObsHippocampe hippocampe = null;
         ObsHippocampe hippocampeErreur;
         try{
-            hippocampe = new ObsHippocampe(1, new Date(1), new Time(1) , lieu, observateurs, 10,  Peche.PETIT_FILET,EspeceHippocampe.HIPPOCAMPUS_HIPPOCAMPUS, Sexe.MALE);
+            hippocampe = new ObsHippocampe(1, date, heure , lieu, observateurs, 10,  Peche.PETIT_FILET,EspeceHippocampe.HIPPOCAMPUS_HIPPOCAMPUS, Sexe.MALE);
             hippocampeErreur = new ObsHippocampe(0, null, null, null, null, 0, null, null, null);
         }
         catch(Exception e){
