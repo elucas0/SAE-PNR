@@ -215,7 +215,6 @@ public class Scenario {
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Observateur obs4 = new Observateur(1, "Legrand", "Leo");
         observateurs.add(obs4);
-        int[] obs = {1, 2, 3, 4};
         Lieu lieu = new Lieu(785, 154);
         Time heure = new Time(1);
         Date date = new Date(1);
