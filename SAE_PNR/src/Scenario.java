@@ -20,7 +20,9 @@ public class Scenario {
 
         test_Chouette_obsChouette();
         testObsHippocampe();
+        testObservationLieu();
         test_ObsGCI_NidGCI();
+
     }
 
     /**
@@ -166,13 +168,20 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI constructeur-----");
         
+        ObsGCI obsGCI1 = null;
+        ObsGCI obsGCI2 = null;
+        try{
 
-        ObsGCI obsGCI1 = new ObsGCI(1, new Date(1), new Time(1), test, observateurs, ContenuNid.OEUF, 3);
-        ObsGCI obsGCI2 = new ObsGCI(-1, null, null, null, null, null, -3);
+            obsGCI1 = new ObsGCI(1, new Date(1), new Time(1), test, observateurs, ContenuNid.OEUF, 3);
+            obsGCI2 = new ObsGCI(-1, null, null, null, null, null, -3);
+    
+        }catch(Exception e){
+
+            e.getMessage();
+        }
 
         System.out.println("-----Test ObsGCI getNature()----");
         System.out.println(obsGCI1.getNature());
-        System.out.println(obsGCI2.getNature());
 
         System.out.println("-----Test ObsGCI setNature()----");
         obsGCI1.setNature(ContenuNid.POUSSIN);
@@ -180,7 +189,6 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI getDate()----");
         obsGCI1.getDate();
-        obsGCI2.getDate();
 
         System.out.println("-----Test ObsGCI setDate()----");
         obsGCI1.setDate(new Date(1));
@@ -188,7 +196,6 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI getHeure()----");
         obsGCI1.getHeure();
-        obsGCI2.getHeure();
 
         System.out.println("-----Test ObsGCI setHeure()----");
         obsGCI1.setHeure(new Time(1));
@@ -196,7 +203,6 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI getLieu()----");
         obsGCI1.getLieu();
-        obsGCI2.getLieu();
 
         System.out.println("-----Test ObsGCI setLieu()----");
         obsGCI1.setLieu(new Lieu(5.0, 5.0));
@@ -204,7 +210,6 @@ public class Scenario {
 
         System.out.println("-----Test ObsGCI getLesObservateurs()----");
         obsGCI1.getLesObservateurs();
-        obsGCI2.getLesObservateurs();
     }
 
 
@@ -247,6 +252,73 @@ public class Scenario {
         System.out.println(hippocampe.getTaille());
         System.out.println(hippocampe.getTypePeche());
         System.out.println(hippocampe.getEstGestant());
+    }
+
+
+    /**
+    * Test the class Observateur and Lieu
+     */
+	public static void testObservationLieu(){
+		//Create list of observers
+		ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
+		ArrayList<Observateur> observateurs2 = new ArrayList<Observateur>();
+
+
+		 /**
+    	  * Test the class Observateur 
+          */
+        try{
+            Observateur obs1 = new Observateur(1, "LeBars", "Florian");
+
+            Observateur obsErreur = new Observateur(0, null, null);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+	    Observateur obs2 = new Observateur(1, "Posselt", "Timothée");
+	    Observateur obs3= new Observateur(2, "LeGrand", "Leo");
+        observateurs.add(obs2);
+        observateurs2.add(obs3);	
+       	
+
+       	/**
+    	 * Test the class Lieu 
+        */
+        
+        try{
+            Lieu pcf = new Lieu(47.7500922, -3.3604015);
+
+            Lieu lieuErreur = new Lieu(0, 0);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        Lieu stg = new Lieu(48.7081906, 44.5153353);
+
+
+
+		System.out.println("-----Test getter Lieu----");
+        System.out.println(stg.getCoordX());
+        System.out.println(stg.getCoordY());
+		System.out.println("-----Test setter Lieu----");
+		stg.setCoordX(246);
+        stg.setCoordY(358);
+        System.out.println(stg.getCoordX());
+        System.out.println(stg.getCoordY());
+
+
+        System.out.println("-----Test getter observateur----");
+        System.out.println(obs2.getId());
+        System.out.println(obs2.getNom());
+        System.out.println(obs2.getPrenom());
+         System.out.println("-----Test setter observateur----");
+        obs2.setId(4);
+        obs2.setNom("Phillipe");
+        obs2.setPrenom("Maël");
+        System.out.println(obs2.getId());
+        System.out.println(obs2.getNom());
+        System.out.println(obs2.getPrenom());
+
     }
 
 
