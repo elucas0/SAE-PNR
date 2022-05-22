@@ -66,7 +66,15 @@ public class Scenario {
     public static void testObsLoutre(){
         ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
         Lieu lieu = new Lieu(785, 154);
-        ObsLoutre loutre = new ObsLoutre(1, new Date(1), new Time(1) , lieu, observateurs,IndiceLoutre.POSITIF);
+        ObsLoutre loutre = null;
+        
+        try{
+            loutre = new ObsLoutre(1, new Date(1), new Time(1) , lieu, observateurs,IndiceLoutre.POSITIF);
+            ObsLoutre loutreErreur = new ObsLoutre(0,null, null, null, null, null);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         System.out.println(loutre.getIndice());
         loutre.setIndice(IndiceLoutre.NEGATIF);
         System.out.println("CHANGEMENT AVEC LES SET");
