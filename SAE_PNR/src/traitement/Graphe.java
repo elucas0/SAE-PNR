@@ -208,7 +208,7 @@ public class Graphe {
             }
         }else{
 
-            System.err.println("voisins : idSom1 and idSom2 must be at least 0");
+            System.err.println("sontVoisins : idSom1 and idSom2 must be at least 0");
         }
 
 
@@ -246,7 +246,7 @@ public class Graphe {
     
     
             }else{
-                System.err.println(" sontVoisins : there must be at least one vertex in the graph");
+                System.err.println(" existeChemin : there must be at least one vertex in the graph");
             }
 
         }else{
@@ -259,6 +259,11 @@ public class Graphe {
     }
 
 
+    /**
+     * Get the neighbours of a vertex
+     * @param idSom1 the vertex's id
+     * @return the neighbours the vertex
+     */
     public ArrayList<Sommet> voisins(int idSom1){
 
         ArrayList<Sommet> ret = null;
@@ -279,9 +284,19 @@ public class Graphe {
 
             System.err.println("voisins ; idSom1 must be at least 0");
         }
-        
+
         return ret;
     }
 
     
+    public void ajouteArrete(int idSom1, int idSom2){
+
+        if((idSom1 >= 0) && (idSom2 >= 0)){
+
+
+        }else{
+
+            System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
+        }
+    }
 }
