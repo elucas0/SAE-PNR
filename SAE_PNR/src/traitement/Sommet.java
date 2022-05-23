@@ -5,7 +5,7 @@ public class Sommet {
     private int id;
     private Lieu coordLieu;
     private Date date;
-    private EspeceObservee espece;
+    private EspeceObservee
 
     public Sommet(int id, Lieu coord, Date date, EspeceBatracien espece){
 
