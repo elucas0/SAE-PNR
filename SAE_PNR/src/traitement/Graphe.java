@@ -293,6 +293,36 @@ public class Graphe {
 
         if((idSom1 >= 0) && (idSom2 >= 0)){
 
+            if(idSom1 != idSom2){
+
+                Sommet sommet1 = null;
+                Sommet sommet2 = null;
+
+                for(Sommet i : this.sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        sommet1 = i;
+                    }
+
+                    if(i.getId() == idSom2){
+
+                        sommet2 = i;
+                    }
+                        
+                }
+
+                if((sommet1 != null) && (sommet2 != null)){
+
+                    this.sommetsVoisins.get(sommet1).add(sommet2);
+                    this.sommetsVoisins.get(sommet2).add(sommet1);
+
+                }else{
+
+                    System.err.println("ajouteArrete : the two wanted vertex must exists.");
+                }
+            }
+
 
         }else{
 
