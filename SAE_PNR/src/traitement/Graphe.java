@@ -61,10 +61,12 @@ public class Graphe {
             }
         }else{
 
-            System.err.println("somMaxDegre : there must be at least one vertex in the graph")
+            System.err.println("somMaxDegre : there must be at least one vertex in the graph");
         }
 
         return ret;
     }
+
+
 
 }
