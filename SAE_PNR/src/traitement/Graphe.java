@@ -288,7 +288,11 @@ public class Graphe {
         return ret;
     }
 
-    
+    /**
+     * Add an edge to the graph between two vertex
+     * @param idSom1 the first vertex's id
+     * @param idSom2 the second vertex's id
+     */
     public void ajouteArrete(int idSom1, int idSom2){
 
         if((idSom1 >= 0) && (idSom2 >= 0)){
@@ -328,5 +332,53 @@ public class Graphe {
 
             System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
         }
+    }
+
+
+    /**
+     * Remove an edge to the graph between two vertex
+     * @param idSom1 the first vertex's id
+     * @param idSom2 the second vertex's id
+     */
+    public void retireArete(int idSom1, int idSom2){
+
+        if((idSom1 >= 0) && (idSom2 >= 0)){
+
+            if(idSom1 != idSom2){
+
+                Sommet sommet1 = null;
+                Sommet sommet2 = null;
+
+                for(Sommet i : this.sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        sommet1 = i;
+                    }
+
+                    if(i.getId() == idSom2){
+
+                        sommet2 = i;
+                    }
+                        
+                }
+
+                if((sommet1 != null) && (sommet2 != null)){
+
+                    this.sommetsVoisins.get(sommet1).remove(sommet2);
+                    this.sommetsVoisins.get(sommet2).remove(sommet1);
+
+                }else{
+
+                    System.err.println("ajouteArrete : the two wanted vertex must exists.");
+                }
+            }
+
+
+        }else{
+
+            System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
+        }
+
     }
 }
