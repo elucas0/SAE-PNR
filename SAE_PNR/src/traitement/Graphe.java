@@ -99,4 +99,11 @@ public class Graphe {
     }
 
 
+    public boolean existeChemin(){
+
+        boolean ret = false;
+
+
+        return ret;
+    }
 }
