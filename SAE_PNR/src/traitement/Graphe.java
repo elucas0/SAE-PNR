@@ -45,6 +45,7 @@ public class Graphe {
         }
     }
 
+
     /**
      * Constructor for objects of class Graphe
      * @param g Graphe
@@ -59,6 +60,7 @@ public class Graphe {
         }
     }
 
+
     /**
      * Returns the number of vertices in the graph.
      * @return
@@ -66,6 +68,7 @@ public class Graphe {
     public int nbSommets(){
         return this.sommetsVoisins.size();
     }
+
 
     /**
      * Returns the number of edges in the graph.
@@ -80,6 +83,7 @@ public class Graphe {
         return nbAretes/2;
     }
     
+
     /**
      * Returns true if the graph contains the given vertex.
      * @param idSom the id of the vertex to check.
@@ -88,13 +92,14 @@ public class Graphe {
     public boolean estDansGraphe(int idSom){
         boolean ret = false;
         for(Sommet s : this.sommetsVoisins.keySet()) {
-            if(s.getIdSom() == idSom) {
+            if(s.getId() == idSom) {
                 ret = true;
             }
         }
         return ret;
     }
 
+    
     /**
      * Returns the degree of the given vertex.
      * @param idSom the id of the vertex.
@@ -103,7 +108,7 @@ public class Graphe {
     public int calculDegre(int idSom){
         int degre = 0;
         for(Sommet s : this.sommetsVoisins.keySet()) {
-            if(s.getIdSom() == idSom) {
+            if(s.getId() == idSom) {
                 degre = this.sommetsVoisins.get(s).size();
             }
         }
@@ -114,7 +119,9 @@ public class Graphe {
      * of the graph. The values are the degres of each vertex.
      * @return the HashMap<Sommmet, int>
      */
-    public HashMap<Sommet, Integer> calculDegres(){
+  
+  
+     public HashMap<Sommet, Integer> calculDegres(){
 
         HashMap<Sommet, Integer> ret = null;
 
@@ -200,7 +207,7 @@ public class Graphe {
         return ret;       
     }
 
-    
+
     /**
      * Verify if there's a path between two vertex
      * @param idSom1 the first vertex's id
