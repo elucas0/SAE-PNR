@@ -18,4 +18,9 @@ public class Sommet {
     public double calculeDist(Sommet som){
 
     }
+
+    public int getId(){
+
+        return this.id;
+    }
 }
