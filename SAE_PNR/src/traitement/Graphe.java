@@ -5,124 +5,14 @@ import java.util.ArrayList;
 public class Graphe {
 
     private HashMap<Sommet, ArrayList<Sommet>> sommetsVoisins;
-
-    /**
-     * Constructor for objects of class Graphe
-     * @param sommets vertices of the graph
-     * @param dist distance between two vertices
-     */
-    public Graphe(ArrayList<Sommet> sommets, double dist) {
-        if(sommets.size() == 0) {
-            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
-        } else if (dist <= 0) {
-            throw new IllegalArgumentException("La distance doit être positive.");
-        } else {
-            this.sommetsVoisins = new HashMap<Sommet, ArrayList<Sommet>>();
-            for(Sommet s : sommets) {
-                this.sommetsVoisins.put(s, new ArrayList<Sommet>());
-            }
-            for(Sommet s : sommets) {
-                for(Sommet s2 : sommets) {
-                    if((s != s2) && (calculDist(s, s2) <= dist)) {
-                        this.sommetsVoisins.get(s).add(s2);
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Constructor for Graphe.
-     * @param somVoisins HashMap of Sommet and ArrayList of Sommet
-     */
-    public Graphe(HashMap<Sommet, ArrayList<Sommet>> somVoisins) {
-        if(somVoisins.size() == 0) {
-            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
-        } else if (somVoisins.containsValue(null)) {
-            throw new IllegalArgumentException("Le graphe ne doit pas contenir de sommet sans voisins.");
-        } else {
-            this.sommetsVoisins = somVoisins;
-        }
-    }
-
-
-    /**
-     * Constructor for objects of class Graphe
-     * @param g Graphe
-     */
-    public Graphe(Graphe g){
-        if(g.sommetsVoisins.size() == 0) {
-            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
-        } else if (g.sommetsVoisins.containsValue(null)) {
-            throw new IllegalArgumentException("Le graphe ne doit pas contenir de sommet sans voisins.");
-        } else {
-            this.sommetsVoisins = g.sommetsVoisins;
-        }
-    }
-
-
-    /**
-     * Returns the number of vertices in the graph.
-     * @return
-     */
-    public int nbSommets(){
-        return this.sommetsVoisins.size();
-    }
-
-
-    /**
-     * Returns the number of edges in the graph.
-     * @return the number of edges in the graph.
-     */
-    public int nbAretes(){
-        int nbAretes = 0;
-        for(Sommet s : this.sommetsVoisins.keySet()) {
-            nbAretes += this.sommetsVoisins.get(s).size();
-        }
-        // On enlève le nombre d'arêtes entre chaque sommet et lui-même
-        return nbAretes/2;
-    }
     
-
-    /**
-     * Returns true if the graph contains the given vertex.
-     * @param idSom the id of the vertex to check.
-     * @return true if the graph contains the given vertex.
-     */
-    public boolean estDansGraphe(int idSom){
-        boolean ret = false;
-        for(Sommet s : this.sommetsVoisins.keySet()) {
-            if(s.getId() == idSom) {
-                ret = true;
-            }
-        }
-        return ret;
-    }
-
-
-    /**
-     * Returns the degree of the given vertex.
-     * @param idSom the id of the vertex.
-     * @return the degree of the given vertex.
-     */
-    public int calculDegre(int idSom){
-        int degre = 0;
-        for(Sommet s : this.sommetsVoisins.keySet()) {
-            if(s.getId() == idSom) {
-                degre = this.sommetsVoisins.get(s).size();
-            }
-        }
-        return degre;
-    }
 
     /**
      * Get an HashMap<Sommmet, int> wich keys are the vertices
      * of the graph. The values are the degres of each vertex.
      * @return the HashMap<Sommmet, int>
      */
-  
-  
-     public HashMap<Sommet, Integer> calculDegres(){
+    public HashMap<Sommet, Integer> calculDegres(){
 
         HashMap<Sommet, Integer> ret = null;
 
@@ -188,71 +78,30 @@ public class Graphe {
 
         boolean ret = false;
 
-        if((idSom1 >= 0) && (idSom2 >= 0)){
+        if(this.sommetsVoisins.size() > 0){
 
-            if(this.sommetsVoisins.size() > 0){
+            for(Sommet i : this.sommetsVoisins.keySet()){
 
-                for(Sommet i : this.sommetsVoisins.keySet()){
-    
-                    if(i.getId() == idSom1){
-    
-                        for(Sommet j : this.sommetsVoisins.get(i)){
-    
-                            if(j.getId() == idSom2){
-    
-                                ret = true;
-                            }
+                if(i.getId() == idSom1){
+
+                    for(Sommet j : this.sommetsVoisins.get(i)){
+
+                        if(j.getId() == idSom2){
+
+                            ret = true;
                         }
                     }
                 }
             }
-        }else{
-
-            System.err.println("sontVoisins : idSom1 and idSom2 must be at least 0");
         }
-
-
 
         return ret;       
     }
 
 
-    /**
-     * Verify if there's a path between two vertex
-     * @param idSom1 the first vertex's id
-     * @param idSom2 the secont vertex's id
-     * @return true if there's a path between two vertex, false if not
-     */
-    public boolean existeChemin(int idSom1, int idSom2){
+    public boolean existeChemin(){
 
         boolean ret = false;
-        ArrayList<Sommet> traite = new ArrayList<Sommet>();
-
-        if((idSom1 >= 0) && (idSom2 >= 0)){
-
-            if(this.sommetsVoisins.size() > 0){
-
-                for(Sommet i : this.sommetsVoisins.keySet()){
-                    if(i.getId() == idSom1){
-    
-                        traite.add(i);
-    
-                        for(Sommet j : this.sommetsVoisins.keySet()){
-    
-    
-                        }
-                    }
-                }
-    
-    
-            }else{
-                System.err.println(" existeChemin : there must be at least one vertex in the graph");
-            }
-
-        }else{
-
-            System.err.println("voisins : idSom1 and idSom2 must be at least 0");
-        }
 
 
         return ret;
