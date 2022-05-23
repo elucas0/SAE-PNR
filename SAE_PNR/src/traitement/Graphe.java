@@ -34,6 +34,37 @@ public class Graphe {
     }
 
 
+    /**
+     * Get the vertex with the maximum degre in the graph
+     * @return the vertex with the maximum degre in the graph
+     */
+    public Sommet somMaxDegre(){
 
+        Sommet ret = null;
+
+        HashMap<Sommet, Integer> degres = this.calculDegres();
+
+        if(degres != null){
+
+            for(Sommet i : degres.keySet()){
+
+                if(ret == null){
+
+                    ret = i;
+                }else{
+
+                    if(degres.get(ret) < degres.get(i)){
+
+                        ret = i;
+                    }
+                }
+            }
+        }else{
+
+            System.err.println("somMaxDegre : there must be at least one vertex in the graph")
+        }
+
+        return ret;
+    }
 
 }
