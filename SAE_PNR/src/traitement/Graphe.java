@@ -113,6 +113,7 @@ public class Graphe {
             }
         }
         return degre;
+    }
 
     /**
      * Get an HashMap<Sommmet, int> wich keys are the vertices
@@ -278,5 +279,9 @@ public class Graphe {
 
             System.err.println("voisins ; idSom1 must be at least 0");
         }
+        
+        return ret;
     }
+
+    
 }
