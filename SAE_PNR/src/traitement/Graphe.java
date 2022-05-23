@@ -99,7 +99,7 @@ public class Graphe {
         return ret;
     }
 
-    
+
     /**
      * Returns the degree of the given vertex.
      * @param idSom the id of the vertex.
@@ -238,5 +238,25 @@ public class Graphe {
             System.err.println(" sontVoisins : there must be at least one vertex in the graph");
         }
         return ret;
+    }
+
+
+    public ArrayList<Sommet> voisins(int idSom1){
+
+        ArrayList<Sommet> ret = null;
+
+        boolean trouve = false;
+
+        for(Sommet i : this.sommetsVoisins.keySet()){
+
+            if(i.getId() == idSom1){
+
+                ret = this.sommetsVoisins.get(i);
+            }
+
+
+        }
+
+
     }
 }
