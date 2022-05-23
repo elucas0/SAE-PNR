@@ -106,4 +106,76 @@ public class Graphe {
 
         return ret;
     }
+
+
+    /**
+     * Get the neighbours of a vertex
+     * @param idSom1 the vertex's id
+     * @return the neighbours the vertex
+     */
+    public ArrayList<Sommet> voisins(int idSom1){
+
+        ArrayList<Sommet> ret = null;
+
+        boolean trouve = false;
+
+        if(idSom1 >= 0){
+
+            for(Sommet i : this.sommetsVoisins.keySet()){
+
+                if(i.getId() == idSom1){
+    
+                    ret = this.sommetsVoisins.get(i);
+                }
+            }
+
+        }else{
+
+            System.err.println("voisins ; idSom1 must be at least 0");
+        }
+
+        return ret;
+    }
+
+    
+    public void ajouteArrete(int idSom1, int idSom2){
+
+        if((idSom1 >= 0) && (idSom2 >= 0)){
+
+            if(idSom1 != idSom2){
+
+                Sommet sommet1 = null;
+                Sommet sommet2 = null;
+
+                for(Sommet i : this.sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        sommet1 = i;
+                    }
+
+                    if(i.getId() == idSom2){
+
+                        sommet2 = i;
+                    }
+                        
+                }
+
+                if((sommet1 != null) && (sommet2 != null)){
+
+                    this.sommetsVoisins.get(sommet1).add(sommet2);
+                    this.sommetsVoisins.get(sommet2).add(sommet1);
+
+                }else{
+
+                    System.err.println("ajouteArrete : the two wanted vertex must exists.");
+                }
+            }
+
+
+        }else{
+
+            System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
+        }
+    }
 }
