@@ -68,5 +68,29 @@ public class Graphe {
     }
 
 
+    public boolean sontVoisins(int idSom1, int idSom2){
+
+        boolean ret = false;
+
+        if(this.sommetsVoisins.size() > 0){
+
+            for(Sommet i : this.sommetsVoisins.keySet()){
+
+                if(i.getId() == idSom1){
+
+                    for(Sommet j : this.sommetsVoisins.get(i)){
+
+                        if(j.getId() == idSom2){
+
+                            ret = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return ret;       
+    }
+
 
 }
