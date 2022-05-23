@@ -7,6 +7,11 @@ public class Graphe {
     private HashMap<Sommet, ArrayList<Sommet>> sommetsVoisins;
     
 
+    /**
+     * Get an HashMap<Sommmet, int> wich keys are the vertices
+     * of the graph. The values are the degres of each vertex.
+     * @return the HashMap<Sommmet, int>
+     */
     public HashMap<Sommet, Integer> calculDegre(){
 
         HashMap<Sommet, Integer> ret = null;
