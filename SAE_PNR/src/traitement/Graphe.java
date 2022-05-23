@@ -98,12 +98,36 @@ public class Graphe {
         return ret;       
     }
 
-
-    public boolean existeChemin(){
+    
+    /**
+     * Verify if there's a path between two vertex
+     * @param idSom1 the first vertex's id
+     * @param idSom2 the secont vertex's id
+     * @return true if there's a path between two vertex, false if not
+     */
+    public boolean existeChemin(int idSom1, int idSom2){
 
         boolean ret = false;
+        ArrayList<Sommet> traite = new ArrayList<Sommet>();
+
+        if(this.sommetsVoisins.size() > 0){
+
+            for(Sommet i : this.sommetsVoisins.keySet()){
+                if(i.getId() == idSom1){
+
+                    traite.add(i);
+
+                    for(Sommet j : this.sommetsVoisins.keySet()){
 
 
+                    }
+                }
+            }
+
+
+        }else{
+            System.err.println(" sontVoisins : there must be at least one vertex in the graph");
+        }
         return ret;
     }
 }
