@@ -12,7 +12,7 @@ public class Graphe {
      * of the graph. The values are the degres of each vertex.
      * @return the HashMap<Sommmet, int>
      */
-    public HashMap<Sommet, Integer> calculDegre(){
+    public HashMap<Sommet, Integer> calculDegres(){
 
         HashMap<Sommet, Integer> ret = null;
 
@@ -32,4 +32,8 @@ public class Graphe {
 
         return ret;
     }
+
+
+
+
 }
