@@ -68,6 +68,12 @@ public class Graphe {
     }
 
 
+    /**
+     * Check if two vertex are neighbours
+     * @param idSom1 the first vertex
+     * @param idSom2 the second vertex
+     * @return true if the vertex are neighbours, false if not
+     */
     public boolean sontVoisins(int idSom1, int idSom2){
 
         boolean ret = false;
