@@ -187,22 +187,30 @@ public class Graphe {
 
         boolean ret = false;
 
-        if(this.sommetsVoisins.size() > 0){
+        if((idSom1 >= 0) && (idSom2 >= 0)){
 
-            for(Sommet i : this.sommetsVoisins.keySet()){
+            if(this.sommetsVoisins.size() > 0){
 
-                if(i.getId() == idSom1){
-
-                    for(Sommet j : this.sommetsVoisins.get(i)){
-
-                        if(j.getId() == idSom2){
-
-                            ret = true;
+                for(Sommet i : this.sommetsVoisins.keySet()){
+    
+                    if(i.getId() == idSom1){
+    
+                        for(Sommet j : this.sommetsVoisins.get(i)){
+    
+                            if(j.getId() == idSom2){
+    
+                                ret = true;
+                            }
                         }
                     }
                 }
             }
+        }else{
+
+            System.err.println("voisins : idSom1 and idSom2 must be at least 0");
         }
+
+
 
         return ret;       
     }
@@ -219,24 +227,33 @@ public class Graphe {
         boolean ret = false;
         ArrayList<Sommet> traite = new ArrayList<Sommet>();
 
-        if(this.sommetsVoisins.size() > 0){
+        if((idSom1 >= 0) && (idSom2 >= 0)){
 
-            for(Sommet i : this.sommetsVoisins.keySet()){
-                if(i.getId() == idSom1){
+            if(this.sommetsVoisins.size() > 0){
 
-                    traite.add(i);
-
-                    for(Sommet j : this.sommetsVoisins.keySet()){
-
-
+                for(Sommet i : this.sommetsVoisins.keySet()){
+                    if(i.getId() == idSom1){
+    
+                        traite.add(i);
+    
+                        for(Sommet j : this.sommetsVoisins.keySet()){
+    
+    
+                        }
                     }
                 }
+    
+    
+            }else{
+                System.err.println(" sontVoisins : there must be at least one vertex in the graph");
             }
 
-
         }else{
-            System.err.println(" sontVoisins : there must be at least one vertex in the graph");
+
+            System.err.println("voisins : idSom1 and idSom2 must be at least 0");
         }
+
+
         return ret;
     }
 
@@ -247,16 +264,19 @@ public class Graphe {
 
         boolean trouve = false;
 
-        for(Sommet i : this.sommetsVoisins.keySet()){
+        if(idSom1 >= 0){
 
-            if(i.getId() == idSom1){
+            for(Sommet i : this.sommetsVoisins.keySet()){
 
-                ret = this.sommetsVoisins.get(i);
+                if(i.getId() == idSom1){
+    
+                    ret = this.sommetsVoisins.get(i);
+                }
             }
 
+        }else{
 
+            System.err.println("voisins ; idSom1 must be at least 0");
         }
-
-
     }
 }
