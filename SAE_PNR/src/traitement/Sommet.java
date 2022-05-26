@@ -76,11 +76,32 @@ public class Sommet {
         return value * Math.PI / 180;
     }
 
-    public int getId(){
 
+
+
+    public Date getDate() {
+        return date;
+    }
+    public int getId(){
         return this.id;
     }
     public Lieu getCoordLieu() {
         return coordLieu;
+    }
+    public EspeceObservee getEspece() {
+        return espece;
+    }
+
+    public void setCoordLieu(Lieu coordLieu) {
+        this.coordLieu = coordLieu;
+    }
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    public void setEspece(EspeceObservee espece) {
+        this.espece = espece;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }
