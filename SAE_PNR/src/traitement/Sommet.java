@@ -14,47 +14,47 @@ public class Sommet {
     private Date date;
     /**species of the top */
     private EspeceObservee espece;
+
     /**
-     * Generate a top
-     * @param id id of the top
-     * @param coord coordinates of the top
-     * @param date date of the top
-     * @param espece species of the top
+     * Constructor of the class Sommet
+     * @param id the id of the vertex
+     * @param coord the coordinates of the vertex
+     * @param date the date of the observation
+     * @param espece the species of the observation
      */
     public Sommet(int id, Lieu coord, Date date, EspeceObservee espece){
+        //The id must be over 0
         if(id >= 1){
             this.id = id;
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Sommet : Erreur dans l'id");
         }
         
+        //The coordLieu must be not null
         if(coord != null){
             this.coordLieu = coord;
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Sommet : coord should not be null");
         }
 
+        //The date must be not null
         if(date != null){
             this.date = date;
-        }
-        else{
+        } else{
             throw new IllegalArgumentException("Sommet : date should not be null");
         }
 
+        //The espece must be not null
         if(espece != null){
             this.espece = espece;
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Sommet : espece should not be null");
         }
-
     }
 
     /**
-     * generate a top with an observation
-     * @param obs observation wwith wich create the top
+     * Constructor of the class Sommet with an Observation
+     * @param obs the Observation
      */
     public Sommet(Observation obs){
         if(obs != null){
@@ -67,9 +67,9 @@ public class Sommet {
     }
 
     /**
-     * Method to calculate the distance between two tops 
-     * @param som the top with wich calculate the distance
-     * @return the distance between the two tops
+     * Calculate the distance between two vertices
+     * @param som the second vertex
+     * @return the distance between the two vertices
      */
     public double calculeDist(Sommet som){
         final int R = 6371; // Radious of the earth
@@ -94,71 +94,91 @@ public class Sommet {
     }
 
     /**
-     * Method to calculate the distance
-     * @param value double value with wich the method calculate the distance
-     * @return the distance
+     * Convert a degree to radian
+     * @param value
+     * @return
      */
     private static Double toRad(Double value) {
         return value * Math.PI / 180;
     }
 
-
-
     /**
-     * Return the date of the top
-	 * @return date of the top
+     * Get the date of the observation
+     * @return the date of the observation
      */
     public Date getDate() {
         return date;
     }
+
     /**
-     * Return the id of the top
-	 * @return id of the top
+     * Get the id of the vertex
+     * @return the id of the vertex
      */
     public int getId(){
         return this.id;
     }
+
     /**
-     * Return the coordinates of the top
-     * @return coordinates of the top
+     * Get the coordinates of the vertex, the place where the observation was made
+     * @return the coordinates of the vertex
      */
     public Lieu getCoordLieu() {
         return coordLieu;
     }
+
     /**
-     * Return the species of the top
-     * @return species of the top
+     * Get the species of the observation
+     * @return the species of the observation
      */
     public EspeceObservee getEspece() {
         return espece;
     }
 
     /**
-     * Set the coordinates of the top
-     * @param coordLieu coordinates of the top
+     * Set the coordinates of the vertex, the place where the observation was made
+     * @param coordLieu the coordinates of the vertex
      */
     public void setCoordLieu(Lieu coordLieu) {
-        this.coordLieu = coordLieu;
+        if (coordLieu != null) {
+            this.coordLieu = coordLieu;
+        } else {
+            throw new IllegalArgumentException("Sommet : coordLieu should not be null");
+        }
     }
+    
     /**
-     * Set the date of the top 	
-	 * @param date date of the top
-	 */
+     * Set the date of the observation
+     * @param date the date of the observation
+     */
     public void setDate(Date date) {
-        this.date = date;
+        if (date != null) {
+            this.date = date;
+        } else {
+            throw new IllegalArgumentException("Sommet : date should not be null");
+        }
     }
+
     /**
-     * Set the species for the top
-     * @param espece species of the top
+     * Set the species of the observation
+     * @param espece the species of the observation
      */
     public void setEspece(EspeceObservee espece) {
-        this.espece = espece;
+        if (espece != null) {
+            this.espece = espece;
+        } else {
+            throw new IllegalArgumentException("Sommet : espece should not be null");
+        }
     }
+
     /**
-     * Set the id of the top
-	 *  @param id id of the top
-	 */
+     * Set the id of the vertex
+     * @param id the id of the vertex
+     */
     public void setId(int id) {
-        this.id = id;
+        if (id >= 1) {
+            this.id = id;
+        } else {
+            throw new IllegalArgumentException("Sommet : id should be over 0");
+        }
     }
 }
