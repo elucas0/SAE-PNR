@@ -1,1 +1,2 @@
 arrondir les bords du panel en haut à droite avec le nom de l'user en css
+cf https://www.jackrutorial.com/2020/04/how-to-make-button-rounded-corners-with-css-javafx.html
