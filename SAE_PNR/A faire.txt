@@ -1,1 +1,1 @@
-arrondir les bors en haut avec le nom de l'user en css
+arrondir les bords du panel en haut à droite avec le nom de l'user en css
