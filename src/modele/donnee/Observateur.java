@@ -1,4 +1,4 @@
-package controller.donnee;
+package modele.donnee;
 	/**
 	 * Class for create an observer
 	 * */

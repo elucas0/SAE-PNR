@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import controller.donnee.*;
+import modele.donnee.*;
 
 import java.sql.*;
 

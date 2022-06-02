@@ -1,18 +1,22 @@
-package controller.traitement;
+package modele.traitement;
 import java.sql.Date;
 
-import controller.donnee.*;
+import modele.donnee.*;
 
 /**
  * Create one top for an observation
  */
 public class Sommet {
+
     /**id of the top */
     private int id;
     /**coordinates of the top */
+
     private Lieu coordLieu;
+
     /**Date of the top */
     private Date date;
+    
     /**species of the top */
     private EspeceObservee espece;
 

@@ -1,5 +1,5 @@
 
-package controller.donnee;
+package modele.donnee;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
