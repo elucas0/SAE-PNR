@@ -1,4 +1,4 @@
-package hellofx;
+package vue.hellofx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../vue/hellofx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("hellofx.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();

@@ -1,4 +1,4 @@
-package hellofx;
+package vue.hellofx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

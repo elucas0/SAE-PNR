@@ -1,4 +1,3 @@
-package SAE_PNR;
 import java.sql.*;
 
 public class testConnectDb {
