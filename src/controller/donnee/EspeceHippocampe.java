@@ -1,0 +1,8 @@
+package controller.donnee;
+
+public enum EspeceHippocampe {
+	SYNGATHUS_ACUS,
+	HIPPOCAMPUS_GUTTULATUS,
+	HIPPOCAMPUS_HIPPOCAMPUS,
+	ENTERURUS_AEQUOREUS
+}
