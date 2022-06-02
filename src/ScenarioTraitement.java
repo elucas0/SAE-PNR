@@ -1,7 +1,7 @@
 import java.sql.*;
 
-import controller.donnee.*;
-import controller.traitement.*;
+import modele.donnee.*;
+import modele.traitement.*;
 
 public class ScenarioTraitement {
     public static void main(String[] args) {
