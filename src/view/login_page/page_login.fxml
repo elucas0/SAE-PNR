@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="131.0" fitWidth="146.0" layoutX="26.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../OneDrive/Documents/INFO/Prog/S2/P2/R2.01/TP12/SAE-PNR/test/src/img/image_login.png" />
+                        <Image url="../src/img/image_login.png" />
                      </image>
                   </ImageView>
                </children></Pane>
