@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch testConnectDb",
             "request": "launch",
+            "mainClass": "testConnectDb",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch testConnectDb",
+            "request": "launch",
             "mainClass": "src.testConnectDb",
             "projectName": "SAE-PNR_d4391e8"
         },

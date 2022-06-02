@@ -2,58 +2,55 @@ import java.util.*;
 import java.sql.*;
 
 public class testConnectDb {
-
-    private ArrayList<String> nidGCI;
-    private ArrayList<String> nomPlage;
-    private ArrayList<String> raisonArretObservation;
-    private ArrayList<String> nbEnvol;
-    private ArrayList<String> protection;
-    private ArrayList<String> bagueMale;
-    private ArrayList<String> bagueFemelle;
     public static void main(String[] args) {
         try {
+            ArrayList<String> nidGCI = new ArrayList<String>();
+            ArrayList<String> nomPlage = new ArrayList<String>();
+            ArrayList<String> raisonArretObservation = new ArrayList<String>();
+            ArrayList<String> nbEnvol = new ArrayList<String>();
+            ArrayList<String> protection = new ArrayList<String>();
+            ArrayList<String> bagueMale = new ArrayList<String>();
+            ArrayList<String> bagueFemelle = new ArrayList<String>();
+
+            //int i = 0;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            Statement s = c.createStatement();
+            String query = "SELECT * FROM nid_gci";
+            ResultSet r = s.executeQuery(query);
+
+            while (r.next()) {
+                nidGCI.add(r.getString("idNid"));
+                nomPlage.add(r.getString("nomPlage"));
+                raisonArretObservation.add(r.getString("raisonArretObservation"));
+                nbEnvol.add(r.getString("nbEnvol"));
+                protection.add(r.getString("protection"));
+                bagueMale.add(r.getString("bagueMale"));
+                bagueFemelle.add(r.getString("bagueFemelle"));
+                //i++;
+                
+            }
+            nidGCI.toString().replaceAll(",", " ");
+            nomPlage.toString().replaceAll(",", " ");
+            raisonArretObservation.toString().replaceAll(",", " ");
+            nbEnvol.toString().replaceAll(",", " ");
+            protection.toString().replaceAll(",", " ");
+            bagueMale.toString().replaceAll(",", " ");
+            bagueFemelle.toString().replaceAll(",", " ");
+            System.out.println(nidGCI.get(26));
+            System.out.println(nomPlage.get(26));
+            System.out.println(raisonArretObservation.get(26));
+            System.out.println(nbEnvol.get(26));
+            System.out.println(protection.get(26));
+            System.out.println(bagueMale.get(26));
+            System.out.println(bagueFemelle.get(26));
+            r.close();
+            s.close();
+            c.close();
             
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    public void requeteNidGCI(){
-        this.nidGCI = new ArrayList<String>();
-        this.nomPlage = new ArrayList<String>();
-        this.raisonArretObservation = new ArrayList<String>();
-        this.nbEnvol = new ArrayList<String>();
-        this.protection = new ArrayList<String>();
-        this.bagueMale = new ArrayList<String>();
-        this.bagueFemelle = new ArrayList<String>();
-    }
-
-    public void test(){
-        requeteNidGCI();
-        int i = 0;
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-        Statement s = c.createStatement();
-        String query = "SELECT * FROM nid_gci.COLUMNS";
-        ResultSet r = s.executeQuery(query);
-
-        while (r.next()) {
-            this.niGCI.add(r.getString("idNid"));
-            p[1][i] = r.getString("nomPlage");
-            p[2][i] = r.getString("raisonArretObservation");
-            p[3][i] = r.getString("nbEnvol");
-            p[4][i] = r.getString("protection");
-            p[5][i] = r.getString("bagueMale");
-            p[6][i] = r.getString("bagueFemelle");
-            //resultat.add(r.getString("idNid") + "  " + r.getString("nomPlage") + "  " + r.getString("raisonArretObservation") + "  " + r.getString("nbEnvol") + "  " + r.getString("protection") + "  " + r.getString("bagueMale") + "  " + r.getString("bagueFemelle") + "\n");
-            i++;
-            
-        }
-
-        //System.out.println(resultat.toString().replaceAll(",", " "));
-        //System.out.println(resultat.get(26));
-        r.close();
-        s.close();
-        c.close();
     }
 
     
