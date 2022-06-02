@@ -4,6 +4,7 @@ import java.sql.*;
 public class testConnectDb {
     public static void main(String[] args) {
         try {
+            //Les ArrayList = au colonne de la table
             ArrayList<String> nidGCI = new ArrayList<String>();
             ArrayList<String> nomPlage = new ArrayList<String>();
             ArrayList<String> raisonArretObservation = new ArrayList<String>();
@@ -12,13 +13,14 @@ public class testConnectDb {
             ArrayList<String> bagueMale = new ArrayList<String>();
             ArrayList<String> bagueFemelle = new ArrayList<String>();
 
-            //int i = 0;
+            //Création de la requête SQL
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
             String query = "SELECT * FROM nid_gci";
             ResultSet r = s.executeQuery(query);
 
+            //Remplissage des ArrayList
             while (r.next()) {
                 nidGCI.add(r.getString("idNid"));
                 nomPlage.add(r.getString("nomPlage"));
@@ -27,9 +29,9 @@ public class testConnectDb {
                 protection.add(r.getString("protection"));
                 bagueMale.add(r.getString("bagueMale"));
                 bagueFemelle.add(r.getString("bagueFemelle"));
-                //i++;
                 
             }
+            //Suppression des virgules
             nidGCI.toString().replaceAll(",", " ");
             nomPlage.toString().replaceAll(",", " ");
             raisonArretObservation.toString().replaceAll(",", " ");
@@ -37,6 +39,8 @@ public class testConnectDb {
             protection.toString().replaceAll(",", " ");
             bagueMale.toString().replaceAll(",", " ");
             bagueFemelle.toString().replaceAll(",", " ");
+
+            //Affichage de la ligne 26
             System.out.println(nidGCI.get(26));
             System.out.println(nomPlage.get(26));
             System.out.println(raisonArretObservation.get(26));
@@ -51,7 +55,5 @@ public class testConnectDb {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    
+    }    
 }
