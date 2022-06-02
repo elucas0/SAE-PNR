@@ -1,4 +1,4 @@
-package donnee;
+package controller.donnee;
 
 public enum Peche {
 	CASIER_CREVETTES,

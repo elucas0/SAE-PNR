@@ -1,6 +1,7 @@
-import traitement.*;
-import donnee.*;
 import java.sql.*;
+
+import controller.donnee.*;
+import controller.traitement.*;
 
 public class ScenarioTraitement {
     public static void main(String[] args) {
