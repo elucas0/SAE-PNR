@@ -35,9 +35,8 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
-            "mainClass": "hellofx.Main",
-            //"projectName": "SAE-PNR_1842660b",
-            "vmArgs": "--module-path ./javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "view.hellofx.Main",
+            "vmArgs": "--module-path ./javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
