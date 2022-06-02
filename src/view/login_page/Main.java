@@ -1,0 +1,26 @@
+package view.login_page;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("page_login.fxml"));
+        primaryStage.setTitle("PNR - Login");
+        primaryStage.setScene(new Scene(root, screenBounds.getWidth() * 0.8, screenBounds.getHeight() * 0.8));
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}

@@ -42,7 +42,7 @@
                <children>
                   <ImageView fitHeight="131.0" fitWidth="146.0" layoutX="26.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../OneDrive/Documents/INFO/Prog/S2/P2/R2.01/TP12/SAE-PNR/test/src/img/image_login.png" />
+                        <Image url="/view/img/image_login.png" />
                      </image>
                   </ImageView>
                </children></Pane>
@@ -60,7 +60,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../OneDrive/Documents/INFO/Prog/S2/P2/R2.01/TP12/SAE-PNR/test/src/img/Logo-PNR.png" />
+                  <Image url="/view/img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="30.0" />
