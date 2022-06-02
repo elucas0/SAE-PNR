@@ -78,7 +78,7 @@ public class Graphe {
 
         boolean ret = false;
 
-        if(this.sommetsVoisins.size() > 0){
+        if(this.sommetsVoisins.size() > 1){
 
             for(Sommet i : this.sommetsVoisins.keySet()){
 
@@ -93,15 +93,66 @@ public class Graphe {
                     }
                 }
             }
+        }else{
+
+            System.err.println("sontVoisins : here must be at least two vertex in the graph.");
         }
 
         return ret;       
     }
 
 
-    public boolean existeChemin(){
+    public boolean existeChemin(int idSom1, int idSom2){
 
         boolean ret = false;
+        ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
+        Sommet sommetDepart;
+
+        if((idSom1 >= 0) && (idSom2 >= 0)){
+
+            if(sommetsVoisins.size() > 0){
+
+                
+
+                for(Sommet i : sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        if(!(parcouru.contains(i))){
+
+                            if((sommetsVoisins.get(i).size() > 0) && (sommetsVoisins.get(i) != null)){
+    
+                                parcouru.add(i);
+    
+                                for(Sommet j : sommetsVoisins.get(i)){
+    
+                                    if(!(parcouru.contains(j))){
+    
+                                        parcouru.add(j);
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                    for(Sommet k : parcouru){
+        
+                        if(k.getId() == idSom1){
+        
+                            ret = true;
+                        }
+                    }
+                }
+
+            }else{
+
+                System.err.println("existeChemin : there must be at least one vertex in the graph");
+            }
+    
+        }else{
+
+            System.err.println("existeChemin : idSom1 and idSom2 must be at least equal to 0");;
+        }
 
 
         return ret;
@@ -111,31 +162,37 @@ public class Graphe {
     /**
      * Get the neighbours of a vertex
      * @param idSom1 the vertex's id
-     * @return the neighbours the vertex
+     * @return the neighbours the vertex. Return null if the vertex does not exists or has no neighbours.
      */
     public ArrayList<Sommet> voisins(int idSom1){
 
         ArrayList<Sommet> ret = null;
 
-        boolean trouve = false;
 
-        if(idSom1 >= 0){
+        if(sommetsVoisins.size() > 0){
 
-            for(Sommet i : this.sommetsVoisins.keySet()){
+            if(idSom1 >= 0){
 
-                if(i.getId() == idSom1){
-    
-                    ret = this.sommetsVoisins.get(i);
+                for(Sommet i : sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        ret = sommetsVoisins.get(i);
+                    }
                 }
+            }else{
+    
+                System.err.println("voisins : idSom1 must be at least equal to 0");
             }
 
         }else{
 
-            System.err.println("voisins ; idSom1 must be at least 0");
+            System.err.println("voisins : there mus be at least one vertex in the graph.");
         }
 
         return ret;
     }
+
 
     /**
      * Add an edge to the graph between two vertex
