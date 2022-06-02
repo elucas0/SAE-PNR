@@ -1,6 +1,7 @@
-package traitement;
+package controller.traitement;
 import java.sql.Date;
-import donnee.*;
+
+import controller.donnee.*;
 
 /**
  * Create one top for an observation
