@@ -1,4 +1,4 @@
-package controller.traitement;
+package modele.traitement;
 import java.util.HashMap;
 import java.util.ArrayList;
 
