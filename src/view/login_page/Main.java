@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("page_login.fxml"));
         primaryStage.setTitle("PNR - Login");
-        primaryStage.setScene(new Scene(root, screenBounds.getWidth() * 0.999, screenBounds.getHeight() * 0.999));
+        primaryStage.setScene(new Scene(root, screenBounds.getWidth() * 0.8, screenBounds.getHeight() * 0.8));
         primaryStage.show();
     }
 
