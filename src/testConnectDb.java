@@ -1,7 +1,3 @@
-<<<<<<< HEAD:src/testConnectDb.java
-=======
-
->>>>>>> 6ba22b2845c69bc7efc34819681ac7679a9486a3:testConnectDb.java
 import java.sql.*;
 
 public class testConnectDb {
