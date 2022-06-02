@@ -30,7 +30,7 @@
             "request": "launch",
             "mainClass": "hellofx.Main",
             //"projectName": "SAE-PNR_1842660b",
-            "vmArgs": "--module-path C:/Users/eloua/Downloads/openjfx-17.0.2_windows-x64_bin-sdk/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path ./javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
         }
         
     ]
