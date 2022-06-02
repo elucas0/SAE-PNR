@@ -96,8 +96,8 @@ public class Sommet {
 
     /**
      * Convert a degree to radian
-     * @param value
-     * @return
+     * @param value degree to convert
+     * @return the result of the conversion
      */
     private static Double toRad(Double value) {
         return value * Math.PI / 180;
