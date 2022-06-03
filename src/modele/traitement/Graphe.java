@@ -106,7 +106,6 @@ public class Graphe {
 
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
-        ArrayList<Sommet> stack = new ArrayList<Sommet>();
         Sommet sommet1 = null;
         Sommet sommet2 = null;
 
@@ -124,6 +123,8 @@ public class Graphe {
                         sommet2 = i;
                     }
                 }
+
+                ret = DFSrec(sommet1, sommet2, parcouru, sommetsVoisins.get(sommet1));
 
             }else{
 
@@ -155,8 +156,16 @@ public class Graphe {
 
             Sommet departSuivant = stack.get(0);
             parcouru.add(departSuivant);
-            parcouru.remove(departSuivant);
-            
+            stack.remove(departSuivant);
+
+            for(Sommet i : sommetsVoisins.get(departSuivant)){
+
+                if(!parcouru.contains(i)){
+
+                    stack.add(i);
+                    ret = DFSrec(departSuivant, som2, parcouru, stack);
+                }
+            }
         }
         return ret;
 
