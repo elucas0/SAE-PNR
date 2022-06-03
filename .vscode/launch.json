@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RequeteObsGCI",
+            "request": "launch",
+            "mainClass": "RequeteObsGCI",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsChouette",
+            "request": "launch",
+            "mainClass": "RequeteObsChouette",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObseBatracien",
+            "request": "launch",
+            "mainClass": "RequeteObseBatracien",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
             "name": "Launch RequeteLieu_vegetation",
             "request": "launch",
             "mainClass": "RequeteLieu_vegetation",
