@@ -107,15 +107,23 @@ public class Graphe {
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
         ArrayList<Sommet> stack = new ArrayList<Sommet>();
-        Sommet sommetDepart;
+        Sommet sommet1 = null;
+        Sommet sommet2 = null;
 
         if((idSom1 >= 0) && (idSom2 >= 0)){
 
             if(sommetsVoisins.size() > 0){
 
-                
+                for(Sommet i : sommetsVoisins.keySet()){
 
+                    if(i.getId() == idSom1){
+                        
+                        sommet1 = i;
+                    }else if(i.getId() == idSom2){
 
+                        sommet2 = i;
+                    }
+                }
 
             }else{
 
@@ -130,6 +138,32 @@ public class Graphe {
 
         return ret;
     }
+
+
+    public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
+
+        boolean ret = false;
+
+        if(som1 == som2){
+
+            ret = true;
+
+        }else if(stack.size() == 0){
+
+
+        }else{
+
+            Sommet departSuivant = stack.get(0);
+            parcouru.add(departSuivant);
+            parcouru.remove(departSuivant);
+            
+        }
+        return ret;
+
+    }
+
+
+
 
 
     /**
