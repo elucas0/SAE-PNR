@@ -106,6 +106,7 @@ public class Graphe {
 
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
+        ArrayList<Sommet> stack = new ArrayList<Sommet>();
         Sommet sommetDepart;
 
         if((idSom1 >= 0) && (idSom2 >= 0)){
@@ -113,6 +114,8 @@ public class Graphe {
             if(sommetsVoisins.size() > 0){
 
                 
+
+
 
             }else{
 
