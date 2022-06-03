@@ -113,7 +113,9 @@ public class Graphe {
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
         Sommet sommet1 = this.getSommet(idSom1);
-        Sommet sommet2 = null;
+        Sommet sommet2 = this.getSommet(idSom2);
+
+
 
 
 
@@ -121,7 +123,14 @@ public class Graphe {
         return ret;
     }
 
-
+    /**
+     * Do a DFS of the graph
+     * @param som1 the starting vertex
+     * @param som2 the vertex we want to find
+     * @param parcouru the vertex already travelled
+     * @param stack the vertex to search-in
+     * @return true if there is a way, false if not
+     */
     public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
 
         boolean ret = false;
@@ -285,8 +294,12 @@ public class Graphe {
 
     }
 
-
-    public Sommet getSommet(int idSom1){
+    /**
+     * Get the vertex with the corresponding id, if it exists in the graph
+     * @param idSom the vertex's id
+     * @return the vertex, null if there isn't one with this id
+     */
+    public Sommet getSommet(int idSom){
 
         Sommet ret = null;
 
