@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RequeteObservateur",
+            "request": "launch",
+            "mainClass": "RequeteObservateur",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsLoutre",
+            "request": "launch",
+            "mainClass": "RequeteObsLoutre",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsHippocampe",
+            "request": "launch",
+            "mainClass": "RequeteObsHippocampe",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
             "name": "Launch RequeteObsGCI",
             "request": "launch",
             "mainClass": "RequeteObsGCI",
