@@ -6,6 +6,115 @@ public class Graphe {
 
     private HashMap<Sommet, ArrayList<Sommet>> sommetsVoisins;
     
+    /**
+     * Constructor for objects of class Graphe
+     * @param sommets vertices of the graph
+     * @param dist distance between two vertices
+     */
+    public Graphe(ArrayList<Sommet> sommets, double dist) {
+        if(sommets.size() == 0) {
+            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
+        } else if (dist <= 0) {
+            throw new IllegalArgumentException("La distance doit être positive.");
+        } else {
+            this.sommetsVoisins = new HashMap<Sommet, ArrayList<Sommet>>();
+            for(Sommet s : sommets) {
+                this.sommetsVoisins.put(s, new ArrayList<Sommet>());
+            }
+            for(Sommet s : sommets) {
+                for(Sommet s2 : sommets) {
+                    if((s != s2) && (calculDist(s, s2) <= dist)) {
+                        this.sommetsVoisins.get(s).add(s2);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Constructor for Graphe.
+     * @param somVoisins HashMap of Sommet and ArrayList of Sommet
+     */
+    public Graphe(HashMap<Sommet, ArrayList<Sommet>> somVoisins) {
+        if(somVoisins.size() == 0) {
+            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
+        } else if (somVoisins.containsValue(null)) {
+            throw new IllegalArgumentException("Le graphe ne doit pas contenir de sommet sans voisins.");
+        } else {
+            this.sommetsVoisins = somVoisins;
+        }
+    }
+
+
+    /**
+     * Constructor for objects of class Graphe
+     * @param g Graphe
+     */
+    public Graphe(Graphe g){
+        if(g.sommetsVoisins.size() == 0) {
+            throw new IllegalArgumentException("Le graphe doit contenir au moins un sommet.");
+        } else if (g.sommetsVoisins.containsValue(null)) {
+            throw new IllegalArgumentException("Le graphe ne doit pas contenir de sommet sans voisins.");
+        } else {
+            this.sommetsVoisins = g.sommetsVoisins;
+        }
+    }
+
+
+    /**
+     * Returns the number of vertices in the graph.
+     * @return
+     */
+    public int nbSommets(){
+        return this.sommetsVoisins.size();
+    }
+
+
+    /**
+     * Returns the number of edges in the graph.
+     * @return the number of edges in the graph.
+     */
+    public int nbAretes(){
+        int nbAretes = 0;
+        for(Sommet s : this.sommetsVoisins.keySet()) {
+            nbAretes += this.sommetsVoisins.get(s).size();
+        }
+        // On enlève le nombre d'arêtes entre chaque sommet et lui-même
+        return nbAretes/2;
+    }
+
+
+    /**
+     * Returns true if the graph contains the given vertex.
+     * @param idSom the id of the vertex to check.
+     * @return true if the graph contains the given vertex.
+     */
+    public boolean estDansGraphe(int idSom){
+        boolean ret = false;
+        for(Sommet s : this.sommetsVoisins.keySet()) {
+            if(s.getId() == idSom) {
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
+
+    /**
+     * Returns the degree of the given vertex.
+     * @param idSom the id of the vertex.
+     * @return the degree of the given vertex.
+     */
+    public int calculDegre(int idSom){
+        int degre = 0;
+        for(Sommet s : this.sommetsVoisins.keySet()) {
+            if(s.getId() == idSom) {
+                degre = this.sommetsVoisins.get(s).size();
+            }
+        }
+        return degre;
+    }
+
 
     /**
      * Get an HashMap<Sommmet, int> wich keys are the vertices
@@ -27,8 +136,6 @@ public class Graphe {
 
             System.err.println("calculDegre : there must be at least one value in sommetsVoisins.");
         }
-
-
 
         return ret;
     }
@@ -78,24 +185,15 @@ public class Graphe {
 
         boolean ret = false;
 
-        if(this.sommetsVoisins.size() > 1){
+        Sommet sommet1 = this.getSommet(idSom1);
+        Sommet sommet2 = this.getSommet(idSom2);
 
-            for(Sommet i : this.sommetsVoisins.keySet()){
+        if((sommet1 != null) && (sommet2 != null)){
 
-                if(i.getId() == idSom1){
-
-                    for(Sommet j : this.sommetsVoisins.get(i)){
-
-                        if(j.getId() == idSom2){
-
-                            ret = true;
-                        }
-                    }
-                }
-            }
+            ret = this.sommetsVoisins.get(sommet1).contains(sommet2);            
         }else{
 
-            System.err.println("sontVoisins : here must be at least two vertex in the graph.");
+            System.err.println("sontVoisins : the two vertex must be in  the graph");
         }
 
         return ret;       
@@ -113,15 +211,28 @@ public class Graphe {
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
         Sommet sommet1 = this.getSommet(idSom1);
-        Sommet sommet2 = null;
+        Sommet sommet2 = this.getSommet(idSom2);
 
+        if((sommet1 != null) && (sommet2 != null)){
 
+            ret = DFSrec(sommet1, sommet2, parcouru, this.sommetsVoisins.get(sommet1));            
+        }else{
 
+            System.err.println("sontVoisins : the two vertex must be in  the graph");
+        }
 
         return ret;
     }
 
-
+    
+    /**
+     * Do a DFS of the graph
+     * @param som1 the starting vertex
+     * @param som2 the vertex we want to find
+     * @param parcouru the vertex already travelled
+     * @param stack the vertex to search-in
+     * @return true if there is a way, false if not
+     */
     public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
 
         boolean ret = false;
@@ -153,9 +264,6 @@ public class Graphe {
     }
 
 
-
-
-
     /**
      * Get the neighbours of a vertex
      * @param idSom1 the vertex's id
@@ -165,26 +273,9 @@ public class Graphe {
 
         ArrayList<Sommet> ret = null;
 
+        if(estDansGraphe(idSom1)){
 
-        if(sommetsVoisins.size() > 0){
-
-            if(idSom1 >= 0){
-
-                for(Sommet i : sommetsVoisins.keySet()){
-
-                    if(i.getId() == idSom1){
-
-                        ret = sommetsVoisins.get(i);
-                    }
-                }
-            }else{
-    
-                System.err.println("voisins : idSom1 must be at least equal to 0");
-            }
-
-        }else{
-
-            System.err.println("voisins : there mus be at least one vertex in the graph.");
+            ret = sommetsVoisins.get(this.getSommet(idSom1));
         }
 
         return ret;
@@ -196,44 +287,23 @@ public class Graphe {
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
      */
-    public void ajouteArrete(int idSom1, int idSom2){
+    public boolean ajouteArrete(int idSom1, int idSom2){
 
-        if((idSom1 >= 0) && (idSom2 >= 0)){
+        boolean ret = false;
 
-            if(idSom1 != idSom2){
+        if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
 
-                Sommet sommet1 = null;
-                Sommet sommet2 = null;
+            ret = true;
+            Sommet sommet1 = this.getSommet(idSom1);
+            Sommet sommet2 = this.getSommet(idSom2);
 
-                for(Sommet i : this.sommetsVoisins.keySet()){
+            this.sommetsVoisins.get(sommet1).add(sommet2);
+            this.sommetsVoisins.get(sommet2).add(sommet1);
 
-                    if(i.getId() == idSom1){
-
-                        sommet1 = i;
-                    }
-
-                    if(i.getId() == idSom2){
-
-                        sommet2 = i;
-                    }
-                        
-                }
-
-                if((sommet1 != null) && (sommet2 != null)){
-
-                    this.sommetsVoisins.get(sommet1).add(sommet2);
-                    this.sommetsVoisins.get(sommet2).add(sommet1);
-
-                }else{
-
-                    System.err.println("ajouteArrete : the two wanted vertex must exists.");
-                }
-            }
-
-
+            
         }else{
 
-            System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
+            System.err.println("ajouteArrete : the two vertex");
         }
     }
 
@@ -285,18 +355,22 @@ public class Graphe {
 
     }
 
-
-    public Sommet getSommet(int idSom1){
+    /**
+     * Get the vertex with the corresponding id, if it exists in the graph
+     * @param idSom the vertex's id
+     * @return the vertex, null if there isn't one with this id
+     */
+    public Sommet getSommet(int idSom){
 
         Sommet ret = null;
 
         if(sommetsVoisins.size() > 0){
 
-            if(idSom1 >= 0){
+            if(idSom >= 0){
 
                 for(Sommet i : sommetsVoisins.keySet()){
 
-                    if(i.getId() == idSom1){
+                    if(i.getId() == idSom){
 
                         ret = i;
                     }
