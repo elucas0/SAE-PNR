@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RequeteLieu_vegetation",
+            "request": "launch",
+            "mainClass": "RequeteLieu_vegetation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteLieu",
+            "request": "launch",
+            "mainClass": "RequeteLieu",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteChouette",
+            "request": "launch",
+            "mainClass": "RequeteChouette",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteAobserve",
+            "request": "launch",
+            "mainClass": "RequeteAobserve",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteNidGCI",
+            "request": "launch",
+            "mainClass": "RequeteNidGCI",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
             "name": "Launch testConnectDb",
             "request": "launch",
             "mainClass": "testConnectDb",
