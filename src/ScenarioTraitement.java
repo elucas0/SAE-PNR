@@ -12,6 +12,8 @@ public class ScenarioTraitement {
         Sommet sommet2 = new Sommet(2, lieu2, new Date(1), EspeceObservee.LOUTRE);
 
         sommet.calculeDist(sommet2);
+
+        Graphe graphe1 = new Graphe();
     }
     
 }

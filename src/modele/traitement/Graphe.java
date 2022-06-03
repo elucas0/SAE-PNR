@@ -114,36 +114,6 @@ public class Graphe {
 
                 
 
-                for(Sommet i : sommetsVoisins.keySet()){
-
-                    if(i.getId() == idSom1){
-
-                        if(!(parcouru.contains(i))){
-
-                            if((sommetsVoisins.get(i).size() > 0) && (sommetsVoisins.get(i) != null)){
-    
-                                parcouru.add(i);
-    
-                                for(Sommet j : sommetsVoisins.get(i)){
-    
-                                    if(!(parcouru.contains(j))){
-    
-                                        parcouru.add(j);
-                                    }
-                                }
-                            }
-                        }
-                    }
-    
-                    for(Sommet k : parcouru){
-        
-                        if(k.getId() == idSom1){
-        
-                            ret = true;
-                        }
-                    }
-                }
-
             }else{
 
                 System.err.println("existeChemin : there must be at least one vertex in the graph");
