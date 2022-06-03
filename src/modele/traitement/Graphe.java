@@ -102,38 +102,20 @@ public class Graphe {
     }
 
 
+    /**
+     * Verify if a way to go from a wanted vertex to another one exists.
+     * @param idSom1 the first vertex
+     * @param idSom2 the second vertex
+     * @return true if a way exists, false is there isn't one
+     */
     public boolean existeChemin(int idSom1, int idSom2){
 
         boolean ret = false;
         ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
-        ArrayList<Sommet> stack = new ArrayList<Sommet>();
-        Sommet sommet1 = null;
+        Sommet sommet1 = this.getSommet(idSom1);
         Sommet sommet2 = null;
 
-        if((idSom1 >= 0) && (idSom2 >= 0)){
 
-            if(sommetsVoisins.size() > 0){
-
-                for(Sommet i : sommetsVoisins.keySet()){
-
-                    if(i.getId() == idSom1){
-                        
-                        sommet1 = i;
-                    }else if(i.getId() == idSom2){
-
-                        sommet2 = i;
-                    }
-                }
-
-            }else{
-
-                System.err.println("existeChemin : there must be at least one vertex in the graph");
-            }
-    
-        }else{
-
-            System.err.println("existeChemin : idSom1 and idSom2 must be at least equal to 0");;
-        }
 
 
         return ret;
@@ -155,8 +137,16 @@ public class Graphe {
 
             Sommet departSuivant = stack.get(0);
             parcouru.add(departSuivant);
-            parcouru.remove(departSuivant);
-            
+            stack.remove(departSuivant);
+
+            for(Sommet i : sommetsVoisins.get(departSuivant)){
+
+                if(!parcouru.contains(i)){
+
+                    stack.add(i);
+                    ret = DFSrec(departSuivant, som2, parcouru, stack);
+                }
+            }
         }
         return ret;
 
@@ -294,4 +284,33 @@ public class Graphe {
         }
 
     }
+
+
+    public Sommet getSommet(int idSom1){
+
+        Sommet ret = null;
+
+        if(sommetsVoisins.size() > 0){
+
+            if(idSom1 >= 0){
+
+                for(Sommet i : sommetsVoisins.keySet()){
+
+                    if(i.getId() == idSom1){
+
+                        ret = i;
+                    }
+                }
+            }else{
+
+                System.err.println("getSommet : the vertex's id must be at least equal to 0.");
+            }
+        }else{
+
+            System.err.println("getSommet : the graph must contain at least one vertex");
+        }
+
+        return ret;
+    }
+
 }
