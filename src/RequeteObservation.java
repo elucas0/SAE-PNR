@@ -21,29 +21,25 @@ public class RequeteObservation {
             while (r.next()) {
                 idObs.add(r.getString("idObs"));
                 dateObs.add(r.getString("dateObs"));
-                sexe.add(r.getString("heureObs"));
-                temperatureEau.add(r.getString("temperatureEau"));
-                typePeche.add(r.getString("typePeche"));
+                heureObs.add(r.getString("heureObs"));
+                lieu_Lambert_X.add(r.getString("lieu_Lambert_X"));
+                lieu_Lambert_Y.add(r.getString("lieu_Lambert_Y"));
 
                 
             }
             //Suppression des virgules
-            obsH.toString().replaceAll(",", " ");
-            espece.toString().replaceAll(",", " ");
-            sexe.toString().replaceAll(",", " ");
-            temperatureEau.toString().replaceAll(",", " ");
-            typePeche.toString().replaceAll(",", " ");
-            taille.toString().replaceAll(",", " ");
-            gestant.toString().replaceAll(",", " ");
+            idObs.toString().replaceAll(",", " ");
+            dateObs.toString().replaceAll(",", " ");
+            heureObs.toString().replaceAll(",", " ");
+            lieu_Lambert_X.toString().replaceAll(",", " ");
+            lieu_Lambert_Y.toString().replaceAll(",", " ");
 
             //Affichage de la ligne 2
-            System.out.println(obsH.get(1));
-            System.out.println(espece.get(1));
-            System.out.println(sexe.get(1));
-            System.out.println(temperatureEau.get(1));
-            System.out.println(typePeche.get(1));
-            System.out.println(taille.get(1));
-            System.out.println(gestant.get(1));
+            System.out.println(idObs.get(1));
+            System.out.println(dateObs.get(1));
+            System.out.println(heureObs.get(1));
+            System.out.println(lieu_Lambert_X.get(1));
+            System.out.println(lieu_Lambert_Y.get(1));
 
             r.close();
             s.close();

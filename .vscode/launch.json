@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RequeteZoneHumide",
+            "request": "launch",
+            "mainClass": "RequeteZoneHumide",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteVegetation",
+            "request": "launch",
+            "mainClass": "RequeteVegetation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObservation",
+            "request": "launch",
+            "mainClass": "RequeteObservation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
             "name": "Launch RequeteObservateur",
             "request": "launch",
             "mainClass": "RequeteObservateur",
