@@ -13,7 +13,6 @@ public class ScenarioTraitement {
 
         sommet.calculeDist(sommet2);
 
-        Graphe graphe1 = new Graphe();
     }
     
 }

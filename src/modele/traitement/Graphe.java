@@ -303,8 +303,10 @@ public class Graphe {
             
         }else{
 
-            System.err.println("ajouteArrete : the two vertex");
+            System.err.println("ajouteArrete : the two vertex must be in the graph");
         }
+
+        return ret;
     }
 
 
@@ -313,45 +315,26 @@ public class Graphe {
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
      */
-    public void retireArete(int idSom1, int idSom2){
+    public boolean retireArete(int idSom1, int idSom2){
 
-        if((idSom1 >= 0) && (idSom2 >= 0)){
+        boolean ret = false;
 
-            if(idSom1 != idSom2){
+        if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
 
-                Sommet sommet1 = null;
-                Sommet sommet2 = null;
+            ret = true;
+            Sommet sommet1 = this.getSommet(idSom1);
+            Sommet sommet2 = this.getSommet(idSom2);
 
-                for(Sommet i : this.sommetsVoisins.keySet()){
+            this.sommetsVoisins.get(sommet1).remove(sommet2);
+            this.sommetsVoisins.get(sommet2).remove(sommet1);
 
-                    if(i.getId() == idSom1){
-
-                        sommet1 = i;
-                    }
-
-                    if(i.getId() == idSom2){
-
-                        sommet2 = i;
-                    }
-                        
-                }
-
-                if((sommet1 != null) && (sommet2 != null)){
-
-                    this.sommetsVoisins.get(sommet1).remove(sommet2);
-                    this.sommetsVoisins.get(sommet2).remove(sommet1);
-
-                }else{
-
-                    System.err.println("ajouteArrete : the two wanted vertex must exists.");
-                }
-            }
-
-
+            
         }else{
 
-            System.err.println("ajouteArrete : idSom1 and idSom2 must be at leats equal to 0.");
+            System.err.println("retireArrete : the two vertex must be in the graph");
         }
+
+        return ret;
 
     }
 
