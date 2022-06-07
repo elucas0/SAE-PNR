@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import view.JdbcDao;
 
 public class Connection {
     @FXML
