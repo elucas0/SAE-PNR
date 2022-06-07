@@ -387,83 +387,152 @@ public class Graphe {
         return ret;
     }
 
-    public boolean estConnexe(){
+    /**
+     * Returns true if the graph is connected, false if not
+     * @return
+     */
+    public boolean isConnected(){
         boolean ret = false;
+        int[][] matrice = matriceAdjacence();
+        int nbSommets = sommetsVoisins.size();
+        int[] parcouru = new int[nbSommets];
+        int[] sommets = new int[nbSommets];
+        int nbSommetsParcourus = 0;
+        int i = 0;
+        int j = 0;
 
-        if(sommetsVoisins.size() > 0){
-            int[][] matrice = matriceAdjacence();
-            int nbSommets = sommetsVoisins.size();
-            int nbSommetsConnexes = 0;
-            int[] sommetsConnexes = new int[nbSommets];
+        for(i = 0; i < nbSommets; i++){
+            sommets[i] = i;
+        }
 
-            for(int i = 0; i < nbSommets; i++){
-                if(sommetsConnexes[i] == 0){
-                    sommetsConnexes[i] = 1;
-                    nbSommetsConnexes++;
-                    for(int j = 0; j < nbSommets; j++){
-                        if(matrice[i][j] == 1){
-                            sommetsConnexes[j] = 1;
-                            nbSommetsConnexes++;
-                        }
+        for(i = 0; i < nbSommets; i++){
+            if(parcouru[i] == 0){
+                parcouru[i] = 1;
+                nbSommetsParcourus++;
+                for(j = 0; j < nbSommets; j++){
+                    if(matrice[i][j] == 1){
+                        parcouru[j] = 1;
                     }
                 }
             }
-            if(nbSommetsConnexes == nbSommets){
-                ret = true;
+        }
+
+        if(nbSommetsParcourus == nbSommets){
+            ret = true;
+        }
+
+        return ret;
+    }
+
+    /**
+     * Returns the list of connected graph's in the currenct graph
+     * @return
+     */
+    public ArrayList<Graphe> composanteConnexe(){
+        ArrayList<Graphe> ret = new ArrayList<Graphe>();
+        int[][] matrice = matriceAdjacence();
+        int nbSommets = sommetsVoisins.size();
+        int[] parcouru = new int[nbSommets];
+        int[] sommets = new int[nbSommets];
+        int nbSommetsParcourus = 0;
+        int i = 0;
+        int j = 0;
+
+        for(i = 0; i < nbSommets; i++){
+            sommets[i] = i;
+        }
+
+        for(i = 0; i < nbSommets; i++){
+            if(parcouru[i] == 0){
+                parcouru[i] = 1;
+                nbSommetsParcourus++;
+                for(j = 0; j < nbSommets; j++){
+                    if(matrice[i][j] == 1){
+                        parcouru[j] = 1;
+                    }
+                }
+                Graphe g = new Graphe();
+                for(i = 0; i < nbSommets; i++){
+                    if(parcouru[i] == 1){
+                        g.ajouteSommet(sommets[i]);
+                    }
+                }
+                ret.add(g);
+            }
+        }
+
+        return ret;
+    }
+
+    public int distAretes(int idSome1, int idSome2) {
+        int ret = -1;
+
+        if(sommetsVoisins.size() > 0){
+            if(idSome1 >= 0 && idSome2 >= 0){
+                Sommet sommet1 = this.getSommet(idSome1);
+                Sommet sommet2 = this.getSommet(idSome2);
+
+                if(sommet1 != null && sommet2 != null){
+                    if(this.sommetsVoisins.get(sommet1).contains(sommet2)){
+                        ret = 1;
+                    }else{
+                        ret = 0;
+                    }
+                }else{
+                    System.err.println("distAretes : the two vertex must be in the graph");
+                }
+            }else{
+                System.err.println("distAretes : the vertex's id must be at least equal to 0.");
             }
         }else{
-            System.err.println("estConnexe : the graph must contain at least one vertex");
+            System.err.println("distAretes : the graph must contain at least one vertex");
         }
         return ret;
     }
 
-    public ArrayList<Graphe> composanteConnexe(){
-        ArrayList<Graphe> ret = new ArrayList<Graphe>();
+    /**
+     * Returns the maximal number of sides of the path from the given vertex and the others vertices. If the graph is not connected, returns -1.
+     * @param idSom
+     * @return
+     */
+    public int excentricite(int idSom) {
+        int ret = -1;
 
         if(sommetsVoisins.size() > 0){
-            int[][] matrice = matriceAdjacence();
-            int nbSommets = sommetsVoisins.size();
-            int nbSommetsConnexes = 0;
-            int[] sommetsConnexes = new int[nbSommets];
+            if(idSom >= 0){
+                Sommet sommet = this.getSommet(idSom);
 
-            for(int i = 0; i < nbSommets; i++){
-                if(sommetsConnexes[i] == 0){
-                    sommetsConnexes[i] = 1;
-                    nbSommetsConnexes++;
-                    for(int j = 0; j < nbSommets; j++){
-                        if(matrice[i][j] == 1){
-                            sommetsConnexes[j] = 1;
+                if(sommet != null){
+                    int nbSommets = sommetsVoisins.size();
+                    int[] sommetsConnexes = new int[nbSommets];
+                    int nbSommetsConnexes = 0;
+
+                    for(int i = 0; i < nbSommets; i++){
+                        if(sommetsConnexes[i] == 0){
+                            sommetsConnexes[i] = 1;
                             nbSommetsConnexes++;
-                        }
-                    }
-                }
-            }
-            if(nbSommetsConnexes == nbSommets){
-                ret = new ArrayList<Graphe>();
-                ret.add(this);
-            }else{
-                int nbSommetsRestants = nbSommets - nbSommetsConnexes;
-                int[] sommetsRestants = new int[nbSommetsRestants];
-                int nbSommetsRestantsConnexes = 0;
-                int[] sommetsRestantsConnexes = new int[nbSommetsRestants];
-
-                for(int i = 0; i < nbSommets; i++){
-                    if(sommetsConnexes[i] == 0){
-                        sommetsRestants[i] = 1;
-                        nbSommetsRestantsConnexes++;
-                        for(int j = 0; j < nbSommets; j++){
-                            if(matrice[i][j] == 1){
-                                sommetsRestantsConnexes[j] = 1;
-                                nbSommetsRestantsConnexes++;
+                            for(int j = 0; j < nbSommets; j++){
+                                if(matriceAdjacence()[i][j] == 1){
+                                    sommetsConnexes[j] = 1;
+                                    nbSommetsConnexes++;
+                                }
                             }
                         }
                     }
+                    if(nbSommetsConnexes == nbSommets){
+                        ret = 0;
+                    }else{
+                        ret = nbSommets - nbSommetsConnexes;
+                    }
+                }else{
+                    System.err.println("excentricite : the vertex must be in the graph");
                 }
+            }else{
+                System.err.println("excentricite : the vertex's id must be at least equal to 0.");
             }
         }else{
-            System.err.println("composanteConnexe : the graph must contain at least one vertex");
+            System.err.println("excentricite : the graph must contain at least one vertex");
         }
         return ret;
     }
-
 }
