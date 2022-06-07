@@ -21,7 +21,7 @@
          </BorderPane.margin></Pane>
    </left>
    <center>
-      <GridPane fx:id="centre" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+      <GridPane fx:id="centre" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="205.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="100.0" />
         </columnConstraints>
@@ -42,7 +42,7 @@
                   </ImageView>
                </children></Pane>
             <PasswordField fx:id="mdp" GridPane.rowIndex="2" />
-            <Button fx:id="bouton_connexion" contentDisplay="CENTER" mnemonicParsing="false" onAction="#register" text=" " GridPane.rowIndex="3">
+            <Button fx:id="bouton_connexion" contentDisplay="CENTER" mnemonicParsing="false" onAction="#register" style="-fx-background-color: #A4A4A4;" text=" " GridPane.rowIndex="3">
                <graphic>
                   <FontIcon iconLiteral="far-arrow-alt-circle-right" selectionEnd="0" wrappingWidth="14.000008344650269" />
                </graphic></Button>
