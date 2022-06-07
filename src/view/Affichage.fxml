@@ -46,7 +46,7 @@
             </TableView>
          </center>
          <top>
-            <GridPane style="-fx-background-color: #808080;" BorderPane.alignment="CENTER">
+            <GridPane style="-fx-background-color: #4E4E4E;" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -58,14 +58,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <MenuButton fx:id="filtre_bouton" mnemonicParsing="false" style="-fx-background-color: #808080;" text="MenuButton" GridPane.columnIndex="1">
+                  <MenuButton fx:id="filtre_bouton" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="MenuButton" GridPane.columnIndex="1">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                       <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                   </MenuButton>
-                  <MenuButton fx:id="tri_bouton" mnemonicParsing="false" text="MenuButton" GridPane.columnIndex="3">
+                  <MenuButton fx:id="tri_bouton" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="MenuButton" GridPane.columnIndex="3">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1" />
                       <MenuItem mnemonicParsing="false" text="Action 2" />
