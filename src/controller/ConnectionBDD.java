@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import view.JdbcDao;
 
-public class Connection {
+public class ConnectionBDD {
     @FXML
     private TextField id;
 

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Login",
+            "request": "launch",
+            "mainClass": "controller.Login",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
             "name": "Launch RequeteZoneHumide",
             "request": "launch",
             "mainClass": "RequeteZoneHumide",
