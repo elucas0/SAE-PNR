@@ -43,9 +43,7 @@
                </children></Pane>
             <PasswordField fx:id="mdp" GridPane.rowIndex="2" />
             <Button fx:id="bouton_connexion" mnemonicParsing="false" text="Button" GridPane.rowIndex="3" onAction = "#register">
-               <graphic>
-                  <FontIcon iconLiteral="anto-right-circle" />
-               </graphic></Button>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets />
