@@ -1,3 +1,4 @@
+package modele;
 import java.util.*;
 import java.sql.*;
 public class RequeteLieu_vegetation {

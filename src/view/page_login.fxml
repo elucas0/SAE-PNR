@@ -11,8 +11,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller = "../controller/MainController.java" fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <Pane fx:id="gauche" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -36,12 +37,15 @@
                <children>
                   <ImageView fitHeight="131.0" fitWidth="146.0" layoutX="40.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/image_login.png" />
+                        <Image url="@img/image_login.png" />
                      </image>
                   </ImageView>
                </children></Pane>
             <PasswordField fx:id="mdp" GridPane.rowIndex="2" />
-            <Button fx:id="bouton_connexion" mnemonicParsing="false" text="Button" GridPane.rowIndex="3" />
+            <Button fx:id="bouton_connexion" mnemonicParsing="false" text="Button" GridPane.rowIndex="3" onAction = "#register">
+               <graphic>
+                  <FontIcon iconLiteral="anto-right-circle" />
+               </graphic></Button>
          </children>
          <opaqueInsets>
             <Insets />
@@ -53,7 +57,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../img/Logo-PNR.png" />
+                  <Image url="@img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="30.0" />
