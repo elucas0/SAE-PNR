@@ -11,7 +11,7 @@ public class JdbcDao {
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/connection";
     private static final String DATABASE_USERNAME = "test";
     private static final String DATABASE_PASSWORD = "test";
-    private static final String INSERT_QUERY = "INSERT INTO registration (full_name, password) VALUES (?, ?, ?)";
+    private static final String INSERT_QUERY = "INSERT INTO registration (full_name, password) VALUES (?, ?)";
 
 
     public void insertRecord(String fullName, String password) throws SQLException {
@@ -24,7 +24,7 @@ public class JdbcDao {
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY)) {
             preparedStatement.setString(1, fullName);
-            preparedStatement.setString(3, password);
+            preparedStatement.setString(2, password);
 
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
