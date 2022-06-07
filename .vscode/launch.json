@@ -140,7 +140,7 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
-            "mainClass": "view.login_page.Main",
+            "mainClass": "view.Main",
             "vmArgs": "--module-path ./javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]

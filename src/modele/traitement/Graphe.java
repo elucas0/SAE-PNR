@@ -370,4 +370,100 @@ public class Graphe {
         return ret;
     }
 
+    public int[][] matriceAdjacence(){
+        int[][] ret = null;
+
+        if(sommetsVoisins.size() > 0){
+            ret = new int[sommetsVoisins.size()][sommetsVoisins.size()];
+
+            for(Sommet i : sommetsVoisins.keySet()){
+                for(Sommet j : sommetsVoisins.get(i)){
+                    ret[i.getId()][j.getId()] = 1;
+                }
+            }
+        }else{
+            System.err.println("matriceAdjacence : the graph must contain at least one vertex");
+        }
+        return ret;
+    }
+
+    public boolean estConnexe(){
+        boolean ret = false;
+
+        if(sommetsVoisins.size() > 0){
+            int[][] matrice = matriceAdjacence();
+            int nbSommets = sommetsVoisins.size();
+            int nbSommetsConnexes = 0;
+            int[] sommetsConnexes = new int[nbSommets];
+
+            for(int i = 0; i < nbSommets; i++){
+                if(sommetsConnexes[i] == 0){
+                    sommetsConnexes[i] = 1;
+                    nbSommetsConnexes++;
+                    for(int j = 0; j < nbSommets; j++){
+                        if(matrice[i][j] == 1){
+                            sommetsConnexes[j] = 1;
+                            nbSommetsConnexes++;
+                        }
+                    }
+                }
+            }
+            if(nbSommetsConnexes == nbSommets){
+                ret = true;
+            }
+        }else{
+            System.err.println("estConnexe : the graph must contain at least one vertex");
+        }
+        return ret;
+    }
+
+    public ArrayList<Graphe> composanteConnexe(){
+        ArrayList<Graphe> ret = new ArrayList<Graphe>();
+
+        if(sommetsVoisins.size() > 0){
+            int[][] matrice = matriceAdjacence();
+            int nbSommets = sommetsVoisins.size();
+            int nbSommetsConnexes = 0;
+            int[] sommetsConnexes = new int[nbSommets];
+
+            for(int i = 0; i < nbSommets; i++){
+                if(sommetsConnexes[i] == 0){
+                    sommetsConnexes[i] = 1;
+                    nbSommetsConnexes++;
+                    for(int j = 0; j < nbSommets; j++){
+                        if(matrice[i][j] == 1){
+                            sommetsConnexes[j] = 1;
+                            nbSommetsConnexes++;
+                        }
+                    }
+                }
+            }
+            if(nbSommetsConnexes == nbSommets){
+                ret = new ArrayList<Graphe>();
+                ret.add(this);
+            }else{
+                int nbSommetsRestants = nbSommets - nbSommetsConnexes;
+                int[] sommetsRestants = new int[nbSommetsRestants];
+                int nbSommetsRestantsConnexes = 0;
+                int[] sommetsRestantsConnexes = new int[nbSommetsRestants];
+
+                for(int i = 0; i < nbSommets; i++){
+                    if(sommetsConnexes[i] == 0){
+                        sommetsRestants[i] = 1;
+                        nbSommetsRestantsConnexes++;
+                        for(int j = 0; j < nbSommets; j++){
+                            if(matrice[i][j] == 1){
+                                sommetsRestantsConnexes[j] = 1;
+                                nbSommetsRestantsConnexes++;
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            System.err.println("composanteConnexe : the graph must contain at least one vertex");
+        }
+        return ret;
+    }
+
 }
