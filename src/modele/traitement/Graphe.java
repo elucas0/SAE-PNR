@@ -107,9 +107,13 @@ public class Graphe {
      */
     public int calculDegre(int idSom){
         int degre = 0;
-        for(Sommet s : this.sommetsVoisins.keySet()) {
-            if(s.getId() == idSom) {
-                degre = this.sommetsVoisins.get(s).size();
+        if(!estDansGraphe(idSom)){
+            throw new IllegalArgumentException("Le sommet n'est pas dans le graphe");
+        } else {
+            for(Sommet s : this.sommetsVoisins.keySet()) {
+                if(s.getId() == idSom) {
+                    degre = this.sommetsVoisins.get(s).size();
+                }
             }
         }
         return degre;
@@ -148,29 +152,21 @@ public class Graphe {
     public Sommet somMaxDegre(){
 
         Sommet ret = null;
-
         HashMap<Sommet, Integer> degres = this.calculDegres();
 
         if(degres != null){
-
             for(Sommet i : degres.keySet()){
-
                 if(ret == null){
-
                     ret = i;
                 }else{
-
                     if(degres.get(ret) < degres.get(i)){
-
                         ret = i;
                     }
                 }
             }
         }else{
-
             System.err.println("somMaxDegre : there must be at least one vertex in the graph");
         }
-
         return ret;
     }
 
@@ -238,29 +234,22 @@ public class Graphe {
         boolean ret = false;
 
         if(som1 == som2){
-
             ret = true;
-
         }else if(stack.size() == 0){
-
-
+            ret = false;
         }else{
-
             Sommet departSuivant = stack.get(0);
             parcouru.add(departSuivant);
             stack.remove(departSuivant);
 
             for(Sommet i : sommetsVoisins.get(departSuivant)){
-
                 if(!parcouru.contains(i)){
-
                     stack.add(i);
                     ret = DFSrec(departSuivant, som2, parcouru, stack);
                 }
             }
         }
         return ret;
-
     }
 
 
@@ -292,20 +281,15 @@ public class Graphe {
         boolean ret = false;
 
         if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
-
             ret = true;
             Sommet sommet1 = this.getSommet(idSom1);
             Sommet sommet2 = this.getSommet(idSom2);
 
             this.sommetsVoisins.get(sommet1).add(sommet2);
-            this.sommetsVoisins.get(sommet2).add(sommet1);
-
-            
+            this.sommetsVoisins.get(sommet2).add(sommet1);            
         }else{
-
             System.err.println("ajouteArrete : the two vertex must be in the graph");
         }
-
         return ret;
     }
 

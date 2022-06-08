@@ -1,9 +1,4 @@
 package modele;
-<<<<<<< HEAD
-
-=======
->>>>>>> 9818ed619f49a42e2e7e80fcb3c88469ef8fa780
-import java.util.*;
 import java.sql.*;
 
 public class testConnectDb {
