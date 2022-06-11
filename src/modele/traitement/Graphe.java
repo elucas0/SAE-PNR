@@ -23,7 +23,7 @@ public class Graphe {
             }
             for(Sommet s : sommets) {
                 for(Sommet s2 : sommets) {
-                    if((s != s2) && (calculDist(s, s2) <= dist)) {
+                    if((s != s2) && (calculeDist(s, s2) <= dist)) {
                         this.sommetsVoisins.get(s).add(s2);
                     }
                 }
@@ -127,18 +127,15 @@ public class Graphe {
      */
     public HashMap<Sommet, Integer> calculDegres(){
 
-        HashMap<Sommet, Integer> ret = null;
+        HashMap<Sommet, Integer> ret = new HashMap<Sommet,Integer>();
 
         if(this.sommetsVoisins.size() > 0){
-
             for(Sommet i : this.sommetsVoisins.keySet()){
-
                 ret.put(i, this.sommetsVoisins.get(i).size());
             }
 
         }else{
-
-            System.err.println("calculDegre : there must be at least one value in sommetsVoisins.");
+            throw new IllegalArgumentException("The graph is empty");
         }
 
         return ret;
@@ -152,27 +149,21 @@ public class Graphe {
     public Sommet somMaxDegre(){
 
         Sommet ret = null;
-        HashMap<Sommet, Integer> degres = this.calculDegres();
+        int max = 0;
 
-        if(degres != null){
-            for(Sommet i : degres.keySet()){
-                if(ret == null){
-                    ret = i;
-                }else{
-                    if(degres.get(ret) < degres.get(i)){
-                        ret = i;
-                    }
-                }
+        for(Sommet sommet : sommetsVoisins.keySet()){
+
+            if(sommetsVoisins.get(sommet).size() > max){
+                max = sommetsVoisins.get(sommet).size();
+                ret = sommet;
             }
-        }else{
-            System.err.println("somMaxDegre : there must be at least one vertex in the graph");
         }
         return ret;
     }
 
 
     /**
-     * Check if two vertex are neighbours
+     * Check if two vertices are neighbours
      * @param idSom1 the first vertex
      * @param idSom2 the second vertex
      * @return true if the vertex are neighbours, false if not
@@ -180,24 +171,20 @@ public class Graphe {
     public boolean sontVoisins(int idSom1, int idSom2){
 
         boolean ret = false;
-
         Sommet sommet1 = this.getSommet(idSom1);
         Sommet sommet2 = this.getSommet(idSom2);
 
         if((sommet1 != null) && (sommet2 != null)){
-
-            ret = this.sommetsVoisins.get(sommet1).contains(sommet2);            
+            ret = (this.sommetsVoisins.get(sommet1)).contains(sommet2);            
         }else{
-
-            System.err.println("sontVoisins : the two vertex must be in  the graph");
+            throw new IllegalArgumentException("One of the two vertex is not in the graph.");
         }
-
-        return ret;       
+        return ret;
     }
 
 
     /**
-     * Verify if a way to go from a wanted vertex to another one exists.
+     * Check if there is a way to go from a wanted vertex to another one.
      * @param idSom1 the first vertex
      * @param idSom2 the second vertex
      * @return true if a way exists, false is there isn't one
@@ -210,13 +197,10 @@ public class Graphe {
         Sommet sommet2 = this.getSommet(idSom2);
 
         if((sommet1 != null) && (sommet2 != null)){
-
             ret = DFSrec(sommet1, sommet2, parcouru, this.sommetsVoisins.get(sommet1));            
         }else{
-
             System.err.println("sontVoisins : the two vertex must be in  the graph");
         }
-
         return ret;
     }
 
@@ -255,16 +239,21 @@ public class Graphe {
 
     /**
      * Get the neighbours of a vertex
-     * @param idSom1 the vertex's id
+     * @param idSom the vertex's id
      * @return the neighbours the vertex. Return null if the vertex does not exists or has no neighbours.
      */
-    public ArrayList<Sommet> voisins(int idSom1){
+    public ArrayList<Sommet> voisins(int idSom){
 
-        ArrayList<Sommet> ret = null;
+        ArrayList<Sommet> ret = new ArrayList<Sommet>();
 
-        if(estDansGraphe(idSom1)){
-
-            ret = sommetsVoisins.get(this.getSommet(idSom1));
+        if(estDansGraphe(idSom)){
+            for(Sommet s : sommetsVoisins.keySet()){
+                if(s.getId() == idSom){
+                    ret.addAll(sommetsVoisins.get(s));
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("The vertex does not exist in the graph");
         }
 
         return ret;
@@ -275,20 +264,25 @@ public class Graphe {
      * Add an edge to the graph between two vertex
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
+     * @return true if the edge has been added, false if not
      */
     public boolean ajouteArrete(int idSom1, int idSom2){
 
         boolean ret = false;
 
         if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
-            ret = true;
-            Sommet sommet1 = this.getSommet(idSom1);
-            Sommet sommet2 = this.getSommet(idSom2);
+            
+            Sommet s1 = this.getSommet(idSom1);
+            Sommet s2 = this.getSommet(idSom2);
 
-            this.sommetsVoisins.get(sommet1).add(sommet2);
-            this.sommetsVoisins.get(sommet2).add(sommet1);            
-        }else{
-            System.err.println("ajouteArrete : the two vertex must be in the graph");
+            if(!this.sommetsVoisins.get(s1).contains(s2)){
+                this.sommetsVoisins.get(s1).add(s2);
+                ret = true;
+            } else {
+                throw new IllegalArgumentException("The edge already exists");
+            }
+        } else {
+            throw new IllegalArgumentException("One of the vertices is not in the graph.");
         }
         return ret;
     }
@@ -304,20 +298,15 @@ public class Graphe {
         boolean ret = false;
 
         if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
-
-            ret = true;
-            Sommet sommet1 = this.getSommet(idSom1);
-            Sommet sommet2 = this.getSommet(idSom2);
-
-            this.sommetsVoisins.get(sommet1).remove(sommet2);
-            this.sommetsVoisins.get(sommet2).remove(sommet1);
-
-            
+            if(this.sommetsVoisins.get(this.getSommet(idSom1)).contains(this.getSommet(idSom2))){
+                this.sommetsVoisins.get(this.getSommet(idSom1)).remove(this.getSommet(idSom2));
+                ret = true;
+            } else {
+                throw new IllegalArgumentException("The edge does not exist");
+            }
         }else{
-
-            System.err.println("retireArrete : the two vertex must be in the graph");
+            throw new IllegalArgumentException("One of the vertices is not in the graph.");
         }
-
         return ret;
 
     }
@@ -332,81 +321,61 @@ public class Graphe {
         Sommet ret = null;
 
         if(sommetsVoisins.size() > 0){
-
             if(idSom >= 0){
-
                 for(Sommet i : sommetsVoisins.keySet()){
-
                     if(i.getId() == idSom){
-
                         ret = i;
                     }
                 }
             }else{
-
                 System.err.println("getSommet : the vertex's id must be at least equal to 0.");
             }
         }else{
-
             System.err.println("getSommet : the graph must contain at least one vertex");
-        }
-
-        return ret;
-    }
-
-    public int[][] matriceAdjacence(){
-        int[][] ret = null;
-
-        if(sommetsVoisins.size() > 0){
-            ret = new int[sommetsVoisins.size()][sommetsVoisins.size()];
-
-            for(Sommet i : sommetsVoisins.keySet()){
-                for(Sommet j : sommetsVoisins.get(i)){
-                    ret[i.getId()][j.getId()] = 1;
-                }
-            }
-        }else{
-            System.err.println("matriceAdjacence : the graph must contain at least one vertex");
         }
         return ret;
     }
 
     /**
-     * Returns true if the graph is connected, false if not
-     * @return
+     * Returns the adjacency matrix of the graph
+     * @return the adjacency matrix of the graph
      */
-    public boolean isConnected(){
-        boolean ret = false;
-        int[][] matrice = matriceAdjacence();
-        int nbSommets = sommetsVoisins.size();
-        int[] parcouru = new int[nbSommets];
-        int[] sommets = new int[nbSommets];
-        int nbSommetsParcourus = 0;
-        int i = 0;
-        int j = 0;
+    public int[][] matriceAdjacence(){
 
-        for(i = 0; i < nbSommets; i++){
-            sommets[i] = i;
+        int[][] ret = null;
+
+        if(sommetsVoisins.size() > 0){
+            ret = new int[sommetsVoisins.size()][sommetsVoisins.size()];
+            for(Sommet i : sommetsVoisins.keySet()){
+                for(Sommet j : sommetsVoisins.get(i)){
+                    ret[i.getId()][j.getId()] = 1;
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("The graph must contain at least one vertex");
         }
+        return ret;
+    }
 
-        for(i = 0; i < nbSommets; i++){
-            if(parcouru[i] == 0){
-                parcouru[i] = 1;
-                nbSommetsParcourus++;
-                for(j = 0; j < nbSommets; j++){
-                    if(matrice[i][j] == 1){
-                        parcouru[j] = 1;
-                    }
+    /**
+     * Chekcs if the graph is connected
+     * @return true if the graph is connected, false if not
+     */
+    public boolean estConnexe(){
+    
+        boolean ret = true;
+        int[][] matrice = matriceAdjacence();
+
+        for(int i = 0; i < nbSommets(); i++){
+            for(int j = 0; j < nbSommets(); j++){
+                if(matrice[i][j] == 0){
+                    ret = false;
                 }
             }
         }
-
-        if(nbSommetsParcourus == nbSommets){
-            ret = true;
-        }
-
         return ret;
     }
+        
 
     /**
      * Returns the list of connected graph's in the currenct graph
@@ -415,34 +384,19 @@ public class Graphe {
     public ArrayList<Graphe> composanteConnexe(){
         ArrayList<Graphe> ret = new ArrayList<Graphe>();
         int[][] matrice = matriceAdjacence();
-        int nbSommets = sommetsVoisins.size();
-        int[] parcouru = new int[nbSommets];
-        int[] sommets = new int[nbSommets];
-        int nbSommetsParcourus = 0;
-        int i = 0;
-        int j = 0;
 
-        for(i = 0; i < nbSommets; i++){
-            sommets[i] = i;
-        }
-
-        for(i = 0; i < nbSommets; i++){
-            if(parcouru[i] == 0){
-                parcouru[i] = 1;
-                nbSommetsParcourus++;
-                for(j = 0; j < nbSommets; j++){
-                    if(matrice[i][j] == 1){
-                        parcouru[j] = 1;
+        if(estConnexe()){
+            for(int i = 0; i < nbSommets(); i++){
+                for(int j = 0; j < nbSommets(); j++){
+                    if(matrice[i][j] == 0){
+                        Graphe g = new Graphe(this);
+                        g.ajouteArrete(i+1,j+1);
+                        ret.add(g);
                     }
                 }
-                Graphe g = new Graphe();
-                for(i = 0; i < nbSommets; i++){
-                    if(parcouru[i] == 1){
-                        g.ajouteSommet(sommets[i]);
-                    }
-                }
-                ret.add(g);
             }
+        } else {
+            throw new IllegalArgumentException("The graph is not connected");
         }
 
         return ret;
