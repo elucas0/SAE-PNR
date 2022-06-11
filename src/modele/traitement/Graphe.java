@@ -2,6 +2,9 @@ package modele.traitement;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/**
+ * Class generating a graph from a list of observations
+ */
 public class Graphe {
 
     private HashMap<Sommet, ArrayList<Sommet>> sommetsVoisins;
@@ -402,30 +405,31 @@ public class Graphe {
         return ret;
     }
 
-    public int distAretes(int idSome1, int idSome2) {
-        int ret = -1;
+    /**
+     * Returns the number of sides between two vertices
+     * @param idSom1 the first vertex's id
+     * @param idSom2 the second vertex's id
+     * @return the number of sides between two vertices
+     */
+    public int distAretes(int idSom1, int idSom2) {
+        int toAdd = 1;
+        int nbAretes = 0;
 
-        if(sommetsVoisins.size() > 0){
-            if(idSome1 >= 0 && idSome2 >= 0){
-                Sommet sommet1 = this.getSommet(idSome1);
-                Sommet sommet2 = this.getSommet(idSome2);
-
-                if(sommet1 != null && sommet2 != null){
-                    if(this.sommetsVoisins.get(sommet1).contains(sommet2)){
-                        ret = 1;
-                    }else{
-                        ret = 0;
+        if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
+            for(Sommet s : sommetsVoisins.keySet()){
+                if(s.getId() == idSom1){
+                    for(Sommet s2 : sommetsVoisins.get(s)){
+                        if(s2.getId() == idSom2){
+                            toAdd = 0;
+                        }
+                        nbAretes+=toAdd;
                     }
-                }else{
-                    System.err.println("distAretes : the two vertex must be in the graph");
                 }
-            }else{
-                System.err.println("distAretes : the vertex's id must be at least equal to 0.");
             }
-        }else{
-            System.err.println("distAretes : the graph must contain at least one vertex");
+        } else {
+            throw new IllegalArgumentException("One of the vertices is not in the graph.");
         }
-        return ret;
+        return nbAretes;
     }
 
     /**
@@ -434,42 +438,111 @@ public class Graphe {
      * @return
      */
     public int excentricite(int idSom) {
-        int ret = -1;
+        
+        int ret = 0;
 
-        if(sommetsVoisins.size() > 0){
+        if(this.estConnexe()){
             if(idSom >= 0){
-                Sommet sommet = this.getSommet(idSom);
-
-                if(sommet != null){
-                    int nbSommets = sommetsVoisins.size();
-                    int[] sommetsConnexes = new int[nbSommets];
-                    int nbSommetsConnexes = 0;
-
-                    for(int i = 0; i < nbSommets; i++){
-                        if(sommetsConnexes[i] == 0){
-                            sommetsConnexes[i] = 1;
-                            nbSommetsConnexes++;
-                            for(int j = 0; j < nbSommets; j++){
-                                if(matriceAdjacence()[i][j] == 1){
-                                    sommetsConnexes[j] = 1;
-                                    nbSommetsConnexes++;
-                                }
+                if(this.estDansGraphe(idSom)){
+                    int max = 0;
+                    for(Sommet s : sommetsVoisins.keySet()){
+                        if(s.getId() != idSom){
+                            if(this.distAretes(idSom, s.getId()) > max){
+                                max = this.distAretes(idSom, s.getId());
                             }
                         }
                     }
-                    if(nbSommetsConnexes == nbSommets){
-                        ret = 0;
-                    }else{
-                        ret = nbSommets - nbSommetsConnexes;
-                    }
-                }else{
-                    System.err.println("excentricite : the vertex must be in the graph");
+                    ret = max;
+                } else {
+                    throw new IllegalArgumentException("The vertex is not in the graph.");
                 }
-            }else{
-                System.err.println("excentricite : the vertex's id must be at least equal to 0.");
+            } else {
+                throw new IllegalArgumentException("The vertex's id must be at least equal to 0.");
             }
-        }else{
-            System.err.println("excentricite : the graph must contain at least one vertex");
+        } else {
+            ret = -1;
+        }
+        return ret;
+    }
+    
+    /**
+     * Returns the max excentricity of the graph
+     * @return the max excentricity of the graph
+     */
+    public int diametre(){
+
+        int diametre = 0;
+
+        if(this.estConnexe()){
+            int max = 0;
+            for(Sommet s : sommetsVoisins.keySet()){
+                if(this.excentricite(s.getId()) > max){
+                    max = this.excentricite(s.getId());
+                }
+            }
+            diametre = max;
+        } else {
+            diametre = -1;
+        }
+        return diametre;
+    }
+
+    public int rayon(){
+        
+        int rayon = 0;
+        
+        if(this.estConnexe()){
+            int min = this.excentricite(0);
+            for(Sommet s : sommetsVoisins.keySet()){
+                if(this.excentricite(s.getId()) < min){
+                    min = this.excentricite(s.getId());
+                }
+            }
+            rayon = min;
+        } else {
+            rayon = -1;
+        }
+        return rayon;
+    }
+
+    /**
+     * Calculates the sum of the distances between two vertices
+     * @param idSom1 the first vertex's id
+     * @param idSom2 the second vertex's id
+     * @return
+     */
+    public double calculeDist(int idSom1, int idSom2){
+        
+        double ret = 0;
+        
+        if(this.estDansGraphe(idSom1) && this.estDansGraphe(idSom2)){
+            for(Sommet s : sommetsVoisins.keySet()){
+                if(s.getId() == idSom1){
+                    for(Sommet s2 : sommetsVoisins.get(s)){
+                        if(s2.getId() == idSom2){
+                            ret += s.calculeDist(s2);
+                        }
+                    }
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("One of the vertices is not in the graph.");
+        }
+        return ret;
+    }
+
+    /**
+     * Returns a String representation of the graph
+     * @return a String representation of the graph
+     */
+    public String toString(){
+        String ret = "";
+        for(Sommet s : sommetsVoisins.keySet()){
+            ret += s.toString();
+            for(Sommet s2 : sommetsVoisins.get(s)){
+                ret += " " + s2.toString();
+            }
+            ret += "\n";
         }
         return ret;
     }
