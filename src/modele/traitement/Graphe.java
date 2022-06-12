@@ -218,26 +218,29 @@ public class Graphe {
      */
     public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
 
-        boolean ret;
-
-        if(som1 == som2){
+        boolean ret = false;
+        if (som1 == som2){
             ret = true;
-        }else if(stack.size() == 0){
+
+        }else if (stack.size() == 0){
             ret = false;
+
         }else{
-            Sommet departSuivant = stack.get(0);
-            parcouru.add(departSuivant);
-            stack.remove(departSuivant);
+            Sommet nouveauDepart = stack.get(0);
+            parcouru.add(nouveauDepart);
+            parcouru.remove(nouveauDepart);
 
-            for(Sommet i : sommetsVoisins.get(departSuivant)){
-                if(!parcouru.contains(i)){
-                    stack.add(i);
+            if(this.sommetsVoisins.get(nouveauDepart).size() >= 1){
+
+                for (Sommet sommet : this.sommetsVoisins.get(nouveauDepart)){
+                    if(!parcouru.contains(sommet) && !stack.contains(sommet)){
+                        stack.add(sommet);
+                    }
                 }
-
+                ret = DFSrec(nouveauDepart,som2, parcouru,stack);
             }
-            ret = DFSrec(departSuivant, som2, parcouru, stack);
-        }
 
+        }
         return ret;
     }
 
