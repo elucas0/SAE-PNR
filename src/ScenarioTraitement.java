@@ -106,6 +106,17 @@ public class ScenarioTraitement {
             }
             System.out.println();
         }
+        System.out.println();
+
+        // Test de la méthode estConnexe()
+        System.out.println("estConnexe() : " + grapheEx.estConnexe());
+
+        // Test de la méthode composanteConnexe()
+        // System.out.println("Composantes connexes : ");
+        // ArrayList<Graphe> composantesConnexes = grapheEx.composanteConnexe();
+        // for (Graphe g : composantesConnexes) {
+        //     System.out.println(g);
+        // }
         
     }
     

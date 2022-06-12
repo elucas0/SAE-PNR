@@ -345,13 +345,15 @@ public class Graphe {
      */
     public int[][] matriceAdjacence(){
 
-        int[][] ret = new int[nbSommets()][nbSommets()];
+        int[][] ret = new int[nbSommets()][nbSommets() + 1];
 
         if(sommetsVoisins.size() > 0){
             for(int i = 0; i < this.nbSommets(); i++){
                 for(int j = 0; j < this.nbSommets(); j++){
                     if(sontVoisins(i+1,j+1)){
                         ret[i][j] = 1;
+                    } else {
+                        ret[i][j] = 0;
                     }
                 }
             }
