@@ -340,18 +340,19 @@ public class Graphe {
     }
 
     /**
-     * Returns the adjacency matrix of the graph
+     * Returns the adjacency matrix of the graph where the first row is the vertex's id
      * @return the adjacency matrix of the graph
      */
     public int[][] matriceAdjacence(){
 
-        int[][] ret = null;
+        int[][] ret = new int[nbSommets()][nbSommets()];
 
         if(sommetsVoisins.size() > 0){
-            ret = new int[sommetsVoisins.size()][sommetsVoisins.size()];
-            for(Sommet i : sommetsVoisins.keySet()){
-                for(Sommet j : sommetsVoisins.get(i)){
-                    ret[i.getId()][j.getId()] = 1;
+            for(int i = 0; i < this.nbSommets(); i++){
+                for(int j = 0; j < this.nbSommets(); j++){
+                    if(sontVoisins(i+1,j+1)){
+                        ret[i][j] = 1;
+                    }
                 }
             }
         } else {

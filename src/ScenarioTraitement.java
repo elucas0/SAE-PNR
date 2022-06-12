@@ -50,17 +50,63 @@ public class ScenarioTraitement {
         Graphe grapheEx = new Graphe(map);
 
         // Test de la méthode nbSommets
-        System.out.println(grapheEx.nbSommets());
+        System.out.println("nbSommets() : " + grapheEx.nbSommets());
 
         // Test de la méthode nbAretes
-        System.out.println(grapheEx.nbAretes());
+        System.out.println("nbAretes() : " + grapheEx.nbAretes());
+        System.out.println();
 
         // Test de la méthode estDansGraphe() avec le sommet 7
-        System.out.println(grapheEx.estDansGraphe(7));
+        System.out.println("estDansGraphe(7) : " + grapheEx.estDansGraphe(7));
 
         // Test de la méthode estDansGraphe() avec le sommet 5
-        System.out.println(grapheEx.estDansGraphe(5));
+        System.out.println("estDansGraphe(5) : " + grapheEx.estDansGraphe(5));
+        System.out.println();
 
+        // Test de la méthode calculDegre() avec le sommet 3
+        System.out.println("calculDegre(3) : " + grapheEx.calculDegre(3));
+
+        // Test de la méthode calculDegre() avec le sommet 4
+        System.out.println("calculDegre(4) : " + grapheEx.calculDegre(4));
+
+        // Test de la méthode calculDegre() avec le sommet 5
+        System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));
+        System.out.println();
+
+        // Test de la méthode calculDegres()
+        HashMap<Sommet, Integer> mapDegres = grapheEx.calculDegres();
+        for (Sommet s : mapDegres.keySet()) {
+            System.out.println(s + " : " + mapDegres.get(s));
+        }
+        System.out.println();
+
+        // Test de la méthode sontVoisins() avec les sommets 3 et 4
+        System.out.println("sontVoisins(3, 4) : " + grapheEx.sontVoisins(3, 4));
+
+        // Test de la méthode sontVoisins() avec les sommets 6 et 2
+        System.out.println("sontVoisins(6, 2) : " + grapheEx.sontVoisins(6, 2));
+        System.out.println();
+
+        // Test de la méthode existeChemin() avec les sommets 5 et 6 : doit retourner FALSE
+        System.out.println("existeChemin(5, 6) : " + grapheEx.existeChemin(5, 6));
+
+        // Test de la méthode existeChemin() avec les sommets 6 et 2 : doit retourner TRUE
+        System.out.println("existeChemin(6, 2) : " + grapheEx.existeChemin(6, 2));
+
+        // Test de la méthode existeChemin() avec les sommets 3 et 4
+        //System.out.println(grapheEx.existeChemin(3, 4));
+        System.out.println();
+
+        // Test de la méthode matriceAdjacence()
+        System.out.println("Matrice d'adjacence : ");
+        //Print the matrix
+        for (int i = 0; i < grapheEx.nbSommets(); i++) {
+            for (int j = 0; j < grapheEx.nbSommets(); j++) {
+                System.out.print(grapheEx.matriceAdjacence()[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
     }
     
 }

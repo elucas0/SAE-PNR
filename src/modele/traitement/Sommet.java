@@ -186,4 +186,12 @@ public class Sommet {
             throw new IllegalArgumentException("Sommet : id should be over 0");
         }
     }
+
+    /**
+     * Get the string representation of the vertex
+     * @return the string representation of the vertex
+     */
+    public String toString() {
+        return "Sommet{" + "id=" + id + '}';
+    }
 }
