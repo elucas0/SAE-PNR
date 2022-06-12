@@ -194,55 +194,62 @@ public class Graphe {
      */
     public boolean existeChemin(int idSom1, int idSom2){
 
-        boolean ret = false;
-        ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
-        Sommet sommet1 = this.getSommet(idSom1);
-        Sommet sommet2 = this.getSommet(idSom2);
+        boolean ret = true;
 
-        if((sommet1 != null) && (sommet2 != null)){
-            ret = DFSrec(sommet1, sommet2, parcouru, this.sommetsVoisins.get(sommet1));            
+        if(!estDansGraphe(idSom1) || !estDansGraphe(idSom2)){
+            System.err.println("existeChemin : the vertex are not in the graph");
+
         }else{
-            System.err.println("existeChemin : the two vertex must be in  the graph");
+            Sommet som1 = this.getSommet(idSom1);
+            Sommet som2 = this.getSommet(idSom2);
+            
+            ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
+            ArrayList<Sommet> stack = new ArrayList<Sommet>();
+
+            stack.add(som1);
+            ret = dfsRec(som1, som2, parcouru, stack);
         }
+
         return ret;
     }
 
-    
     /**
      * Do a DFS of the graph
-     * @param som1 the starting vertex
-     * @param som2 the vertex we want to find
-     * @param parcouru the vertex already travelled
-     * @param stack the vertex to search-in
-     * @return true if there is a way, false if not
+     * @param som1 the vertex to start with
+     * @param som2 ethe vertex to finish with
+     * @param parcouru the vertex who ave already been checked
+     * @param stack the other vertex to check
+     * @return true if it arrive to the vertex arrive, or else false
      */
-    public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
+    public boolean dfsRec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
+        
+        boolean ret;
 
-        boolean ret = false;
-
-        if(som1 == som2){
+        if (som1 == som2){
             ret = true;
-        }else if(stack.size() == 0){
+
+        }else if (stack.size() == 0){
             ret = false;
+
         }else{
-            Sommet departSuivant = stack.get(0);
-            parcouru.add(departSuivant);
-            stack.remove(departSuivant);
+            Sommet nouveauDepart = stack.get(0);
 
-            for(Sommet i : sommetsVoisins.get(departSuivant)){
+            parcouru.add(nouveauDepart);
+            stack.remove(nouveauDepart);
 
-                if(this.sommetsVoisins.get(i).size() >0){
-
-                    if(!parcouru.contains(i)){
-                        stack.add(i);
-                        ret = DFSrec(departSuivant, som2, parcouru, stack);
-                    }
+            for (Sommet sommet : this.sommetsVoisins.get(nouveauDepart)){
+                
+                if(!parcouru.contains(sommet) && !stack.contains(sommet)){
+                    stack.add(sommet);
                 }
-
             }
+
+            ret = dfsRec(nouveauDepart, som2,parcouru,stack);
         }
+
         return ret;
     }
+     
 
 
     /**
