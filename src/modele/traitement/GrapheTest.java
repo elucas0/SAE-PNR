@@ -523,7 +523,7 @@ d’identifiant idSom1 au sommet d’identifiant idSom2 en passant par des arˆe
 
                     if(s2.getId() == idSom2){
 
-                        dist += s.calculeDistance(s2);
+                        dist += s.calculeDist(s2);
                     }
                 }
             }
