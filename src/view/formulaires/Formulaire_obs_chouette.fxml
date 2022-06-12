@@ -78,7 +78,7 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Button" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>
@@ -88,7 +88,7 @@
                         </Button>
                      </right>
                      <left>
-                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une chouette" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
                            </graphic>
@@ -129,7 +129,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout de nid GCI" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout observation d'une chouette" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -172,6 +172,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <opaqueInsets>
                         <Insets />
@@ -180,36 +183,41 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Numéro de la chouette associée :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="idChiuette" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
+                        <ComboBox fx:id="protocole" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Un protocole a été utilisé ?" GridPane.rowIndex="4">
                            <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
+                              <Insets left="100.0" right="150.0" />
                            </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
+                        </ComboBox>
+                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="8">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
+                        <TextField fx:id="dateObs" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="heureObs" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -225,17 +233,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
+                        <ComboBox fx:id="typeObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Type d'observation" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="190.0" />
                            </GridPane.margin>
