@@ -26,7 +26,7 @@ public class Graphe {
             }
             for(Sommet s : sommets) {
                 for(Sommet s2 : sommets) {
-                    if((s != s2) && (calculeDist(s, s2) <= dist)) {
+                    if((s != s2) && (calculeDist(s.getId(), s2.getId()) <= dist)) {
                         this.sommetsVoisins.get(s).add(s2);
                     }
                 }

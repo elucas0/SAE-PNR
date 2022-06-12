@@ -1,11 +1,11 @@
-package traitement;
+package modele.traitement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Classe représentant un sommet d'un graphe
  */
-public class Graphe {
+public class GrapheTest {
 //cum
     /**
      * Liste des sommets du graphe
