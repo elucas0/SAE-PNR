@@ -1,7 +1,15 @@
 package modele;
 import java.sql.*;
 
+/**
+ * Tests the connection to the database
+ */
 public class testConnectDb {
+
+    /*
+     * Main method
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         try {            
             //Création de la requête SQL

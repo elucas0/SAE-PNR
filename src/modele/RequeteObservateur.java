@@ -2,7 +2,15 @@ package modele;
 import java.util.*;
 import java.sql.*;
 
+/**
+ * Create one top for an observation
+ */
 public class RequeteObservateur {
+    
+    /**
+     * Main method
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         try {
             //Les ArrayList = au colonne de la table

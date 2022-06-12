@@ -2,7 +2,15 @@ package modele;
 import java.util.*;
 import java.sql.*;
 
+/**
+ * Class that represents a request to get the top of a species
+ */
 public class RequeteVegetation {
+
+    /**
+     * Main method
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         try {
             //Les ArrayList = au colonne de la table
