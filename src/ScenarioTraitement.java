@@ -117,7 +117,6 @@ public class ScenarioTraitement {
         //     System.out.println(g);
         // }
         
->>>>>>> 24ec4fe485662351b25b681eef0a5cf93662c098
     }
 
     
