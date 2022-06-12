@@ -230,13 +230,9 @@ public class Graphe {
             stack.remove(departSuivant);
 
             for(Sommet i : sommetsVoisins.get(departSuivant)){
-
-
-
-
-                    if(!parcouru.contains(i)){
-                        stack.add(i);
-                    }
+                if(!parcouru.contains(i)){
+                    stack.add(i);
+                }
 
             }
             ret = DFSrec(departSuivant, som2, parcouru, stack);
