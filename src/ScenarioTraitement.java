@@ -19,8 +19,8 @@ public class ScenarioTraitement {
         Sommet sommet6 = new Sommet(6, lieu2, new Date(1), EspeceObservee.LOUTRE);
 
         HashMap<Sommet, ArrayList<Sommet>> map = new HashMap<Sommet, ArrayList<Sommet>>();
-        HashMap<Sommet, ArrayList<Sommet>> map2 = new HashMap<Sommet, ArrayList<Sommet>>();
 
+        //Map 1
         map.put(sommet, new ArrayList<Sommet>());
         map.get(sommet).add(sommet2);
         map.get(sommet).add(sommet4);
@@ -43,29 +43,34 @@ public class ScenarioTraitement {
         map.put(sommet6, new ArrayList<Sommet>());
         map.get(sommet6).add(sommet4);
 
-        //Observation obs = new Observation(1, new Date(1), new Time(1), lieu, )
-        //sommet.calculeDist(sommet2);
-
         Graphe grapheEx = new Graphe(map);
+        //Graphe grapheEx2 = grapheEx.clotureTransitive();
 
+        System.out.println("graphEx : ");
         // Test de la méthode nbSommets
-        System.out.println(grapheEx.nbSommets());
+        System.out.println("nbSommets() : " + grapheEx.nbSommets());
 
         // Test de la méthode nbAretes
-        System.out.println(grapheEx.nbAretes());
+        System.out.println("nbAretes() : " + grapheEx.nbAretes());
 
         // Test de la méthode estDansGraphe() avec le sommet 7
-        System.out.println(grapheEx.estDansGraphe(7));
+        System.out.println("estDansGraphe(7) : " + grapheEx.estDansGraphe(7));
 
         // Test de la méthode estDansGraphe() avec le sommet 5
-        System.out.println(grapheEx.estDansGraphe(5));
+        System.out.println("estDansGraphe(5) : " + grapheEx.estDansGraphe(5));
 
+        // Test de la méthode calculDegre() avec le sommet 3
+        System.out.println("calculDegre(3) : " + grapheEx.calculDegre(3));
+
+        // Test de la méthode calculDegre() avec le sommet 4
+        System.out.println("calculDegre(4) : " + grapheEx.calculDegre(4));
 
         // Test de la méthode calculDegre() avec le sommet 5
         System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));
         System.out.println();
 
         // Test de la méthode calculDegres()
+        System.out.println("calculDegres() : ");
         HashMap<Sommet, Integer> mapDegres = grapheEx.calculDegres();
         for (Sommet s : mapDegres.keySet()) {
             System.out.println(s + " : " + mapDegres.get(s));
@@ -83,7 +88,7 @@ public class ScenarioTraitement {
         System.out.println("existeChemin(5, 6) : " + grapheEx.existeChemin(5, 6));
 
         // Test de la méthode existeChemin() avec les sommets 6 et 2 : doit retourner TRUE
-        // System.out.println("existeChemin(6, 2) : " + grapheEx.existeChemin(6, 2));
+        System.out.println("existeChemin(6, 2) : " + grapheEx.existeChemin(6, 2));
 
         // Test de la méthode existeChemin() avec les sommets 3 et 4
         //System.out.println(grapheEx.existeChemin(3, 4));
@@ -91,10 +96,11 @@ public class ScenarioTraitement {
 
         // Test de la méthode matriceAdjacence()
         System.out.println("Matrice d'adjacence : ");
+        int[][] matrice = grapheEx.matriceAdjacence();
         //Print the matrix
-        for (int i = 0; i < grapheEx.nbSommets(); i++) {
-            for (int j = 0; j < grapheEx.nbSommets(); j++) {
-                System.out.print(grapheEx.matriceAdjacence()[i][j] + " ");
+        for (int i = 0; i < matrice.length; i++) {
+            for (int j = 0; j < matrice[i].length; j++) {
+                System.out.print(matrice[i][j] + " ");
             }
             System.out.println();
         }
@@ -107,18 +113,25 @@ public class ScenarioTraitement {
         // System.out.println("Composantes connexes : ");
         // ArrayList<Graphe> composantesConnexes = grapheEx.composanteConnexe();
         
-
         // Test de la méthode distAretes() avec les sommets 6 et 2
         System.out.println("distAretes(6, 2) : " + grapheEx.distAretes(6, 2));
+        System.out.println();
 
         // Test de la méthode excentricite() avec le sommet 6
         System.out.println("excentricite(6) : " + grapheEx.excentricite(6));
+        System.out.println();
 
-        // Test de la méthode diametre()
-        System.out.println("diametre() : " + grapheEx.diametre());
+
+
+        //System.out.println("graphEx2 : ");
+        // Test de la méthode estConnexe()
+        //System.out.println("estConnexe() : " + grapheEx2.estConnexe());
+
+        // Test de la méthode diametre() sur le grapheEx2
+        //System.out.println("diametre() : " + grapheEx2.diametre());
 
         // Test de la méthode rayon()
-        System.out.println("rayon() : " + grapheEx.rayon());
+        //System.out.println("rayon() : " + grapheEx2.rayon());
 
 
     }

@@ -7,6 +7,9 @@ import java.util.ArrayList;
  */
 public class Graphe {
 
+    /**
+     * HashMap containing the vertices and their adjacents
+     */
     private HashMap<Sommet, ArrayList<Sommet>> sommetsVoisins;
     
     /**
@@ -276,7 +279,7 @@ public class Graphe {
 
 
     /**
-     * Add an edge to the graph between two vertex
+     * Add an edge to the graph between two vertices
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
      * @return true if the edge has been added, false if not
@@ -357,15 +360,18 @@ public class Graphe {
      */
     public int[][] matriceAdjacence(){
 
-        int[][] ret = new int[nbSommets()][nbSommets()];
+        int[][] ret = new int[nbSommets()+1][nbSommets()];
 
         if(sommetsVoisins.size() > 0){
+            for(int k=0; k<this.nbSommets();k++){
+                ret[0][k]=k+1;
+            }
             for(int i = 0; i < this.nbSommets(); i++){
                 for(int j = 0; j < this.nbSommets(); j++){
                     if(sontVoisins(i+1,j+1)){
-                        ret[i][j] = 1;
+                        ret[i+1][j] = 1;
                     } else {
-                        ret[i][j] = 0;
+                        ret[i+1][j] = 0;
                     }
                 }
             }
@@ -380,18 +386,22 @@ public class Graphe {
      * @return true if the graph is connected, false if not
      */
     public boolean estConnexe(){
-    
-        boolean ret = true;
-        int[][] matrice = matriceAdjacence();
 
-        for(int i = 0; i < nbSommets(); i++){
-            for(int j = 0; j < nbSommets(); j++){
-                if(matrice[i][j] == 0){
-                    ret = false;
+        boolean connexe = true;
+        int cpt = 0;
+
+        for(Sommet s : sommetsVoisins.keySet()){
+            cpt=0;
+            for(Sommet s2 : sommetsVoisins.keySet()){
+                if(sontVoisins(s.getId(), s2.getId()) && s.getId()!=s2.getId()){
+                    cpt++;
                 }
             }
+            if(cpt == 0){
+                connexe = false;
+            }
         }
-        return ret;
+        return connexe;
     }
         
 
@@ -423,30 +433,43 @@ public class Graphe {
      * @return the number of sides between two vertices
      */
     public int distAretes(int idSom1, int idSom2) {
-        int toAdd = 1;
-        int nbAretes = 0;
+        int ret = -1;
 
-        if((this.estDansGraphe(idSom1)) && (this.estDansGraphe(idSom2))){
-            for(Sommet s : sommetsVoisins.keySet()){
-                if(s.getId() == idSom1){
-                    for(Sommet s2 : sommetsVoisins.get(s)){
-                        if(s2.getId() == idSom2){
-                            toAdd = 0;
-                        }
-                        nbAretes+=toAdd;
+        if (existeChemin(idSom1, idSom2)) {
+            ArrayList<Sommet> file = new ArrayList<Sommet>();
+            ArrayList<Sommet> traiter = new ArrayList<Sommet>();
+            boolean trouver = false;
+            ret = 0;
+
+            Sommet sommet1 = getSommet(idSom1);
+            Sommet sommet2 = getSommet(idSom2);
+            file.add(sommet1);
+
+            while (file.size() > 0 && !trouver) {
+                if (file.contains(sommet2)) {
+                    trouver = true;
+                } else {
+                    Sommet sommetATraiter = file.remove(0);
+                    traiter.add(sommetATraiter);
+                    ArrayList<Sommet> lesVoisin = voisins(sommetATraiter.getId());
+                    lesVoisin.removeIf(traiter::contains);
+                    lesVoisin.removeIf(file::contains);
+                    file.addAll(lesVoisin);
+                    if (lesVoisin.size() != 0) {
+                        ret += 1;
                     }
                 }
             }
         } else {
-            throw new IllegalArgumentException("One of the vertices is not in the graph.");
+            throw new IllegalArgumentException("There is no path between these two vertices");
         }
-        return nbAretes;
+        return ret;
     }
 
     /**
      * Returns the maximal number of sides of the path from the given vertex and the others vertices. If the graph is not connected, returns -1.
-     * @param idSom
-     * @return
+     * @param idSom the vertex's id
+     * @return 
      */
     public int excentricite(int idSom) {
         
@@ -538,6 +561,27 @@ public class Graphe {
             }
         } else {
             throw new IllegalArgumentException("One of the vertices is not in the graph.");
+        }
+        return ret;
+    }
+
+    /**
+     * Returns transitive closure of the graph (the graph with all the edges)
+     * @return
+     */
+    public Graphe clotureTransitive(){
+        Graphe ret = new Graphe(this);
+        int[][] matrice = matriceAdjacence();
+        for(int i = 0; i < nbSommets(); i++){
+            for(int j = 0; j < nbSommets(); j++){
+                if(matrice[i][j] == 1){
+                    for(int k = 0; k < nbSommets(); k++){
+                        if(matrice[j][k] == 1){
+                            ret.ajouteArrete(i+1,k+1);
+                        }
+                    }
+                }
+            }
         }
         return ret;
     }
