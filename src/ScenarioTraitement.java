@@ -50,25 +50,24 @@ public class ScenarioTraitement {
         Graphe grapheEx = new Graphe(map);
 
         // Test de la méthode nbSommets
-        System.out.println("nbSommets() : " + grapheEx.nbSommets());
+        System.out.println(grapheEx.nbSommets());
 
         // Test de la méthode nbAretes
-        System.out.println("nbAretes() : " + grapheEx.nbAretes());
-        System.out.println();
+        System.out.println(grapheEx.nbAretes());
 
         // Test de la méthode estDansGraphe() avec le sommet 7
-        System.out.println("estDansGraphe(7) : " + grapheEx.estDansGraphe(7));
+        System.out.println(grapheEx.estDansGraphe(7));
 
         // Test de la méthode estDansGraphe() avec le sommet 5
-        System.out.println("estDansGraphe(5) : " + grapheEx.estDansGraphe(5));
-        System.out.println();
+        System.out.println(grapheEx.estDansGraphe(5));
 
-        // Test de la méthode calculDegre() avec le sommet 3
-        System.out.println("calculDegre(3) : " + grapheEx.calculDegre(3));
+        //renvoie true
+        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
 
-        // Test de la méthode calculDegre() avec le sommet 4
-        System.out.println("calculDegre(4) : " + grapheEx.calculDegre(4));
+        //renvoie false
+        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
 
+<<<<<<< HEAD
         // Test de la méthode calculDegre() avec le sommet 5
         System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));
         System.out.println();
@@ -118,6 +117,9 @@ public class ScenarioTraitement {
         //     System.out.println(g);
         // }
         
+=======
+>>>>>>> 2b13078578d4012b523003543e44ae22717b4243
     }
+
     
 }

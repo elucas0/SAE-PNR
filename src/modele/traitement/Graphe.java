@@ -202,7 +202,7 @@ public class Graphe {
         if((sommet1 != null) && (sommet2 != null)){
             ret = DFSrec(sommet1, sommet2, parcouru, this.sommetsVoisins.get(sommet1));            
         }else{
-            System.err.println("sontVoisins : the two vertex must be in  the graph");
+            System.err.println("existeChemin : the two vertex must be in  the graph");
         }
         return ret;
     }
@@ -230,10 +230,15 @@ public class Graphe {
             stack.remove(departSuivant);
 
             for(Sommet i : sommetsVoisins.get(departSuivant)){
-                if(!parcouru.contains(i)){
-                    stack.add(i);
-                    ret = DFSrec(departSuivant, som2, parcouru, stack);
+
+                if(this.sommetsVoisins.get(i).size() >0){
+
+                    if(!parcouru.contains(i)){
+                        stack.add(i);
+                        ret = DFSrec(departSuivant, som2, parcouru, stack);
+                    }
                 }
+
             }
         }
         return ret;
