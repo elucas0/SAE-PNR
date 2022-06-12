@@ -69,7 +69,7 @@ public class Graphe {
 
     /**
      * Returns the number of vertices in the graph.
-     * @return
+     * @return the number of vertex in the graph
      */
     public int nbSommets(){
         return this.sommetsVoisins.size();
@@ -127,9 +127,9 @@ public class Graphe {
 
 
     /**
-     * Get an HashMap<Sommmet, int> wich keys are the vertices
+     * get an HashMap wich keys are the vertices
      * of the graph. The values are the degres of each vertex.
-     * @return the HashMap<Sommmet, int>
+     * @return the HashMap
      */
     public HashMap<Sommet, Integer> calculDegres(){
 
@@ -310,6 +310,7 @@ public class Graphe {
      * Remove an edge to the graph between two vertex
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
+     * @return false if there is no connection between the two vertex
      */
     public boolean retireArete(int idSom1, int idSom2){
 
@@ -407,7 +408,7 @@ public class Graphe {
 
     /**
      * Returns the list of connected graph's in the current graph
-     * @return
+     * @return an ArrayList wich contain the connexe elements of the graph
      */
     public ArrayList<Graphe> composanteConnexe(){
         ArrayList<Graphe> ret = new ArrayList<Graphe>();
@@ -469,7 +470,8 @@ public class Graphe {
     /**
      * Returns the maximal number of sides of the path from the given vertex and the others vertices. If the graph is not connected, returns -1.
      * @param idSom the vertex's id
-     * @return 
+     * @return the maximal number of edges of the path betweeen the vertex in parameter and the other
+     * vertex in the graph
      */
     public int excentricite(int idSom) {
         
@@ -521,6 +523,10 @@ public class Graphe {
         return diametre;
     }
 
+    /**
+     * Calculate the radius of the graph
+     * @return the graph's radius
+     */
     public int rayon(){
         
         int rayon = 0;
@@ -543,7 +549,7 @@ public class Graphe {
      * Calculates the sum of the distances between two vertices
      * @param idSom1 the first vertex's id
      * @param idSom2 the second vertex's id
-     * @return
+     * @return the distance between the two vertex
      */
     public double calculeDist(int idSom1, int idSom2){
         
@@ -567,7 +573,7 @@ public class Graphe {
 
     /**
      * Returns transitive closure of the graph (the graph with all the edges)
-     * @return
+     * @return the transitive closure of the graph (the graph with all the edges)
      */
     public Graphe clotureTransitive(){
         Graphe ret = new Graphe(this);
