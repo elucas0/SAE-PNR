@@ -218,7 +218,7 @@ public class Graphe {
      */
     public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
 
-        boolean ret = false;
+        boolean ret;
 
         if(som1 == som2){
             ret = true;
@@ -229,26 +229,19 @@ public class Graphe {
             parcouru.add(departSuivant);
             stack.remove(departSuivant);
 
-            if(sommetsVoisins.get(departSuivant).size() >=1){
-                ArrayList<Sommet> passation = stack;
+            for(Sommet i : sommetsVoisins.get(departSuivant)){
 
 
-                for(Sommet i : sommetsVoisins.get(departSuivant)){
 
 
-                    if(this.sommetsVoisins.get(i).size() >0){
-    
-                        if(!parcouru.contains(i)){
-                            passation.add(i);
-                            ret = DFSrec(departSuivant, som2, parcouru, passation);
-                        }
+                    if(!parcouru.contains(i)){
+                        stack.add(i);
                     }
-    
-                }
+
             }
-
-
+            ret = DFSrec(departSuivant, som2, parcouru, stack);
         }
+
         return ret;
     }
 
