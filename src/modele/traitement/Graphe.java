@@ -194,15 +194,23 @@ public class Graphe {
      */
     public boolean existeChemin(int idSom1, int idSom2){
 
-        boolean ret = false;
-        ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
-        Sommet sommet1 = this.getSommet(idSom1);
-        Sommet sommet2 = this.getSommet(idSom2);
-
-        if((sommet1 != null) && (sommet2 != null)){
-            ret = DFSrec(sommet1, sommet2, parcouru, this.sommetsVoisins.get(sommet1));            
+        boolean ret = true;
+        if(!estDansGraphe(idSom1) || !estDansGraphe(idSom2)){
+            throw new IllegalArgumentException("the sommet is not in the graph");
         }else{
-            System.err.println("existeChemin : the two vertex must be in  the graph");
+            Sommet som1 = null;
+            Sommet som2 = null;
+            for(Sommet sommet : this.sommetsVoisins.keySet()){
+                if(sommet.getId() == idSom1){
+                    som1 = sommet;
+                }else if(sommet.getId() == idSom2){
+                    som2 = sommet;
+                }
+            }
+            ArrayList<Sommet> sommetsParcourus = new ArrayList<Sommet>();
+            ArrayList<Sommet> aParcourir = new ArrayList<Sommet>();
+            aParcourir.add(som1);
+            ret = DFSrec(som1, som2, sommetsParcourus, aParcourir);
         }
         return ret;
     }
@@ -237,7 +245,7 @@ public class Graphe {
                         stack.add(sommet);
                     }
                 }
-                ret = DFSrec(nouveauDepart,som2, parcouru,stack);
+                ret = DFSrec(nouveauDepart, som2, parcouru,stack);
             }
 
         }
