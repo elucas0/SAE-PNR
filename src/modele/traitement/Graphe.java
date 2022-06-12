@@ -196,7 +196,7 @@ public class Graphe {
 
         boolean ret = true;
         if(!estDansGraphe(idSom1) || !estDansGraphe(idSom2)){
-            throw new IllegalArgumentException("existeChemin : the vertex are not in the graph");
+            System.err.println("existeChemin : the vertex are not in the graph");
         }else{
             Sommet som1 = this.getSommet(idSom1);
             Sommet som2 = this.getSommet(idSom2);
