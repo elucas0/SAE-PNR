@@ -28,6 +28,36 @@
                </BorderPane.margin>
             </ImageView>
          </left>
+         <right>
+            <Button fx:id="nom_compte" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="40.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <ImageView fitHeight="75.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@img/colibri.png" />
+                     </image>
+                     <BorderPane.margin>
+                        <Insets left="120.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+               </center>
+               <left>
+                  <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </center>
       </BorderPane>
    </top>
    <bottom>
@@ -37,7 +67,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon fx:id="arreter" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -45,18 +75,32 @@
          </left>
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
-                     <graphic>
-                        <FontIcon iconLiteral="fas-home" iconSize="30" />
-                     </graphic>
-                  </Button>
-               </center>
+               <right>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <right>
+                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Button" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets right="40.0" />
+                           </BorderPane.margin>
+                        </Button>
+                     </right>
+                     <left>
+                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets right="100.0" />
+                           </BorderPane.margin>
+                        </Button>
+                     </left>
+                  </BorderPane>
+               </right>
             </BorderPane>
          </center>
-         <right>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </right>
       </BorderPane>
    </bottom>
    <left>
@@ -141,17 +185,17 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.rowIndex="4">
+                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.rowIndex="6">
+                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -186,7 +230,7 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.rowIndex="3">
+                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
