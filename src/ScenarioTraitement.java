@@ -61,12 +61,6 @@ public class ScenarioTraitement {
         // Test de la méthode estDansGraphe() avec le sommet 5
         System.out.println(grapheEx.estDansGraphe(5));
 
-        //renvoie true
-        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
-
-        //renvoie false
-        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
-
 
         // Test de la méthode calculDegre() avec le sommet 5
         System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));

@@ -195,31 +195,36 @@ public class Graphe {
     public boolean existeChemin(int idSom1, int idSom2){
 
         boolean ret = true;
+
         if(!estDansGraphe(idSom1) || !estDansGraphe(idSom2)){
             System.err.println("existeChemin : the vertex are not in the graph");
+
         }else{
             Sommet som1 = this.getSommet(idSom1);
             Sommet som2 = this.getSommet(idSom2);
-            ArrayList<Sommet> sommetsParcourus = new ArrayList<Sommet>();
-            ArrayList<Sommet> aParcourir = new ArrayList<Sommet>();
-            aParcourir.add(som1);
-            ret = DFSrec(som1, som2, sommetsParcourus, aParcourir);
+            
+            ArrayList<Sommet> parcouru = new ArrayList<Sommet>();
+            ArrayList<Sommet> stack = new ArrayList<Sommet>();
+
+            stack.add(som1);
+            ret = dfsRec(som1, som2, parcouru, stack);
         }
+
         return ret;
     }
 
-    
     /**
      * Do a DFS of the graph
-     * @param som1 the starting vertex
-     * @param som2 the vertex we want to find
-     * @param parcouru the vertex already travelled
-     * @param stack the vertex to search-in
-     * @return true if there is a way, false if not
+     * @param som1 the vertex to start with
+     * @param som2 ethe vertex to finish with
+     * @param parcouru the vertex who ave already been checked
+     * @param stack the other vertex to check
+     * @return true if it arrive to the vertex arrive, or else false
      */
-    public boolean DFSrec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
+    public boolean dfsRec(Sommet som1, Sommet som2, ArrayList<Sommet> parcouru, ArrayList<Sommet> stack){
+        
+        boolean ret;
 
-        boolean ret = false;
         if (som1 == som2){
             ret = true;
 
@@ -228,22 +233,23 @@ public class Graphe {
 
         }else{
             Sommet nouveauDepart = stack.get(0);
-            parcouru.add(nouveauDepart);
-            parcouru.remove(nouveauDepart);
 
+            parcouru.add(nouveauDepart);
+            stack.remove(nouveauDepart);
 
             for (Sommet sommet : this.sommetsVoisins.get(nouveauDepart)){
+                
                 if(!parcouru.contains(sommet) && !stack.contains(sommet)){
                     stack.add(sommet);
                 }
             }
-            
-            ret = DFSrec(nouveauDepart, som2, parcouru,stack);
 
-
+            ret = dfsRec(nouveauDepart, som2,parcouru,stack);
         }
+
         return ret;
     }
+     
 
 
     /**
