@@ -66,9 +66,7 @@ public class ScenarioTraitement {
 
         //renvoie false
         System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
-<<<<<<< HEAD
-de
-=======
+
 
         // Test de la méthode calculDegre() avec le sommet 5
         System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));
