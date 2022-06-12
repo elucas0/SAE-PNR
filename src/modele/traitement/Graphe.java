@@ -196,17 +196,10 @@ public class Graphe {
 
         boolean ret = true;
         if(!estDansGraphe(idSom1) || !estDansGraphe(idSom2)){
-            throw new IllegalArgumentException("the sommet is not in the graph");
+            throw new IllegalArgumentException("existeChemin : the vertex are not in the graph");
         }else{
-            Sommet som1 = null;
-            Sommet som2 = null;
-            for(Sommet sommet : this.sommetsVoisins.keySet()){
-                if(sommet.getId() == idSom1){
-                    som1 = sommet;
-                }else if(sommet.getId() == idSom2){
-                    som2 = sommet;
-                }
-            }
+            Sommet som1 = this.getSommet(idSom1);
+            Sommet som2 = this.getSommet(idSom2);
             ArrayList<Sommet> sommetsParcourus = new ArrayList<Sommet>();
             ArrayList<Sommet> aParcourir = new ArrayList<Sommet>();
             aParcourir.add(som1);
@@ -238,15 +231,15 @@ public class Graphe {
             parcouru.add(nouveauDepart);
             parcouru.remove(nouveauDepart);
 
-            if(this.sommetsVoisins.get(nouveauDepart).size() >= 1){
 
-                for (Sommet sommet : this.sommetsVoisins.get(nouveauDepart)){
-                    if(!parcouru.contains(sommet) && !stack.contains(sommet)){
-                        stack.add(sommet);
-                    }
+            for (Sommet sommet : this.sommetsVoisins.get(nouveauDepart)){
+                if(!parcouru.contains(sommet) && !stack.contains(sommet)){
+                    stack.add(sommet);
                 }
-                ret = DFSrec(nouveauDepart, som2, parcouru,stack);
             }
+            
+            ret = DFSrec(nouveauDepart, som2, parcouru,stack);
+
 
         }
         return ret;
