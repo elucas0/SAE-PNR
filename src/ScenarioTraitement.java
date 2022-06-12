@@ -66,7 +66,7 @@ public class ScenarioTraitement {
 
         //renvoie false
         System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
-
+de
     }
 
     
