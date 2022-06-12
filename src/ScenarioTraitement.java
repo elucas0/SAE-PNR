@@ -18,10 +18,9 @@ public class ScenarioTraitement {
         Sommet sommet5 = new Sommet(5, lieu, new Date(1), EspeceObservee.LOUTRE);
         Sommet sommet6 = new Sommet(6, lieu2, new Date(1), EspeceObservee.LOUTRE);
 
-
-        //New hashmap
         HashMap<Sommet, ArrayList<Sommet>> map = new HashMap<Sommet, ArrayList<Sommet>>();
-        //Fill the HashMap map with this list [(1,(2,4)), (2, (1,4)), (3,(4)),(4,(1,2,3,6)),(5,()),(6,(4))]
+        HashMap<Sommet, ArrayList<Sommet>> map2 = new HashMap<Sommet, ArrayList<Sommet>>();
+
         map.put(sommet, new ArrayList<Sommet>());
         map.get(sommet).add(sommet2);
         map.get(sommet).add(sommet4);
@@ -62,10 +61,10 @@ public class ScenarioTraitement {
         System.out.println(grapheEx.estDansGraphe(5));
 
         //renvoie true
-        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
+        //System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
 
         //renvoie false
-        System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
+        // System.out.println(grapheEx.existeChemin(sommet.getId(), sommet2.getId()));
 
         // Test de la méthode calculDegre() avec le sommet 5
         System.out.println("calculDegre(5) : " + grapheEx.calculDegre(5));
@@ -89,7 +88,7 @@ public class ScenarioTraitement {
         System.out.println("existeChemin(5, 6) : " + grapheEx.existeChemin(5, 6));
 
         // Test de la méthode existeChemin() avec les sommets 6 et 2 : doit retourner TRUE
-        System.out.println("existeChemin(6, 2) : " + grapheEx.existeChemin(6, 2));
+        // System.out.println("existeChemin(6, 2) : " + grapheEx.existeChemin(6, 2));
 
         // Test de la méthode existeChemin() avec les sommets 3 et 4
         //System.out.println(grapheEx.existeChemin(3, 4));
@@ -112,10 +111,21 @@ public class ScenarioTraitement {
         // Test de la méthode composanteConnexe()
         // System.out.println("Composantes connexes : ");
         // ArrayList<Graphe> composantesConnexes = grapheEx.composanteConnexe();
-        // for (Graphe g : composantesConnexes) {
-        //     System.out.println(g);
-        // }
         
+
+        // Test de la méthode distAretes() avec les sommets 6 et 2
+        System.out.println("distAretes(6, 2) : " + grapheEx.distAretes(6, 2));
+
+        // Test de la méthode excentricite() avec le sommet 6
+        System.out.println("excentricite(6) : " + grapheEx.excentricite(6));
+
+        // Test de la méthode diametre()
+        System.out.println("diametre() : " + grapheEx.diametre());
+
+        // Test de la méthode rayon()
+        System.out.println("rayon() : " + grapheEx.rayon());
+
+
     }
 
     

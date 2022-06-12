@@ -350,7 +350,7 @@ public class Graphe {
      */
     public int[][] matriceAdjacence(){
 
-        int[][] ret = new int[nbSommets()][nbSommets() + 1];
+        int[][] ret = new int[nbSommets()][nbSommets()];
 
         if(sommetsVoisins.size() > 0){
             for(int i = 0; i < this.nbSommets(); i++){
@@ -389,25 +389,21 @@ public class Graphe {
         
 
     /**
-     * Returns the list of connected graph's in the currenct graph
+     * Returns the list of connected graph's in the current graph
      * @return
      */
     public ArrayList<Graphe> composanteConnexe(){
         ArrayList<Graphe> ret = new ArrayList<Graphe>();
         int[][] matrice = matriceAdjacence();
 
-        if(estConnexe()){
-            for(int i = 0; i < nbSommets(); i++){
-                for(int j = 0; j < nbSommets(); j++){
-                    if(matrice[i][j] == 0){
-                        Graphe g = new Graphe(this);
-                        g.ajouteArrete(i+1,j+1);
-                        ret.add(g);
-                    }
+        for(int i = 0; i < nbSommets(); i++){
+            for(int j = 0; j < nbSommets(); j++){
+                if(matrice[i][j] == 0){
+                    Graphe g = new Graphe(this);
+                    g.ajouteArrete(i+1,j+1);
+                    ret.add(g);
                 }
             }
-        } else {
-            throw new IllegalArgumentException("The graph is not connected");
         }
 
         return ret;
@@ -547,10 +543,6 @@ public class Graphe {
         String ret = "";
         for(Sommet s : sommetsVoisins.keySet()){
             ret += s.toString();
-            for(Sommet s2 : sommetsVoisins.get(s)){
-                ret += " " + s2.toString();
-            }
-            ret += "\n";
         }
         return ret;
     }
