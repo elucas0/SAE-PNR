@@ -129,7 +129,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout de nid GCI" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout observation loutre" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -180,7 +180,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Commune :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -222,25 +222,25 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="Lieu-dit :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
+                              <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
+                        <TextField fx:id="idnid1" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
+                        <ComboBox prefWidth="150.0" promptText="Indice" GridPane.rowIndex="3">
                            <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
+                              <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
-
-
                         </ComboBox>
                      </children>
                   </GridPane>

@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -87,16 +86,6 @@
                            </BorderPane.margin>
                         </Button>
                      </right>
-                     <left>
-                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
-                           </graphic>
-                           <BorderPane.margin>
-                              <Insets right="100.0" />
-                           </BorderPane.margin>
-                        </Button>
-                     </left>
                   </BorderPane>
                </right>
             </BorderPane>
@@ -129,7 +118,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout de nid GCI" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajouter un observateur" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -180,7 +169,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Id :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -200,12 +189,12 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="Nom :" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
+                        <Label text="Prénom :" textFill="WHITE" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -224,25 +213,6 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                     <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
-                           </GridPane.margin>
-
-
-                        </ComboBox>
-                     </children>
                   </GridPane>
                </children>
             </GridPane>

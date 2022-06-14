@@ -129,7 +129,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout de nid GCI" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout d'observation GCI" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -180,36 +180,36 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="dateObs" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="Nombre :" textFill="WHITE" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
+                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="190.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <Label text="Numéro du nid Référencé :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
+                        <TextField fx:id="dateObs1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -223,25 +223,34 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
+                        <ComboBox fx:id="natureObs1" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Présent mais pas observé" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
+                              <Insets left="100.0" right="170.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="dateObs2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
+                        <TextField fx:id="dateObs3" GridPane.rowIndex="5">
                            <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
+                              <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
-
-
-                        </ComboBox>
+                        </TextField>
                      </children>
                   </GridPane>
                </children>
