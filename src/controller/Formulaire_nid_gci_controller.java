@@ -30,7 +30,7 @@ public class Formulaire_nid_gci_controller {
 
 
         raisonArret.setItems(liste);
-        estProtege.setItems(protection);
+        //estProtege.setItems(protection);
 
     }
     
