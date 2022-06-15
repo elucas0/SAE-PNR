@@ -1,5 +1,6 @@
 package view.login_page;
 
+import controller.Formulaire_nid_gci_controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -10,7 +11,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+    private Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+    private Formulaire_nid_gci_controller form_nid_gci;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -18,9 +20,17 @@ public class Main extends Application {
         primaryStage.setTitle("PNR - Login");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
+        this.initComponents();
     }
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void initComponents(){
+
+        form_nid_gci = new Formulaire_nid_gci_controller();
+        form_nid_gci.setItems();
+
     }
 }

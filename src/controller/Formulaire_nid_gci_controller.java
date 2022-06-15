@@ -25,7 +25,7 @@ public class Formulaire_nid_gci_controller {
     @FXML
     private ComboBox natureObs;
     
-    public void setItems(String[] args){
+    public void setItems(){
 
         ArrayList<String> contenu = new ArrayList<String>();
         contenu.add("Poussin");
