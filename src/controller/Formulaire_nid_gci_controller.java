@@ -18,10 +18,7 @@ public class Formulaire_nid_gci_controller {
     private ObservableList<String> protection;
 
 
-    public Formulaire_nid_gci_controller(){
-
-
-    }
+    public Formulaire_nid_gci_controller(){}
     
 
 
