@@ -44,9 +44,6 @@ public class Obs_Batracien_controller{
 
         liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
         meteo_temps.setItems(liste);
-
-
-
     }
     
 }
