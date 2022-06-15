@@ -6,31 +6,37 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * The controller of the page Formulaire_chouette.fxml. It manages it.
+ * @version 1.3
+ */
 public class Chouette_controller {
     
 
     @FXML
     /**
-     * combobox with the observation's nature in the fxml
+     * The combobox with the nature of the observation in the fxml file.
      */
     private ComboBox<String> natureObs;
 
     @FXML
     /**
-     * combobox in the fxml that contains if 
+     * The combobox that contain the gender in the fxml file.
      */
     private ComboBox<String> sexe;
 
-    private ObservableList<String> liste;
 
-
-
-
-    public Chouette_controller(){}
-    
+    /**
+     * An ObservableList<String> that will contain the list of elements to add to the
+     * different combobx.
+     */
+    private ObservableList<String> liste;    
 
 
     @FXML
+    /**
+     * Initialize elements when the fxml file is dilpayed
+     */
     private void initialize() 
     {
         liste = FXCollections.observableArrayList("Effraie", "Cheveche", "Hulotte");
@@ -41,6 +47,11 @@ public class Chouette_controller {
 
     }
 
+
+    /**
+     * Event to do when the button aObservation is pressed.
+     * Switch to the page Formulaire_obs_chouette.fxml
+     */
     public void to_obs(){
 
         Stage actuel = (Stage)sexe.getScene().getWindow();

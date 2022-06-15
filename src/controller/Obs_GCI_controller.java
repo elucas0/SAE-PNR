@@ -9,33 +9,44 @@ import javafx.collections.ObservableList;
 
 
 /**
- * Controller for the file Formulaire_obs_gci.fxml
+ * The controller of the page Formulaire_obs_gci.fxml. It manages it.
+ * @version 1.2
  */
 public class Obs_GCI_controller {
 
 
     @FXML
     /**
-     * combobox with the observation's nature in the fxml
+     * The combobox with the nature of the observation in the fxml file.
      */
     private ComboBox<String> natureObs;
 
     @FXML
     /**
-     * combobox in the fxml that contains if 
+     * The combobox that tell if the nest was present but there wasn't
+     * any observation, in the fxml file.
      */
     private ComboBox<String> presentMaisNonObs;
 
 
+    /**
+     * An ObservableList<String> that will contain the list of elements to add to the
+     * different combobx.
+     */
     private ObservableList<String> liste;
-    private ObservableList<String> liste2;
 
 
-    public Obs_GCI_controller(){}
-    
+    /**
+     * An ObservableList<String> that will contain the list of elements to add to the
+     * different combobx.
+     */
+    private ObservableList<String> liste2;    
 
 
     @FXML
+    /**
+     * Initialize elements when the fxml file is dilpayed
+     */
     private void initialize() 
     {
         liste = FXCollections.observableArrayList("Oeuf", "Poussin", "Nid");
@@ -46,6 +57,11 @@ public class Obs_GCI_controller {
 
     }
 
+
+    /**
+     * Event to do when the button aNid is pressed.
+     * Switch to the page Formulaire_nid_gci.fxml
+     */
     public void to_Nid(){
 
         Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();

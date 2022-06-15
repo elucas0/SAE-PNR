@@ -6,17 +6,29 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
+/**
+ * The controller of the page Formulaire_obs_chouette.fxml. It manages it.
+ * @version 1.3
+ */
 public class Obs_chouette_controller {
 
     @FXML
     /**
-     * combobox with the observation's nature in the fxml
+     * The combobox with the observation's type in the fxml file.
      */
     private ComboBox<String> typeObs;
 
     @FXML
+    /**
+     * The combobox wich says if a protocol was applied type in the fxml file.
+     */
     private ComboBox<String> protocole;
 
+    /**
+     * An ObservableList<String> that will contain the list of elements to add to the
+     * different combobx.
+     */
     private ObservableList<String> liste;
 
 
@@ -25,6 +37,9 @@ public class Obs_chouette_controller {
 
 
     @FXML
+    /**
+     * Initialize elements when the fxml file is dilpayed
+     */
     private void initialize() 
     {
         liste = FXCollections.observableArrayList("oui", "non");
