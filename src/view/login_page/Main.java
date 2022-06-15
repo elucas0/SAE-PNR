@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../Formulaire_nid_gci.fxml"));
-        primaryStage.setTitle("PNR - Login");
+        primaryStage.setTitle("PNR");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
         this.initComponents();
