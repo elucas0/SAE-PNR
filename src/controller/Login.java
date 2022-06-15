@@ -7,14 +7,13 @@ public class Login {
         try {            
             //Création de la requête SQL
             Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/connection", "test", "test");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/connection", "test@localhost", "test");
             Statement s = c.createStatement();
             String query = "SELECT * FROM registration";
             ResultSet r = s.executeQuery(query);
             
             while (r.next()) {
                 
-                //System.out.println(r.getString("full_name") + " " + r.getString("password"));
             }
             r.close();
             s.close();
