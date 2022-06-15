@@ -171,6 +171,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <opaqueInsets>
@@ -190,26 +192,36 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
+                        <ComboBox fx:id="raisonArret" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Raison d'arrêt d'observation" GridPane.rowIndex="3">
                            <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
+                              <Insets left="100.0" right="160.0" />
                            </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
+                        </ComboBox>
+                        <ComboBox fx:id="estProtege" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Est protégé ?" GridPane.rowIndex="4">
                            <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
+                              <Insets left="100.0" right="160.0" />
                            </GridPane.margin>
-                        </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
+                        </ComboBox>
+                        <Label text="Bague mâle :" textFill="WHITE" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
+                        <Label text="Bague femell :" textFill="WHITE" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="bagueMale" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="bagueFemelle" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="8">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -223,6 +235,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
@@ -241,7 +256,29 @@
                            </GridPane.margin>
 
 
+
+
                         </ComboBox>
+                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="dateObs" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="heureObs" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                </children>

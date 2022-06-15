@@ -20,17 +20,9 @@ public class Main extends Application {
         primaryStage.setTitle("PNR");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
-        this.initComponents();
     }
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public void initComponents(){
-
-        form_nid_gci = new Formulaire_nid_gci_controller();
-        form_nid_gci.setItems();
-
     }
 }
