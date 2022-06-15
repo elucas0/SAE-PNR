@@ -6,11 +6,7 @@ import javafx.collections.ObservableList;
 
 public class Obs_Batracien_controller{
 
-    @FXML
-    /**
-     * combobox with the observation's nature in the fxml
-     */
-    private ComboBox<String> espece;
+
 
     @FXML
     private ComboBox<String> meteo_ciel;
@@ -35,8 +31,6 @@ public class Obs_Batracien_controller{
     @FXML
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("calamite", "pelodyte");
-        espece.setItems(liste);
 
 
         liste = FXCollections.observableArrayList("dégagé", "semi-dégagé", "nuageux");
