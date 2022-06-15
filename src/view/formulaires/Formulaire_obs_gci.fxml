@@ -78,7 +78,7 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Button" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>
@@ -185,7 +185,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="5">
+                        <TextField fx:id="nombre" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -205,7 +205,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs1" GridPane.rowIndex="2">
+                        <TextField fx:id="idNid" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -226,7 +226,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ComboBox fx:id="natureObs1" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Présent mais pas observé" GridPane.rowIndex="1">
+                        <ComboBox fx:id="presentMaisNonObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Présent mais pas observé" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="170.0" />
                            </GridPane.margin>
@@ -241,12 +241,12 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs2" GridPane.rowIndex="3">
+                        <TextField fx:id="dateObs" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="dateObs3" GridPane.rowIndex="5">
+                        <TextField fx:id="heureObs" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

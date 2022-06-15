@@ -188,7 +188,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="idChiuette" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="idChouette" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

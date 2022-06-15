@@ -174,17 +174,17 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="idObs" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
+                        <TextField fx:id="nom" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
+                        <TextField fx:id="prenom" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

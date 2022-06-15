@@ -170,7 +170,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="3">
+                        <TextField fx:id="vegetation" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -180,7 +180,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <ComboBox fx:id="natureObs1" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
+                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Nature de l'observation" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="190.0" />
                            </GridPane.margin>
