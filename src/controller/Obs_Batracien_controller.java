@@ -27,6 +27,7 @@ public class Obs_Batracien_controller {
     private ObservableList<String> liste;
 
 
+
     public Obs_Batracien_controller(){}
     
 
@@ -35,10 +36,25 @@ public class Obs_Batracien_controller {
     private void initialize() 
     {
         liste = FXCollections.observableArrayList("Effraie", "Cheveche", "Hulotte");
-        liste2 = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        espece.setItems(liste);
 
-        //sexe.setItems(liste2);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        nbAdultes.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        meteo_ciel.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        meteo_vent.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        meteo_pluie.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
         natureObs.setItems(liste);
+
+
 
     }
     
