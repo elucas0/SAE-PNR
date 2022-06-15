@@ -15,14 +15,15 @@ public class Chouette_controller {
      */
     private ComboBox<String> natureObs;
 
+    @FXML
     /**
      * combobox in the fxml that contains if 
      */
     private ComboBox<String> sexe;
 
-
     private ObservableList<String> liste;
-    private ObservableList<String> liste2;
+
+
 
 
     public Chouette_controller(){}
@@ -33,10 +34,10 @@ public class Chouette_controller {
     private void initialize() 
     {
         liste = FXCollections.observableArrayList("Effraie", "Cheveche", "Hulotte");
-        liste2 = FXCollections.observableArrayList("male", "femelle", "inconnu");
-
-        //sexe.setItems(liste2);
         natureObs.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        sexe.setItems(liste);
 
     }
 }

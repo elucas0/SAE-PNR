@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -21,7 +20,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo-PNR.png" />
+                  <Image url="@../img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -180,16 +179,13 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Numéro de l'individu :" textFill="WHITE" GridPane.rowIndex="1">
+                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Espece" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets left="100.0" />
+                              <Insets left="100.0" right="190.0" />
                            </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="idChouette" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
+
+
+                        </ComboBox>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -207,14 +203,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ComboBox fx:id="natureObs" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Espece" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
-                           </GridPane.margin>
-
-
-                        </ComboBox>
-                        <ComboBox fx:id="sexe" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Sexe" GridPane.rowIndex="2">
+                        <ComboBox fx:id="sexe" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Sexe" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="190.0" />
                            </GridPane.margin>

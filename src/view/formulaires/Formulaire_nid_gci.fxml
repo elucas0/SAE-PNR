@@ -21,7 +21,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo-PNR.png" />
+                  <Image url="@../img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -181,16 +181,6 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <Label text="Bague mâle :" textFill="WHITE" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" />
@@ -216,6 +206,11 @@
                               <Insets left="100.0" right="160.0" />
                            </GridPane.margin>
                         </ComboBox>
+                        <ComboBox fx:id="raisonArret" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Raison d'arrêt d'observation" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="160.0" />
+                           </GridPane.margin>
+                        </ComboBox>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -234,41 +229,36 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
+                        <TextField fx:id="nomObs" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="5">
+                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="6">
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="7">
+                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="raisonArret" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Raison d'arrêt d'observation" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="160.0" />
-                           </GridPane.margin>
-                        </ComboBox>
                      </children>
                   </GridPane>
                </children>

@@ -1,12 +1,10 @@
 package controller;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.ComboBox;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Obs_Batracien_controller {
+public class Obs_Batracien_controller{
 
     @FXML
     /**
@@ -14,45 +12,44 @@ public class Obs_Batracien_controller {
      */
     private ComboBox<String> espece;
 
-    /**
-     * combobox in the fxml that contains if 
-     */
-    private ComboBox<String> nbAdultes;
+    @FXML
     private ComboBox<String> meteo_ciel;
+
+        @FXML
     private ComboBox<String> meteo_vent;
+
+    @FXML
     private ComboBox<String> meteo_pluie;
-    private ComboBox<String> natureObs;
+
+    @FXML
+    private ComboBox<String> meteo_temps;
 
 
     private ObservableList<String> liste;
 
 
 
-    public Obs_Batracien_controller(){}
     
 
 
     @FXML
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Effraie", "Cheveche", "Hulotte");
+        liste = FXCollections.observableArrayList("calamite", "pelodyte");
         espece.setItems(liste);
 
 
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
-        nbAdultes.setItems(liste);
-
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        liste = FXCollections.observableArrayList("dégagé", "semi-dégagé", "nuageux");
         meteo_ciel.setItems(liste);
 
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        liste = FXCollections.observableArrayList("non", "léger", "moyen", "fort");
         meteo_vent.setItems(liste);
 
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        liste = FXCollections.observableArrayList("non", "légère", "moyenne", "forte");
         meteo_pluie.setItems(liste);
 
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
-        natureObs.setItems(liste);
+        liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
+        meteo_temps.setItems(liste);
 
 
 

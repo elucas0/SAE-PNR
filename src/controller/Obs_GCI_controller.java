@@ -20,6 +20,7 @@ public class Obs_GCI_controller {
      */
     private ComboBox<String> natureObs;
 
+    @FXML
     /**
      * combobox in the fxml that contains if 
      */
@@ -40,7 +41,7 @@ public class Obs_GCI_controller {
         liste = FXCollections.observableArrayList("Oeuf", "Poussin", "Nid");
         liste2 = FXCollections.observableArrayList("oui", "non");
 
-        //presentMaisNonObs.setItems(liste2);
+        presentMaisNonObs.setItems(liste2);
         natureObs.setItems(liste);
 
     }

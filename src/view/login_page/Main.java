@@ -16,13 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../formulaires/Formulaire_obs_batracien.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../formulaires/Formulaire_vegetation.fxml"));
         primaryStage.setTitle("PNR");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
     }
 
     public static void main(String[] args) {
+        
         launch(args);
     }
 }

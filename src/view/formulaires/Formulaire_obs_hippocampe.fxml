@@ -15,13 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Formulaire_nid_gci_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Obs_Hippocampe_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo-PNR.png" />
+                  <Image url="@../img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -67,7 +67,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -181,7 +181,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <ComboBox fx:id="Espece" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Espèce" GridPane.rowIndex="1">
+                        <ComboBox fx:id="espece" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Espèce" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="200.0" />
                            </GridPane.margin>
@@ -239,18 +239,28 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="typePeche" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Type de pêche" GridPane.rowIndex="1">
+                        <ComboBox fx:id="typePeche" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="190.0" />
                            </GridPane.margin>
 
 
                         </ComboBox>
-                        <ComboBox fx:id="estGestant" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Gestance" GridPane.rowIndex="4">
+                        <ComboBox fx:id="estGestant" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="visibility: none;" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" right="200.0" />
                            </GridPane.margin>
                         </ComboBox>
+                        <Label text="Type de pêche :" textFill="WHITE">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Est-il gestant ?" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
                      </children>
                   </GridPane>
                </children>
