@@ -38,7 +38,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                        <FontIcon fx:id="retour" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -49,7 +49,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon iconLiteral="fas-home" iconSize="30" />
+                        <FontIcon fx:id="home" iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
