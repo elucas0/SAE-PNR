@@ -66,7 +66,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -87,7 +87,7 @@
                         </Button>
                      </right>
                      <left>
-                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" onAction="#to_obs" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
                            </graphic>

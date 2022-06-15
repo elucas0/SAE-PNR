@@ -3,7 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.ComboBox;
-
+import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -44,6 +44,13 @@ public class Obs_GCI_controller {
         presentMaisNonObs.setItems(liste2);
         natureObs.setItems(liste);
 
+    }
+
+    public void to_Nid(){
+
+        Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("Formulaire_nid_gci.fxml");
     }
 
 }

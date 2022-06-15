@@ -2,7 +2,7 @@ package controller;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.ComboBox;
-
+import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -39,5 +39,12 @@ public class Chouette_controller {
         liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
         sexe.setItems(liste);
 
+    }
+
+    public void to_obs(){
+
+        Stage actuel = (Stage)sexe.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("Formulaire_obs_chouette.fxml");
     }
 }

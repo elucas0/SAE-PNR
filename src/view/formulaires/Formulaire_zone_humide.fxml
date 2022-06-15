@@ -67,7 +67,7 @@
                <center>
                   <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
