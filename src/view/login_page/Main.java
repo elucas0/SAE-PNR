@@ -25,7 +25,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../formulaires/Formulaire_lieu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Accueil_Admin.fxml"));
         primaryStage.setTitle("PNR");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
