@@ -61,12 +61,12 @@ public class Obs_chouette_controller {
     * Event to do when the button retour is pressed.    
     * Switch to the page Formulaire_chouette.fxml
     */
-   public void retour(){
+    public void retour(){
 
-    Stage actuel = (Stage)protocole.getScene().getWindow();
-    ChangerPage change = new ChangerPage(actuel);
-    change.go_to("../view/formulaires/Formulaire_chouette.fxml");
-}
+        Stage actuel = (Stage)protocole.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Accueil_Utilisateur.fxml");
+    }
 
 
 
