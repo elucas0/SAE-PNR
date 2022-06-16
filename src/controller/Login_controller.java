@@ -51,8 +51,6 @@ public class Login_controller {
                 
 
                 if (pass.equals(mdp.getText())){
-                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-                        "Welcome " + id.getText());
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     page.go_to("../view/Accueil_Utilisateur.fxml");
