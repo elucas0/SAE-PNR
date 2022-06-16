@@ -69,4 +69,16 @@ public class Obs_GCI_controller {
         change.go_to("../view/formulaires/Formulaire_nid_gci.fxml");
     }
 
+
+    /**
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Formulaire_nid_gci.fxml
+    */
+    public void retour(){
+
+        Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Accueil_Utilisateur.fxml");
+    }
+
 }

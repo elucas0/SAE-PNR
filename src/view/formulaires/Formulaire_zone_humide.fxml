@@ -65,7 +65,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
+                  <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>

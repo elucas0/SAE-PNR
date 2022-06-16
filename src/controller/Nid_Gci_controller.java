@@ -26,11 +26,6 @@ public class Nid_Gci_controller{
      */
     private ComboBox<String> estProtege;
 
-    @FXML
-    /**
-     * Button to go to the page Formulaire_nid_gci.fxml in the fxml file.
-     */
-    private Button passerANidGci;
 
     /**
      * An ObservableList<String> that will contain the list of elements to add to the
@@ -70,7 +65,7 @@ public class Nid_Gci_controller{
      */
     public void to_obs(){
 
-        Stage actuel = (Stage)passerANidGci.getScene().getWindow();
+        Stage actuel = (Stage)raisonArret.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
     }
@@ -78,23 +73,25 @@ public class Nid_Gci_controller{
 
     /**
      * Event to do when the button aObservation is pressed.
-     * Switch to the page 
+     * Switch to the page Formulaire_nid_gci.fxml
      */
     public void to_home(){
 
-        Stage actuel = (Stage)passerANidGci.getScene().getWindow();
+        Stage actuel = (Stage)raisonArret.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Accueil_Utilisateur.fxml");
     }
 
     
     /**
      * Event to do when the button arreter is pressed.
-     * Switch to the page 
+     * Switch to the page Formulaire_obs_gci.fxml
      */
     public void retour(){
 
-        Stage actuel = (Stage)passerANidGci.getScene().getWindow();
+        Stage actuel = (Stage)raisonArret.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
 
 
     }

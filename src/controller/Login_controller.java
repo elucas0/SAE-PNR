@@ -6,11 +6,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.sql.*;
 
 public class Login_controller {   
+
     @FXML
     private TextField id;
 
@@ -85,6 +88,21 @@ public class Login_controller {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
+    }
+
+
+    public void keyConnect(KeyEvent e){
+
+        if(e.getCode() == KeyCode.ENTER){
+            try {
+                this.connect();
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+            }
+        }
+
+
     }
 }
 

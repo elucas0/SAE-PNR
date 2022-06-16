@@ -5,6 +5,7 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.sql.*;
 
@@ -46,6 +47,7 @@ public class Lieu_controller {
         }
         
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        **/
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -55,6 +57,17 @@ public class Lieu_controller {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
+    }
+
+
+    /**
+    * Event to do when the button retour is pressed.    * Switch to the page Accueil_Utilisateur.fxml
+    */
+    public void retour(){
+
+        Stage actuel = (Stage)coord_Lambert_Y.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Accueil_Utilisateur.fxml");
     }
     
 }

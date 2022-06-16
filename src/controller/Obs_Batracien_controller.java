@@ -1,6 +1,7 @@
 package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -66,6 +67,17 @@ public class Obs_Batracien_controller{
 
         liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
         meteo_temps.setItems(liste);
+    }
+
+    /**
+    * Event to do when the button retour is pressed.
+    * Switch to the page Accueil_Utilisateur.fxml
+    */
+    public void retour(){
+
+        Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Accueil_Utilisateur.fxml");
     }
     
 }

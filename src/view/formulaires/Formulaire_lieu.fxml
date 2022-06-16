@@ -64,7 +64,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
+                  <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
@@ -77,9 +77,9 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER" onAction="#test">
+                        <Button fx:id="effectuer" mnemonicParsing="false" onAction="#test" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30"/>
+                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>
                            <BorderPane.margin>
                               <Insets right="40.0" />
