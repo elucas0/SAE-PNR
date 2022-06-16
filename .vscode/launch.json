@@ -1,0 +1,161 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch ScenarioTraitement",
+            "request": "launch",
+            "mainClass": "modele.ScenarioTraitement",
+            "projectName": "SAE-PNR_1842660b"
+        },
+        {
+            "type": "java",
+            "name": "Launch Login",
+            "request": "launch",
+            "mainClass": "controller.Login",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteZoneHumide",
+            "request": "launch",
+            "mainClass": "RequeteZoneHumide",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteVegetation",
+            "request": "launch",
+            "mainClass": "RequeteVegetation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObservation",
+            "request": "launch",
+            "mainClass": "RequeteObservation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObservateur",
+            "request": "launch",
+            "mainClass": "RequeteObservateur",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsLoutre",
+            "request": "launch",
+            "mainClass": "RequeteObsLoutre",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsHippocampe",
+            "request": "launch",
+            "mainClass": "RequeteObsHippocampe",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsGCI",
+            "request": "launch",
+            "mainClass": "RequeteObsGCI",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObsChouette",
+            "request": "launch",
+            "mainClass": "RequeteObsChouette",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteObseBatracien",
+            "request": "launch",
+            "mainClass": "RequeteObseBatracien",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteLieu_vegetation",
+            "request": "launch",
+            "mainClass": "RequeteLieu_vegetation",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteLieu",
+            "request": "launch",
+            "mainClass": "RequeteLieu",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteChouette",
+            "request": "launch",
+            "mainClass": "RequeteChouette",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteAobserve",
+            "request": "launch",
+            "mainClass": "RequeteAobserve",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch RequeteNidGCI",
+            "request": "launch",
+            "mainClass": "RequeteNidGCI",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch testConnectDb",
+            "request": "launch",
+            "mainClass": "testConnectDb",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch testConnectDb",
+            "request": "launch",
+            "mainClass": "src.testConnectDb",
+            "projectName": "SAE-PNR_d4391e8"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ScenarioDonnee",
+            "request": "launch",
+            "mainClass": "ScenarioDonnee",
+            "projectName": "SAE-PNR_1842660b"
+        },
+        {
+            "type": "java",
+            "name": "Launch ScenarioTraitement",
+            "request": "launch",
+            "mainClass": "ScenarioTraitement",
+            "projectName": "SAE-PNR_1842660b"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "view.login_page.Main",
+            "vmArgs": "--module-path ./javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
