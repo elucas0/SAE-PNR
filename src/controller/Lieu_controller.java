@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Window;
 import java.sql.*;
+import view.JdbcDao;
 
 public class Lieu_controller {
     @FXML
@@ -40,6 +41,12 @@ public class Lieu_controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        double coordX = coord_Lambert_x.ge
+        double coordY = coord_Lambert_Y.getText();
+
+        JdbcDao jdbcDao = new JdbcDao();
+        jdbcDao.insertRecord(fullName, password);
+        jdcDao.insertRecord()
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
     }
 

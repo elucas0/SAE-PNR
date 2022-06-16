@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import view.JdbcDao;
 import java.sql.*;
@@ -29,43 +30,48 @@ public class Login_controller {
         if (id.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter your name");
-            return;
+            
         }
         if (mdp.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
-            return;
+            
         }
         try {            
             //Création de la requête SQL
             Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/connection", "test@localhost", "test");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "test", "test");
             Statement s = c.createStatement();
-            String query = "SELECT * FROM registration WHERE full_name = '" + id.getText() + "';";
-            ResultSet r = s.executeQuery(query);
+            PreparedStatement i = c.prepareStatement("SELECT * FROM registration WHERE full_name = ?");
+            i.setString(1, id.getText());
+            ResultSet r = i.executeQuery();
             
             while (r.next()) {
                 pass = r.getString("password");
+                
 
-                if (pass == mdp.getText()){
+                if (pass.equals(mdp.getText())){
                     showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
                         "Welcome " + id.getText());
+                    Stage stage = (Stage)id.getScene().getWindow();
+                    ChangerPage page = new ChangerPage(stage);
+                    page.go_to("../view/Accueil_Utilisateur.fxml");
+                        
                 }
                 else{
                     showAlert(Alert.AlertType.ERROR, owner, "ERROR!",
-                        "mdp ou identifiant erroné ");
+                        "mdp ou identifiant erroné " + mdp.getText() + " " + pass);
                 }
-            }
-            if(pass == null){
-                showAlert(Alert.AlertType.ERROR, owner, "ERROR!",
-                        "Pas de compte créée");
             }
             r.close();
             s.close();
-            c.close();
-            
+            c.close();  
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if(pass == null && !mdp.getText().isEmpty() && !id.getText().isEmpty()){
+            showAlert(Alert.AlertType.ERROR, owner, "ERROR!",
+                    "pas de compte existant");
         }
         
     }
