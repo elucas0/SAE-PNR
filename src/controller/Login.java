@@ -67,13 +67,6 @@ public class Login {
         } catch (Exception e) {
             e.printStackTrace();
         }
-/*
-        String fullName = id.getText();
-        String password = mdp.getText();
-
-        JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, password);
-*/
         
     }
 
