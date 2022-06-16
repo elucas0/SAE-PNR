@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <left>
+            <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../OneDrive/Images/Parc_naturel_régional_du_Golfe_du_Morbihan.svg.png" />
+               </image>
+               <BorderPane.margin>
+                  <Insets left="10.0" top="40.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </left>
+         <right>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
+                     </graphic>
+                  </Button>
+               </center>
+            </BorderPane>
+         </right>
+      </BorderPane>
+   </top>
+   <bottom>
+      <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
+         <left>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <center>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #019367;" text="Déconnexion" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-sign-out-alt" iconSize="30" text="" />
+                     </graphic>
+                  </Button>
+               </center>
+            </BorderPane>
+         </left></BorderPane>
+   </bottom>
+   <center>
+      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="110.0" top="90.0" />
+         </BorderPane.margin>
+         <left>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="20.0" />
+                     </BorderPane.margin>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="far-list-alt" iconSize="20" />
+                     </graphic>
+                  </Button>
+               </left>
+            </BorderPane>
+         </left>
+         <center>
+            <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fas-pen-fancy" iconSize="20" />
+               </graphic>
+            </MenuButton>
+         </center>
+         <right>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Gestion des comptes" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="20.0" />
+               </BorderPane.margin>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fas-address-card" iconSize="20" />
+               </graphic>
+            </Button>
+         </right>
+      </BorderPane>
+   </center>
+</BorderPane>
