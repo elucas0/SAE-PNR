@@ -79,7 +79,7 @@
                      <right>
                         <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER" onAction="#test">
                            <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
+                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30"/>
                            </graphic>
                            <BorderPane.margin>
                               <Insets right="40.0" />

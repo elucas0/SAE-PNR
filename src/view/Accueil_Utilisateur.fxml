@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Accueil_Utilisateur_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -25,7 +25,7 @@
          <right>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Utilisateur 1" BorderPane.alignment="CENTER">
+                  <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Utilisateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                      </graphic>
@@ -40,7 +40,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #019367;" text="Déconnexion" BorderPane.alignment="CENTER">
+                  <Button fx:id="deco" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: #019367;" text="Déconnexion" textFill="WHITE" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fas-sign-out-alt" iconSize="30" text="" />
                      </graphic>
@@ -60,7 +60,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="20.0" />
                      </BorderPane.margin>
@@ -72,17 +72,40 @@
             </BorderPane>
          </left>
          <right>
-            <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
+            <MenuButton fx:id="prospection" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fas-pen-fancy" iconSize="20" />
                </graphic>
+               <items>
+                  <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#formulaire_obs_batracien" text="Batracien ">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-frog" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="loutre" mnemonicParsing="false" onAction="#formulaire_obs_loutre" text="Loutre">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-otter" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="gci" mnemonicParsing="false" onAction="#formulaire_obs_gci" text="GCI">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-feather-alt" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#formulaire_obs_hippocampe" text="Hippocampe ">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-chess-knight" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="chouette" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Chouette">
+                     <graphic>
+                        <FontIcon iconLiteral="fab-earlybirds" />
+                     </graphic>
+                  </MenuItem>
+               </items>
             </MenuButton>
          </right>
       </BorderPane>
