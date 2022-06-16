@@ -47,7 +47,6 @@ public class Lieu_controller {
         }
         
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
-        **/
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
