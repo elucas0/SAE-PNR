@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Accueil_Admin_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -74,25 +74,25 @@
          <center>
             <MenuButton fx:id="prospec" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
               <items>
-                <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#Formulaire_obs_batracien" text="Batracien ">
+                <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#formulaire_obs_batracien" text="Batracien ">
                      <graphic>
                         <FontIcon iconLiteral="fas-frog" />
                      </graphic></MenuItem>
-                <MenuItem fx:id="loutre" mnemonicParsing="false" onAction="#Formulaire_obs_loutre" text="Loutre">
+                <MenuItem fx:id="loutre" mnemonicParsing="false" onAction="#formulaire_obs_loutre" text="Loutre">
                      <graphic>
                         <FontIcon iconLiteral="fas-otter" />
                      </graphic></MenuItem>
-                  <MenuItem fx:id="gci" mnemonicParsing="false" onAction="#Formulaire_obs_gci" text="GCI">
+                  <MenuItem fx:id="gci" mnemonicParsing="false" onAction="#formulaire_obs_gci" text="GCI">
                      <graphic>
                         <FontIcon iconLiteral="fas-feather-alt" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#Formulaire_obs_hippocampe" text="Hippocampe ">
+                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#formulaire_obs_hippocampe" text="Hippocampe ">
                      <graphic>
                         <FontIcon iconLiteral="fas-chess-knight" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="chouette" mnemonicParsing="false" onAction="#Formulaire_obs_chouette" text="Chouette">
+                  <MenuItem fx:id="chouette" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Chouette">
                      <graphic>
                         <FontIcon iconLiteral="fab-earlybirds" />
                      </graphic>
