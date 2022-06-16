@@ -72,7 +72,7 @@ public class Nid_Gci_controller{
 
         Stage actuel = (Stage)passerANidGci.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("Formulaire_obs_gci.fxml");
+        change.go_to("../src.formulaires/Formulaire_obs_gci.fxml");
     }
 
 

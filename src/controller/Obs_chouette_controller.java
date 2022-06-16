@@ -54,7 +54,7 @@ public class Obs_chouette_controller {
 
         Stage actuel = (Stage)protocole.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("Formulaire_chouette.fxml");
+        change.go_to("../src.formulaires/Formulaire_chouette.fxml");
     }
 
 
