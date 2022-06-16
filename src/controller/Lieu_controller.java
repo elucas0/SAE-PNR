@@ -3,12 +3,10 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import java.sql.SQLException;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Window;
 import java.sql.*;
-import view.JdbcDao;
 
 public class Lieu_controller {
     @FXML
@@ -27,30 +25,26 @@ public class Lieu_controller {
         if (coord_Lambert_x.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
-            return;
+
         }
 
         if (coord_Lambert_Y.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
-            return;
+
         }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String query = "INSERT INTO Lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ")";
-            ResultSet r = s.executeQuery(query);
+            String querry = "INSERT INTO Lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ");";
+            s.executeUpdate(querry);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
-        double coordX = coord_Lambert_x.ge
-        double coordY = coord_Lambert_Y.getText();
-
-        JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, password);
-        jdcDao.insertRecord()
+        
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
     }
 

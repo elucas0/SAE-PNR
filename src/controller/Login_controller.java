@@ -1,7 +1,6 @@
 package controller;
 
 import java.sql.SQLException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -9,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import view.JdbcDao;
 import java.sql.*;
 
 public class Login_controller {   
@@ -23,7 +21,7 @@ public class Login_controller {
     private Button bouton_connexion;
 
     @FXML
-    public void connect(ActionEvent event) throws SQLException {
+    public void connect() throws SQLException {
         String pass = null;
         Window owner = bouton_connexion.getScene().getWindow();
 
@@ -40,7 +38,7 @@ public class Login_controller {
         try {            
             //Création de la requête SQL
             Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "test", "test");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
             PreparedStatement i = c.prepareStatement("SELECT * FROM registration WHERE full_name = ?");
             i.setString(1, id.getText());
@@ -53,7 +51,13 @@ public class Login_controller {
                 if (pass.equals(mdp.getText())){
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
-                    page.go_to("../view/Accueil_Utilisateur.fxml");
+                    if(r.getInt("administration") == 0){
+                        page.go_to("../view/Accueil_Utilisateur.fxml");
+                    }
+                    else{
+                        page.go_to("../view/Accueil_Admin.fxml");
+                    }
+                    
                         
                 }
                 else{
