@@ -16,7 +16,7 @@ public class Lieu_controller {
     private Button effectuer;
 
     @FXML
-    private void test(ActionEvent event) throws SQLException{
+    private void test() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
 
         if (coord_Lambert_x.getText().isEmpty()) {

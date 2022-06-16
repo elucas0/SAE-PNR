@@ -48,7 +48,7 @@ public class ChangerPage {
 
             try{
 
-                Parent scene = FXMLLoader.load(getClass().getResource("../view/formulaires/"+page));
+                Parent scene = FXMLLoader.load(getClass().getResource(page));
                 primaryStage.setTitle("PNR");
                 primaryStage.setScene(new Scene(scene, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
                 primaryStage.show();
