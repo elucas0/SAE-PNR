@@ -24,7 +24,6 @@ public class Accueil_Utilisateur_controller {
     private Button gestion;
 
 
-    @FXML
     /**
      * The content to do when the page linked to is started
      */
