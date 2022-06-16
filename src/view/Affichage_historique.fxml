@@ -47,7 +47,7 @@
                <center>
                   <Button fx:id="home" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
+                        <FontIcon fx:id="home" iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
                      </graphic>
                   </Button>
                </center>

@@ -15,13 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Formulaire_nid_gci_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Nid_Gci_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo-PNR.png" />
+                  <Image url="@../img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -65,9 +65,9 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
+                  <Button fx:id="arreter" mnemonicParsing="false" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon  iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -88,7 +88,7 @@
                         </Button>
                      </right>
                      <left>
-                        <Button fx:id="bouton_passer_a_observation" mnemonicParsing="false" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="aObservation" mnemonicParsing="false" onAction="#to_obs" style="-fx-background-color: #019367;" text="ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
                            </graphic>
@@ -181,16 +181,6 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="ID du nid :" textFill="WHITE" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="idnid" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <Label text="Bague mâle :" textFill="WHITE" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" />
@@ -216,6 +206,11 @@
                               <Insets left="100.0" right="160.0" />
                            </GridPane.margin>
                         </ComboBox>
+                        <ComboBox fx:id="raisonArret" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Raison d'arrêt d'observation" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="160.0" />
+                           </GridPane.margin>
+                        </ComboBox>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -234,41 +229,36 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="Nombre d'envol(s) :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="nomObs" GridPane.rowIndex="3">
+                        <TextField fx:id="nomObs" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="Date de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="5">
+                        <TextField fx:id="dateObs" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="6">
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="7">
+                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="raisonArret" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Raison d'arrêt d'observation" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="160.0" />
-                           </GridPane.margin>
-                        </ComboBox>
                      </children>
                   </GridPane>
                </children>

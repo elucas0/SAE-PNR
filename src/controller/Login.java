@@ -1,5 +1,4 @@
 package controller;
-import java.util.*;
 import java.sql.*;
 
 public class Login {
