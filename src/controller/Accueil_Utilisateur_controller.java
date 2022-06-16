@@ -19,7 +19,7 @@ public class Accueil_Utilisateur_controller {
     private Button vue;
 
     @FXML
-    private MenuButton prospec;
+    private Button user;
 
 
 
@@ -35,14 +35,14 @@ public class Accueil_Utilisateur_controller {
     @FXML
     public void toLogin(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/page_login.fxml");
     }
 
     public void toData(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/choix_stat_liste.fxml");
     }
@@ -50,7 +50,7 @@ public class Accueil_Utilisateur_controller {
     
     public void formulaire_obs_batracien(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_batracien.fxml");
 
@@ -58,7 +58,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_loutre(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_loutre.fxml");
 
@@ -66,7 +66,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_gci(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
 
@@ -74,7 +74,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_hippocampe(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_hippocampe.fxml");
 
@@ -82,7 +82,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_chouette(){
 
-        Stage actuel = (Stage)prospec.getScene().getWindow();
+        Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
     }

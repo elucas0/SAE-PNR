@@ -58,4 +58,15 @@ public class Chouette_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
     }
+
+    /**
+    * Event to do when the button aObservation is pressed.
+    * Switch to the page Accueil_Utilisateur.fxml
+    */
+   public void retour(){
+
+       Stage actuel = (Stage)sexe.getScene().getWindow();
+       ChangerPage change = new ChangerPage(actuel);
+       change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+   }
 }
