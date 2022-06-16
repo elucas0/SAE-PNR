@@ -66,7 +66,7 @@ public class Obs_GCI_controller {
 
         Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../src.formulaires/Formulaire_nid_gci.fxml");
+        change.go_to("../view/formulaires/Formulaire_nid_gci.fxml");
     }
 
 }
