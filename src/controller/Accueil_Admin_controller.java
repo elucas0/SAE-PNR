@@ -31,9 +31,10 @@ public class Accueil_Admin_controller {
         
     }
 
-    public void (){
+    @FXML
+    public void to(){
 
-        
+
     }
     
 }
