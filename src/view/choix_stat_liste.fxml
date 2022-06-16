@@ -23,7 +23,7 @@
          <right>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" BorderPane.alignment="CENTER">
+                  <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                      </graphic>
@@ -43,7 +43,7 @@
                         <Insets left="20.0" />
                      </BorderPane.margin>
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-chevron-left" iconSize="30" />
+                        <FontIcon fx:id="retour" iconColor="WHITE" iconLiteral="fas-chevron-left" iconSize="30" />
                      </graphic>
                   </Button>
                </left>
@@ -61,7 +61,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Liste des observations" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="liste" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Liste des observations" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="20.0" />
                      </BorderPane.margin>
@@ -73,7 +73,7 @@
             </BorderPane>
          </left>
          <right>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" BorderPane.alignment="CENTER">
+            <Button fx:id="stat" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
