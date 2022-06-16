@@ -11,7 +11,7 @@ import javafx.stage.Window;
 import view.JdbcDao;
 import java.sql.*;
 
-public class Login {   
+public class Login_controller {   
     @FXML
     private TextField id;
 
