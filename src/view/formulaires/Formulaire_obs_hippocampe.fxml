@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -201,16 +202,16 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="dateObs" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <TextField fx:id="heureObs" GridPane.rowIndex="8">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
+                        <DatePicker GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </DatePicker>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -229,34 +230,34 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Taille :" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="Taille :" textFill="WHITE" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="taille" GridPane.rowIndex="3">
+                        <TextField fx:id="taille" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <ComboBox fx:id="typePeche" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="1">
+                        <ComboBox fx:id="typePeche" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="190.0" />
                            </GridPane.margin>
 
 
                         </ComboBox>
-                        <ComboBox fx:id="estGestant" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="visibility: none;" GridPane.rowIndex="5">
+                        <ComboBox fx:id="estGestant" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="visibility: none;" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="200.0" />
                            </GridPane.margin>
                         </ComboBox>
-                        <Label text="Type de pêche :" textFill="WHITE">
+                        <Label text="Type de pêche :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Est-il gestant ?" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="Est-il gestant ?" textFill="WHITE" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
