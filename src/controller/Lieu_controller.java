@@ -12,7 +12,11 @@ import java.sql.*;
 public class Lieu_controller {
     @FXML
     private TextField coord_Lambert_x;
+
+    @FXML
     private TextField coord_Lambert_Y;
+
+    @FXML
     private Button effectuer;
 
     @FXML
