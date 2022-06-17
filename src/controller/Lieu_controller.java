@@ -8,33 +8,46 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.sql.*;
-
+/**Class to insert data in table Lieu */
 public class Lieu_controller {
     @FXML
+    /**
+     * text field for the X Lambert coordinate 
+     */
     private TextField coord_Lambert_x;
 
     @FXML
+    /**
+     * text field for the Y Lambert coordinate
+     */
     private TextField coord_Lambert_Y;
 
     @FXML
+    /**
+     * Button to insert the data in the database
+     */
     private Button effectuer;
 
     @FXML
+    /**
+     * Method to create a insert querry to the database
+     * @throws SQLException
+     */
     private void test() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
-
+        //test : textfield vide
         if (coord_Lambert_x.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-
+        //test : textfield vide
         if (coord_Lambert_Y.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-
+        //création de l'insert
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
@@ -49,6 +62,13 @@ public class Lieu_controller {
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
     }
 
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
