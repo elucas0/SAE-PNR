@@ -1,9 +1,16 @@
 package controller;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
+import javafx.stage.Window;
+import java.sql.*;
 
 
 /**
@@ -47,6 +54,30 @@ public class Obs_Batracien_controller{
      */
     private ObservableList<String> liste;
 
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField numZoneHumide;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField numVegetation;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField temperature;
+
+    @FXML
+    /**
+     * Button to insert the data in the database
+     */
+    private Button effectuer;
+
 
     @FXML
     /**
@@ -67,6 +98,83 @@ public class Obs_Batracien_controller{
 
         liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
         meteo_temps.setItems(liste);
+    }
+
+    @FXML
+    /**
+     * Method to create a insert querry to the database
+     * @throws SQLException
+     */
+    private void insert() throws SQLException{
+        Window owner = effectuer.getScene().getWindow();
+        //test : textfield vide
+        if (meteo_ciel.getPromptText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        if (meteo_pluie.getPromptText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        if (meteo_temps.getPromptText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        if (meteo_vent.getPromptText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        if (numZoneHumide.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        if (numVegetation.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        if (temperature.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //création de l'insert
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            Statement s = c.createStatement();
+            String querry = "INSERT INTO Lieu VALUES(" + temperature.getText() + "," + meteo_ciel.getPromptText() + "," + meteo_temps.getPromptText() + "," + meteo_vent.getPromptText() + "," + meteo_pluie.getPromptText() + "," + numZoneHumide.getText() + "," + numVegetation.getText() + ");";
+            s.executeUpdate(querry);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+    }
+
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
+    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
     }
 
     /**
