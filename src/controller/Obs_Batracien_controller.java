@@ -151,7 +151,7 @@ public class Obs_Batracien_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + temperature.getText() + "," + meteo_ciel.getPromptText() + "," + meteo_temps.getPromptText() + "," + meteo_vent.getPromptText() + "," + meteo_pluie.getPromptText() + "," + numZoneHumide.getText() + "," + numVegetation.getText() + ");";
+            String querry = "INSERT INTO obs_batracien VALUES(" + temperature.getText() + "," + meteo_ciel.getPromptText() + "," + meteo_temps.getPromptText() + "," + meteo_vent.getPromptText() + "," + meteo_pluie.getPromptText() + "," + numZoneHumide.getText() + "," + numVegetation.getText() + ");";
             s.executeUpdate(querry);
             
         } catch (Exception e) {

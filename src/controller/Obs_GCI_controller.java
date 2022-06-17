@@ -117,7 +117,7 @@ public class Obs_GCI_controller {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + natureObs.getPromptText() + "," + nombre.getText() + "," + presentMaisNonObs.getPromptText() + "," + idNid.getText() + ");";
+            String querry = "INSERT INTO obs_gci VALUES(" + natureObs.getPromptText() + "," + nombre.getText() + "," + presentMaisNonObs.getPromptText() + "," + idNid.getText() + ");";
             s.executeUpdate(querry);
             
         } catch (Exception e) {

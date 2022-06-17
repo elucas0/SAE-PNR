@@ -117,7 +117,7 @@ public class Nid_Gci_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + raisonArret.getPromptText() + "," + nomObs.getText() + "," + estProtege.getPromptText() + "," + bagueMale.getText() + "," + bagueFemelle.getText() + ");";
+            String querry = "INSERT INTO nid_gci VALUES(" + raisonArret.getPromptText() + "," + nomObs.getText() + "," + estProtege.getPromptText() + "," + bagueMale.getText() + "," + bagueFemelle.getText() + ");";
             s.executeUpdate(querry);
             
         } catch (Exception e) {
