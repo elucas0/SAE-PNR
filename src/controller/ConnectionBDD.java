@@ -1,14 +1,19 @@
+/*
+ * rajouter dans la page un champ de texet pour :
+ * l'id
+ * l'administration
+ * sinon l'insert est pas possible!!!!!
+ */
 package controller;
 
 import java.sql.SQLException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
-import view.JdbcDao;
+import java.sql.*;
 
 public class ConnectionBDD {
     @FXML
@@ -21,28 +26,30 @@ public class ConnectionBDD {
     private Button bouton_connexion;
 
     @FXML
-    public void register(ActionEvent event) throws SQLException {
+    public void register() throws SQLException {
 
         Window owner = bouton_connexion.getScene().getWindow();
 
-        System.out.println(id.getText());
-        System.out.println(mdp.getText());
         if (id.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter your name");
-            return;
         }
         if (mdp.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
-            return;
         }
 
-        String fullName = id.getText();
-        String password = mdp.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            Statement s = c.createStatement();
+            String querry = "INSERT INTO registration VALUES(" + id.getText() + "," + mdp.getText() + ");";
+            s.executeUpdate(querry);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, password);
 
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
             "Welcome " + id.getText());
