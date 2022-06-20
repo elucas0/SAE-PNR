@@ -145,7 +145,7 @@ public class Login_controller {
 
 
         try {
-            FileWriter f = new FileWriter("../../controller/infosCompte.txt");
+            FileWriter f = new FileWriter("infosCompte.txt");
             PrintWriter out = new PrintWriter(f);
             out.println(idObs);
             out.println(id);

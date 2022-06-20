@@ -185,7 +185,14 @@ public class Obs_Batracien_controller{
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Accueil_Utilisateur.fxml");
+        System.out.println(ReadInfos.readAdmin());
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
     }
 
 
@@ -193,7 +200,7 @@ public class Obs_Batracien_controller{
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Formulaire_obs_batracien_espece.fxml");      
+        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");      
     }
     
 }
