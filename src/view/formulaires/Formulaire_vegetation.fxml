@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -170,16 +169,26 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <ComboBox fx:id="natureVege" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
-                           </GridPane.margin>
-                        </ComboBox>
-                        <Label text="Nature de la végétation :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Environnement :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
+                        <TextField fx:id="environnement" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label text="Bordure :" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="bordure" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                   <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
@@ -197,12 +206,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Végétation :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Ripisyle :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="vegetation" GridPane.rowIndex="2">
+                        <TextField fx:id="ripisyle" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
