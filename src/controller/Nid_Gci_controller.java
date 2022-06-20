@@ -65,7 +65,7 @@ public class Nid_Gci_controller{
     /**
      * text field for the number of fly
      */
-    private TextField nomObs;
+    private TextField nomEnvols;
 
     @FXML
     /**
@@ -107,7 +107,7 @@ public class Nid_Gci_controller{
                 "Please enter good coordonnée");
 
         }
-        if (nomObs.getText().isEmpty()) {
+        if (nomEnvols.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -117,7 +117,7 @@ public class Nid_Gci_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO nid_gci VALUES(" + raisonArret.getPromptText() + "," + nomObs.getText() + "," + estProtege.getPromptText() + "," + bagueMale.getText() + "," + bagueFemelle.getText() + ");";
+            String querry = "INSERT INTO nid_gci VALUES(" + raisonArret.getPromptText() + "," + nomEnvols.getText() + "," + estProtege.getPromptText() + "," + bagueMale.getText() + "," + bagueFemelle.getText() + ");";
             s.executeUpdate(querry);
             
         } catch (Exception e) {
