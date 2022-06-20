@@ -151,7 +151,7 @@ public class Obs_Loutre_controller {
             ResultSet requete2 = idLoutre.executeQuery();
             requete2.next();
             int idL = requete2.getInt("obsL");
-
+            String tess = heureObs.getText();
             String querry2 = "INSERT INTO observation VALUES(" + idObs+1 + date.getValue() + "," + heureObs.getText() + lambertX.getText() + "," + lambertY.getText() + ");";
             String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
