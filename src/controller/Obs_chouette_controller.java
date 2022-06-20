@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
-
+import javafx.scene.control.DatePicker;
 
 /**
  * The controller of the page Formulaire_obs_chouette.fxml. It manages it.
@@ -48,6 +48,30 @@ public class Obs_chouette_controller {
      * Button to insert the data in the database
      */
     private Button effectuer;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField heureObs;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private DatePicker date;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField lambertX;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField lambertY;
 
 
 
@@ -100,13 +124,53 @@ public class Obs_chouette_controller {
                 "Please enter good coordonnée");
 
         }
+
+        if (lambertX.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        if (lambertY.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        if (date.getValue() == null) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        if (heureObs.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
         //création de l'insert
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO obs_chouette VALUES(" + protocole.getPromptText() + "," + typeObs.getPromptText() + "," + idChouette.getPromptText() +");";
-            s.executeUpdate(querry);
+            //String querry = "INSERT INTO obs_chouette VALUES(" + protocole.getPromptText() + "," + typeObs.getPromptText() + "," + idChouette.getPromptText() +");";
+            //s.executeUpdate(querry);
+            String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+
+            PreparedStatement id_Chouette = c.prepareStatement("SELECT LAST_INSERT_ID();");
+            ResultSet requete2 = id_Chouette.executeQuery();
+            requete2.next();
+            int idC = requete2.getInt("LAST_INSERT_ID()");
+
+            //System.out.println(Time.valueOf(heureObs.getText()));
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+            
+            String querry3 = "INSERT INTO obs_chouette VALUES(" + ", " + protocole.getPromptText() + ", " + typeObs.getPromptText() + ", " + idChouette.getText() + idC +");";
+            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+            s.executeUpdate(querry1);
+            querry2.executeUpdate();
+            s.executeUpdate(querry3);
             
         } catch (Exception e) {
             e.printStackTrace();
