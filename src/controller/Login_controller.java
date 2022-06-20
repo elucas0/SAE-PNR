@@ -70,8 +70,8 @@ public class Login_controller {
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     //redirige sur la page utilisateur
-                    //showAlert(Alert.AlertType.CONFIRMATION, owner, "test!",
-                    //    "test get " + test.getAdministrateur());
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "test!",
+                        "test get " + test.getAdministrateur());
                     if(r.getInt("administration") == 0){
                         page.go_to("../view/Accueil_Utilisateur.fxml");
                     }

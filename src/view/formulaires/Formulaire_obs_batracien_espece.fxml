@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -66,7 +67,7 @@
                <center>
                   <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -118,7 +119,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout d'un lieu" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout d'une espece" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -169,12 +170,27 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Coordonnée Lambert X :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Nombre d'amplexus :" textFill="WHITE" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="coord_Lambert_x" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="coord_Lambert_x" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <ComboBox fx:id="espece" prefWidth="150.0" promptText="espece" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="190.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <Label text="Nombre d'adultes :" textFill="WHITE" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="coord_Lambert_x1" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -196,12 +212,22 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Coordonnée Lambert Y :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Nombre de ponte :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
                         <TextField fx:id="coord_Lambert_Y" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label text="Nombre de têtards :" textFill="WHITE" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="coord_Lambert_Y1" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
