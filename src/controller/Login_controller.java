@@ -76,7 +76,7 @@ public class Login_controller {
                     ChangerPage page = new ChangerPage(stage);
                     //redirige sur la page utilisateur
                     if(r.getInt("administration") == 0){
-                        
+
                         this.writeInfos(r.getInt("id"), r.getString("full_name"), r.getInt("administration"));
                         page.go_to("../view/Accueil_Utilisateur.fxml");
 
@@ -145,7 +145,7 @@ public class Login_controller {
 
 
         try {
-            FileWriter f = new FileWriter("infosCompte.txt");
+            FileWriter f = new FileWriter("../../controller/infosCompte.txt");
             PrintWriter out = new PrintWriter(f);
             out.println(idObs);
             out.println(id);

@@ -2,15 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
@@ -19,7 +13,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@visual%20code%20+%20git/SAE-PNR-1/src/vue/img/Logo-PNR.png" />
+                  <Image url="@img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -29,78 +23,43 @@
          <right>
             <Button fx:id="user" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="18" text="" />
-               </graphic></Button>
+                  <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" text="" />
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="40.0" />
+               </BorderPane.margin></Button>
          </right>
       </BorderPane>
    </top>
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <right>
-            <Button fx:id="addAcount" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #2E8B57;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="addAcount" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #019367;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="18" />
-               </graphic></Button>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="40.0" />
+               </BorderPane.margin></Button>
          </right>
          <left>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #2E8B57;" BorderPane.alignment="CENTER">
-               <graphic>
-                  <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="18" />
-               </graphic></Button>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="18" />
+                     </graphic>
+                     <BorderPane.margin>
+                        <Insets left="100.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </left>
+            </BorderPane>
          </left></BorderPane>
    </bottom>
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
-   <center>
-      <GridPane minWidth="-Infinity" prefHeight="275.0" prefWidth="350.0" style="-fx-alignment: #808080;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="228.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="228.0" prefWidth="143.0" style="-fx-background-color: #A4A4A4;">
-                     <children>
-                        <Label fx:id="adminPage" layoutX="11.0" layoutY="14.0" text="Administrateur 1" textFill="WHITE">
-                           <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="fas-angle-right" />
-                           </graphic>
-                        </Label>
-                     </children></AnchorPane>
-              </content>
-            </ScrollPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="228.0" prefWidth="136.0" style="-fx-background-color: #A4A4A4;">
-                     <children>
-                        <Label fx:id="userPage" layoutX="14.0" layoutY="14.0" text="Invité 1" textFill="WHITE">
-                           <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="fas-angle-right" />
-                           </graphic>
-                        </Label>
-                     </children></AnchorPane>
-              </content>
-            </ScrollPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;">
-               <center>
-                  <Label text="Administrateurs" textFill="WHITE" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.columnIndex="2">
-               <center>
-                  <Label text="Utilisateurs" textFill="WHITE" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-         </children>
-      </GridPane>
-   </center>
    <right>
       <BorderPane prefHeight="236.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
