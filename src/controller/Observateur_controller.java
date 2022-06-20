@@ -8,7 +8,7 @@ import javafx.scene.control.ComboBox;
 public class Observateur_controller {
 
     @FXML
-    private ComboBox estAdmin;
+    private ComboBox<String> estAdmin;
 
     private ObservableList<String> liste;
 
@@ -26,5 +26,8 @@ public class Observateur_controller {
         return estAdmin.getPromptText();
     }
     */
+    public void retour(){
+        
+    }
     
 }
