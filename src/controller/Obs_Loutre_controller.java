@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,7 +54,7 @@ public class Obs_Loutre_controller {
     /**
      * text field for the number of fly
      */
-    private TextField date;
+    private DatePicker date;
 
     @FXML
     /**
@@ -123,7 +124,7 @@ public class Obs_Loutre_controller {
 
         }
 
-        if (date.getText().isEmpty()) {
+        if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -151,8 +152,9 @@ public class Obs_Loutre_controller {
             requete2.next();
             int idL = requete2.getInt("obsL");
 
-            String querry2 = "INSERT INTO observation VALUES(" + idObs+1 + date.getText() + "," + heureObs.getText() + lambertX.getText() + "," + lambertY.getText() + ");";
+            String querry2 = "INSERT INTO observation VALUES(" + idObs+1 + date.getValue() + "," + heureObs.getText() + lambertX.getText() + "," + lambertY.getText() + ");";
             String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
             s.executeUpdate(querry2);
             s.executeUpdate(querry3);
