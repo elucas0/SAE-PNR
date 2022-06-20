@@ -118,7 +118,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout d'un lieu" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout observateur à observation" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -169,12 +169,12 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Coordonnée Lambert X :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Id de l'observation" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="coord_Lambert_x" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="lobservateur" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -196,12 +196,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Coordonnée Lambert Y :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Id de l'observateur" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="coord_Lambert_Y" GridPane.rowIndex="2">
+                        <TextField fx:id="lobservation" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

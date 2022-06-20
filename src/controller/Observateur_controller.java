@@ -16,16 +16,14 @@ public class Observateur_controller {
 
         liste = FXCollections.observableArrayList("Oui", "Non");
         estAdmin.setItems(liste);
-
     }
 
 
 
-/*
     public String getAdministrateur(){
         return estAdmin.getPromptText();
     }
-    */
+
     public void retour(){
         
     }
