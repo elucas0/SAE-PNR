@@ -73,7 +73,7 @@
             </BorderPane>
          </left>
          <right>
-            <Button fx:id="stat" mnemonicParsing="false" onAction="#toStat" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" BorderPane.alignment="CENTER">
+            <Button fx:id="stat" mnemonicParsing="false" onAction="#toGraphics" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
