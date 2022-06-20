@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Observateur_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Lieu_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
@@ -67,7 +66,7 @@
                <center>
                   <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -119,7 +118,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout d'un observateur" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Ajout observateur à observation" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
@@ -170,22 +169,12 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Prénom :" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="Id de l'observation" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="prenom" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="5">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Label text="Nom :" textFill="WHITE" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="nom" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="lobservateur" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
@@ -207,36 +196,16 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Identifiant du compte :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Id de l'observateur" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="idCompte" GridPane.rowIndex="2">
+                        <TextField fx:id="lobservation" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="mot de passe :" textFill="WHITE" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="mdp" GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <ComboBox fx:id="estAdmin" prefWidth="150.0" GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="190.0" />
-                           </GridPane.margin>
-                        </ComboBox>
-                        <Label text="Est administrateur :" textFill="WHITE" GridPane.rowIndex="5">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
                      </children>
                   </GridPane>
                </children>

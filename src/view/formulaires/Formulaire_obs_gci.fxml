@@ -251,7 +251,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <DatePicker GridPane.rowIndex="4">
+                        <DatePicker fx:id="date" GridPane.rowIndex="4">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>

@@ -169,7 +169,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Coordonnée Lambert x:" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Coordonnée Lambert X :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -196,7 +196,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Coordonnée Lambert y :" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="Coordonnée Lambert Y :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>

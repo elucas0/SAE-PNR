@@ -88,6 +88,16 @@
                            </BorderPane.margin>
                         </Button>
                      </right>
+                     <left>
+                        <Button fx:id="ajouteEspece" mnemonicParsing="false" onAction="#toEspece" style="-fx-background-color: #019367;" text="Ajouter une espèce" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets right="100.0" />
+                           </BorderPane.margin>
+                        </Button>
+                     </left>
                   </BorderPane>
                </right>
             </BorderPane>
@@ -214,7 +224,7 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <DatePicker GridPane.rowIndex="2">
+                        <DatePicker fx:id="date" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

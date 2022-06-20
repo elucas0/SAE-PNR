@@ -216,6 +216,16 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
+                        <Label text="Zone de végétation concernée :" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="idZoneVege" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="100.0" right="100.0" />
+                           </GridPane.margin>
+                        </TextField>
                      </children>
                   </GridPane>
                </children>
