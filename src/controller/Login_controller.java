@@ -66,7 +66,7 @@ public class Login_controller {
             PreparedStatement i = c.prepareStatement("SELECT * FROM registration WHERE full_name = ?");
             i.setString(1, id.getText());
             ResultSet r = i.executeQuery();
-            
+
             while (r.next()) {
                 pass = r.getString("password");
                 
@@ -76,7 +76,10 @@ public class Login_controller {
                     ChangerPage page = new ChangerPage(stage);
                     //redirige sur la page utilisateur
                     if(r.getInt("administration") == 0){
+                        
+                        this.writeInfos(r.getInt("id"), r.getString("full_name"), r.getInt("administration"));
                         page.go_to("../view/Accueil_Utilisateur.fxml");
+
                     }
                     //redirige sur la page administrateur
                     else{
@@ -142,8 +145,12 @@ public class Login_controller {
 
 
         try {
-            FileWriter f = new FileWriter("infosCompte");
+            FileWriter f = new FileWriter("infosCompte.txt");
             PrintWriter out = new PrintWriter(f);
+            out.println(idObs);
+            out.println(id);
+            out.println(estAdmin);
+            out.close();
 
         } catch (IOException e) {
 
