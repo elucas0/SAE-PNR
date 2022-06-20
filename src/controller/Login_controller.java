@@ -13,6 +13,7 @@ import javafx.stage.Window;
 import java.sql.*;
 /**Class to connect people in the application */
 public class Login_controller {   
+    private Observateur_controller test = new Observateur_controller();
 
     @FXML
     /**
@@ -69,6 +70,8 @@ public class Login_controller {
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     //redirige sur la page utilisateur
+                    //showAlert(Alert.AlertType.CONFIRMATION, owner, "test!",
+                    //    "test get " + test.getAdministrateur());
                     if(r.getInt("administration") == 0){
                         page.go_to("../view/Accueil_Utilisateur.fxml");
                     }

@@ -18,5 +18,13 @@ public class Observateur_controller {
         estAdmin.setItems(liste);
 
     }
+
+
+
+/*
+    public String getAdministrateur(){
+        return estAdmin.getPromptText();
+    }
+    */
     
 }
