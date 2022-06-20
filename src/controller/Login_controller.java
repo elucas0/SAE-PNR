@@ -10,10 +10,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.FilterWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 /**Class to connect people in the application */
 public class Login_controller {   
-    private Observateur_controller test = new Observateur_controller();
 
     @FXML
     /**
@@ -70,8 +75,6 @@ public class Login_controller {
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     //redirige sur la page utilisateur
-                    showAlert(Alert.AlertType.CONFIRMATION, owner, "test!",
-                        "test get " + test.getAdministrateur());
                     if(r.getInt("administration") == 0){
                         page.go_to("../view/Accueil_Utilisateur.fxml");
                     }
@@ -101,6 +104,8 @@ public class Login_controller {
         }
         
     }
+ 
+    
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
@@ -131,6 +136,21 @@ public class Login_controller {
 
 
     }
+
+
+    public void writeInfos(int idObs, String id, int estAdmin){
+
+
+        try {
+            FileWriter f = new FileWriter("infosCompte");
+            PrintWriter out = new PrintWriter(f);
+
+        } catch (IOException e) {
+
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
 
 

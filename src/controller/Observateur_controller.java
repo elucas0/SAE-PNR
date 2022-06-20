@@ -19,11 +19,6 @@ public class Observateur_controller {
     }
 
 
-
-    public String getAdministrateur(){
-        return estAdmin.getPromptText();
-    }
-
     public void retour(){
         
     }
