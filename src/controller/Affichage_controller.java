@@ -48,4 +48,7 @@ public class Affichage_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/Accueil_Utilisateur.fxml");
     }
+
+
+    
 }

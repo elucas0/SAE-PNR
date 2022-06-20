@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "controller.test",
+            "projectName": "SAE-PNR_3eae635f"
+        },
+        {
+            "type": "java",
             "name": "Launch ScenarioTraitement",
             "request": "launch",
             "mainClass": "modele.ScenarioTraitement",
