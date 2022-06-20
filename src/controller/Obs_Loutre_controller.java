@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.sql.SQLException;
+import java.time.LocalTime;
+
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
@@ -142,21 +144,19 @@ public class Obs_Loutre_controller {
             Statement s = c.createStatement();
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
-            PreparedStatement id = c.prepareStatement("SELECT MAX(idObs) FROM observation;");
-            ResultSet requete1 = id.executeQuery();
-            requete1.next();
-            int idObs = requete1.getInt("idObs");
 
-            PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(obsL) FROM observation;");
+
+            PreparedStatement idLoutre = c.prepareStatement("SELECT LAST_INSERT_ID();");
             ResultSet requete2 = idLoutre.executeQuery();
             requete2.next();
-            int idL = requete2.getInt("obsL");
-            String tess = heureObs.getText();
-            String querry2 = "INSERT INTO observation VALUES(" + idObs+1 + date.getValue() + "," + heureObs.getText() + lambertX.getText() + "," + lambertY.getText() + ");";
-            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+            int idL = requete2.getInt("LAST_INSERT_ID()");
+
+            System.out.println(Time.valueOf(heureObs.getText()));
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL +", " + commune.getText() + ", " + lieu_dit.getText() + ", " + indice.getPromptText() + ");";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
-            s.executeUpdate(querry2);
+            querry2.executeUpdate();
             s.executeUpdate(querry3);
             
         } catch (Exception e) {
@@ -191,6 +191,12 @@ public class Obs_Loutre_controller {
 
         Stage actuel = (Stage)indice.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Accueil_Utilisateur.fxml");
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
     }
 }

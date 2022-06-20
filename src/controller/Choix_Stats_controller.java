@@ -21,7 +21,13 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Accueil_Utilisateur.fxml");
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
     }
 
     public void toObs(){
@@ -47,7 +53,13 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)this.user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Accueil_Utilisateur.fxml");
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
     }
     
 }
