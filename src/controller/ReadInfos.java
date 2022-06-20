@@ -8,6 +8,12 @@ import java.io.IOException;
 
 public class ReadInfos {
 
+
+    /**
+     * Get informations in the file and
+     * return if the user is and admin
+     * @return trur if the user is an admin, false if not
+     */
     public static boolean readAdmin(){
 
         boolean ret = false;
@@ -37,14 +43,23 @@ public class ReadInfos {
     }
     
 
+    /**
+     * Get the username and the id of the user
+     * @return a String containing the username and the id of the user
+     */
     public static String getStatus(){
 
         String ret = null;
 
         try {
-            FileReader f = new FileReader("infosCompte.txt");
-            ret = String.valueOf(f.read());
-            ret = ret + String.valueOf(f.read());
+
+            FileReader file = new FileReader("infosCompte.txt");
+            BufferedReader in = new BufferedReader(file);
+
+            String line = in.readLine();
+            ret = 
+            in.readLine();
+            ret = ret + " " +in.readLine();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());

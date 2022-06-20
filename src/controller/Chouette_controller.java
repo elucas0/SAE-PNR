@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,17 +20,7 @@ import java.sql.*;
 public class Chouette_controller {
     
 
-    @FXML
-    /**
-     * The combobox with the nature of the observation in the fxml file.
-     */
-    private ComboBox<String> natureObs;
 
-    @FXML
-    /**
-     * The combobox that contain the gender in the fxml file.
-     */
-    private ComboBox<String> sexe;
 
 
     /**
@@ -43,6 +35,23 @@ public class Chouette_controller {
      */
     private Button effectuer;
 
+    @FXML
+    private Button nom_compte;
+
+    @FXML
+    private TextField numIndivid;
+
+    @FXML
+    private ComboBox<String> espece;
+
+    @FXML
+    /**
+     * The combobox that contain the gender in the fxml file.
+     */
+    private ComboBox<String> sexe;
+
+
+
 
     @FXML
     /**
@@ -50,10 +59,10 @@ public class Chouette_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Effraie", "Cheveche", "Hulotte");
-        natureObs.setItems(liste);
+        liste = FXCollections.observableArrayList("EFFRAIE","CHEVECHE","HULOTTE");
+        espece.setItems(liste);
 
-        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        liste = FXCollections.observableArrayList("MALE","FEMELLE","INCONNU");
         sexe.setItems(liste);
 
     }
@@ -66,7 +75,7 @@ public class Chouette_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (natureObs.getPromptText().isEmpty()) {
+        if (espece.getPromptText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -82,7 +91,7 @@ public class Chouette_controller {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + natureObs.getPromptText() + "," + sexe.getPromptText() + ");";
+            String querry = "INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getPromptText() + "','" + sexe.getPromptText() + "');";
             s.executeUpdate(querry);
             
         } catch (Exception e) {
