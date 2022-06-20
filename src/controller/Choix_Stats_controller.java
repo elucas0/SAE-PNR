@@ -31,11 +31,11 @@ public class Choix_Stats_controller {
         change.go_to("../view/Affichage.fxml");
     }
 
-    public void toStat(){
+    public void toGraphics(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../src/formulaires/ConsultCompte.fxml");
+        change.go_to("../view/Graphics_Stats.fxml");
     }
 
 
