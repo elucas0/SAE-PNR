@@ -93,8 +93,10 @@ public class Chouette_controller {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO CHOUETTE VALUES("+ numIndivid.getText() +", " + espece.getPromptText() + "," + sexe.getPromptText() + ");";
-            s.executeUpdate(querry);
+
+            PreparedStatement querry1 =  c.prepareStatement("INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');");
+            System.out.println("INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');");
+            querry1.executeUpdate();
             
         } catch (Exception e) {
             e.printStackTrace();
