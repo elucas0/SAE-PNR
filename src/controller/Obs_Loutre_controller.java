@@ -156,7 +156,7 @@ public class Obs_Loutre_controller {
             s.executeUpdate(querry1);
             querry2.executeUpdate();
             s.executeUpdate(querry3);
-            s.executeUpdate(querry4);
+            //s.executeUpdate(querry4);
             
         } catch (Exception e) {
             e.printStackTrace();
