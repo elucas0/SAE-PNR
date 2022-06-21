@@ -25,7 +25,11 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception{
+<<<<<<< HEAD
         Parent root = FXMLLoader.load(getClass().getResource("../formulaires/Formulaire_obs_loutre.fxml"));
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("../Accueil_Admin.fxml"));
+>>>>>>> 05491aedbf15c92a1ff3161491c598bae88163a3
         primaryStage.setTitle("PNR");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight() * 0.97));
         primaryStage.show();
