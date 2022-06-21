@@ -144,7 +144,7 @@ public class Obs_Loutre_controller {
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
 
-
+            //commit
             PreparedStatement idLoutre = c.prepareStatement("SELECT LAST_INSERT_ID();");
             ResultSet requete2 = idLoutre.executeQuery();
             requete2.next();
