@@ -96,7 +96,7 @@
             </ScrollPane>
          </left>
          <right>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: 4D4C4F;" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
                <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>

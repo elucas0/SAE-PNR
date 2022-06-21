@@ -26,7 +26,7 @@
          <right>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Utilisateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" stylesheets="@css/style.css" text="Utilisateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                      </graphic>
@@ -41,7 +41,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="deco" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: #019367;" text="Déconnexion" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="deco" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: #019367;" stylesheets="@css/style.css" text="Déconnexion" textFill="WHITE" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fas-sign-out-alt" iconSize="30" text="" />
                      </graphic>
@@ -51,7 +51,7 @@
          </left></BorderPane>
    </bottom>
    <center>
-      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" styleClass="border-pane" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -64,7 +64,7 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" stylesheets="@css/style.css" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="20.0" right="10.0" />
                      </BorderPane.margin>
@@ -74,7 +74,7 @@
                   </Button>
                </left>
                <right>
-                  <MenuButton fx:id="prospection" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <MenuButton fx:id="prospection" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" stylesheets="@css/style.css" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets right="20.0" />
                      </BorderPane.margin>
@@ -107,13 +107,33 @@
                               <FontIcon iconLiteral="fab-earlybirds" />
                            </graphic>
                         </MenuItem>
+                        <MenuItem fx:id="zonehumide" mnemonicParsing="false" onAction="#formulaire_zone_humide" text="Zone Humide">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-water" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#formulaire_vegetation" text="Vegetation">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-tree" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#formulaire_lieu" text="Lieu">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-map-marked-alt" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#formulaire_a_observe" text="Observateur">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-search" />
+                           </graphic>
+                        </MenuItem>
                      </items>
                   </MenuButton>
                </right>
             </BorderPane>
          </center>
          <left>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="border-pane" stylesheets="@css/style.css" BorderPane.alignment="CENTER" />
          </left>
       </BorderPane>
    </center>
