@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,10 +17,6 @@ import java.sql.*;
  * @version 1.3
  */
 public class Chouette_controller {
-    
-
-
-
 
     /**
      * An ObservableList<String> that will contain the list of elements to add to the
@@ -86,6 +81,13 @@ public class Chouette_controller {
                 "Please enter good coordonnée");
 
         }
+
+        if (numIndivid.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
         //création de l'insert
         try {
             Class.forName("com.mysql.jdbc.Driver");
