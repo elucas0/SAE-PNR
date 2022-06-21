@@ -156,10 +156,11 @@ public class Obs_Loutre_controller {
             
             System.out.println("INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');");
             String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', " + indice.getPromptText() + ");";
-            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+            String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + "," + idL + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();
             s.executeUpdate(querry3);
+            s.executeUpdate(querry4);
             
         } catch (Exception e) {
             e.printStackTrace();
