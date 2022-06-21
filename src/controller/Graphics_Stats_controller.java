@@ -2,14 +2,15 @@ package controller;
 
 import java.sql.SQLException;
 import java.sql.*;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.stage.Stage;
+
 
 public class Graphics_Stats_controller {
 
@@ -17,10 +18,35 @@ public class Graphics_Stats_controller {
     private BarChart<String, Number> barChartBatracien;
 
     @FXML
-    private CategoryAxis meteo;
+    private Button home;
 
     @FXML
-    private NumberAxis naBatraciens;
+    private Button refresh;
+
+    @FXML
+    private Button retour;
+
+
+    @FXML
+    public void home(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
+    }
+
+    @FXML
+    void retour(ActionEvent event) {
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/choix_stat_liste.fxml");
+    }
 
     @FXML
     void btn(ActionEvent event) throws SQLException, ClassNotFoundException {
