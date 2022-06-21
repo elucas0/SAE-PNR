@@ -74,7 +74,7 @@ public class Obs_Batracien_espece_controller{
     private int vegetation;
     private int temperature;
 
-    private 
+    
 
 
     @FXML
