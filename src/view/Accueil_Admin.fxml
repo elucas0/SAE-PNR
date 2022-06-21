@@ -97,22 +97,22 @@
                         <FontIcon iconLiteral="fab-earlybirds" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="zonehumide" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Zone Humide">
+                  <MenuItem fx:id="zonehumide" mnemonicParsing="false" onAction="#formulaire_zone_humide" text="Zone Humide">
                      <graphic>
                         <FontIcon iconLiteral="fas-water" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Vegetation">
+                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#formulaire_vegetation" text="Vegetation">
                      <graphic>
                         <FontIcon iconLiteral="fas-tree" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Lieu">
+                  <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#formulaire_lieu" text="Lieu">
                      <graphic>
                         <FontIcon iconLiteral="fas-map-marked-alt" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Observateur">
+                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#formulaire_a_observe" text="Observateur">
                      <graphic>
                         <FontIcon iconLiteral="fas-search" />
                      </graphic>
