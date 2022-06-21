@@ -202,7 +202,7 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="8">
+                        <TextField fx:id="heureObs" promptText="hh:mm:ss" GridPane.rowIndex="8">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

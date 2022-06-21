@@ -25,10 +25,10 @@
    <center>
       <BarChart fx:id="barChartBatracien" title="Nombre de batraciens observés selon la météo" BorderPane.alignment="CENTER">
         <xAxis>
-          <CategoryAxis label="Météo" side="BOTTOM" />
+          <CategoryAxis fx:id="meteo" label="Météo" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis label="Nombre de batraciens" side="LEFT" />
+          <NumberAxis fx:id="naBatraciens" label="Nombre de batraciens" side="LEFT" />
         </yAxis>
       </BarChart>
    </center>
