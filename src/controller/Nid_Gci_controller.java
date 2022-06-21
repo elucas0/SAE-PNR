@@ -97,13 +97,13 @@ public class Nid_Gci_controller{
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (raisonArret.getPromptText().isEmpty()) {
+        if (raisonArret.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (estProtege.getPromptText().isEmpty()) {
+        if (estProtege.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -137,7 +137,15 @@ public class Nid_Gci_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry = "INSERT INTO nid_gci VALUES(" + nomPlage.getText() + "," + raisonArret.getPromptText() + "," + nomEnvols.getText() + "," + estProtege.getPromptText() + "," + bagueMale.getText() + "," + bagueFemelle.getText() + ");";
+            int protec = 0;
+            if(estProtege.getValue().equals("oui")){
+                protec = 1;
+
+            }else{
+
+                protec = 0;
+            }
+            String querry = "INSERT INTO nid_gci(nomPlage, raisonArretObservation, nbEnvol, protection, bagueMale, bagueFemelle) VALUES('" + nomPlage.getText() + "','" + raisonArret.getValue() + "', '" + nomEnvols.getText() + "', " + protec + ", '" + bagueMale.getText() + "', '" + bagueFemelle.getText() + "');";
             s.executeUpdate(querry);
             
         } catch (Exception e) {

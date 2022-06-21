@@ -113,37 +113,37 @@ public class Obs_GCI_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (natureObs.getPromptText().isEmpty()) {
+        if (natureObs.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (presentMaisNonObs.getPromptText().isEmpty()) {
+        if (presentMaisNonObs.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (idNid.getText().isEmpty()) {
+        if (idNid.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (nombre.getText().isEmpty()) {
+        if (nombre.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        if (lambertX.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        if (lambertY.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -155,7 +155,7 @@ public class Obs_GCI_controller {
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        if (heureObs.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -166,22 +166,33 @@ public class Obs_GCI_controller {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            //tring querry = "INSERT INTO obs_gci VALUES(" + natureObs.getPromptText() + "," + nombre.getText() + "," + presentMaisNonObs.getPromptText() + "," + idNid.getText() + ");";
-            //s.executeUpdate(querry);
+
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
-            PreparedStatement idGCI = c.prepareStatement("SELECT LAST_INSERT_ID();");
+
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+
+
+            PreparedStatement idGCI = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
             ResultSet requete2 = idGCI.executeQuery();
             requete2.next();
-            int id_GCI = requete2.getInt("LAST_INSERT_ID()");
+            int idG = requete2.getInt("Max(idObs)");
 
-            //System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            String querry3 = "INSERT INTO obs_gci VALUES(" + id_GCI + ", " + natureObs.getPromptText() + ", " + nombre.getText() + ", " + presentMaisNonObs.getPromptText() +  "," + idNid.getText() + ");";
-            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+            int protec = 0;
+            if(presentMaisNonObs.getValue().equals("oui")){
+                protec = 1;
+
+            }else{
+
+                protec = 0;
+            }
+
+            String querry3 = "INSERT INTO obs_gci VALUES(" + idG + ", '" + natureObs.getValue() + "', '" + nombre.getText() + "', " + protec +  ", '" + idNid.getText() + "');";
+            String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idG + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();
             s.executeUpdate(querry3);
+            s.executeUpdate(querry4);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,6 +227,7 @@ public class Obs_GCI_controller {
         Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_nid_gci.fxml");
+        
     }
 
 

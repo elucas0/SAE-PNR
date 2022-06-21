@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,11 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 
 
@@ -19,6 +25,18 @@ import java.sql.*;
  */
 public class Obs_Batracien_controller{
     
+    @FXML
+    private DatePicker date;
+
+    @FXML
+    private TextField heureObservation;
+
+    @FXML
+    private TextField lambertX;
+
+    @FXML
+    private TextField lambertY;
+
 
     @FXML
     /**
@@ -100,13 +118,53 @@ public class Obs_Batracien_controller{
         meteo_temps.setItems(liste);
     }
 
-    @FXML
+
+
     /**
-     * Method to create a insert querry to the database
-     * @throws SQLException
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
      */
-    private void insert() throws SQLException{
-        Window owner = effectuer.getScene().getWindow();
+    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
+
+    /**
+    * Event to do when the button retour is pressed.
+    * Switch to the page Accueil_Utilisateur.fxml
+    */
+    public void retour(){
+
+        Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        System.out.println(ReadInfos.readAdmin());
+        if(ReadInfos.readAdmin() == true){
+
+            change.go_to("../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../view/Accueil_Utilisateur.fxml");
+        }
+    }
+
+
+    public void toEspece(){
+
+
+
+        Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");    
+        
+
+        Window owner = meteo_temps.getScene().getWindow();
         //test : textfield vide
         if (meteo_ciel.getPromptText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
@@ -146,61 +204,30 @@ public class Obs_Batracien_controller{
                 "Please enter good coordonnée");
 
         }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry = "INSERT INTO obs_batracien VALUES(" + temperature.getText() + "," + meteo_ciel.getPromptText() + "," + meteo_temps.getPromptText() + "," + meteo_vent.getPromptText() + "," + meteo_pluie.getPromptText() + "," + numZoneHumide.getText() + "," + numVegetation.getText() + ");";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
-    }
+        try {
+            FileWriter f = new FileWriter("obsBatracien.txt");
+            PrintWriter out = new PrintWriter(f);
+            out.println(this.date.getValue());
+            out.println(this.heureObservation.getText());
+            out.println(this.lambertX.getText());
+            out.println(this.lambertY.getText());
+            out.println(this.temperature.getText());
+            out.println(this.meteo_ciel.getValue());
+            out.println(this.meteo_temps.getValue());
+            out.println(this.meteo_vent.getValue());
+            out.println(this.meteo_pluie.getValue());
+            out.println(this.numZoneHumide.getText());
+            out.println(this.numVegetation.getText());
+            out.close();
 
-    /**
-     * Method who create the message and show it in the screen
-     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
-     * @param title Title of the message screen
-     * @param message Message who appear in screen
-     */
-    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.initOwner(owner);
-        alert.show();
-    }
+        } catch (IOException e) {
 
-    /**
-    * Event to do when the button retour is pressed.
-    * Switch to the page Accueil_Utilisateur.fxml
-    */
-    public void retour(){
-
-        Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        System.out.println(ReadInfos.readAdmin());
-        if(ReadInfos.readAdmin() == true){
-
-            change.go_to("../view/Accueil_Admin.fxml");
-        }else{
-
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            System.out.println(e.getMessage());
         }
     }
 
 
-    public void toEspece(){
 
-        Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");      
-    }
     
 }
