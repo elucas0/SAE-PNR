@@ -32,17 +32,17 @@
             <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="id" prefHeight="25.0" prefWidth="198.0" text="identifiant" GridPane.rowIndex="1" />
+            <TextField fx:id="id" prefHeight="25.0" prefWidth="198.0" promptText="identifiant" GridPane.rowIndex="1" />
             <Pane prefHeight="121.0" prefWidth="190.0">
                <children>
                   <ImageView fitHeight="131.0" fitWidth="146.0" layoutX="40.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/Logo-PNR.png" />
+                        <Image url="@img/image_login.png" />
                      </image>
                   </ImageView>
                </children></Pane>
-            <PasswordField fx:id="mdp" onKeyPressed="#keyConnect" GridPane.rowIndex="2" />
-            <Button fx:id="bouton_connexion" contentDisplay="CENTER" mnemonicParsing="false" onAction="#connect" text=" " GridPane.rowIndex="3">
+            <PasswordField fx:id="mdp" onKeyPressed="#keyConnect" promptText="mot de passe" GridPane.rowIndex="2" />
+            <Button fx:id="bouton_connexion" contentDisplay="CENTER" mnemonicParsing="false" onAction="#connect" stylesheets="@css/style.css" text=" " GridPane.rowIndex="3">
                <graphic>
                   <FontIcon iconLiteral="far-arrow-alt-circle-right" selectionEnd="0" wrappingWidth="14.000008344650269" />
                </graphic></Button>

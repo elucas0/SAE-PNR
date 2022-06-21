@@ -91,4 +91,28 @@ public class Accueil_Admin_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
     }
+    public void formulaire_a_observe(){
+
+        Stage actuel = (Stage)gestion.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_a_observe.fxml");
+    }
+    public void formulaire_lieu(){
+
+        Stage actuel = (Stage)gestion.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_lieu.fxml");
+    }
+    public void formulaire_zone_humide(){
+
+        Stage actuel = (Stage)gestion.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_zone_humide.fxml");
+    }
+    public void formulaire_vegetation(){
+
+        Stage actuel = (Stage)gestion.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_vegetation.fxml");
+    }
 }

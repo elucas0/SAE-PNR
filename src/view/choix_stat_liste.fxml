@@ -9,7 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Choix_Stats_controller">
    <top>
-      <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
@@ -34,7 +34,7 @@
       </BorderPane>
    </top>
    <bottom>
-      <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
+      <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
@@ -43,7 +43,7 @@
                         <Insets left="20.0" />
                      </BorderPane.margin>
                      <graphic>
-                        <FontIcon fx:id="retour" iconColor="WHITE" iconLiteral="fas-chevron-left" iconSize="30" />
+                        <FontIcon fx:id="retour" iconColor="WHITE" iconLiteral="fas-chevron-left" iconSize="30" styleClass="button" />
                      </graphic>
                   </Button>
                </left>
@@ -51,7 +51,7 @@
          </left></BorderPane>
    </bottom>
    <center>
-      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" styleClass="border-pane" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -73,7 +73,7 @@
             </BorderPane>
          </left>
          <right>
-            <Button fx:id="stat" mnemonicParsing="false" onAction="#toGraphics" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" BorderPane.alignment="CENTER">
+            <Button fx:id="stat" mnemonicParsing="false" onAction="#toGraphics" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Statistiques" textFill="WHITE" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
