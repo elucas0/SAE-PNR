@@ -4,7 +4,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
-
 /**
  * The controller of the page Accueil_Admin.fxml. It manages it.
  * @version 1.0
