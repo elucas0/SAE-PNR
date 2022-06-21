@@ -100,14 +100,14 @@ public class Obs_Hippocampe_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Syngnathus acus", "Hippocampus guttulatus", "Hippocampus hippocampus", "Entelurus aequoreus");
+        liste = FXCollections.observableArrayList("Syngnathus acus", "Hippocampus guttulatus", "Hippocampus Hippocampus", "Entelurus aequoreus");
         espece.setItems(liste);
 
 
         liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
         sexe.setItems(liste);
 
-        liste = FXCollections.observableArrayList("casier Crevette", "casier Morgates", "petit Filet", "verveux Anguilles");
+        liste = FXCollections.observableArrayList("casierCrevettes", "casierMorgates", "PetitFilet", "verveuxAnguilles");
         typePeche.setItems(liste);
 
         liste = FXCollections.observableArrayList("oui", "non");
@@ -134,13 +134,14 @@ public class Obs_Hippocampe_controller {
 
         }
         
-        if (typePeche.getPromptText().isEmpty()) {
+        if (typePeche.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
+        
         //test : textfield vide
-        if (estGestant.getPromptText().isEmpty()) {
+        if (estGestant.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -191,15 +192,21 @@ public class Obs_Hippocampe_controller {
             //s.executeUpdate(querry);
 
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
 
-            PreparedStatement idHippocampes = c.prepareStatement("SELECT LAST_INSERT_ID();");
+            PreparedStatement idHippocampes = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
             ResultSet requete2 = idHippocampes.executeQuery();
             requete2.next();
-            int idH = requete2.getInt("LAST_INSERT_ID()");
+            int idH = requete2.getInt("Max(idObs)");
+            int gestant = -1;
+            if (estGestant.getValue().equals(("oui"))){
+                gestant = 1;
+            }
+            else{
+                gestant = 0;
+            }
 
-            //System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", " + espece.getPromptText() + ", " + sexe.getPromptText() + ", " + tempEau.getText() + "," + typePeche.getPromptText() + "," + taille.getText() + "," + estGestant.getPromptText() + ");";
+            String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", '" + espece.getValue() + "', '" + sexe.getValue() + "', '" + tempEau.getText() + "','" + typePeche.getValue() + "','" + taille.getText() + "','" + gestant + "');";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();

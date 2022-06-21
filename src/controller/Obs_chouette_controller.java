@@ -113,7 +113,7 @@ public class Obs_chouette_controller {
 
         }
         //test : textfield vide
-        if (protocole.getPromptText().isEmpty()) {
+        if (protocole.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -158,15 +158,21 @@ public class Obs_chouette_controller {
             //s.executeUpdate(querry);
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
-            PreparedStatement id_Chouette = c.prepareStatement("SELECT LAST_INSERT_ID();");
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+
+            PreparedStatement id_Chouette = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
             ResultSet requete2 = id_Chouette.executeQuery();
             requete2.next();
-            int idC = requete2.getInt("LAST_INSERT_ID()");
+            int idC = requete2.getInt("Max(idObs)");
+            int protocol = -1;
+            if (protocole.getValue().equals(("oui"))){
+                protocol = 1;
+            }
+            else{
+                protocol = 0;
+            }
 
-            //System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            
-            String querry3 = "INSERT INTO obs_chouette VALUES(" + ", " + protocole.getPromptText() + ", " + typeObs.getPromptText() + ", " + idChouette.getText() + idC +");";
+            String querry3 = "INSERT INTO obs_chouette VALUES('" + protocol + "', '" + typeObs.getValue() + "', '" + idChouette.getText() + "'," + idC +");";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();
