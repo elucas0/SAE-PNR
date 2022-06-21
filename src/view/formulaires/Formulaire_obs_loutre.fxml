@@ -181,7 +181,7 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
+                        <TextField fx:id="heureObs" promptText="hh:mm:ss" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
