@@ -83,7 +83,6 @@ public class ReadInfos {
             FileReader file = new FileReader("infosCompte.txt");
             BufferedReader in = new BufferedReader(file);
 
-            String line = in.readLine();
             ret = in.readLine();
 
         } catch (FileNotFoundException e) {
