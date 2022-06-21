@@ -8,11 +8,17 @@ import java.sql.*;
  */
 public class RequeteObservation {
 
+    ArrayList<String> idObs;
+    ArrayList<String> dateObs;
+    ArrayList<String> heureObs;
+    ArrayList<String> lieu_Lambert_X;
+    ArrayList<String> lieu_Lambert_Y;
+
     /**
      * Main method
      * @param args the arguments
      */
-    public static void main(String[] args) {
+    public RequeteObservation() {
         try {
             //Les ArrayList = au colonne de la table
             ArrayList<String> idObs = new ArrayList<String>();
@@ -38,12 +44,7 @@ public class RequeteObservation {
 
                 
             }
-            //Suppression des virgules
-            idObs.toString().replaceAll(",", " ");
-            dateObs.toString().replaceAll(",", " ");
-            heureObs.toString().replaceAll(",", " ");
-            lieu_Lambert_X.toString().replaceAll(",", " ");
-            lieu_Lambert_Y.toString().replaceAll(",", " ");
+
 
             //Affichage de la ligne 2
             System.out.println(idObs.get(1));

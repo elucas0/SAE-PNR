@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -47,9 +46,9 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="home" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#home">
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#home" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon  iconColor="WHITE" iconLiteral="fas-home" iconSize="30"  />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
@@ -68,16 +67,13 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" BorderPane.alignment="CENTER">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" BorderPane.alignment="CENTER">
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
-               <columns>
-                  <TableColumn fx:id="visualiser_colonne" prefWidth="75.0" style="-fx-background-color: #4E4E4E;" text="visualiser" />
-               </columns>
             </TableView>
          </center>
          <top>

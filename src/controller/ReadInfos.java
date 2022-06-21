@@ -69,4 +69,30 @@ public class ReadInfos {
 
         return ret;
     }
+
+    /**
+     * Get the user's id
+     * @return the user's id
+     */
+    public static String getId(){
+
+        String ret = null;
+
+        try {
+
+            FileReader file = new FileReader("infosCompte.txt");
+            BufferedReader in = new BufferedReader(file);
+
+            String line = in.readLine();
+            ret = in.readLine();
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return ret;
+    }
+ 
 }
