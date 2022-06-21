@@ -104,12 +104,17 @@
                   </MenuItem>
                   <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Vegetation">
                      <graphic>
-                        <FontIcon iconLiteral="fab-earlybirds" />
+                        <FontIcon iconLiteral="fas-tree" />
                      </graphic>
                   </MenuItem>
                   <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Lieu">
                      <graphic>
-                        <FontIcon iconLiteral="fab-earlybirds" />
+                        <FontIcon iconLiteral="fas-map-marked-alt" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#formulaire_obs_chouette" text="Observateur">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-search" />
                      </graphic>
                   </MenuItem>
               </items>
