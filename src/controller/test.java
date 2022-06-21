@@ -1,4 +1,7 @@
 package controller;
+import java.util.ArrayList;
+
+import modele.donnee.*;
 
 public class test {
 
@@ -6,7 +9,8 @@ public class test {
     public static void main(String[] args){
 
         QueryGet test = new QueryGet();
-        test.getObservations();
+        ArrayList<Observation> test2 = test.getObservations(10);
+
     }
     
 }

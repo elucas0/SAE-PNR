@@ -40,6 +40,10 @@ public class ObsBatracien extends Observation {
 	 * @param heure time of the observation
 	 * @param lieu location of the observation
 	 * @param observateur list of the observers
+	 * @param resObs  contain the number of adults(resObs[0]), 
+	 * of amplexus (resObs[1]), of tadpoles (resObs[2])
+	 * and of egg-layings (resObs[3]).
+	 * @param lEspece the frogg' specie
 	 */
 	public ObsBatracien(int id, Date date, Time heure, Lieu lieu, ArrayList<Observateur> observateurs, int[] resObs, EspeceBatracien lEspece) {
 		super(id, date, heure, lieu, observateurs);

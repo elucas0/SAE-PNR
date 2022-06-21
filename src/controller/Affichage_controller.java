@@ -1,8 +1,16 @@
 package controller;
 
+import java.util.ArrayList;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import modele.RequeteObservation;
+import modele.donnee.Observation;
 
 public class Affichage_controller {
     
@@ -13,6 +21,10 @@ public class Affichage_controller {
      */
     private Button retour;
 
+    @FXML
+    private TableView<String> table;
+
+    private TableColumn<?, ?> colonne;
     
 
 
@@ -22,7 +34,10 @@ public class Affichage_controller {
      */
     private void initialize() 
     {
+        colonne = new TableColumn<RequeteObservation, ArrayList<String>>("idObs");
 
+        ObservableList<String> tests = FXCollections.observableArrayList("test", "test");
+        table.setItems(tests);
     }
 
 
