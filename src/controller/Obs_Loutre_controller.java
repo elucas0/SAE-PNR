@@ -144,16 +144,14 @@ public class Obs_Loutre_controller {
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
 
-            //commit
-            PreparedStatement idLoutre = c.prepareStatement("SELECT LAST_INSERT_ID();");
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+            
+            PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
             ResultSet requete2 = idLoutre.executeQuery();
             requete2.next();
-            int idL = requete2.getInt("LAST_INSERT_ID()");
+            int idL = requete2.getInt("Max(idObs)");
 
-            System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            System.out.println("INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');");
-            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getPromptText() + "');";
+            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', " + indice.getPromptText() + ");";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();
