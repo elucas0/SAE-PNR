@@ -3,3 +3,36 @@ fx:frame{
 	width : 100%;
 	height : 100%;
 }
+.border-pane{
+  -fx-background-radius: 10;
+  -fx-background-insets: 1;
+  -fx-alignment: center ;
+
+
+}
+.button {
+  -fx-background-radius: 7;
+  -fx-background-insets: 1;
+  -fx-border-width:6;
+  -fx-alignment: center ;
+
+
+}
+.menu-button{
+  -fx-background-radius: 7;
+  -fx-background-insets: 1;
+  -fx-border-width:6;
+  -fx-alignment: center ;
+
+}
+.menu-item: hover{
+
+}
+.combo-box{
+  -fx-background-radius: 7;
+  -fx-background-insets: 1;
+}
+.text-field {
+  -fx-background-radius: 70;
+  -fx-background-insets: 1;	
+}

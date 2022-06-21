@@ -15,7 +15,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo_PNR.png" />
+                  <Image url="@img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
