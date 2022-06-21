@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Formulaire_nid_gci_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%; -fx-background-color: #FFFFFF;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Formulaire_nid_gci_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <left>
@@ -77,7 +77,7 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Button" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>
@@ -116,7 +116,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" styleClass="border-pane" GridPane.columnIndex="1">
                            <center>
                               <Label text="Ajouter une observation" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
@@ -148,7 +148,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane style="-fx-background-color: #4E4E4E;">
+                  <GridPane style="-fx-background-color: #4E4E4E;" styleClass="border-pane">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -191,7 +191,7 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="1">
+                  <GridPane prefHeight="139.0" prefWidth="100.0" style="-fx-background-color: #4E4E4E;" styleClass="border-pane" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
