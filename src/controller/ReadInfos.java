@@ -74,16 +74,16 @@ public class ReadInfos {
      * Get the user's id
      * @return the user's id
      */
-    public static String getId(){
+    public static int getId(){
 
-        String ret = null;
+        int ret = -1;
 
         try {
 
             FileReader file = new FileReader("infosCompte.txt");
             BufferedReader in = new BufferedReader(file);
 
-            ret = in.readLine();
+            ret = Integer.parseInt(in.readLine());
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
