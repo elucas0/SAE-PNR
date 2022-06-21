@@ -155,14 +155,11 @@ public class Obs_Batracien_controller{
     }
 
 
-    public void toEspece(){
-
-
+    public void toEspece(){ 
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");    
-        
+        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");   
 
         Window owner = meteo_temps.getScene().getWindow();
         //test : textfield vide
@@ -225,6 +222,8 @@ public class Obs_Batracien_controller{
 
             System.out.println(e.getMessage());
         }
+
+
     }
 
 

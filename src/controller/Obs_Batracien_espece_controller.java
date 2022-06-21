@@ -73,6 +73,7 @@ public class Obs_Batracien_espece_controller{
     private int zoneHumide;
     private int vegetation;
     private int temperature;
+    private int numObs;
 
 
     @FXML
@@ -82,7 +83,9 @@ public class Obs_Batracien_espece_controller{
     private void initialize(){
         liste = FXCollections.observableArrayList("calamite", "pelodyte");
         espece.setItems(liste);
+        numObs = -1;
         this.readBatracien();
+        
 
     }
 
@@ -157,24 +160,37 @@ public class Obs_Batracien_espece_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
-            String querry1 = "INSERT INTO lieu VALUES(" + lambertX + "," + lambertY + ");";
+            if(this.numObs == -1){
+                String querry1 = "INSERT INTO lieu VALUES(" + lambertX + "," + lambertY + ");";
 
 
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + date + "','" + heureObs +"', " + lambertX + ", " + lambertY + ");");
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + date + "','" + heureObs +"', " + lambertX + ", " + lambertY + ");");
+    
+    
+                PreparedStatement idBatracien = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idBatracien.executeQuery();
+                requete2.next();
+                numObs = requete2.getInt("Max(idObs)");
+    
+    
+                String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + numObs + ");";
+                s.executeUpdate(querry1);
+                querry2.executeUpdate();
+                s.executeUpdate(querry3);
+                s.executeUpdate(querry4);
+                System.out.println("test");
+
+            }else if (numObs >= 0){
+                System.out.println("passe");
 
 
-            PreparedStatement idBatracien = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-            ResultSet requete2 = idBatracien.executeQuery();
-            requete2.next();
-            int idB = requete2.getInt("Max(idObs)");
+                String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
+                s.executeUpdate(querry3);
+
+            }
 
 
-            String querry3 = "INSERT INTO obs_batracien VALUES(" + idB + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', " +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
-            String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idB + ");";
-            s.executeUpdate(querry1);
-            querry2.executeUpdate();
-            s.executeUpdate(querry3);
-            s.executeUpdate(querry4);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -205,9 +221,8 @@ public class Obs_Batracien_espece_controller{
 
         try {
 
-            FileReader file = new FileReader("infosCompte.txt");
+            FileReader file = new FileReader("obsBatracien.txt");
             BufferedReader in = new BufferedReader(file);
-
             this.date = Date.valueOf(in.readLine());
             this.heureObs = Time.valueOf(in.readLine());
             this.lambertX = Double.parseDouble(in.readLine());
