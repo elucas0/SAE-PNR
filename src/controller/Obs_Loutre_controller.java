@@ -83,7 +83,7 @@ public class Obs_Loutre_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("positif", "négatif", "pas de prospection");
+        liste = FXCollections.observableArrayList("Positif","Negatif","Non prospection");
         indice.setItems(liste);
     }
 
@@ -151,8 +151,9 @@ public class Obs_Loutre_controller {
             int idL = requete2.getInt("LAST_INSERT_ID()");
 
             System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(idObs, dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES(" + idL + ", '" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL +", " + commune.getText() + ", " + lieu_dit.getText() + ", " + indice.getPromptText() + ");";
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+            System.out.println("INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');");
+            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getPromptText() + "');";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();

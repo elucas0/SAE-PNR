@@ -79,7 +79,7 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" onAction="#insert" style="-fx-background-color: #019367;" text="Button" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="effectuer" mnemonicParsing="false" onAction="#insert" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>
@@ -181,7 +181,7 @@
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="heureObs" GridPane.rowIndex="6">
+                        <TextField fx:id="heureObs" promptText="hh:mm:ss" GridPane.rowIndex="6">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
