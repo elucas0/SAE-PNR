@@ -151,7 +151,7 @@ public class Obs_Loutre_controller {
             int idL = requete2.getInt("LAST_INSERT_ID()");
 
             System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(idObs, dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES(" + idL + ", '" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
             String querry3 = "INSERT INTO obs_loutre VALUES(" + idL +", " + commune.getText() + ", " + lieu_dit.getText() + ", " + indice.getPromptText() + ");";
             //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
             s.executeUpdate(querry1);
