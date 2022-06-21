@@ -122,53 +122,71 @@ public class QueryGet {
         try {
             c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement querry = c.createStatement();
-            ResultSet observations = querry.executeQuery("SELECT * FROM observateur LIMIT 25");
+            ResultSet observations = querry.executeQuery("SELECT * FROM observation LIMIT 25");
             ResultSet res;
             ResultSet res2;
             ResultSet res3;
             ArrayList<Observateur> observateur = new ArrayList<>();
-            ArrayList<Integer> idObservateurs; 
+            ArrayList<Integer> idObservateurs = null; 
+            Observation obs;
 
             int idObs;
             Date date;
             Time heure;
             Lieu lieuObs;
 
-
             while(observations.next()){
 
+                System.out.println("passe");
+
                 idObs = observations.getInt("idObs");
-                res = querry.executeQuery("SELECT * FROM obs_batracien WHERE obsB = " + idObs);
+                System.out.println("passe");
+                date = observations.getDate("dateObs");
+                heure = observations.getTime("heureObs");
+                lieuObs = new Lieu(observations.getDouble("lieu_Lambert_X"), observations.getDouble("lieu_Lambert_Y"));
+                
+                res = querry.executeQuery("SELECT lobservateur FROM aobserve WHERE lobservation = " + idObs + "LIMIT 25");
+                observateur = new ArrayList<Observateur>();
+                idObservateurs = new ArrayList<Integer>();
 
-                if(!res.next()){
+                while(res.next()){
 
-                    date = observations.getDate("dateObs");
-                    heure = observations.getTime("heureObs");
-                    lieuObs = new Lieu(observations.getDouble("lieu_Lambert_X"), observations.getDouble("lieu_Lambert_Y"));                   
-                    res2 = querry.executeQuery("SELECT lobservateur FROM aobserve WHERE lobservation = " + idObs);
-                    idObservateurs = new ArrayList<Integer>();
+                    idObservateurs.add(res.getInt("lobservateur"));
+                }
 
-                    while(res2.next()){
+                for(int i : idObservateurs){
 
-                        idObservateurs.add(res2.getInt("lobservateur"));
+                    res = querry.executeQuery("SELECT nom, prenom FROM observateur WHERE idObservateur = " + i);
+                    Observateur obs1 = new Observateur(i, res.getString("nom"), res.getString("prenom"));
+                    observateur.add(obs1);
+                }
+
+                res = querry.executeQuery("SELECT * FROM obs_batracien WHERE obsB = "  + idObs);
+
+                while(res.next()){
+
+                    int[] resObs = {res.getInt("nombreAdultes"), res.getInt("nombreAmplexus"), res.getInt("nombrePonte"), res.getInt("nombreTetard")};
+                    EspeceBatracien espece = EspeceBatracien.CALAMITE;
+
+                    if(res.getString("espece").equals("calamite") ){
+                        espece = EspeceBatracien.CALAMITE;
+
+
+                    }else if(res.getString("espece").equals("pelodyte") ){
+                        espece = EspeceBatracien.PELODYTE;
+
                     }
-
-                    res3 = querry.executeQuery("SELECT nom, prenom FROM observateur WHERE idObservateur = " + idObs);
-                    observateur = new ArrayList<>();
-                    for(int i : idObservateurs){
-
-                        while()
-
-                        
-                    }
-
                     
-
-                }else{
-
+                    ObsBatracien batracien = new ObsBatracien(idObs, date, heure, lieuObs, observateur, resObs, espece);
+                    ret.add(batracien);
 
                 }
+
+
+
             }
+
+            return ret;
 
         } catch (SQLException e) {
 
