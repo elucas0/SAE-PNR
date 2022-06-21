@@ -9,7 +9,8 @@ public class test {
     public static void main(String[] args){
 
         QueryGet test = new QueryGet();
-        ArrayList<Observation> test2 = test.getObsBatracien();
+        ArrayList<ObsBatracien> test2 = test.getObsBatracien();
+        System.out.println(test2.get(0).getId());
 
 
 
