@@ -142,8 +142,7 @@ public class Obs_Loutre_controller {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
             String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
-
-
+            
             PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
             
             PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
@@ -151,7 +150,7 @@ public class Obs_Loutre_controller {
             requete2.next();
             int idL = requete2.getInt("Max(idObs)");
 
-            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', " + indice.getPromptText() + ");";
+            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');";
             String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + "," + idL + ");";
             s.executeUpdate(querry1);
             querry2.executeUpdate();
