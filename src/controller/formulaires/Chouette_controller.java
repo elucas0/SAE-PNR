@@ -157,7 +157,7 @@ public class Chouette_controller {
 
         Stage actuel = (Stage)sexe.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_chouette.fxml");
     }
 
     /**
@@ -168,6 +168,6 @@ public class Chouette_controller {
 
        Stage actuel = (Stage)sexe.getScene().getWindow();
        ChangerPage change = new ChangerPage(actuel);
-       change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+       change.go_to("../../view/formulaires/Formulaire_obs_chouette.fxml");
    }
 }

@@ -160,20 +160,20 @@ public class Affichage_controller_Chouette {
 
 
     /**
-     * Event to do when the button retour is pressed.    
-     * Switch to the page choix_stat_liste.fxml
+    * Event to do when the button retour is pressed.    
+    * Switch to the page choix_stat_liste.fxml
     */
     public void retour(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../../view/choix_stat_liste.fxml");
     }
 
 
     /**
-     * Event to do when the button home is pressed.
-     * Switch to the page Accueil_Utilisateur.fxml
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void home(){
 
@@ -184,7 +184,7 @@ public class Affichage_controller_Chouette {
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 
@@ -196,10 +196,18 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_observateur.fxml");
+        change.go_to("../../view/affichage/Affichage_observateur.fxml");
 
     }
 
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
+    }
+
+    
     /**
      * When a button linked to "affichage_lieu" is pressed
      * Switch to the page affichage_lieu.fxml
@@ -208,7 +216,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_Lieu.fxml");
+        change.go_to("../../view/affichage/Affichage_Lieu.fxml");
 
     }
 
@@ -220,7 +228,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_batracien.fxml");       
+        change.go_to("../../view/affichage/Affichage_batracien.fxml");       
     }
 
 
@@ -232,7 +240,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_loutre.fxml");       
+        change.go_to("../../view/affichage/Affichage_loutre.fxml");       
     }
 
     /**
@@ -243,7 +251,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_obs_gci.fxml");       
+        change.go_to("../../view/affichage/Affichage_obs_gci.fxml");       
     }
 
     /**
@@ -254,7 +262,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_hippocampe.fxml");       
+        change.go_to("../../view/affichage/Affichage_hippocampe.fxml");       
     }
 
     /**
@@ -265,7 +273,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_chouette.fxml");       
+        change.go_to("../../view/affichage/Affichage_chouette.fxml");       
     }
 
 }

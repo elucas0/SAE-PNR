@@ -60,7 +60,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/page_login.fxml");
+        change.go_to("../../view/Page_Login.fxml");
     }
 
     /**
@@ -71,7 +71,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../../view/choix_stat_liste.fxml");
     }
     
     /**
@@ -82,7 +82,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/ConsulteCompte.fxml");
+        change.go_to("../../view/ConsulteCompte.fxml");
     }
     
     /**
@@ -93,7 +93,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_batracien.fxml");
 
     }
 
@@ -105,7 +105,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_loutre.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_loutre.fxml");
 
     }
     
@@ -117,7 +117,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_gci.fxml");
 
     }
 
@@ -129,7 +129,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_hippocampe.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_hippocampe.fxml");
 
     }
 
@@ -141,7 +141,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_chouette.fxml");
     }
 
     /**
@@ -152,7 +152,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_a_observe.fxml");
+        change.go_to("../../view/formulaires/Formulaire_a_observe.fxml");
     }
 
     /**
@@ -163,7 +163,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_lieu.fxml");
+        change.go_to("../../view/formulaires/Formulaire_lieu.fxml");
     }
 
     /**
@@ -174,7 +174,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_zone_humide.fxml");
+        change.go_to("../../view/formulaires/Formulaire_zone_humide.fxml");
     }
 
     /**
@@ -185,6 +185,6 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_vegetation.fxml");
+        change.go_to("../../view/formulaires/Formulaire_vegetation.fxml");
     }
 }

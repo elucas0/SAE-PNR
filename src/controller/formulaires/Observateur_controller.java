@@ -162,7 +162,7 @@ public class Observateur_controller {
     public void retour(){
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/ConsulteCompte.fxml");
+        change.go_to("../../view/ConsulteCompte.fxml");
 
     }
 }

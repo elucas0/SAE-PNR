@@ -245,7 +245,7 @@ public class Obs_GCI_controller {
 
         Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_nid_gci.fxml");
+        change.go_to("../../view/formulaires/Formulaire_nid_gci.fxml");
         
     }
 
@@ -260,10 +260,10 @@ public class Obs_GCI_controller {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 

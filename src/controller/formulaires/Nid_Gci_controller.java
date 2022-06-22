@@ -201,7 +201,7 @@ public class Nid_Gci_controller{
 
         Stage actuel = (Stage)raisonArret.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_gci.fxml");
     }
 
 
@@ -215,10 +215,10 @@ public class Nid_Gci_controller{
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 

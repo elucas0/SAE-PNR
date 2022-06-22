@@ -35,10 +35,10 @@ public class Choix_Stats_controller {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 
@@ -50,7 +50,7 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage.fxml");
+        change.go_to("../../view/affichage/Affichage.fxml");
     }
 
     /**
@@ -61,7 +61,7 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Choix_espece_stats.fxml");
+        change.go_to("../../view/Choix_espece_stats.fxml");
     }
 
 

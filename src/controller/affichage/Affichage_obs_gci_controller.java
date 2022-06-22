@@ -132,7 +132,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../../view/choix_stat_liste.fxml");
     }
 
 
@@ -149,10 +149,9 @@ public class Affichage_obs_gci_controller {
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
-
 
     /**
      * When a button linked to "affichage_observateur" is pressed
@@ -162,7 +161,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_observateur.fxml");
+        change.go_to("../../view/affichage/Affichage_observateur.fxml");
 
     }
 
@@ -174,7 +173,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_Lieu.fxml");
+        change.go_to("../../view/affichage/Affichage_Lieu.fxml");
 
     }
 
@@ -186,7 +185,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_batracien.fxml");       
+        change.go_to("../../view/affichage/Affichage_batracien.fxml");       
     }
 
 
@@ -198,7 +197,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_loutre.fxml");       
+        change.go_to("../../view/affichage/Affichage_loutre.fxml");       
     }
 
     /**
@@ -209,7 +208,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_obs_gci.fxml");       
+        change.go_to("../../view/affichage/Affichage_obs_gci.fxml");       
     }
 
     /**
@@ -220,7 +219,7 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_hippocampe.fxml");       
+        change.go_to("../../view/affichage/Affichage_hippocampe.fxml");       
     }
 
     /**
@@ -231,7 +230,14 @@ public class Affichage_obs_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/affichage/Affichage_chouette.fxml");       
+        change.go_to("../../view/affichage/Affichage_chouette.fxml");       
+    }
+
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
     }
 
 

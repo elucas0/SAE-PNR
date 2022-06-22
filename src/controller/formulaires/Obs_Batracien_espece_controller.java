@@ -154,7 +154,7 @@ public class Obs_Batracien_espece_controller{
 
         Stage actuel = (Stage)espece.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_batracien.fxml");
         
         try {
 

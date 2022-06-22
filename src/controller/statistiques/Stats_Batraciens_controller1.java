@@ -69,10 +69,10 @@ public class Stats_Batraciens_controller1 {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 
@@ -84,7 +84,7 @@ public class Stats_Batraciens_controller1 {
     void retour(ActionEvent event) {
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Choix_espece_stats.fxml");
+        change.go_to("../../view/Choix_espece_stats.fxml");
     }
 
     @FXML
