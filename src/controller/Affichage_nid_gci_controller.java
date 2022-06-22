@@ -62,7 +62,7 @@ public class Affichage_nid_gci_controller {
     public ObservableList<Nid_Gci> data1 = FXCollections.observableArrayList();
 
     @FXML 
-    public void viewObsGci(int limite){
+    public void viewNidGci(int limite){
 
         table.getItems().clear();
         try{
@@ -104,7 +104,7 @@ public class Affichage_nid_gci_controller {
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
         limite.setItems(liste);
 
-        this.viewObsGci(25);
+        this.viewNidGci(25);
     }
 
 
@@ -150,15 +150,14 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_Lieu.fxml");
+        change.go_to("../view/Affichage_lieu.fxml");
 
     }
 
     public void affichage_batracien(){
-
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");       
+        change.go_to("../view/Affichage_batracien.fxml");  
     }
 
 
@@ -166,7 +165,7 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 
@@ -174,14 +173,21 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_obs_gci.fxml");       
+    }
+
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Affichage_nid_gci.fxml");       
     }
 
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_hippocampe.fxml");       
     }
 
 
@@ -189,14 +195,15 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_chouette.fxml");       
     }
 
     @FXML
     private void changeLimit(){
 
 
-        this.viewObsGci(this.limite.getValue());
+        this.viewNidGci(this.limite.getValue());
     }
+
     
 }
