@@ -79,8 +79,8 @@
                   <TableColumn fx:id="id" prefWidth="75.0" text="obsB" />
                   <TableColumn fx:id="date" prefWidth="75.0" text="espece" />
                   <TableColumn fx:id="heure" prefWidth="75.0" text="nombreTetard " />
-                  <TableColumn fx:id="Lieu" prefWidth="75.0" text="meteo_ciel " />
-                  <TableColumn fx:id="observateur" prefWidth="75.0" text="meteo_temp " />
+                  <TableColumn fx:id="lieu" prefWidth="75.0" text="meteo_ciel " />
+                  <TableColumn fx:id="observateurs" prefWidth="75.0" text="meteo_temp " />
                </columns>
             </TableView>
          </center>
