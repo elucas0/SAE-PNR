@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_controller_lieu">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -74,6 +75,10 @@
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
+               <columns>
+                  <TableColumn fx:id="coordx" prefWidth="75.0" text="CoordX" />
+                  <TableColumn fx:id="coordy" prefWidth="75.0" text="CoordY" />
+               </columns>
             </TableView>
          </center>
          <top>
@@ -91,9 +96,9 @@
                <children>
                   <MenuButton fx:id="filtre_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Ajouter un filtre" GridPane.columnIndex="1">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#affichage_observateur" text="Observateur" />
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                      <MenuItem mnemonicParsing="false" onAction="#affichage_lieu" text="Lieu" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                      <graphic>
                         <FontIcon iconLiteral="fas-filter" />
