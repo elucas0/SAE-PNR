@@ -52,7 +52,7 @@ public class Batracien  {
 	 * and of egg-layings (resObs[3]).
 	 * @param lEspece the frogg' specie
 	 */
-	public Batracien(int id, Date date, Time heure, double coordX, double coordY,  int observateurs, String espece, int adulte, int amplexus, int ponte,  int tetard) {
+	public Batracien(int id, Date date, Time heure, double coordX, double coordY,  int observateurs, String espece, int adulte, int amplexus,  int tetard, int ponte) {
 		this.id=id;
 		this.date=date;
 		this.heure=heure;

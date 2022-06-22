@@ -10,23 +10,39 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import modele.donnee.Observateur;
+
 import java.sql.*;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 public class Consulte_Compte_controller {
 
     @FXML
-    private  VBox adminPane;
+    private TableView <Observateur> table1;
 
     @FXML
-    private VBox userPane;
+    private  TableColumn<Observateur,String> colonneAdmin;
+
+    @FXML
+    private TableView <Observateur> table2;
+
+    @FXML
+    private TableColumn<Observateur,String> colonneUser;
 
     @FXML
     private Button user;
 
     @FXML
     private Button effectuer;
+
+    
+
+    public ObservableList<Observateur> data = FXCollections.observableArrayList();
 
 
 
@@ -106,12 +122,37 @@ public class Consulte_Compte_controller {
         return resultatAdmin;
     }
 
-    public void affichageUser(){
-        ArrayList<String> resultatUser = getUsers();
-        for (String user : resultatUser) {
-            Button usr = new Button(user);
-            userPane.getChildren().add(usr);
+    @FXML 
+    public void viewAdmin(int limite){
+        try{
+            table1.getItems().clear();
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1 LIMIT " + limite;
+            PreparedStatement stat = c.prepareStatement(sql);
+            ResultSet rs = stat.executeQuery();
+            while(rs.next()){
+                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
+                if(rs.getString(2) == null){
+
+                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
+
+
+                }else{
+
+                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
+
+                }
+            }
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
+        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
+        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
+        nom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        //prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        table.setItems(data);
     }
 
 
