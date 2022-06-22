@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.sql.SQLException;
-import java.time.LocalTime;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
@@ -74,6 +73,9 @@ public class Obs_Loutre_controller {
      * Button to insert the data in the database
      */
     private Button effectuer;
+
+    @FXML
+    private Button user;
     
 
 
@@ -85,6 +87,8 @@ public class Obs_Loutre_controller {
     {
         liste = FXCollections.observableArrayList("Positif","Negatif","Non prospection");
         indice.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML
@@ -95,74 +99,86 @@ public class Obs_Loutre_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (indice.getPromptText().isEmpty()) {
+        if (indice.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (commune.getText().isEmpty()) {
+        else if (commune.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lieu_dit.getText().isEmpty()) {
+        else if (lieu_dit.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        else if (lambertX.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
 
+        else{
 
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            
-            PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-            ResultSet requete2 = idLoutre.executeQuery();
-            requete2.next();
-            int idL = requete2.getInt("Max(idObs)");
-
-            String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', " + indice.getPromptText() + ");";
-            String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + "," + idL + ");";
-            s.executeUpdate(querry1);
-            querry2.executeUpdate();
-            s.executeUpdate(querry3);
-            //s.executeUpdate(querry4);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement obsLoutreController = c.createStatement();
+                PreparedStatement testLoutre = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testLoutre.setString(1, lambertX.getText());
+                testLoutre.setString(2, lambertY.getText());
+                ResultSet resultatLoutre = testLoutre.executeQuery();
+
+                if(resultatLoutre.next()){}
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+                    obsLoutreController.executeUpdate(querry1);
+                }
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+                
+                PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idLoutre.executeQuery();
+                requete2.next();
+                int idL = requete2.getInt("Max(idObs)");
+
+                String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idL + ");";
+                
+                querry2.executeUpdate();
+                obsLoutreController.executeUpdate(querry3);
+                obsLoutreController.executeUpdate(querry4);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        }
     }
 
     /**
@@ -190,7 +206,7 @@ public class Obs_Loutre_controller {
 
         Stage actuel = (Stage)indice.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

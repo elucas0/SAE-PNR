@@ -30,6 +30,17 @@ public class Lieu_controller {
     private Button effectuer;
 
     @FXML
+    private Button user;
+
+
+
+    @FXML
+    private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
+    }
+
+    @FXML
     /**
      * Method to create a insert querry to the database
      * @throws SQLException
@@ -43,24 +54,38 @@ public class Lieu_controller {
 
         }
         //test : textfield vide
-        if (coord_Lambert_Y.getText().isEmpty()) {
+        else if (coord_Lambert_Y.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ");";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        else{
+
+        
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement lieuController = c.createStatement();
+                PreparedStatement testLieu = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testLieu.setString(1, coord_Lambert_x.getText());
+                testLieu.setString(2, coord_Lambert_Y.getText());
+                ResultSet resultatLieu = testLieu.executeQuery();
+
+                if(resultatLieu.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Lieu", "Lieu déjà rentré!");
+                }
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ");";
+                    lieuController.executeUpdate(querry1);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Lieu", "rentré!");
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -87,7 +112,7 @@ public class Lieu_controller {
 
         Stage actuel = (Stage)effectuer.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

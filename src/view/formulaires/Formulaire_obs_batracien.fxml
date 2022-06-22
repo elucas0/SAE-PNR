@@ -30,7 +30,7 @@
             </ImageView>
          </left>
          <right>
-            <Button fx:id="nom_compte" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                </graphic>
@@ -78,16 +78,6 @@
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" onAction="#insert" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <graphic>
-                              <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
-                           </graphic>
-                           <BorderPane.margin>
-                              <Insets right="40.0" />
-                           </BorderPane.margin>
-                        </Button>
-                     </right>
                      <left>
                         <Button fx:id="ajouteEspece" mnemonicParsing="false" onAction="#toEspece" style="-fx-background-color: #019367;" text="Ajouter une espèce" textFill="WHITE" BorderPane.alignment="CENTER">
                            <graphic>
@@ -181,6 +171,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <opaqueInsets>
                         <Insets />
@@ -189,7 +180,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="Heure de l'observation :" textFill="WHITE" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -199,52 +190,52 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="heureObservation" promptText="hh:mm:ss" GridPane.rowIndex="4">
+                        <TextField fx:id="heureObservation" promptText="hh:mm:ss" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Numéro zone humide asociée : " textFill="WHITE" GridPane.rowIndex="6">
+                        <Label text="Numéro zone humide asociée : " textFill="WHITE" GridPane.rowIndex="7">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="numZoneHumide" GridPane.rowIndex="7">
+                        <TextField fx:id="numZoneHumide" GridPane.rowIndex="8">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label text="Numéro de la végétation concernée:" textFill="WHITE" GridPane.rowIndex="8">
+                        <Label text="Numéro de la végétation concernée:" textFill="WHITE" GridPane.rowIndex="9">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="numVegetation" GridPane.rowIndex="9">
+                        <TextField fx:id="numVegetation" GridPane.rowIndex="10">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <DatePicker fx:id="date" GridPane.rowIndex="2">
+                        <DatePicker fx:id="date" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </DatePicker>
-                        <Label text="Coordonnées Lambert X :" textFill="WHITE" GridPane.rowIndex="11">
+                        <Label text="Coordonnées Lambert X :" textFill="WHITE" GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Coordonnées Lambert Y :" textFill="WHITE" GridPane.rowIndex="13">
+                        <Label text="Coordonnées Lambert Y :" textFill="WHITE" GridPane.rowIndex="14">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="lambertX" GridPane.rowIndex="12">
+                        <TextField fx:id="lambertX" GridPane.rowIndex="13">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="lambertY" GridPane.rowIndex="14">
+                        <TextField fx:id="lambertY" GridPane.rowIndex="15">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>

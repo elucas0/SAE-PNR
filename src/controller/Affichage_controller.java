@@ -25,6 +25,9 @@ public class Affichage_controller {
     private TableView<String> table;
 
     private TableColumn<?, ?> colonne;
+
+    @FXML
+    private Button user;
     
 
 
@@ -34,10 +37,9 @@ public class Affichage_controller {
      */
     private void initialize() 
     {
-        colonne = new TableColumn<RequeteObservation, ArrayList<String>>("idObs");
+        user.setText(ReadInfos.getStatus());
 
-        ObservableList<String> tests = FXCollections.observableArrayList("test", "test");
-        table.setItems(tests);
+
     }
 
 
@@ -61,7 +63,7 @@ public class Affichage_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
