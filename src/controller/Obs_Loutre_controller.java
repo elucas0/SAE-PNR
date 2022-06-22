@@ -167,11 +167,11 @@ public class Obs_Loutre_controller {
                 int idL = requete2.getInt("Max(idObs)");
 
                 String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');";
-                //String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + "," + idL + ");";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idL + ");";
                 
                 querry2.executeUpdate();
                 obsLoutreController.executeUpdate(querry3);
-                //s.executeUpdate(querry4);
+                obsLoutreController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
