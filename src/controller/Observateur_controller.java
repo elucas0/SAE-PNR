@@ -63,20 +63,20 @@ public class Observateur_controller {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter your name");
         }
-        if (mdp.getText().isEmpty()) {
+        else if (mdp.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
         }
     
-        if (nom.getText().isEmpty()) {
+        else if (nom.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter your name");
         }
-        if (prenom.getText().isEmpty()) {
+        else if (prenom.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
         }
-        if (estAdmin.getValue().isEmpty()) {
+        else if (estAdmin.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
         }

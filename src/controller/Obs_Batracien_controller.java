@@ -173,38 +173,39 @@ public class Obs_Batracien_controller{
 
         }
         //test : textfield vide
-        if (meteo_pluie.getValue().isEmpty()) {
+        else if (meteo_pluie.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (meteo_temps.getValue().isEmpty()) {
+        else if (meteo_temps.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (meteo_vent.getValue().isEmpty()) {
+        else if (meteo_vent.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        if (numZoneHumide.getText().isEmpty()) {
+        else if (numZoneHumide.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        if (numVegetation.getText().isEmpty()) {
+        else if (numVegetation.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        if (temperature.getText().isEmpty()) {
+        else if (temperature.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
+        
         else{
 
         

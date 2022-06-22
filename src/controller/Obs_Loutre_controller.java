@@ -105,37 +105,37 @@ public class Obs_Loutre_controller {
 
         }
 
-        if (commune.getText().isEmpty()) {
+        else if (commune.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lieu_dit.getText().isEmpty()) {
+        else if (lieu_dit.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        else if (lambertX.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 

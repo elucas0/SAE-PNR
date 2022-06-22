@@ -81,17 +81,18 @@ public class Chouette_controller {
 
         }
         //test : textfield vide
-        if (sexe.getValue().isEmpty()) {
+        else if (sexe.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (numIndivid.getText().isEmpty()) {
+        else if (numIndivid.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
+        
         else{
 
         

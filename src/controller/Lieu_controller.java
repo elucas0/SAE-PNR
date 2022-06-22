@@ -54,11 +54,12 @@ public class Lieu_controller {
 
         }
         //test : textfield vide
-        if (coord_Lambert_Y.getText().isEmpty()) {
+        else if (coord_Lambert_Y.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
+        
         else{
 
         

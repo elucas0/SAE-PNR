@@ -135,25 +135,25 @@ public class Obs_Batracien_espece_controller{
 
         }
         //test : textfield vide
-        if (this.nbAdultes.getText() == null) {
+        else if (this.nbAdultes.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (this.nbAmplexus.getText() == null) {
+        else if (this.nbAmplexus.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (this.nbTetards.getText() == null) {
+        else if (this.nbTetards.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (this.nbPonte.getText() == null) {
+        else if (this.nbPonte.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
