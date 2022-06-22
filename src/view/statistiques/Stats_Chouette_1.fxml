@@ -64,21 +64,14 @@
    </bottom>
    <left>
       <BorderPane BorderPane.alignment="CENTER">
-         <center>
+         <left>
             <PieChart fx:id="pieChart0" title="Cheveches" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
-   </left>
-   <right>
-      <BorderPane BorderPane.alignment="CENTER">
-         <center>
-            <PieChart fx:id="pieChart2" title="Hulotte" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
-   </right>
-   <center>
-      <BorderPane BorderPane.alignment="CENTER">
+         </left>
          <center>
             <PieChart fx:id="pieChart1" title="Effraies" BorderPane.alignment="CENTER" />
          </center>
-      </BorderPane>
-   </center>
+         <right>
+            <PieChart fx:id="pieChart2" title="Hulotte" BorderPane.alignment="CENTER" />
+         </right></BorderPane>
+   </left>
 </BorderPane>
