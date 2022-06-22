@@ -54,7 +54,7 @@ public class Accueil_Admin_controller {
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../src/formulaires/ConsultCompte.fxml");
+        change.go_to("../view/ConsulteCompte.fxml");
     }
     
     public void formulaire_obs_batracien(){
