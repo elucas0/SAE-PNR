@@ -10,13 +10,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-<<<<<<< HEAD
-=======
 import java.sql.*;
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
->>>>>>> 7e3052d1ea7b69b460bd984650a8bd1d54a669e4
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
