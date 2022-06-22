@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.sql.*;
 
@@ -38,12 +39,16 @@ public class Exemple_Compte_controller {
      */
     private Button history;
 
+    @FXML
+    private Label description;
+
 
     @FXML
     /**
      * Initialize elements when the fxml file is displayed
      */
     private void initialize(){
+       //description.setText("admin");
 
         //user.setText(ReadInfos.getStatus());
     }
@@ -55,15 +60,16 @@ public class Exemple_Compte_controller {
      */
     public void deleteUser(){
         try {
+
             //Création de la requête SQL
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
 
-            String query = "DELETE FROM registration WHERE id = " + ReadInfos.getId() + ";";
+            String query = "DELETE FROM registration WHERE id = " + Consulte_Compte_controller.getId() + ";";
             s.executeQuery(query);
 
-            String query2 = "DELETE FROM Observateur WHERE idObservateur = " + ReadInfos.getId() + ";";
+            String query2 = "DELETE FROM Observateur WHERE idObservateur = " + Consulte_Compte_controller.getId() + ";";
             s.executeQuery(query2);
 
             s.close();
@@ -76,6 +82,7 @@ public class Exemple_Compte_controller {
             e.printStackTrace();
         }
     }
+
 
     /**
      * Event to do when the button retour is pressed.    
@@ -93,8 +100,12 @@ public class Exemple_Compte_controller {
      * Switch to the page Affichage_historique.fxml
      */
     public void historique(){
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
+<<<<<<< HEAD
+        change.go_to("../view/affichages/Affichage_historique.fxml");
+=======
         change.go_to("../../view/Affichage_historique.fxml");
+>>>>>>> 58aedc72bf5cedca36a4aa4cd916850c990674ab
     }
 }
