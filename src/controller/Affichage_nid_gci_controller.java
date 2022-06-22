@@ -1,9 +1,10 @@
 package controller;
 
+import modele.donnee.Nid_Gci;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,13 +15,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Lieu;
-import modele.donnee.Observateur;
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_observateur {
-    
+public class Affichage_nid_gci_controller {
+
+
     @FXML
     private ComboBox<Integer> limite;
 
@@ -31,58 +31,66 @@ public class Affichage_controller_observateur {
     private Button retour;
 
     @FXML 
-    private TableView<Observateur> table;
+    private TableView<Nid_Gci> table;
 
     @FXML 
-    private TableColumn<Observateur,Integer> id;
+    private TableColumn<Nid_Gci,Integer> id;
 
     @FXML 
-    private TableColumn<Observateur,String> nom;
+    private TableColumn<Nid_Gci,Integer> raisonArretObservation;
 
     @FXML 
-    private TableColumn<Observateur,String> prenom;
-   // @FXML private TableColumn<Observateur,> date;
-   // @FXML private TableColumn<Observateur,Time> heure;
-    @FXML 
-    private TableColumn<Lieu,Double> coordx;
+    private TableColumn<Nid_Gci, Integer> nbEnvols;
 
     @FXML 
-    private TableColumn<Lieu,Double> coordy;
-
-    public ObservableList<Observateur> data = FXCollections.observableArrayList();
-
-    public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
+    private TableColumn<Nid_Gci, Integer> protection;
 
     @FXML 
-    public void viewObservation(int limite){
+    private TableColumn<Nid_Gci, String> bagueMale;
+
+    @FXML 
+    private TableColumn<Nid_Gci,String> bagueFemelle;
+
+    @FXML 
+    private TableColumn<Nid_Gci,String> nomPlage;
+
+
+
+
+    public ObservableList<Nid_Gci> data = FXCollections.observableArrayList();
+
+    public ObservableList<Nid_Gci> data1 = FXCollections.observableArrayList();
+
+    @FXML 
+    public void viewNidGci(int limite){
+
+        table.getItems().clear();
         try{
-            table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur LIMIT " + limite;
+            String sql = "SELECT * FROM nid_Gci ORDER BY idNid LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
+
+            
             while(rs.next()){
-                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                if(rs.getString(2) == null){
-
-                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
-
-
-                }else{
-
-                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
-
-                }
+                //data.add(new Batracien(id, date, heure, lieu, observateurs)
+                //ArrayList array = new ArrayList<int>(rs3.getInt());
+                data.add(new Nid_Gci(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6),  rs.getString(7)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
-        nom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        id.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("idNid"));
+
+        nomPlage.setCellValueFactory(new PropertyValueFactory<Nid_Gci, String>("plage"));
+        raisonArretObservation.setCellValueFactory(new PropertyValueFactory<Nid_Gci, Integer>("raisonArretObservation"));
+        nbEnvols.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("nbEnvols"));
+        bagueMale.setCellValueFactory(new PropertyValueFactory<Nid_Gci, String>("bagueMale"));
+        bagueFemelle.setCellValueFactory(new PropertyValueFactory<Nid_Gci,String>("bagueFemelle"));
+        protection.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("protection"));
+
+
         table.setItems(data);
     }
 
@@ -93,10 +101,10 @@ public class Affichage_controller_observateur {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("nid_gci"));
         limite.setItems(liste);
 
-        this.viewObservation(25);
+        this.viewNidGci(25);
     }
 
 
@@ -194,9 +202,8 @@ public class Affichage_controller_observateur {
     private void changeLimit(){
 
 
-        this.viewObservation(this.limite.getValue());
+        this.viewNidGci(this.limite.getValue());
     }
-
 
     
 }

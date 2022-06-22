@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_controller_batracien">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_nid_gci_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -79,16 +79,12 @@
                </BorderPane.margin>
                <columns>
                   <TableColumn fx:id="id" prefWidth="75.0" text="id" />
-                  <TableColumn fx:id="date" prefWidth="75.0" text="date" />
-                  <TableColumn fx:id="heure" prefWidth="75.0" text="heure" />
-                  <TableColumn fx:id="coordX" prefWidth="75.0" text="coordonnée X" />
-                  <TableColumn fx:id="coordY" prefWidth="75.0" text="coordonnée Y" />
-                  <TableColumn fx:id="observateur" prefWidth="75.0" text="observateur" />
-                  <TableColumn fx:id="espece" prefWidth="75.0" text="Espece" />
-                  <TableColumn fx:id="adulte" prefWidth="75.0" text="Adulte" />
-                  <TableColumn fx:id="amplexus" prefWidth="75.0" text="Amplexus" />
-                  <TableColumn fx:id="ponte" prefWidth="75.0" text="Ponte" />
-                  <TableColumn fx:id="tetards" prefWidth="75.0" text="Tetards" />
+                  <TableColumn fx:id="nomPlage" prefWidth="75.0" text="nomPlage" />
+                  <TableColumn fx:id="raisonArretObservation" prefWidth="75.0" text="raison Arret Observation" />
+                  <TableColumn fx:id="nbEnvols" prefWidth="75.0" text="nombre envols" />
+                  <TableColumn fx:id="protection" prefWidth="75.0" text="protection" />
+                  <TableColumn fx:id="bagueMale" prefWidth="75.0" text="bague male" />
+                  <TableColumn fx:id="bagueFemelle" prefWidth="75.0" text="bague femelle" />
                </columns>
             </TableView>
          </center>
@@ -108,35 +104,9 @@
                <children>
                   <MenuButton fx:id="filtre_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Ajouter un filtre" GridPane.columnIndex="1">
                     <items>
-                        <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#affichage_batracien" text="Batracien ">
-                           <graphic>
-                              <FontIcon iconLiteral="fas-frog" />
-                           </graphic>
-                        </MenuItem>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="loutre" mnemonicParsing="false" onAction="#affichage_loutre" text="Loutre">
-                           <graphic>
-                              <FontIcon iconLiteral="fas-otter" />
-                           </graphic>
-                        </MenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="gci" mnemonicParsing="false" onAction="#affichage_gci" text="GCI">
-                           <graphic>
-                              <FontIcon iconLiteral="fas-feather-alt" />
-                           </graphic>
-                        </MenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#affichage_hippocampe" text="Hippocampe ">
-                           <graphic>
-                              <FontIcon iconLiteral="fas-chess-knight" />
-                           </graphic>
-                        </MenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="chouette" mnemonicParsing="false" onAction="#affichage_chouette" text="Chouette">
-                           <graphic>
-                              <FontIcon iconLiteral="fab-earlybirds" />
-                           </graphic>
-                        </MenuItem>
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                      <graphic>
                         <FontIcon iconLiteral="fas-filter" />
@@ -145,8 +115,8 @@
                         <Insets bottom="10.0" top="10.0" />
                      </GridPane.margin>
                   </MenuButton>
-                  <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" GridPane.columnIndex="4" />
                   <Label text="Nombre :" textFill="WHITE" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" GridPane.columnIndex="4" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" top="50.0" />

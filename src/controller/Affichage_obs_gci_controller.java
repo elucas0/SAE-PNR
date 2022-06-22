@@ -1,15 +1,10 @@
 package controller;
-
-import java.net.URL;
+import modele.donnee.ObservationGci;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.util.ResourceBundle;
 import java.sql.ResultSet;
 import java.sql.Time;
-import java.util.ArrayList;
-
-import com.mysql.cj.xdevapi.PreparableStatement;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,16 +15,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Batracien;
 import modele.donnee.Lieu;
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_batracien {
-    
+public class Affichage_obs_gci_controller {
+
+
     @FXML
     private ComboBox<Integer> limite;
-
 
     @FXML
     /**
@@ -38,56 +32,52 @@ public class Affichage_controller_batracien {
     private Button retour;
 
     @FXML 
-    private TableView<Batracien> table;
+    private TableView<ObservationGci> table;
 
     @FXML 
-    private TableColumn<Batracien,Integer> id ;
+    private TableColumn<ObservationGci,Integer> id;
 
     @FXML 
-    private TableColumn<Batracien,Date> date ;
+    private TableColumn<ObservationGci,String> nature;
 
     @FXML 
-    private TableColumn<Batracien,Time> heure ;
+    private TableColumn<ObservationGci, Integer> nombre;
 
     @FXML 
-    private TableColumn<Batracien,Lieu> coordX ;
+    private TableColumn<ObservationGci,String> observateur;
 
     @FXML 
-    private TableColumn<Batracien,Lieu> coordY ;
+    private TableColumn<ObservationGci, Integer> leNid;
 
     @FXML 
-    private TableColumn<Batracien,Integer> observateur;
+    private TableColumn<ObservationGci,String> presentMaisNonObs;
+
 
     @FXML 
-    private TableColumn<Batracien,String> resObs ;
+    private TableColumn<ObservationGci,Date> date ;
 
     @FXML 
-    private TableColumn<Batracien,String> espece ;
+    private TableColumn<ObservationGci,Time> heure ;
 
     @FXML 
-    private TableColumn<Batracien,Integer> adulte; 
+    private TableColumn<ObservationGci,Lieu> coordX ;
 
     @FXML 
-    private TableColumn<Batracien,Integer> amplexus;
+    private TableColumn<ObservationGci,Lieu> coordY ;
+
+    public ObservableList<ObservationGci> data = FXCollections.observableArrayList();
+
+    public ObservableList<ObservationGci> data1 = FXCollections.observableArrayList();
 
     @FXML 
-    private TableColumn<Batracien,Integer> ponte;
-
-    @FXML 
-    private TableColumn<Batracien,Integer> tetards;
-
-
-    public ObservableList<Batracien> data = FXCollections.observableArrayList();
-
-    @FXML 
-    public void viewObservation(int limite){
+    public void viewObsGci(int limite){
 
         table.getItems().clear();
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Obs_Batracien ORDER BY obsB LIMIT " + limite;
-            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM observation, Obs_Batracien WHERE idObs = obsB ORDER BY idObs LIMIT " + limite;
-            String sql3 = "SELECT lobservateur FROM observation,Obs_Batracien,AObserve,observateur WHERE lobservateur=idObservateur AND idObs = obsB AND lobservation=idObs ORDER BY idObs";
+            String sql = "SELECT * FROM Obs_Gci ORDER BY obsG LIMIT " + limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM observation, Obs_Gci WHERE idObs = obsG ORDER BY idObs LIMIT " + limite;
+            String sql3 = "SELECT lobservateur FROM observation,Obs_Gci, AObserve, observateur WHERE lobservateur=idObservateur AND idObs = obsG AND lobservation=idObs ORDER BY idObs";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             PreparedStatement stat2= c.prepareStatement(sql2);
@@ -98,36 +88,37 @@ public class Affichage_controller_batracien {
             while(rs.next()&& rs2.next()&&rs3.next()){
                 //data.add(new Batracien(id, date, heure, lieu, observateurs)
                 //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data.add(new Batracien(rs.getInt(1),rs2.getDate(1),rs2.getTime(2), rs2.getDouble(3), rs2.getDouble(4),rs3.getInt(1), rs.getString("espece"), rs.getInt("nombreAdultes"), rs.getInt("nombreAmplexus"), rs.getInt("nombreTetard"), rs.getInt("nombrePonte")));
+                data.add(new ObservationGci(rs.getInt(1),rs2.getDate(1),rs2.getTime(2), rs2.getDouble(3), rs2.getDouble(4),rs3.getInt(1), rs.getString("nature"), rs.getInt("nombre"), rs.getInt("leNid"), rs.getInt("presentMaisNonObs")));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("id"));
-        date.setCellValueFactory(new PropertyValueFactory<Batracien,Date>("date"));
-        heure.setCellValueFactory(new PropertyValueFactory<Batracien,Time>("heure"));
-        coordX.setCellValueFactory(new PropertyValueFactory<Batracien,Lieu>("coordX"));
-        coordY.setCellValueFactory(new PropertyValueFactory<Batracien,Lieu>("coordY"));
-        observateur.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("observateurs"));
-        espece.setCellValueFactory(new PropertyValueFactory<Batracien, String>("espece"));
-        tetards.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombreTetard"));
-        adulte.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombreAdultes"));
-        amplexus.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombreAmplexus"));
-        ponte.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombrePonte"));
+        id.setCellValueFactory(new PropertyValueFactory<ObservationGci,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<ObservationGci,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<ObservationGci,Time>("heure"));
+        coordX.setCellValueFactory(new PropertyValueFactory<ObservationGci,Lieu>("coordX"));
+        coordY.setCellValueFactory(new PropertyValueFactory<ObservationGci,Lieu>("coordY"));
+        observateur.setCellValueFactory(new PropertyValueFactory<ObservationGci, String>("observateur"));
+        nature.setCellValueFactory(new PropertyValueFactory<ObservationGci, String>("natureObs"));
+        nombre.setCellValueFactory(new PropertyValueFactory<ObservationGci,Integer>("nombre"));
+        presentMaisNonObs.setCellValueFactory(new PropertyValueFactory<ObservationGci,String>("presentMaisNonObs"));
+        leNid.setCellValueFactory(new PropertyValueFactory<ObservationGci,Integer>("leNid"));
 
         table.setItems(data);
     }
-    
+
 
     @FXML
     /**
      * Initialize elements when the fxml file is dilpayed
      */
     private void initialize()  {
-        viewObservation(25);
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("obs_batracien"));
+
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("obs_gci"));
         limite.setItems(liste);
+
+        this.viewObsGci(25);
     }
 
 
@@ -159,6 +150,7 @@ public class Affichage_controller_batracien {
             change.go_to("../view/Accueil_Utilisateur.fxml");
         }
     }
+
 
     public void affichage_observateur(){
 
@@ -218,9 +210,7 @@ public class Affichage_controller_batracien {
     private void changeLimit(){
 
 
-        this.viewObservation(this.limite.getValue());
+        this.viewObsGci(this.limite.getValue());
     }
-
-
     
 }

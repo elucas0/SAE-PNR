@@ -31,6 +31,10 @@ public class A_Observe_controller {
     @FXML
     private Button effectuer;
 
+    /**
+    * When a button linked to "toLogin" is pressed   
+    * Switch to the page page_login.fxml
+    */
     @FXML
     /**
      * 
@@ -41,7 +45,11 @@ public class A_Observe_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/page_login.fxml");
     }
-
+    
+    /**
+    * When a button linked to "toData" is pressed   
+    * Switch to the page choix_stat_liste.fxml
+    */
     public void toData(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -49,7 +57,10 @@ public class A_Observe_controller {
         change.go_to("../view/choix_stat_liste.fxml");
     }
 
-    
+    /**
+    * When a button linked to "public void formulaire_obs_batracien" is pressed   
+    * Switch to the page Formulaire_obs_batracien.fxml
+    */
     public void formulaire_obs_batracien(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -58,6 +69,10 @@ public class A_Observe_controller {
 
     }
 
+    /**
+    * When a button linked to "formulaire_obs_loutre" is pressed   
+    * Switch to the page Formulaire_obs_loutre.fxml
+    */
     public void formulaire_obs_loutre(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -66,6 +81,10 @@ public class A_Observe_controller {
 
     }
 
+    /**
+    * When a button linked to "formulaire_obs_gci" is pressed   
+    * Switch to the page Formulaire_obs_gci.fxml
+    */
     public void formulaire_obs_gci(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -74,6 +93,10 @@ public class A_Observe_controller {
 
     }
 
+    /**
+    * When a button linked to "formulaire_obs_hippocampe" is pressed   
+    * Switch to the page Formulaire_obs_hippocampe.fxml
+    */
     public void formulaire_obs_hippocampe(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -82,6 +105,10 @@ public class A_Observe_controller {
 
     }
 
+     /**
+    * When a button linked to "formulaire_obs_chouette" is pressed   
+    * Switch to the page Formulaire_obs_chouette.fxml
+    */
     public void formulaire_obs_chouette(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -173,4 +200,3 @@ public class A_Observe_controller {
     
 }
 
-// test pour voir si il commit

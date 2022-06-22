@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Exemple_Compte_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@img/Logo-PNR.png" />
+                  <Image url="@visual%20code%20+%20git/SAE-PNR-1/src/vue/img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -41,13 +41,14 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <left>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #2E8B57;" BorderPane.alignment="CENTER">
+            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
                <graphic>
-                  <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                  <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                </graphic>
                <BorderPane.margin>
                   <Insets left="100.0" />
-               </BorderPane.margin></Button>
+               </BorderPane.margin>
+            </Button>
          </left></BorderPane>
    </bottom>
    <left>
@@ -81,17 +82,17 @@
                   <Label layoutX="46.0" layoutY="57.0" text="Droits :" textFill="WHITE" />
                   <Label layoutX="78.0" layoutY="81.0" text="Visualiser les tables" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" text="" />
+                        <FontIcon iconColor="GREEN" iconLiteral="fas-check-square" />
                      </graphic>
                   </Label>
                   <Label layoutX="78.0" layoutY="97.0" text="Ajouter des données" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
+                        <FontIcon iconColor="GREEN" iconLiteral="fas-check-square" />
                      </graphic>
                   </Label>
                   <Label layoutX="78.0" layoutY="113.0" text="Gérer les droits" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="far-window-close" />
+                        <FontIcon iconColor="GREEN" iconLiteral="far-window-close" />
                      </graphic>
                   </Label>
                </children>
@@ -106,20 +107,16 @@
                 <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Pane maxHeight="30.0" maxWidth="140.0" minHeight="30.0" minWidth="140.0" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #696969;" GridPane.rowIndex="1">
-                     <children>
-                        <Label fx:id="historique" layoutX="37.0" layoutY="6.0" text="Historique" textFill="WHITE" />
-                        <FontIcon iconColor="WHITE" iconLiteral="far-clock" layoutX="14.0" layoutY="20.0" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="deleteAcount" maxHeight="30.0" maxWidth="140.0" minHeight="30.0" minWidth="140.0" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #B22222;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutY="6.0" prefWidth="137.0" text="Supprimer le compte" textFill="WHITE" />
-                     </children>
+                  <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer le compte" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#deleteUser">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
-                  </Pane>
+                  </Button>
+                  <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.rowIndex="1" onAction="#historique">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
+                     </graphic>
+                  </Button>
                </children>
             </GridPane>
          </children>

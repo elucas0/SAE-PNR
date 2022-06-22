@@ -33,7 +33,9 @@ public class Lieu_controller {
     private Button user;
 
 
-
+    /**
+     * Initialize elements when the fxml file is dilpayed
+     */
     @FXML
     private void initialize(){
 
@@ -106,7 +108,8 @@ public class Lieu_controller {
 
 
     /**
-    * Event to do when the button retour is pressed.    * Switch to the page Accueil_Utilisateur.fxml
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 

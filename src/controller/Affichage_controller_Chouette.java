@@ -1,9 +1,10 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.sql.Time;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,12 +15,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Lieu;
-import modele.donnee.Observateur;
+import modele.donnee.Chouette;
+import modele.donnee.Hippocampe;
+import modele.donnee.Loutre;
+
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_observateur {
+public class Affichage_controller_hippocampe {
     
     @FXML
     private ComboBox<Integer> limite;
@@ -31,58 +34,66 @@ public class Affichage_controller_observateur {
     private Button retour;
 
     @FXML 
-    private TableView<Observateur> table;
+    private TableView<Hippocampe> table;
 
     @FXML 
-    private TableColumn<Observateur,Integer> id;
+    private TableColumn<Hippocampe,Integer> obsh;
 
     @FXML 
-    private TableColumn<Observateur,String> nom;
+    private TableColumn<Hippocampe,String> typepeche;
 
     @FXML 
-    private TableColumn<Observateur,String> prenom;
-   // @FXML private TableColumn<Observateur,> date;
-   // @FXML private TableColumn<Observateur,Time> heure;
+    private TableColumn<Hippocampe,String> taille ;
     @FXML 
-    private TableColumn<Lieu,Double> coordx;
+    private TableColumn<Hippocampe,String> lieudit;
+    @FXML 
+    private TableColumn<Hippocampe,String> sexe;
+    @FXML 
+    private TableColumn<Hippocampe,String> espece;
+    @FXML private TableColumn<Hippocampe,Date> date;
+    @FXML private TableColumn<Hippocampe,Time> heure;
+    @FXML 
+    private TableColumn<Hippocampe,Double> x;
+    @FXML 
+    private TableColumn<Hippocampe,Integer> temperatureeau;
+    @FXML 
+    private TableColumn<Hippocampe,Integer> gestant;
+    @FXML 
+    private TableColumn<Hippocampe,Double> y;
+
+    public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
+
 
     @FXML 
-    private TableColumn<Lieu,Double> coordy;
-
-    public ObservableList<Observateur> data = FXCollections.observableArrayList();
-
-    public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
-
-    @FXML 
-    public void viewObservation(int limite){
+    public void viewObservation(){
         try{
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur LIMIT " + limite;
+            String sql = "SELECT * FROM Obs_Chouette";
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
-            while(rs.next()){
+            PreparedStatement stat2 = c.prepareStatement(sql2);
+            ResultSet rs2 = stat2.executeQuery();
+            while(rs.next() && rs2.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                if(rs.getString(2) == null){
-
-                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
-
-
-                }else{
-
-                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
-
-                }
+                    data.add(new Chouette(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6),rs.getInt(7)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
-        nom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        obsh.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Hippocampe,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Hippocampe,Time>("heure"));
+        x.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordx"));
+        y.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordy"));
+        taille .setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("taille"));
+        typepeche.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("peche"));
+        sexe.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("sexe"));
+        espece.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("espece"));
+        temperatureeau.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("eau"));
+        gestant.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("gestant"));
         table.setItems(data);
     }
 
@@ -93,10 +104,10 @@ public class Affichage_controller_observateur {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
-        limite.setItems(liste);
+        //ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100);
+        //limite.setItems(liste);
 
-        this.viewObservation(25);
+        viewObservation();
     }
 
 
@@ -142,22 +153,18 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_lieu.fxml");
+        change.go_to("../view/Affichage_Lieu.fxml");
 
     }
 
-    public void affichage_batracien(){
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");  
-    }
+    public void affichage_batracien(){}
 
 
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_loutre.fxml");       
+        //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 
@@ -165,21 +172,14 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_obs_gci.fxml");       
-    }
-
-    public void affichage_nid_gci(){
-
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_nid_gci.fxml");       
+        //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_hippocampe.fxml");       
+        //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 
@@ -187,15 +187,9 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_chouette.fxml");       
+        //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-    @FXML
-    private void changeLimit(){
-
-
-        this.viewObservation(this.limite.getValue());
-    }
 
 
     
