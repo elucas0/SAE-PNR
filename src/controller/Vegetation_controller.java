@@ -2,6 +2,7 @@ package controller;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,18 +15,16 @@ import javafx.collections.ObservableList;
 public class Vegetation_controller {
 
     @FXML
-    /**
-     * The combobox with the vegetation's nature in the fxml file.
-     */
-    private ComboBox<String> natureVege;
+    private TextField environnement;
 
+    @FXML
+    private TextField bordure;
 
-    /**
-     * An ObservableList<String> that will contain the list of elements to add to the
-     * different combobx.
-     */
-    private ObservableList<String> liste;
-    
+    @FXML
+    private TextField ripisyle;
+
+    @FXML
+    private TextField idZoneVege;    
 
 
     @FXML
@@ -34,8 +33,7 @@ public class Vegetation_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("environnement", "bordure", "ripisyle");
-        natureVege.setItems(liste);
+        
     }
 
 
@@ -45,7 +43,7 @@ public class Vegetation_controller {
     */
     public void retour(){
 
-        Stage actuel = (Stage)natureVege.getScene().getWindow();
+        Stage actuel = (Stage)environnement.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.readAdmin() == true){
 
