@@ -1,16 +1,12 @@
 package controller;
 
-import java.util.ArrayList;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import modele.RequeteObservation;
-import modele.donnee.Observation;
+
 
 public class Affichage_controller {
     
@@ -37,7 +33,6 @@ public class Affichage_controller {
      */
     private void initialize() 
     {
-        user.setText(ReadInfos.getStatus());
 
 
     }
@@ -70,6 +65,56 @@ public class Affichage_controller {
 
             change.go_to("../view/Accueil_Utilisateur.fxml");
         }
+    }
+
+
+    public void affichage_observateur(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Affichage_observateur.fxml");
+
+    }
+
+    public void affichage_lieu(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Affichage_lieu.fxml");
+
+    }
+
+    public void affichage_batracien(){}
+
+
+    public void affichage_loutre(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        //change.go_to("../view/Affichage_loutre.fxml");       
+    }
+
+
+    public void affichage_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        //change.go_to("../view/Affichage_loutre.fxml");       
+    }
+
+    public void affichage_hippocampe(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        //change.go_to("../view/Affichage_loutre.fxml");       
+    }
+
+
+    public void affichage_chouette(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 

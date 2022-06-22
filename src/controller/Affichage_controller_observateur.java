@@ -79,7 +79,7 @@ public class Affichage_controller_observateur {
      * Initialize elements when the fxml file is dilpayed
      */
     private void initialize()  {
-        viewLieu();
+        viewObservation();
     }
 
 
@@ -103,7 +103,7 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin() == true){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

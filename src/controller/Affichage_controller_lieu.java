@@ -1,15 +1,10 @@
 package controller;
 
-import java.net.URL;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.util.ResourceBundle;
 import java.sql.ResultSet;
-import java.sql.Time;
-import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,7 +86,7 @@ public class Affichage_controller_lieu {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin() == true){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
