@@ -1,6 +1,7 @@
 package controller;
 import java.util.ArrayList;
 
+import controller.utilitaires.ReadInfos;
 import modele.donnee.*;
 
 public class Scenario {

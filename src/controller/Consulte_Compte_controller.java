@@ -11,6 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+
+import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;

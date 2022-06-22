@@ -1,4 +1,6 @@
 package controller;
+import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
