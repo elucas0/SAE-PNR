@@ -7,9 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
+/**
+ * Class that creates a new account
+ */
 public class CreerCompte {
 
-
+    /**
+     * Generates a random password
+     * @return the password
+     */
     public static String generermdp(){
 
         String ret = "";
@@ -27,7 +33,9 @@ public class CreerCompte {
         return ret;
     }
 
-
+    /**
+     * Creates a new account in the database
+     */
     public void faireComptes(){
 
 
