@@ -34,89 +34,6 @@ public class Affichage_controller_Chouette {
     private Button retour;
 
     @FXML 
-<<<<<<< HEAD
-    /**
-     * The table in the fxml file
-     */
-    private TableView<Hippocampe> table;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the id
-     */
-    private TableColumn<Hippocampe,Integer> obsh;
-
-    @FXML
-    /**
-     * The table column in the fxml file for type of observation
-     */
-    private TableColumn<Hippocampe,String> typepeche;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the size
-     */
-    private TableColumn<Hippocampe,String> taille ;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the name of the place
-     */
-    private TableColumn<Hippocampe,String> lieudit;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the genre of the animal
-     */
-    private TableColumn<Hippocampe,String> sexe;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the name of the species
-     */
-    private TableColumn<Hippocampe,String> espece;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the date of the observation
-     */
-    private TableColumn<Hippocampe,Date> date;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the time of the observation
-     */
-    private TableColumn<Hippocampe,Time> heure;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the x coordinate
-     */
-    private TableColumn<Hippocampe,Double> x;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the temperature of the water
-     */
-    private TableColumn<Hippocampe,Integer> temperatureeau;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the temperature state of the animal
-     */
-    private TableColumn<Hippocampe,Integer> gestant;
-
-    @FXML
-    /**
-     * The table column in the fxml file for the y coordinate
-     */
-    private TableColumn<Hippocampe,Double> y;
-
-    /**
-     * Observable list of hippocampe
-     */
-    public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
-=======
     private TableView<OChouette> table;
 
     @FXML 
@@ -141,7 +58,6 @@ public class Affichage_controller_Chouette {
     private TableColumn<OChouette,Double> y;
 
     public ObservableList<OChouette> data = FXCollections.observableArrayList();
->>>>>>> 6a58fbfc9fdc2b7409c0305bdb2f07496302a0bf
 
 
     @FXML
