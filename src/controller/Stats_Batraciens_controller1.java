@@ -9,22 +9,43 @@ import javafx.scene.control.Button;
 import javafx.scene.chart.BarChart;
 import javafx.stage.Stage;
 
-
+/**
+ * Controller of the page Stats_Batraciens_controller1.fxml
+ * Displays the statistics of the Batraciens
+ * @version 1.2
+ */
 public class Stats_Batraciens_controller1 {
 
     @FXML
+    /**
+     * BarChart from the fxml file to display the statistics of the Batraciens
+     */
     private BarChart<String, Number> barChartBatracien;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the home page
+     */
     private Button home;
 
     @FXML
+    /**
+     * Button from the fxml file to refresh the data
+     */
     private Button refresh;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the previous page
+     */
     private Button retour;
 
     @FXML
+    /**
+     * Initializes the controller class.
+     * @throws ClassNotFoundException if the class is not found
+     * @throws SQLException if there is a problem with the SQL
+     */
     public void initialize() throws ClassNotFoundException, SQLException {
         barChartBatracien.getData().clear();
         XYChart.Series<String, Number> series = requestDB();
@@ -34,6 +55,10 @@ public class Stats_Batraciens_controller1 {
 
 
     @FXML
+    /**
+     * Event to do when the button retour is pressed.
+     * Switch to the page Accueil_Utilisateur.fxml
+    */
     public void home(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -47,6 +72,10 @@ public class Stats_Batraciens_controller1 {
         }
     }
 
+    /**
+     * Event to do when the button retour is pressed.    
+     * Switch to the page choix_stat_liste.fxml
+    */
     @FXML
     void retour(ActionEvent event) {
         Stage actuel = (Stage)retour.getScene().getWindow();

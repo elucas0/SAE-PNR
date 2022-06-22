@@ -158,8 +158,8 @@ public class Affichage_controller_Chouette {
 
 
     /**
-    * Event to do when the button retour is pressed.    
-    * Switch to the page choix_stat_liste.fxml
+     * Event to do when the button retour is pressed.    
+     * Switch to the page choix_stat_liste.fxml
     */
     public void retour(){
 
@@ -170,8 +170,8 @@ public class Affichage_controller_Chouette {
 
 
     /**
-    * Event to do when the button retour is pressed.
-    * Switch to the page Accueil_Utilisateur.fxml
+     * Event to do when the button home is pressed.
+     * Switch to the page Accueil_Utilisateur.fxml
     */
     public void home(){
 
