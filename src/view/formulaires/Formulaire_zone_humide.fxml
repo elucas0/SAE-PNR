@@ -78,7 +78,7 @@
                <right>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <right>
-                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button fx:id="effectuer" mnemonicParsing="false" style="-fx-background-color: #019367;" textFill="WHITE" BorderPane.alignment="CENTER" onAction="#insert">
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-right" iconSize="30" />
                            </graphic>

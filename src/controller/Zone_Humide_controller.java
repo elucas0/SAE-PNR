@@ -147,7 +147,7 @@ public class Zone_Humide_controller {
                 temp = 0;
             }
 
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + ",'" + profondeur.getText() +"', '" + surface.getText() + "', '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );");
+            PreparedStatement querry2 = c.prepareStatement("INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + "'," + profondeur.getText() +", " + surface.getText() + ", '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );");
             querry2.executeUpdate();
             
         } catch (Exception e) {
