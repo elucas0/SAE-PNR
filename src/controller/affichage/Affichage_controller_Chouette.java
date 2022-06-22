@@ -108,18 +108,18 @@ public class Affichage_controller_Chouette {
      * Observable list for the owl observations
      */
     public ObservableList<OChouette> data = FXCollections.observableArrayList();
-
+    
 
     @FXML
     /**
      * Fill the table with the data from the database
      */
-    public void viewObservation(){
+    public void viewObservation(int limite){
         try{
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT numObs,protocole,typeObs,leNumIndividu,espece,sexe FROM Obs_Chouette,Chouette";
-            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH";
+            String sql = "SELECT numObs,protocole,typeObs,leNumIndividu,espece,sexe FROM Obs_Chouette,Chouette LIMIT "+limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH LIMIT "+limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             PreparedStatement stat2 = c.prepareStatement(sql2);
@@ -152,10 +152,10 @@ public class Affichage_controller_Chouette {
      */
     private void initialize()  {
 
-        //ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100);
-        //limite.setItems(liste);
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("Obs_Chouette"));
+        limite.setItems(liste);
 
-        viewObservation();
+        viewObservation(25);
     }
 
 
@@ -262,5 +262,4 @@ public class Affichage_controller_Chouette {
         ChangerPage change = new ChangerPage(actuel);
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
-
 }

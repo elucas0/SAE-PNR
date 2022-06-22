@@ -45,7 +45,7 @@ public class Exemple_Compte_controller {
      */
     private void initialize(){
 
-        user.setText(ReadInfos.getStatus());
+        //user.setText(ReadInfos.getStatus());
     }
 
     @FXML
