@@ -103,30 +103,30 @@ public class Nid_Gci_controller{
 
         }
 
-        if (estProtege.getValue() == null) {
+        else if (estProtege.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
         //test : textfield vide
-        if (bagueMale.getText().isEmpty()) {
+        else if (bagueMale.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        if (bagueFemelle.getText().isEmpty()) {
+        else if (bagueFemelle.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-        if (nomEnvols.getText().isEmpty()) {
+        else if (nomEnvols.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (nomPlage.getText().isEmpty()) {
+        else if (nomPlage.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 

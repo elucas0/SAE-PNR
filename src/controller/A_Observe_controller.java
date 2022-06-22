@@ -119,7 +119,7 @@ public class A_Observe_controller {
 
         }
         //test : textfield vide
-        if (lobservation.getText() == null) {
+        else if (lobservation.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "S'il vous plaît, veuillez entrer un id d'observation valide");
 

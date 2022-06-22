@@ -119,43 +119,43 @@ public class Obs_GCI_controller {
 
         }
         //test : textfield vide
-        if (presentMaisNonObs.getValue() == null) {
+        else if (presentMaisNonObs.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (idNid.getText() == null) {
+        else if (idNid.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (nombre.getText() == null) {
+        else if (nombre.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText() == null) {
+        else if (lambertX.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText() == null) {
+        else if (lambertY.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText() == null) {
+        else if (heureObs.getText() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 

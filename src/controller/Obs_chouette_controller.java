@@ -113,37 +113,37 @@ public class Obs_chouette_controller {
 
         }
         //test : textfield vide
-        if (protocole.getValue().isEmpty()) {
+        else if (protocole.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (idChouette.getText().isEmpty()) {
+        else if (idChouette.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        else if (lambertX.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 

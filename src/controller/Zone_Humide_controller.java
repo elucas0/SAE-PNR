@@ -102,32 +102,32 @@ public class Zone_Humide_controller {
 
         }
         //test : textfield vide
-        if (typeMare.getValue().isEmpty()) {
+        else if (typeMare.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
         //test : textfield vide
-        if (pente.getValue().isEmpty()) {
+        else if (pente.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (ouverture.getValue().isEmpty()) {
+        else if (ouverture.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (profondeur.getText().isEmpty()) {
+        else if (profondeur.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (surface.getText().isEmpty()) {
+        else if (surface.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
