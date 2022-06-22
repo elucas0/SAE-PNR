@@ -1,15 +1,11 @@
 package controller;
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-
-public class Affichage_controller {
-    
+public class Affichage_autre_controller {
 
     @FXML
     /**
@@ -46,7 +42,7 @@ public class Affichage_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../view/Affichage.fxml");
     }
 
 
@@ -116,7 +112,5 @@ public class Affichage_controller {
         ChangerPage change = new ChangerPage(actuel);
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
-
-
     
 }

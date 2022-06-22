@@ -1,9 +1,10 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.sql.Time;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,11 +16,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import modele.donnee.Lieu;
+import modele.donnee.Loutre;
+import modele.donnee.ObsLoutre;
 import modele.donnee.Observateur;
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_observateur {
+public class Affichage_controller_loutre {
     
     @FXML
     private ComboBox<Integer> limite;
@@ -31,58 +34,58 @@ public class Affichage_controller_observateur {
     private Button retour;
 
     @FXML 
-    private TableView<Observateur> table;
+    private TableView<Loutre> table;
 
     @FXML 
-    private TableColumn<Observateur,Integer> id;
+    private TableColumn<Loutre,Integer> id;
 
     @FXML 
-    private TableColumn<Observateur,String> nom;
+    private TableColumn<Loutre,String> nom;
 
     @FXML 
-    private TableColumn<Observateur,String> prenom;
-   // @FXML private TableColumn<Observateur,> date;
-   // @FXML private TableColumn<Observateur,Time> heure;
+    private TableColumn<Loutre,String> commune;
     @FXML 
-    private TableColumn<Lieu,Double> coordx;
-
+    private TableColumn<Loutre,String> lieudit;
     @FXML 
-    private TableColumn<Lieu,Double> coordy;
-
-    public ObservableList<Observateur> data = FXCollections.observableArrayList();
-
-    public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
+    private TableColumn<Loutre,String> indice;
+    @FXML private TableColumn<Loutre,Date> date;
+    @FXML private TableColumn<Loutre,Time> heure;
+    @FXML 
+    private TableColumn<Loutre,Double> x;
 
     @FXML 
-    public void viewObservation(int limite){
+    private TableColumn<Loutre,Double> y;
+
+    public ObservableList<Loutre> data = FXCollections.observableArrayList();
+
+
+    @FXML 
+    public void viewObservation(){
         try{
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur LIMIT " + limite;
+            String sql = "SELECT * FROM Obs_Loutre";
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Loutre,Observation WHERE idObs=ObsL";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
-            while(rs.next()){
+            PreparedStatement stat2 = c.prepareStatement(sql2);
+            ResultSet rs2 = stat2.executeQuery();
+            while(rs.next() && rs2.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                if(rs.getString(2) == null){
-
-                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
-
-
-                }else{
-
-                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
-
-                }
+                    data.add(new Loutre(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
-        nom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        id.setCellValueFactory(new PropertyValueFactory<Loutre,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Loutre,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Loutre,Time>("heure"));
+        x.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordx"));
+        y.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordy"));
+        indice.setCellValueFactory(new PropertyValueFactory<Loutre,String>("indice"));
+        lieudit.setCellValueFactory(new PropertyValueFactory<Loutre,String>("lieudit"));
+        commune.setCellValueFactory(new PropertyValueFactory<Loutre,String>("commune"));
         table.setItems(data);
     }
 
@@ -93,10 +96,10 @@ public class Affichage_controller_observateur {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100);
-        limite.setItems(liste);
+        //ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100);
+        //limite.setItems(liste);
 
-        this.viewObservation(25);
+        viewObservation();
     }
 
 
@@ -146,12 +149,7 @@ public class Affichage_controller_observateur {
 
     }
 
-    public void affichage_batracien(){
-
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");       
-    }
+    public void affichage_batracien(){}
 
 
     public void affichage_loutre(){
@@ -184,12 +182,6 @@ public class Affichage_controller_observateur {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-    @FXML
-    private void changeLimit(){
-
-
-        this.viewObservation(this.limite.getValue());
-    }
 
 
     
