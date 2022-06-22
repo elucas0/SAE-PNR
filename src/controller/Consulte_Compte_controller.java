@@ -10,12 +10,18 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Consulte_Compte_controller {
 
@@ -217,7 +223,7 @@ public class Consulte_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/exempleCompte.fxml");
+        change.go_to("../view/exempleCompte.fxml");
     }
 
     public void writeId(){
@@ -242,5 +248,29 @@ public class Consulte_Compte_controller {
             System.err.println(e.getMessage());
         }
         
+    }
+
+    /**
+     * Get the user's id
+     * @return the user's id
+     */
+    public static int getId(){
+
+        int ret = -1;
+
+        try {
+
+            FileReader file = new FileReader("voir.txt");
+            BufferedReader in = new BufferedReader(file);
+            ret = Integer.parseInt(in.readLine());
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return ret;
     }
 }

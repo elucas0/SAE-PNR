@@ -79,9 +79,9 @@ public class Exemple_Compte_controller {
      * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Consulte_Compte_controller.fxml");
+        change.go_to("../view/consulteCompte.fxml");
 
     }
 
