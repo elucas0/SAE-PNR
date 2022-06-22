@@ -155,8 +155,6 @@ public class Obs_Batracien_espece_controller{
         }
 
         else{
-
-        
             //création de l'insert
             try {
                 Class.forName("com.mysql.jdbc.Driver");

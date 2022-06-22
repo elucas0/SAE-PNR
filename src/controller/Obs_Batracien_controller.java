@@ -144,8 +144,7 @@ public class Obs_Batracien_controller{
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        System.out.println(ReadInfos.readAdmin());
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

@@ -100,7 +100,7 @@ public class Lieu_controller {
 
         Stage actuel = (Stage)effectuer.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
