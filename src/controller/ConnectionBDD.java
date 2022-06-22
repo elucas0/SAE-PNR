@@ -71,7 +71,7 @@ public class ConnectionBDD {
      /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window where the message will be shown
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */

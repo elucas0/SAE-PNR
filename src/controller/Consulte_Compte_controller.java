@@ -29,15 +29,27 @@ public class Consulte_Compte_controller {
     private TableColumn<Observateur,String> colonneUser;
 
     @FXML
+    /**
+     * The table column in the fxml file for the user id
+     */
     private  TableColumn<Observateur,Integer> colonneUserId;
 
     @FXML
+    /**
+     * The button in the fxml file 
+     */
     private Button user;
 
     @FXML
+    /**
+     * The button in the fxml file 
+     */
     private Button effectuer;
 
     @FXML
+    /**
+     * Maximal number of rows to display in the table
+     */
     private int limite;
 
     /**
@@ -128,6 +140,9 @@ public class Consulte_Compte_controller {
 
 
     @FXML
+    /**
+     * Initialize the tables with the users and the possible numbers of rows to display
+     */
     private void initialize(){
 
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
@@ -138,16 +153,15 @@ public class Consulte_Compte_controller {
     }
 
     @FXML
+    /**
+     * Define the limit of rows to display in the table
+     */
     private void changeLimit(){
 
 
         this.viewAdmin();
         this.viewUser();
     }
-
-
-
-
 
     /**
     * Event to do when the button retour is pressed.    
@@ -161,7 +175,10 @@ public class Consulte_Compte_controller {
 
     }
 
-
+    /**
+     * When a button linked to "addAccount" is pressed
+     * Switch to the page Formulaire_observateur.fxml
+     */
     public void addAccount(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
