@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Scenario",
+            "request": "launch",
+            "mainClass": "controller.Scenario",
+            "projectName": "SAE-PNR_3eae635f"
+        },
+        {
+            "type": "java",
             "name": "Launch RequeteObservation",
             "request": "launch",
             "mainClass": "modele.RequeteObservation",

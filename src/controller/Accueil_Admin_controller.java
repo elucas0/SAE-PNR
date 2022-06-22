@@ -21,6 +21,9 @@ public class Accueil_Admin_controller {
 
     @FXML
     private Button gestion;
+
+    @FXML
+    private Button user;
     
     @FXML
     /**
@@ -28,7 +31,7 @@ public class Accueil_Admin_controller {
      */
     private void initialize(){
 
-        
+        user.setText(ReadInfos.getStatus());
     }
 
     @FXML
