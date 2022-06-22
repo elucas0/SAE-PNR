@@ -7,7 +7,7 @@ import com.opencsv.CSVWriter;
 
 public class ExportData {
 
-    public void writeCSV(String nomTable) throws SQLException, IOException, ClassNotFoundException {
+    public static void writeCSV(String nomTable) throws SQLException, IOException, ClassNotFoundException {
 
         CSVWriter writer = new CSVWriter(new FileWriter(nomTable + ".csv"));
         Boolean includeHeaders = true;

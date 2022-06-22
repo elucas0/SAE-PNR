@@ -1,7 +1,11 @@
 package controller;
+import java.io.IOException;
+import java.sql.SQLException;
+
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ExportData;
 import controller.utilitaires.ReadInfos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,72 +98,96 @@ public class Choix_Stats_controller {
     /**
      * Exports the data of the "a_observe" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_a_observe(ActionEvent event) {
-
+    void exportation_a_observe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("a_observe");
     }
 
     @FXML
     /**
      * Exports the data of the "lieu" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_lieu(ActionEvent event) {
-
+    void exportation_lieu(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("lieu");
     }
 
     @FXML
     /**
      * Exports the data of the "obs_batracien" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_obs_batracien(ActionEvent event) {
-
+    void exportation_obs_batracien(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("obs_batracien");
     }
 
     @FXML
     /**
      * Exports the data of the "obs_chouette" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_obs_chouette(ActionEvent event) {
-
+    void exportation_obs_chouette(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("obs_chouette");
     }
 
     @FXML
     /**
      * Exports the data of the "obs_gci" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_obs_gci(ActionEvent event) {
-
+    void exportation_obs_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("obs_gci");
     }
 
     @FXML
     /**
      * Exports the data of the "obs_hippocampe" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_obs_hippocampe(ActionEvent event) {
-
+    void exportation_obs_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("obs_hippocampe");
     }
 
     @FXML
     /**
      * Exports the data of the "obs_loutre" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_obs_loutre(ActionEvent event) {
-
+    void exportation_obs_loutre(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("obs_loutre");
     }
 
     @FXML
     /**
      * Exports the data of the "vegetation" table to a csv file
      * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
      */
-    void exportation_vegetation(ActionEvent event) {
-
+    void exportation_vegetation(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("vegetation");
     }
 
     @FXML
@@ -167,8 +195,8 @@ public class Choix_Stats_controller {
      * Exports the data of the "zone_humide" table to a csv file
      * @param event the event
      */
-    void exportation_zone_humide(ActionEvent event) {
-
+    void exportation_zone_humide(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("zone_humide");
     }
 
     
