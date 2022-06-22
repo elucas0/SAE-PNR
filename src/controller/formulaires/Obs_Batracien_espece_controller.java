@@ -1,4 +1,4 @@
-package controller.formulaire;
+package controller.formulaires;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

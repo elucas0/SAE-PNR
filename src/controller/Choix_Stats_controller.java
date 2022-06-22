@@ -50,7 +50,7 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage.fxml");
+        change.go_to("../view/affichage/Affichage.fxml");
     }
 
     /**

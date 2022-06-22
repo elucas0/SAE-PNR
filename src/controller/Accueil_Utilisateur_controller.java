@@ -76,7 +76,7 @@ public class Accueil_Utilisateur_controller {
 
         Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../src/formulaires/ConsultCompte.fxml");
+        change.go_to("../src/ConsultCompte.fxml");
     }
 
     /**

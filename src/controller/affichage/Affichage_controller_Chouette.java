@@ -196,7 +196,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_observateur.fxml");
+        change.go_to("../view/affichage/Affichage_observateur.fxml");
 
     }
 
@@ -208,7 +208,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_Lieu.fxml");
+        change.go_to("../view/affichage/Affichage_Lieu.fxml");
 
     }
 
@@ -216,7 +216,12 @@ public class Affichage_controller_Chouette {
      * When a button linked to "affichage_batracien" is pressed
      * Switch to the page affichage_batracien.fxml
      */
-    public void affichage_batracien(){}
+    public void affichage_batracien(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/affichage/Affichage_batracien.fxml");       
+    }
 
 
     /**
@@ -227,7 +232,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/affichage/Affichage_loutre.fxml");       
     }
 
     /**
@@ -238,7 +243,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/affichage/Affichage_obs_gci.fxml");       
     }
 
     /**
@@ -249,7 +254,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/affichage/Affichage_hippocampe.fxml");       
     }
 
     /**
@@ -260,6 +265,7 @@ public class Affichage_controller_Chouette {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/affichage/Affichage_chouette.fxml");       
     }
+
 }

@@ -74,65 +74,86 @@ public class Affichage_controller {
     }
 
 
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_observateur.fxml");
+        change.go_to("../view/affichage/Affichage_observateur.fxml");
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_lieu.fxml");
+        change.go_to("../view/affichage/Affichage_Lieu.fxml");
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){
+
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");  
+        change.go_to("../view/affichage/Affichage_batracien.fxml");       
     }
 
 
+    /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/affichage/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_obs_gci.fxml");       
+        change.go_to("../view/affichage/Affichage_obs_gci.fxml");       
     }
 
-    public void affichage_nid_gci(){
-
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_nid_gci.fxml");       
-    }
-
+    /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_hippocampe.fxml");       
+        change.go_to("../view/affichage/Affichage_hippocampe.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_chouette.fxml");       
+        change.go_to("../view/affichage/Affichage_chouette.fxml");       
     }
+
 
 
     
