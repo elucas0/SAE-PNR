@@ -66,37 +66,37 @@ public class Login_controller {
             PreparedStatement i = c.prepareStatement("SELECT * FROM registration WHERE full_name = ?");
             i.setString(1, id.getText());
             ResultSet r = i.executeQuery();
+            System.out.println("passe");
 
             while (r.next()) {
                 pass = r.getString("password");
+                System.out.println("passe");
+
                 
                 //test si le mot de passe correspond a l'utilisateur
                 if (pass.equals(mdp.getText())){
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
+                    this.writeInfos(r.getInt("id"), r.getString("full_name"));
+                    System.out.println("passe");
+
                     //redirige sur la page utilisateur
                     if(r.getInt("administration") == 0){
 
-                        this.writeInfos(r.getInt("id"), r.getString("full_name"), r.getInt("administration"));
                         page.go_to("../view/Accueil_Utilisateur.fxml");
 
                     }
                     //redirige sur la page administrateur
                     else{
                         page.go_to("../view/Accueil_Admin.fxml");
-                    }
-                    
-                        
+                    }                        
                 }
                 //test mot de passe correspond pas a l'identifiant
                 else{
                     showAlert(Alert.AlertType.ERROR, owner, "ERROR!",
                         "mdp ou identifiant erroné " + mdp.getText() + " " + pass);
-                }
+                }  
             }
-            r.close();
-            s.close();
-            c.close();  
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -141,7 +141,7 @@ public class Login_controller {
     }
 
 
-    public void writeInfos(int idObs, String id, int estAdmin){
+    public void writeInfos(int idObs, String id){
 
 
         try {
@@ -149,8 +149,8 @@ public class Login_controller {
             PrintWriter out = new PrintWriter(f);
             out.println(idObs);
             out.println(id);
-            out.println(estAdmin);
             out.close();
+            System.err.println("passe");
 
         } catch (IOException e) {
 
