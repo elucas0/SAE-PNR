@@ -77,6 +77,9 @@ public class Obs_chouette_controller {
     private TextField lambertY;
 
     @FXML
+    /**
+     * Button from the fxml file to access the account details
+     */
     private Button user;
 
 
@@ -99,6 +102,10 @@ public class Obs_chouette_controller {
 
     }
 
+    /**
+     * When a button linked to "to_Chouette" is pressed
+     * Switch to the page Formulaire_chouette.fxml
+     */
     public void to_Chouette(){
 
         Stage actuel = (Stage)protocole.getScene().getWindow();
@@ -109,7 +116,7 @@ public class Obs_chouette_controller {
     @FXML
     /**
      * Method to create a insert querry to the database
-     * @throws SQLException
+     * @throws SQLException if the querry is not well written
      */
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
@@ -207,7 +214,7 @@ public class Obs_chouette_controller {
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window where the alert is displayed
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */
