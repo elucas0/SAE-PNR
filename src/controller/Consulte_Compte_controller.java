@@ -49,6 +49,9 @@ public class Consulte_Compte_controller {
     private Button effectuer;
 
     
+    private int limite;
+
+    
 
     public ObservableList<Observateur> data = FXCollections.observableArrayList();
     public ObservableList<Observateur> data2 = FXCollections.observableArrayList();
@@ -185,12 +188,12 @@ public class Consulte_Compte_controller {
         table2.setItems(data2);
     }
 
-/*
+
     @FXML
     private void initialize(){
 
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
-        limite.setItems(liste);
+        //limite.setItems(liste);
 
         this.viewAdmin(25);
     }
@@ -199,9 +202,9 @@ public class Consulte_Compte_controller {
     private void changeLimit(){
 
 
-        this.viewObservation(this.limite.getValue());
+        this.viewAdmin(this.limite);
     }
-*/
+
 
 
     /**
