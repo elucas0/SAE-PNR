@@ -12,7 +12,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.stage.Stage;
 
 
-public class Graphics_Stats_controller {
+public class Stats_Batraciens_controller1 {
 
     @FXML
     private BarChart<String, Number> barChartBatracien;
@@ -45,7 +45,7 @@ public class Graphics_Stats_controller {
     void retour(ActionEvent event) {
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../view/Choix_espece_stats.fxml");
     }
 
     @FXML
