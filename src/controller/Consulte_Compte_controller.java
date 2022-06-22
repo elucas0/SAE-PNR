@@ -14,18 +14,33 @@ import javafx.collections.FXCollections;
 public class Consulte_Compte_controller {
 
     @FXML
+    /**
+     * The table view in the fxml file for the admins
+     */
     private TableView <Observateur> table1;
 
     @FXML
+    /**
+     * The table view in the fxml file for the users
+     */
     private TableView <Observateur> table2;
 
     @FXML
+    /**
+     * The table column in the fxml file for the name of the admin
+     */
     private  TableColumn<Observateur,String> colonneAdmin;
 
     @FXML
+    /**
+     * The table column in the fxml file for the id of the admin
+     */
     private  TableColumn<Observateur,Integer> colonneAdminId;
 
     @FXML
+    /**
+     * The table column in the fxml file for the name of the user
+     */
     private TableColumn<Observateur,String> colonneUser;
 
     @FXML
@@ -64,7 +79,11 @@ public class Consulte_Compte_controller {
 
     
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the data from the database
+     * @param limite the maximal number of rows to display in the table
+     */
     public void viewAdmin(){
 
         table1.getItems().clear();

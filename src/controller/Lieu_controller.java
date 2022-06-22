@@ -45,7 +45,7 @@ public class Lieu_controller {
     @FXML
     /**
      * Method to create a insert querry to the database
-     * @throws SQLException
+     * @throws SQLException if the querry is not well written
      */
     private void test() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
@@ -93,7 +93,7 @@ public class Lieu_controller {
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window where the message is displayed
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */

@@ -177,7 +177,7 @@ public class Nid_Gci_controller{
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner The owner of the window
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */

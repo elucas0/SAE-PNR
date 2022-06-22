@@ -146,7 +146,7 @@ public class Affichage_controller_Chouette {
 
     @FXML
     /**
-     * Initialize elements when the fxml file is dilpayed
+     * Initialize elements when the fxml file is displayed
      */
     private void initialize()  {
 
