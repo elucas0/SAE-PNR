@@ -181,11 +181,7 @@ public class Consulte_Compte_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
         colonneUser.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        //prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
         table2.setItems(data2);
     }
 
