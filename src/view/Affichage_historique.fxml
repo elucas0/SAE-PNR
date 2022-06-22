@@ -34,9 +34,9 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
                <center>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+                  <Button fx:id="retour" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
                      <graphic>
-                        <FontIcon fx:id="retour" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                        <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30"/>
                      </graphic>
                   </Button>
                </center>
@@ -45,9 +45,9 @@
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="home" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+                  <Button fx:id="home" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#home">
                      <graphic>
-                        <FontIcon fx:id="home" iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-home" iconSize="30" />
                      </graphic>
                   </Button>
                </center>
