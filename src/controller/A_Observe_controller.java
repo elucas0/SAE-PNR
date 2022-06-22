@@ -31,6 +31,10 @@ public class A_Observe_controller {
     @FXML
     private Button effectuer;
 
+    /**
+    * When a button linked to "toLogin" is pressed   
+    * Switch to the page page_login.fxml
+    */
     @FXML
     public void toLogin(){
 
@@ -38,7 +42,11 @@ public class A_Observe_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/page_login.fxml");
     }
-
+    
+    /**
+    * When a button linked to "toLogin" is pressed   
+    * Switch to the page page_login.fxml
+    */
     public void toData(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
@@ -170,4 +178,3 @@ public class A_Observe_controller {
     
 }
 
-// test pour voir si il commit
