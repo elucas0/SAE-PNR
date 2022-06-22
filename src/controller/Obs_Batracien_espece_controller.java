@@ -154,48 +154,64 @@ public class Obs_Batracien_espece_controller{
 
         }
 
+        else{
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement obsBatracienEspeceController = c.createStatement();
+                if(this.numObs == -1){
+                    PreparedStatement testBatracien = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                    testBatracien.setDouble(1, lambertX);
+                    testBatracien.setDouble(2, lambertY);
+                    ResultSet resultatBatracien = testBatracien.executeQuery();
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
+                    if(resultatBatracien.next()){}
+                    else{
+                        String querry1 = "INSERT INTO lieu VALUES(" + lambertX + "," + lambertY + ");";
+                        obsBatracienEspeceController.executeUpdate(querry1);
+                    }
 
-            if(this.numObs == -1){
-                String querry1 = "INSERT INTO lieu VALUES(" + lambertX + "," + lambertY + ");";
-
-
-                PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + date + "','" + heureObs +"', " + lambertX + ", " + lambertY + ");");
-    
-    
-                PreparedStatement idBatracien = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-                ResultSet requete2 = idBatracien.executeQuery();
-                requete2.next();
-                numObs = requete2.getInt("Max(idObs)");
-    
-    
-                String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
-                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + numObs + ");";
-                s.executeUpdate(querry1);
-                querry2.executeUpdate();
-                s.executeUpdate(querry3);
-                s.executeUpdate(querry4);
-
-            }else if (numObs >= 0){
-
-
-                String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
-                s.executeUpdate(querry3);
-
-            }
-
-
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                    PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + date + "','" + heureObs +"', " + lambertX + ", " + lambertY + ");");
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        
+                    PreparedStatement idBatracien = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                    ResultSet requete2 = idBatracien.executeQuery();
+                    requete2.next();
+                    numObs = requete2.getInt("Max(idObs)");
+        
+        
+                    String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
+                    String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + numObs + ");";
+                    querry2.executeUpdate();
+                    obsBatracienEspeceController.executeUpdate(querry3);
+                    obsBatracienEspeceController.executeUpdate(querry4);
+                    System.out.println("test");
+
+                }else if (numObs >= 0){
+                    System.out.println("passe");
+
+                    PreparedStatement testBatracien2 = c.prepareStatement("SELECT obsB FROM obs_batracien WHERE obsB = ? AND espece = ?");
+                    testBatracien2.setDouble(1, numObs);
+                    testBatracien2.setString(2, espece.getValue());
+                    ResultSet resultatBatracien2 = testBatracien2.executeQuery();
+
+                    if(resultatBatracien2.next()){
+                        showAlert(Alert.AlertType.ERROR, owner, "Observation", "Espece déjà rentré pour cette observation!");
+                    }
+                    else{
+                        String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
+                        obsBatracienEspeceController.executeUpdate(querry3);
+                        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                    }
+                }
+
+
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

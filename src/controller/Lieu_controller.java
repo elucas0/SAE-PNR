@@ -48,19 +48,32 @@ public class Lieu_controller {
                 "Please enter good coordonnée");
 
         }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry = "INSERT INTO Lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ");";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        else{
+
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement lieuController = c.createStatement();
+                PreparedStatement testLieu = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testLieu.setString(1, coord_Lambert_x.getText());
+                testLieu.setString(2, coord_Lambert_Y.getText());
+                ResultSet resultatLieu = testLieu.executeQuery();
+
+                if(resultatLieu.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Lieu", "Lieu déjà rentré!");
+                }
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + coord_Lambert_x.getText() + "," + coord_Lambert_Y.getText() + ");";
+                    lieuController.executeUpdate(querry1);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Lieu", "rentré!");
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

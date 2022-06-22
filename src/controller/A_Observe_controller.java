@@ -2,6 +2,7 @@ package controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mysql.cj.xdevapi.Statement;
@@ -29,18 +30,6 @@ public class A_Observe_controller {
 
     @FXML
     private Button effectuer;
-
-
-
-
-    /**
-     * The content to do when the page linked to is started
-     */
-    private void initialize(){
-
-        
-    }
-
 
     @FXML
     public void toLogin(){
@@ -135,21 +124,32 @@ public class A_Observe_controller {
                 "S'il vous plaît, veuillez entrer un id d'observation valide");
 
         }
+        else{
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-
-            PreparedStatement querry1 =  c.prepareStatement("INSERT INTO aobserve VALUES('"+ lobservateur.getText() +"', '" + lobservation.getText() + "');");
-            System.out.println("INSERT INTO aobserve VALUES('"+ lobservateur.getText() +"', '" + lobservation.getText() + "');");
-            querry1.executeUpdate();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+
+                PreparedStatement testAObserve = c.prepareStatement("SELECT * FROM aobserve WHERE lobservateur = ? AND lobservation = ?");
+                testAObserve.setString(1, lobservateur.getText());
+                testAObserve.setString(2, lobservation.getText());
+                ResultSet resultatAObserve = testAObserve.executeQuery();
+
+                if(resultatAObserve.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Observation", "Observateur déjà rentré pour cette observation!");
+                }
+                else{
+                    PreparedStatement querry1 = c.prepareStatement("INSERT INTO aobserve VALUES('"+ lobservateur.getText() +"', '" + lobservation.getText() + "');");
+                    querry1.executeUpdate();
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

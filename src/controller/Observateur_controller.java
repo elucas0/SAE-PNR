@@ -71,37 +71,71 @@ public class Observateur_controller {
             showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
                 "Please enter a password");
         }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-
-            int admin = -1;
-            if (estAdmin.getValue().equals(("oui"))){
-                admin = 1;
-            }
-            else{
-                admin = 0;
-            }
-            String querry1 = "INSERT INTO registration VALUES(" + idCompte.getText() + ",'" + prenom.getText() + "','" + mdp.getText() + "','" + admin + "');";
-            
-            
-            
-            PreparedStatement idObs = c.prepareStatement("SELECT MAX(idObs) FROM Observateur;");
-            ResultSet requete2 = idObs.executeQuery();
-            requete2.next();
-            int idO = requete2.getInt("Max(idObs)");
-
-            String querry3 = "INSERT INTO Observateur VALUES(" + idO+ ", '" + nom.getText() + "', '" + prenom.getText() + "');";
-            s.executeUpdate(querry1);
-            s.executeUpdate(querry3);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (estAdmin.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
+                "Please enter a password");
         }
+
+        else{
+
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement ObservateurController = c.createStatement();
+
+                int admin = -1;
+                if (estAdmin.getValue().equals(("oui"))){
+                    admin = 1;
+                }
+                else{
+                    admin = 0;
+                }
+
+                PreparedStatement testRegistration = c.prepareStatement("SELECT * FROM registration WHERE id = ? AND full_name = ? AND password = ? AND administration = ?");
+                testRegistration.setString(1, idCompte.getText());
+                testRegistration.setString(2, prenom.getText());
+                testRegistration.setString(3, mdp.getText());
+                testRegistration.setInt(4, admin);
+                ResultSet resultatRegistration = testRegistration.executeQuery();
+
+                if(resultatRegistration.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Registration", "Compte déjà créée!");
+                }
+                else{
+                    String querry1 = "INSERT INTO registration VALUES(" + idCompte.getText() + ",'" + prenom.getText() + "','" + mdp.getText() + "','" + admin + "');";
+                    ObservateurController.executeUpdate(querry1);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observateur", "rentré!");
+                }
+
+
+                PreparedStatement idObs = c.prepareStatement("SELECT MAX(idObs) FROM Observateur;");
+                ResultSet requete2 = idObs.executeQuery();
+                requete2.next();
+                int idO = requete2.getInt("Max(idObs)");
+
+                PreparedStatement testObservateur = c.prepareStatement("SELECT * FROM Observateur WHERE idObservateur = ? AND nom = ? AND prenom = ?");
+                testObservateur.setString(1, idCompte.getText());
+                testObservateur.setString(2, nom.getText());
+                testObservateur.setString(3, prenom.getText());
+                ResultSet resultatObservateur = testObservateur.executeQuery();
+
+                if(resultatObservateur.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Observateur", "Observateur déjà rentré!");
+                }
+                else{
+                    String querry3 = "INSERT INTO Observateur (nom,prenom) VALUES('" + nom.getText() + "', '" + prenom.getText() + "');";
+                    ObservateurController.executeUpdate(querry3);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observateur", "rentré!");
+
+                }
+    
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
