@@ -1,31 +1,19 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import modele.donnee.Observateur;
-
 import java.sql.*;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.paint.Color;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modele.donnee.Lieu;
-
 import java.sql.DriverManager;
 
 public class Consulte_Compte_controller {
@@ -37,16 +25,25 @@ public class Consulte_Compte_controller {
     private  TableColumn<Observateur,String> colonneAdmin;
 
     @FXML
+    private  TableColumn<Observateur,Integer> colonneAdminId;
+
+    @FXML
     private TableView <Observateur> table2;
 
     @FXML
     private TableColumn<Observateur,String> colonneUser;
 
     @FXML
+    private  TableColumn<Observateur,Integer> colonneUserId;
+
+    @FXML
     private Button user;
 
     @FXML
     private Button effectuer;
+
+    @FXML
+    private int limite;
 
     
 
@@ -148,11 +145,8 @@ public class Consulte_Compte_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
         colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        //prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        colonneAdminId.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
         table1.setItems(data);
     }
 
@@ -161,7 +155,7 @@ public class Consulte_Compte_controller {
         try{
             table2.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1 LIMIT " + limite;
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0 LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             while(rs.next()){
@@ -169,7 +163,7 @@ public class Consulte_Compte_controller {
                 if(rs.getString(2) == null){
 
                     data2.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
-
+                    
 
                 }else{
 
@@ -181,31 +175,29 @@ public class Consulte_Compte_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
-        //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
         colonneUser.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
-        //prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
+        colonneUserId.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
         table2.setItems(data2);
     }
 
-/*
+
     @FXML
     private void initialize(){
 
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
-        limite.setItems(liste);
+        //limite.setItems(liste);
 
         this.viewAdmin(25);
+        this.viewUser(25);
     }
 
     @FXML
     private void changeLimit(){
 
 
-        this.viewObservation(this.limite.getValue());
+        this.viewAdmin(this.limite);
     }
-*/
+
 
 
     /**

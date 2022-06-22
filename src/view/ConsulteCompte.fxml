@@ -81,12 +81,14 @@
          <children>
             <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="colonneAdmin" prefWidth="166.0" text="Administrateurs :" />
+                <TableColumn fx:id="colonneAdmin" prefWidth="110.0" text="Administrateurs :" />
+                <TableColumn fx:id="colonneAdminId" prefWidth="100.0" text="id :" />
               </columns>
             </TableView>
             <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
               <columns>
-                <TableColumn fx:id="colonneUser" prefWidth="165.0" text="Utilisateurs :" />
+                <TableColumn fx:id="colonneUser" prefWidth="110.0" text="Utilisateurs :" />
+                <TableColumn fx:id="colonneUserId" prefWidth="100.0" text="id :" />
               </columns>
             </TableView>
          </children>
