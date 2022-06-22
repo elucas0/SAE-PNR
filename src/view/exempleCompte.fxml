@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Exemple_Compte_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -37,9 +37,9 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <left>
-            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
                <graphic>
-                  <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                  <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                </graphic>
                <BorderPane.margin>
                   <Insets left="100.0" />
@@ -93,7 +93,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#historique">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
                </graphic>
@@ -101,7 +101,7 @@
                   <Insets right="150.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#deleteUser">
                <GridPane.margin>
                   <Insets left="150.0" />
                </GridPane.margin>

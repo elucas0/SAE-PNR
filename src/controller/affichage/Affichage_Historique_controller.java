@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import modele.donnee.Observateur;
 import modele.donnee.Observation;
 import java.sql.*;
 
@@ -40,9 +42,9 @@ public class Affichage_Historique_controller {
     @FXML
     private TableColumn<Observation,Integer> id;
     @FXML
-    private TableColumn<Observation,Double> date;
+    private TableColumn<Observation,Date> date;
     @FXML
-    private TableColumn<Observation,String> heure;
+    private TableColumn<Observation,Time> heure;
     @FXML
     private TableColumn<Observation,Double> lieuX;
     @FXML
@@ -78,16 +80,19 @@ public class Affichage_Historique_controller {
 
                 if((rs.getDouble(4) != 0.0) && (rs.getDouble(5) != 0.0)){
 
-                    data.add(new Observation(rs.getInt(1), rs.getDouble(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5)));
+                    data.add(new Observation(rs.getInt(1), rs.getDate(2),rs.getTime(3),rs.getDouble(4),rs.getDouble(5)));
                 }
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        coordx.setCellValueFactory(new PropertyValueFactory<Lieu,Double>("coordX"));
-        coordy.setCellValueFactory(new PropertyValueFactory<Lieu,Double>("coordY"));
-        table.setItems(data1);
+        id.setCellValueFactory(new PropertyValueFactory<Observation,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
+        lieuX.setCellValueFactory(new PropertyValueFactory<Observation,Double>("coordX"));
+        lieuY.setCellValueFactory(new PropertyValueFactory<Observation,Double>("coordY"));
+        tabePricipale.setItems(data);
     }
 
 
@@ -98,7 +103,7 @@ public class Affichage_Historique_controller {
     public void retour(){
         Stage actuel = (Stage)home.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/exempleCompte.fxml");
+        change.go_to("../../view/exempleCompte.fxml");
     }
 
     /**
