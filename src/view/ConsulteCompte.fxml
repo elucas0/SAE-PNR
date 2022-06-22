@@ -6,15 +6,16 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Consulte_Compte_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -93,30 +94,18 @@
                </children>
             </Pane>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-              <content>
-                <AnchorPane fx:id="adminPane" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="154.0">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="Administrateur 1" textFill="GREY">
-                           <graphic>
-                              <FontIcon iconColor="GREY" iconLiteral="fas-angle-right" />
-                           </graphic>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-              </content>
+               <content>
+                  <VBox maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="149.0" />
+               </content>
             </ScrollPane>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-              <content>
-                <AnchorPane fx:id="userPane" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="154.0">
+               <content>
+                  <FlowPane prefHeight="200.0" prefWidth="155.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="Utilisateurs" textFill="GREY">
-                           <graphic>
-                              <FontIcon iconColor="GREY" iconLiteral="fas-angle-right" />
-                           </graphic>
-                        </Label>
+                        <VBox maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="148.0" />
                      </children>
-                  </AnchorPane>
-              </content>
+                  </FlowPane>
+               </content>
             </ScrollPane>
          </children>
       </GridPane>
