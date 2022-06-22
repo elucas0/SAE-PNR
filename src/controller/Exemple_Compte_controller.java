@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.sql.*;
 
+import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
+
 /**
  * The controller for compte view
  */
@@ -42,7 +45,7 @@ public class Exemple_Compte_controller {
      */
     private void initialize(){
 
-        user.setText(ReadInfos.getStatus());
+        //user.setText(ReadInfos.getStatus());
     }
 
     @FXML
