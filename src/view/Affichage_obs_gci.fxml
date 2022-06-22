@@ -79,12 +79,15 @@
                </BorderPane.margin>
                <columns>
                   <TableColumn fx:id="id" prefWidth="75.0" text="id" />
-                  <TableColumn fx:id="nomPlage" prefWidth="75.0" text="nomPlage" />
-                  <TableColumn fx:id="presentMaisNonObs" prefWidth="75.0" text="Present mais non obs" />
-                  <TableColumn fx:id="nbEnvols" prefWidth="75.0" text="nombre envols" />
-                  <TableColumn fx:id="protection" prefWidth="75.0" text="protection" />
-                  <TableColumn fx:id="bagueMale" prefWidth="75.0" text="bague male" />
-                  <TableColumn fx:id="bagueFemelle" prefWidth="75.0" text="bague femelle" />
+                  <TableColumn fx:id="date" prefWidth="75.0" text="date" />
+                  <TableColumn fx:id="heure" prefWidth="75.0" text="heure" />
+                  <TableColumn fx:id="coordX" prefWidth="75.0" text="coordonne X" />
+                  <TableColumn fx:id="coordY" prefWidth="75.0" text="coordonne Y" />
+                  <TableColumn fx:id="nature" prefWidth="75.0" text="nature" />
+                  <TableColumn fx:id="nombre" prefWidth="75.0" text="nombre" />
+                  <TableColumn fx:id="presentMaisNonObs" prefWidth="75.0" text="present mais non obs" />
+                  <TableColumn fx:id="leNid" prefWidth="75.0" text="id Nid" />
+                  <TableColumn fx:id="observateur" prefWidth="75.0" text="Observateur" />
                </columns>
             </TableView>
          </center>
