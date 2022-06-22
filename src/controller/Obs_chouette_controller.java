@@ -188,9 +188,10 @@ public class Obs_chouette_controller {
                 }
 
                 String querry3 = "INSERT INTO obs_chouette VALUES('" + protocol + "', '" + typeObs.getValue() + "', '" + idChouette.getText() + "'," + idC +");";
-                //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idC + ");";
                 querry2.executeUpdate();
                 obsChouetteController.executeUpdate(querry3);
+                obsChouetteController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
