@@ -160,6 +160,7 @@ public class Obs_Batracien_espece_controller{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             Statement s = c.createStatement();
+
             if(this.numObs == -1){
                 String querry1 = "INSERT INTO lieu VALUES(" + lambertX + "," + lambertY + ");";
 
@@ -179,10 +180,8 @@ public class Obs_Batracien_espece_controller{
                 querry2.executeUpdate();
                 s.executeUpdate(querry3);
                 s.executeUpdate(querry4);
-                System.out.println("test");
 
             }else if (numObs >= 0){
-                System.out.println("passe");
 
 
                 String querry3 = "INSERT INTO obs_batracien VALUES(" + numObs + ", '" + espece.getValue() + "', '" + nbAdultes.getText() + "', '" + nbAmplexus.getText() +  "', '" + nbPonte.getText() + "', '" + nbTetards.getText() + "', '" +  temperature + "', '" + temps[0] + "', '" + temps[1] + "', '" + temps[2] + "', '" + temps[3] + "', " + zoneHumide + ", " + vegetation+");";
