@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
@@ -76,11 +78,17 @@
                   <Insets bottom="20.0" />
                </BorderPane.margin>
                <columns>
-                  <TableColumn fx:id="id" prefWidth="75.0" text="obsB" />
-                  <TableColumn fx:id="date" prefWidth="75.0" text="espece" />
-                  <TableColumn fx:id="heure" prefWidth="75.0" text="nombreTetard " />
-                  <TableColumn fx:id="lieu" prefWidth="75.0" text="meteo_ciel " />
-                  <TableColumn fx:id="observateurs" prefWidth="75.0" text="meteo_temp " />
+                  <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="date" prefWidth="75.0" text="date" />
+                  <TableColumn fx:id="heure" prefWidth="75.0" text="heure" />
+                  <TableColumn fx:id="coordX" prefWidth="75.0" text="coordonnée X" />
+                  <TableColumn fx:id="coordY" prefWidth="75.0" text="coordonnée Y" />
+                  <TableColumn fx:id="observateur" prefWidth="75.0" text="observateur" />
+                  <TableColumn fx:id="espece" prefWidth="75.0" text="Espece" />
+                  <TableColumn fx:id="adulte" prefWidth="75.0" text="Adulte" />
+                  <TableColumn fx:id="amplexus" prefWidth="75.0" text="Amplexus" />
+                  <TableColumn fx:id="ponte" prefWidth="75.0" text="Ponte" />
+                  <TableColumn fx:id="tetards" prefWidth="75.0" text="Tetards" />
                </columns>
             </TableView>
          </center>
@@ -89,6 +97,7 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -136,18 +145,8 @@
                         <Insets bottom="10.0" top="10.0" />
                      </GridPane.margin>
                   </MenuButton>
-                  <MenuButton fx:id="tri_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Trier par" GridPane.columnIndex="3">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                     <graphic>
-                        <FontIcon />
-                     </graphic>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </MenuButton>
+                  <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" GridPane.columnIndex="4" />
+                  <Label text="Nombre :" textFill="WHITE" GridPane.columnIndex="3" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" top="50.0" />
