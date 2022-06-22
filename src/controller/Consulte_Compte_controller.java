@@ -24,6 +24,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 
 public class Consulte_Compte_controller {
 

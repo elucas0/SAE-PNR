@@ -12,47 +12,34 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Exemple_Compte_controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <FontIcon accessibleRole="PARENT" iconLiteral="far-user-circle" iconSize="75" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="75.0" />
+               </BorderPane.margin>
+            </FontIcon>
+         </center>
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@img/Logo-PNR.png" />
-               </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
                </BorderPane.margin>
+               <image>
+                  <Image url="@img/Logo-PNR.png" />
+               </image>
             </ImageView>
          </left>
-         <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <center>
-                        <FontIcon iconLiteral="fas-user-circle" iconSize="70" BorderPane.alignment="CENTER" />
-                     </center>
-                     <right>
-                        <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
-                           <graphic>
-                              <FontIcon iconLiteral="fas-pen" iconSize="20" />
-                           </graphic>
-                           <BorderPane.margin>
-                              <Insets right="10.0" />
-                           </BorderPane.margin>
-                        </Button>
-                     </right>
-                  </BorderPane>
-               </center></BorderPane>
-         </center>
       </BorderPane>
    </top>
    <bottom>
-      <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
+      <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <left>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                  <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                </graphic>
                <BorderPane.margin>
                   <Insets left="100.0" />
@@ -67,56 +54,61 @@
       <BorderPane prefHeight="236.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <GridPane maxHeight="313.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="313.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="296.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane maxHeight="90.0" maxWidth="300.0" minHeight="90.0" minWidth="300.0" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #4E4E4E;">
+            <Pane maxHeight="90.0" maxWidth="300.0" minHeight="90.0" minWidth="300.0" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #4E4E4E;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <Label layoutX="110.0" layoutY="9.0" text="Utilisateur 1" textFill="WHITE" />
                   <Label layoutX="40.0" layoutY="39.0" text="Compte ajoutée le 05/02/2022" textFill="WHITE" />
+                  <FontIcon iconLiteral="fas-pen-square" iconSize="30" layoutX="254.0" layoutY="43.0" />
                </children>
             </Pane>
-            <Pane maxHeight="143.0" maxWidth="300.0" minHeight="143.0" minWidth="300.0" prefHeight="143.0" prefWidth="300.0" style="-fx-background-color: #696969;" GridPane.rowIndex="1">
+            <Pane maxHeight="143.0" maxWidth="300.0" minHeight="143.0" minWidth="300.0" prefHeight="143.0" prefWidth="300.0" style="-fx-background-color: #696969;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
                   <Label layoutX="46.0" layoutY="14.0" text="Description :" textAlignment="CENTER" textFill="WHITE" />
-                  <Label fx:id="desciption" layoutX="74.0" layoutY="30.0" text="[mettre une decription]" textFill="WHITE" />
+                  <Label layoutX="74.0" layoutY="30.0" text="[mettre une decription]" textFill="WHITE" />
                   <Label layoutX="46.0" layoutY="57.0" text="Droits :" textFill="WHITE" />
-                  <Label fx:id="status" layoutX="78.0" layoutY="81.0" text="Administrateur" textFill="WHITE">
+                  <Label layoutX="78.0" layoutY="81.0" text="Visualiser les tables" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="GREEN" iconLiteral="fas-check-square" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="78.0" layoutY="97.0" text="Ajouter des données" textFill="WHITE">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="78.0" layoutY="113.0" text="Gérer les droits" textFill="WHITE">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="far-window-close" />
                      </graphic>
                   </Label>
                </children>
             </Pane>
-            <GridPane prefHeight="100.0" prefWidth="300.0" GridPane.rowIndex="2">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="141.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer le compte" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="20.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" onAction="#historique" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.rowIndex="1">
-                     <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
-                     </graphic>
-                  </Button>
-               </children>
-            </GridPane>
+            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
+               </graphic>
+               <GridPane.margin>
+                  <Insets right="150.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="150.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Button>
          </children>
       </GridPane>
    </center>
