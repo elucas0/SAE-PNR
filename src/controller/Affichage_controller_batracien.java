@@ -87,7 +87,7 @@ public class Affichage_controller_batracien {
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT * FROM Obs_Batracien ORDER BY obsB LIMIT " + limite;
-            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM observation, Obs_Batracien WHERE idObs = obsB ORDER BY idObs" + limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM observation, Obs_Batracien WHERE idObs = obsB ORDER BY idObs LIMIT" + limite;
             String sql3 = "SELECT lobservateur FROM observation,Obs_Batracien,AObserve,observateur WHERE lobservateur=idObservateur AND idObs = obsB AND lobservation=idObs ORDER BY idObs";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
