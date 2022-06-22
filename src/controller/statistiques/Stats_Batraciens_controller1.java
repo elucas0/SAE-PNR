@@ -14,7 +14,7 @@ import javafx.scene.chart.BarChart;
 import javafx.stage.Stage;
 
 /**
- * Controller of the page Stats_Batraciens_controller1.fxml
+ * Controller of the page Stats_Batracien_1.fxml
  * Displays the statistics of the Batraciens
  * @version 1.2
  */
@@ -46,7 +46,7 @@ public class Stats_Batraciens_controller1 {
 
     @FXML
     /**
-     * Initializes the controller class.
+     * Initializes the controller class and the BarChart
      * @throws ClassNotFoundException if the class is not found
      * @throws SQLException if there is a problem with the SQL
      */
@@ -88,10 +88,22 @@ public class Stats_Batraciens_controller1 {
     }
 
     @FXML
+    /**
+     * Event to do when the button refresh is pressed.
+     * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     */
     void btn(ActionEvent event) throws SQLException, ClassNotFoundException {
         this.initialize();
     }
-    //Create a method to request the database
+    
+    /**
+     * Request the database to get the statistics of the Batraciens using an SQL query
+     * @return the series for the BarChart
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     */
     public XYChart.Series<String, Number> requestDB() throws SQLException, ClassNotFoundException {
 
         XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();

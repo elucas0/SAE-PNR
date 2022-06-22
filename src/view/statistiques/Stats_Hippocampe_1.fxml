@@ -65,19 +65,19 @@
    <left>
       <BorderPane BorderPane.alignment="CENTER">
          <top>
-            <PieChart fx:id="pieChart0" legendSide="LEFT" prefHeight="300.0" prefWidth="400.0" title="Entelurus aequoreus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart0" legendSide="LEFT" prefHeight="300.0" prefWidth="500.0" title="Entelurus aequoreus" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
-            <PieChart fx:id="pieChart1" legendSide="LEFT" prefHeight="300.0" prefWidth="400.0" title="Hippocampus guttulatus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart1" legendSide="LEFT" prefHeight="300.0" prefWidth="500.0" title="Hippocampus guttulatus" BorderPane.alignment="CENTER" />
          </bottom></BorderPane>
    </left>
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <top>
-            <PieChart fx:id="pieChart2" legendSide="RIGHT" prefHeight="300.0" prefWidth="400.0" title="Hippocampus hippocampus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart2" legendSide="RIGHT" prefHeight="300.0" prefWidth="500.0" title="Hippocampus hippocampus" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
-            <PieChart fx:id="pieChart3" legendSide="RIGHT" prefHeight="300.0" prefWidth="400.0" title="Syngnathus acus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart3" legendSide="RIGHT" prefHeight="300.0" prefWidth="500.0" title="Syngnathus acus" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
    </center>
