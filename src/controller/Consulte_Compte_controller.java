@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
