@@ -185,4 +185,11 @@ public class Consulte_Compte_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_observateur.fxml");
     }
+
+    public void voir(){
+
+        Stage actuel = (Stage)user.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        //change.go_to("../view/formulaires/Formulaire_observateur.fxml");
+    }
 }
