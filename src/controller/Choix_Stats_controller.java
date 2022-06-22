@@ -1,7 +1,6 @@
 package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
 public class Choix_Stats_controller {

@@ -53,7 +53,7 @@ public class Choix_Espece_Stats_controller {
 
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin() == true){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
