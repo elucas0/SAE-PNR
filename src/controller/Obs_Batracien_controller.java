@@ -26,18 +26,33 @@ import java.sql.*;
 public class Obs_Batracien_controller{
     
     @FXML
+    /**
+     * DatePicker from the fxml file to select the date of the observation
+     */
     private DatePicker date;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the time of the observation
+     */
     private TextField heureObservation;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the x coordinate
+     */
     private TextField lambertX;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the y coordinate
+     */
     private TextField lambertY;
 
     @FXML
+    /**
+     * Button from the fxml file to display the current account
+     */
     private Button user;
 
 
@@ -77,19 +92,19 @@ public class Obs_Batracien_controller{
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for id of the wetland
      */
     private TextField numZoneHumide;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the id of the vegetation
      */
     private TextField numVegetation;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the temperature
      */
     private TextField temperature;
 
@@ -128,7 +143,7 @@ public class Obs_Batracien_controller{
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner The owner of the window
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */
@@ -158,7 +173,10 @@ public class Obs_Batracien_controller{
         }
     }
 
-
+    /**
+     * Check if the data is correct and insert it in the database
+     * @throws SQLException if the data is not correct
+     */
     public void toEspece() throws SQLException{ 
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
@@ -168,41 +186,41 @@ public class Obs_Batracien_controller{
         Window owner = meteo_temps.getScene().getWindow();
         //test : textfield vide
         if (meteo_ciel.getValue().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         //test : textfield vide
         else if (meteo_pluie.getValue().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         //test : textfield vide
         else if (meteo_temps.getValue().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         //test : textfield vide
         else if (meteo_vent.getValue().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         else if (numZoneHumide.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+            "Veuillez remplir tous les champs");
 
         }
         else if (numVegetation.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         else if (temperature.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
+            showAlert(Alert.AlertType.ERROR, owner, "Erreur",
+                "Veuillez remplir tous les champs");
 
         }
         

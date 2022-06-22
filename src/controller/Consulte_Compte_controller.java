@@ -92,7 +92,6 @@ public class Consulte_Compte_controller {
     @FXML
     /**
      * Fill the table with the data from the database
-     * @param limite the maximal number of rows to display in the table
      */
     public void viewAdmin(){
 
