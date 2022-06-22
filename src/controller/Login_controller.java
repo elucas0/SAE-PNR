@@ -42,7 +42,7 @@ public class Login_controller {
     @FXML
     /**
      * Method who check if the username and the password is good
-     * @throws SQLException
+     * @throws SQLException if there is a problem with the SQL
      */
     public void connect() throws SQLException {
         String pass = null;
