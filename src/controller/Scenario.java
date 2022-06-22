@@ -14,6 +14,8 @@ public class Scenario {
         //Renvoie le nom et l'id du compte utilisé
         System.out.println(ReadInfos.getStatus());
 
+        System.out.println(ReadInfos.getMax("Obs_Batracien"));
+
     }
     
 }

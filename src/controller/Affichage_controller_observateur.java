@@ -93,7 +93,7 @@ public class Affichage_controller_observateur {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100);
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
         limite.setItems(liste);
 
         this.viewObservation(25);

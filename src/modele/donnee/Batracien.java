@@ -212,6 +212,14 @@ public class Batracien  {
 		return observateurs;
 	}
 
+	public double getCoordX() {
+		return coordX;
+	}
+
+	public double getCoordY() {
+		return coordY;
+	}
+
 
 
 
