@@ -26,7 +26,7 @@ public class ReadInfos {
 
         try {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            PreparedStatement querry = c.prepareStatement("SELECT administration FROM registration WHERE fullName = ? AND id = ?");
+            PreparedStatement querry = c.prepareStatement("SELECT administration FROM registration WHERE full_name = ? AND id = ?");
             
             FileReader f;
             try {

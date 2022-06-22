@@ -162,7 +162,7 @@ public class Zone_Humide_controller {
                     showAlert(Alert.AlertType.ERROR, owner, "Observation", "Zone humide déjà rentré!");
                 }
                 else{
-                    String querry = "INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + "'," + profondeur.getText() +", " + surface.getText() + ", '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );");
+                    String querry = "INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + "'," + profondeur.getText() +", " + surface.getText() + ", '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );";
                     zoneHumideController.executeUpdate(querry);
                     showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
                 }
