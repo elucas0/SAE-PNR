@@ -87,7 +87,7 @@
          <center>
             <MenuButton alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" stylesheets="@css/style.css" text="Exportation" textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="fas-pen-fancy" iconSize="20" />
+                  <FontIcon iconColor="WHITE" iconLiteral="fas-file-upload" iconSize="20" />
                </graphic>
                <items>
                   <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#exportation_obs_batracien" text="Batracien ">

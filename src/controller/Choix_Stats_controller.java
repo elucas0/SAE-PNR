@@ -1,8 +1,12 @@
 package controller;
+import org.kordamp.ikonli.javafx.FontIcon;
+
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 public class Choix_Stats_controller {
@@ -12,6 +16,160 @@ public class Choix_Stats_controller {
      * The account button in the fxml file
      */
     private Button user;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem Hippocampe;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem batracien;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem chouette;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem gci;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem lieu;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private Button liste;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem loutre;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem observateur;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private FontIcon retour;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private Button stat;
+
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem vegetation;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem zonehumide;
+
+    @FXML
+    /**
+     * Exports the data of the "a_observe" table to a csv file
+     * @param event the event
+     */
+    void exportation_a_observe(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "lieu" table to a csv file
+     * @param event the event
+     */
+    void exportation_lieu(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "obs_batracien" table to a csv file
+     * @param event the event
+     */
+    void exportation_obs_batracien(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "obs_chouette" table to a csv file
+     * @param event the event
+     */
+    void exportation_obs_chouette(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "obs_gci" table to a csv file
+     * @param event the event
+     */
+    void exportation_obs_gci(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "obs_hippocampe" table to a csv file
+     * @param event the event
+     */
+    void exportation_obs_hippocampe(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "obs_loutre" table to a csv file
+     * @param event the event
+     */
+    void exportation_obs_loutre(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "vegetation" table to a csv file
+     * @param event the event
+     */
+    void exportation_vegetation(ActionEvent event) {
+
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "zone_humide" table to a csv file
+     * @param event the event
+     */
+    void exportation_zone_humide(ActionEvent event) {
+
+    }
 
     
     @FXML
