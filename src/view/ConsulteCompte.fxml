@@ -2,20 +2,17 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Consulte_Compte_controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -42,7 +39,7 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <right>
-            <Button fx:id="addAcount" mnemonicParsing="false" onAction="#addAccount" prefHeight="40.0" style="-fx-background-color: #019367;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="addAcount" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #019367;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
                </graphic>
@@ -53,7 +50,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button fx:id="retour" alignment="CENTER" mnemonicParsing="false" onAction="#retour" prefHeight="30.0" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                      </graphic>
@@ -79,34 +76,19 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="60.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="5000.0" minHeight="10.0" prefHeight="213.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;">
-               <children>
-                  <Label layoutX="27.0" layoutY="22.0" text="Administrateurs :" textFill="WHITE" />
-               </children>
-            </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" GridPane.columnIndex="2">
-               <children>
-                  <Label layoutX="42.0" layoutY="22.0" text="Utilisateurs :" textFill="WHITE" />
-               </children>
-            </Pane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <content>
-                  <VBox maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="149.0" />
-               </content>
-            </ScrollPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <content>
-                  <FlowPane prefHeight="200.0" prefWidth="155.0">
-                     <children>
-                        <VBox maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="148.0" />
-                     </children>
-                  </FlowPane>
-               </content>
-            </ScrollPane>
+            <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="colonneAdmin" prefWidth="166.0" text="Administrateurs :" />
+              </columns>
+            </TableView>
+            <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+              <columns>
+                <TableColumn fx:id="colonneUser" prefWidth="165.0" text="Utilisateurs :" />
+              </columns>
+            </TableView>
          </children>
       </GridPane>
    </center>

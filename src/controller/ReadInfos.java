@@ -95,6 +95,7 @@ public class ReadInfos {
         return ret;
     }
 
+
     /**
      * Get the user's id
      * @return the user's id
@@ -118,6 +119,32 @@ public class ReadInfos {
 
         return ret;
     }
+
+
+    public static int getMax(String table){
+
+        int ret = 0;
+
+        try {
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT COUNT(*) FROM " + table;
+            PreparedStatement s = c.prepareStatement(sql);
+            ResultSet r = s.executeQuery();
+            r.next();
+            ret = r.getInt("COUNT(*)");
+        
+        
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+
+
+        return ret;
+    }
+
+
 
 
  
