@@ -33,13 +33,13 @@ public class Obs_chouette_controller {
 
     /**
      * An ObservableList<String> that will contain the list of elements to add to the
-     * different combobx.
+     * different combobox.
      */
     private ObservableList<String> liste;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the id
      */
     private TextField idChouette;
 
@@ -51,25 +51,25 @@ public class Obs_chouette_controller {
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the hours
      */
     private TextField heureObs;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the Date
      */
     private DatePicker date;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the X Lambert coordinate
      */
     private TextField lambertX;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the Y Lambert coordinate
      */
     private TextField lambertY;
 
