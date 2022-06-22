@@ -20,6 +20,9 @@ import javafx.scene.control.DatePicker;
  */
 public class Obs_GCI_controller {
 
+    @FXML
+    private Button user;
+
 
     @FXML
     /**
@@ -102,6 +105,8 @@ public class Obs_GCI_controller {
 
         presentMaisNonObs.setItems(liste2);
         natureObs.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
 
     }
 

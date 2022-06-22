@@ -22,7 +22,7 @@ public class Accueil_Utilisateur_controller {
     private Button user;
 
 
-
+    @FXML
     /**
      * The content to do when the page linked to is started
      */

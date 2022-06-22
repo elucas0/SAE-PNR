@@ -29,7 +29,7 @@
             </ImageView>
          </left>
          <right>
-            <Button fx:id="nom_compte" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                </graphic>

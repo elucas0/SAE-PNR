@@ -72,6 +72,9 @@ public class Nid_Gci_controller{
      * text field for the number of fly
      */
     private TextField nomPlage;
+
+    @FXML
+    private Button user;
     
     @FXML
     /**
@@ -81,12 +84,9 @@ public class Nid_Gci_controller{
     {
         liste = FXCollections.observableArrayList("envol", "inconnu", "marée", "prédation");
         protection = FXCollections.observableArrayList("oui", "non");
-
-
-
         raisonArret.setItems(liste);
         estProtege.setItems(protection);
-
+        user.setText(ReadInfos.getStatus());
     }
 
     @FXML

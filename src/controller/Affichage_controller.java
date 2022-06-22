@@ -25,6 +25,9 @@ public class Affichage_controller {
     private TableView<String> table;
 
     private TableColumn<?, ?> colonne;
+
+    @FXML
+    private Button user;
     
 
 
@@ -34,10 +37,9 @@ public class Affichage_controller {
      */
     private void initialize() 
     {
-        colonne = new TableColumn<RequeteObservation, ArrayList<String>>("idObs");
+        user.setText(ReadInfos.getStatus());
 
-        ObservableList<String> tests = FXCollections.observableArrayList("test", "test");
-        table.setItems(tests);
+
     }
 
 

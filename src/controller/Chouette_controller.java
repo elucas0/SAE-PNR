@@ -45,6 +45,9 @@ public class Chouette_controller {
      */
     private ComboBox<String> sexe;
 
+    @FXML
+    private Button user;
+
 
 
 
@@ -59,6 +62,8 @@ public class Chouette_controller {
 
         liste = FXCollections.observableArrayList("MALE","FEMELLE","INCONNU");
         sexe.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
 
     }
 

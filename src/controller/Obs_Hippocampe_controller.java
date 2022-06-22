@@ -91,6 +91,9 @@ public class Obs_Hippocampe_controller {
      * text field for the number of fly
      */
     private TextField lambertY;
+
+    @FXML
+    private Button user;
     
 
 
@@ -112,6 +115,8 @@ public class Obs_Hippocampe_controller {
 
         liste = FXCollections.observableArrayList("oui", "non");
         estGestant.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML

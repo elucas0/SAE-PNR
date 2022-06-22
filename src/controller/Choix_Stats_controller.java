@@ -14,7 +14,11 @@ public class Choix_Stats_controller {
     /**
      * The content to do when the page linked to is started
      */
-    private void initialize(){}
+    private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
+
+    }
 
     @FXML
     public void toMainPage(){

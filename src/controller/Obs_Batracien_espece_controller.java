@@ -51,6 +51,9 @@ public class Obs_Batracien_espece_controller{
     private ObservableList<String> liste;
 
     @FXML
+    private Button user;
+
+    @FXML
     /**
      * text field for the number of fly
      */
@@ -85,6 +88,8 @@ public class Obs_Batracien_espece_controller{
         espece.setItems(liste);
         numObs = -1;
         this.readBatracien();
+        user.setText(ReadInfos.getStatus());
+
         
 
     }

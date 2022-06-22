@@ -37,6 +37,9 @@ public class Obs_Batracien_controller{
     @FXML
     private TextField lambertY;
 
+    @FXML
+    private Button user;
+
 
     @FXML
     /**
@@ -116,6 +119,8 @@ public class Obs_Batracien_controller{
 
         liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
         meteo_temps.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
 

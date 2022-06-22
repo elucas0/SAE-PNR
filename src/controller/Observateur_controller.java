@@ -40,10 +40,15 @@ public class Observateur_controller {
     private Button effectuer;
 
     @FXML
+    private Button user;
+
+    @FXML
     void initialize(){
 
         liste = FXCollections.observableArrayList("Oui", "Non");
         estAdmin.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML

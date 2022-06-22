@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.sql.SQLException;
-import java.time.LocalTime;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
@@ -74,6 +73,9 @@ public class Obs_Loutre_controller {
      * Button to insert the data in the database
      */
     private Button effectuer;
+
+    @FXML
+    private Button user;
     
 
 
@@ -85,6 +87,8 @@ public class Obs_Loutre_controller {
     {
         liste = FXCollections.observableArrayList("Positif","Negatif","Non prospection");
         indice.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML

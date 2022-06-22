@@ -30,6 +30,17 @@ public class Lieu_controller {
     private Button effectuer;
 
     @FXML
+    private Button user;
+
+
+
+    @FXML
+    private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
+    }
+
+    @FXML
     /**
      * Method to create a insert querry to the database
      * @throws SQLException

@@ -1,11 +1,9 @@
 package controller;
 import javafx.fxml.FXML;
-
-import javafx.scene.control.ComboBox;
+import javafx.scene.chart.BubbleChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 
 /**
@@ -24,7 +22,10 @@ public class Vegetation_controller {
     private TextField ripisyle;
 
     @FXML
-    private TextField idZoneVege;    
+    private TextField idZoneVege;  
+    
+    @FXML
+    private Button user;
 
 
     @FXML
@@ -33,7 +34,8 @@ public class Vegetation_controller {
      */
     private void initialize() 
     {
-        
+
+        user.setText(ReadInfos.getStatus());
     }
 
 

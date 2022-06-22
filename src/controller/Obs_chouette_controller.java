@@ -73,6 +73,9 @@ public class Obs_chouette_controller {
      */
     private TextField lambertY;
 
+    @FXML
+    private Button user;
+
 
 
     
@@ -87,9 +90,10 @@ public class Obs_chouette_controller {
         liste = FXCollections.observableArrayList("oui", "non");
         protocole.setItems(liste);
 
-
         liste = FXCollections.observableArrayList("Sonore", "Visuel", "Sonore et visuel");
         typeObs.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     public void to_Chouette(){

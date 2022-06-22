@@ -81,7 +81,7 @@
                   <Label layoutX="46.0" layoutY="57.0" text="Droits :" textFill="WHITE" />
                   <Label layoutX="78.0" layoutY="81.0" text="Visualiser les tables" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" text="" />
                      </graphic>
                   </Label>
                   <Label layoutX="78.0" layoutY="97.0" text="Ajouter des données" textFill="WHITE">

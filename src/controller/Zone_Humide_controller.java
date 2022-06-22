@@ -67,6 +67,11 @@ public class Zone_Humide_controller {
      */
     private Button effectuer;
 
+    @FXML
+    private Button user;
+
+    
+
 
     @FXML
     /**
@@ -85,6 +90,9 @@ public class Zone_Humide_controller {
 
         liste = FXCollections.observableArrayList("abritee", "semi-abritée", "ouverte");
         ouverture.setItems(liste);
+
+        user.setText(ReadInfos.getStatus());
+
     }
 
 
