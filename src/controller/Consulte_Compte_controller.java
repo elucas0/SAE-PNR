@@ -8,6 +8,7 @@ import modele.donnee.Observateur;
 import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
@@ -66,6 +67,9 @@ public class Consulte_Compte_controller {
      * Maximal number of rows to display in the table
      */
     private int limite;
+
+    @FXML
+    private TextField id;
 
     /**
      * ObservableList of observators
@@ -209,6 +213,6 @@ public class Consulte_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/formulaires/Formulaire_observateur.fxml");
+        change.go_to("../view/formulaires/exempleCompte.fxml");
     }
 }
