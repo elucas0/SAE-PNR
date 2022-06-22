@@ -222,9 +222,10 @@ public class Obs_Hippocampe_controller {
                 }
 
                 String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", '" + espece.getValue() + "', '" + sexe.getValue() + "', '" + tempEau.getText() + "','" + typePeche.getValue() + "','" + taille.getText() + "','" + gestant + "');";
-                //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idH + ");";
                 querry2.executeUpdate();
                 hippocampeController.executeUpdate(querry3);
+                hippocampeController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
