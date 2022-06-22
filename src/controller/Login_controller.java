@@ -66,11 +66,9 @@ public class Login_controller {
             PreparedStatement i = c.prepareStatement("SELECT * FROM registration WHERE full_name = ?");
             i.setString(1, id.getText());
             ResultSet r = i.executeQuery();
-            System.out.println("passe");
 
             while (r.next()) {
                 pass = r.getString("password");
-                System.out.println("passe");
 
                 
                 //test si le mot de passe correspond a l'utilisateur
@@ -78,7 +76,6 @@ public class Login_controller {
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     this.writeInfos(r.getInt("id"), r.getString("full_name"));
-                    System.out.println("passe");
 
                     //redirige sur la page utilisateur
                     if(r.getInt("administration") == 0){
@@ -150,7 +147,6 @@ public class Login_controller {
             out.println(idObs);
             out.println(id);
             out.close();
-            System.err.println("passe");
 
         } catch (IOException e) {
 
