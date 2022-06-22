@@ -1,5 +1,4 @@
 package modele.donnee;
-import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -11,7 +10,7 @@ public class Batracien  {
 	/**
 	 * the batracian's specie
 	 */
-	private EspeceBatracien espece;
+	private String espece;
 
 	/**
 	 * The number of adults
@@ -38,6 +37,9 @@ public class Batracien  {
 	private Time heure;
 	private Lieu lieu;
 	private int observateurs;
+	private double coordX;
+	private double coordY;
+
 	/**
 	 * Generate a battracian observed
 	 * @param id id of the observation
@@ -50,12 +52,18 @@ public class Batracien  {
 	 * and of egg-layings (resObs[3]).
 	 * @param lEspece the frogg' specie
 	 */
-	public Batracien(int id, Date date, Time heure, Lieu lieu, int observateurs) {
+	public Batracien(int id, Date date, Time heure, double coordX, double coordY,  int observateurs, String espece, int adulte, int amplexus,  int tetard, int ponte) {
 		this.id=id;
 		this.date=date;
 		this.heure=heure;
-		this.lieu=lieu;
+		this.coordX = coordX;
+		this.coordY = coordY;
 		this.observateurs=observateurs;
+		this.nombreTetard = tetard;
+		this.nombreAdultes = adulte;
+		this.nombrePonte = ponte;
+		this.nombreAmplexus = amplexus;
+		this.espece = espece;
 	
 	}
 
@@ -70,7 +78,7 @@ public class Batracien  {
 	 * Get the batracian's specie
 	 * @return the batracian's specie
 	 */
-	public EspeceBatracien getEspece() {
+	public String getEspece() {
 		return espece;
 	}
 
@@ -78,7 +86,7 @@ public class Batracien  {
 	 * Set the batracian's specie to a wanted one
 	 * @param espece the wanted specie
 	 */
-	public void setEspece(EspeceBatracien espece) {
+	public void setEspece(String espece) {
 
 		if(espece != null){
 			this.espece = espece;
@@ -182,6 +190,26 @@ public class Batracien  {
 
 			System.err.println("setNombrePonte : nombrePonte must be at least 0.");
 		}
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public Time getHeure() {
+		return heure;
+	}
+
+	public Lieu getLieu() {
+		return lieu;
+	}
+
+	public int getObservateurs() {
+		return observateurs;
 	}
 
 

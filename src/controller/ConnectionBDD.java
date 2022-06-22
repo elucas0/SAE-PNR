@@ -16,15 +16,28 @@ import javafx.stage.Window;
 import java.sql.*;
 
 public class ConnectionBDD {
+    /**
+     * text field for inputing the id
+     */
     @FXML
     private TextField id;
-
+    
+    /**
+     * text field for inputing the password
+     */
     @FXML
     private PasswordField mdp;
 
+    /**
+     * button  used to connect
+     */
     @FXML
     private Button bouton_connexion;
-
+    
+    /**
+    * Event to do when the button bouton_connexion is pressed.    
+    * Connect user to the databases if the id and the password are right
+    */
     @FXML
     public void register() throws SQLException {
 
@@ -55,6 +68,13 @@ public class ConnectionBDD {
             "Welcome " + id.getText());
     }
 
+     /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

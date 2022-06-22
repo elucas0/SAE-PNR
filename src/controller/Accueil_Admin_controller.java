@@ -28,7 +28,7 @@ public class Accueil_Admin_controller {
     
     @FXML
     /**
-     * The content to do when the page linked to is started
+     * The content to do when the page it's linked to is started
      */
     private void initialize(){
 
