@@ -17,6 +17,9 @@ public class Consulte_Compte_controller {
     @FXML
     private Button user;
 
+    @FXML
+    private Button effectuer;
+
 
 
     @FXML
