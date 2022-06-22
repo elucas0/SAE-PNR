@@ -5,9 +5,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
@@ -59,13 +65,16 @@ public class Consulte_Compte_controller {
     /**
      * The button in the fxml file 
      */
-    private Button effectuer;
+    private Button modifier;
 
     @FXML
     /**
      * Maximal number of rows to display in the table
      */
     private int limite;
+
+    @FXML
+    private TextField id;
 
     /**
      * ObservableList of observators
@@ -202,5 +211,24 @@ public class Consulte_Compte_controller {
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_observateur.fxml");
+    }
+
+    public void voir(){
+
+        Stage actuel = (Stage)user.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/exempleCompte.fxml");
+    }
+
+    public void writeId(){
+
+        try {
+            FileWriter f = new FileWriter("voir.txt");
+            BufferedWriter in = new BufferedWriter(f);
+        } catch (IOException e) {
+            
+            System.err.println(e.getMessage());
+        }
+        
     }
 }
