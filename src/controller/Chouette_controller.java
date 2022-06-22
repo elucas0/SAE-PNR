@@ -45,6 +45,9 @@ public class Chouette_controller {
      */
     private ComboBox<String> sexe;
 
+    @FXML
+    private Button user;
+
 
 
 
@@ -59,6 +62,8 @@ public class Chouette_controller {
 
         liste = FXCollections.observableArrayList("MALE","FEMELLE","INCONNU");
         sexe.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
 
     }
 
@@ -70,37 +75,49 @@ public class Chouette_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (espece.getPromptText().isEmpty()) {
+        if (espece.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (sexe.getPromptText().isEmpty()) {
+        else if (sexe.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (numIndivid.getText().isEmpty()) {
+        else if (numIndivid.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
-        }
-
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry = "INSERT INTO CHOUETTE VALUES("+ numIndivid.getText() +", " + espece.getPromptText() + "," + sexe.getPromptText() + ");";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        else{
+
+        
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement ChouetteController = c.createStatement();
+                
+                PreparedStatement testChouette = c.prepareStatement("SELECT * FROM Chouette WHERE numIndividu = ?");
+                testChouette.setString(1, numIndivid.getText());
+                ResultSet resultatChouette = testChouette.executeQuery();
+
+                if(resultatChouette.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Chouette", "Chouette déjà rentré!");
+                }
+                else{
+                    String querry1 = "INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');";
+                    ChouetteController.executeUpdate(querry1);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

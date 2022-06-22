@@ -2,6 +2,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +22,9 @@ public class Accueil_Admin_controller {
 
     @FXML
     private Button gestion;
+
+    @FXML
+    private Button user;
     
     @FXML
     /**
@@ -28,7 +32,7 @@ public class Accueil_Admin_controller {
      */
     private void initialize(){
 
-        
+        user.setText(ReadInfos.getStatus());
     }
 
     @FXML

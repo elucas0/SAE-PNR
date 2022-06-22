@@ -28,7 +28,7 @@
             </ImageView>
          </left>
          <right>
-            <Button fx:id="nom_compte" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="user" mnemonicParsing="false" style="-fx-background-color: #00B37D;" text="Administrateur 1" textFill="WHITE" BorderPane.alignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-user-circle" iconSize="30" />
                </graphic>
@@ -66,7 +66,7 @@
                <center>
                   <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #F10D10;" BorderPane.alignment="CENTER">
                      <graphic>
-                        <FontIcon fx:id="arreter" iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
+                        <FontIcon iconColor="WHITE" iconLiteral="far-times-circle" iconSize="30" />
                      </graphic>
                   </Button>
                </center>

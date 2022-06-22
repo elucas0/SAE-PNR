@@ -18,7 +18,7 @@
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@visual%20code%20+%20git/SAE-PNR-1/src/vue/img/Logo-PNR.png" />
+                  <Image url="@img/Logo-PNR.png" />
                </image>
                <BorderPane.margin>
                   <Insets left="10.0" top="40.0" />
@@ -81,17 +81,17 @@
                   <Label layoutX="46.0" layoutY="57.0" text="Droits :" textFill="WHITE" />
                   <Label layoutX="78.0" layoutY="81.0" text="Visualiser les tables" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="GREEN" iconLiteral="fas-check-square" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" text="" />
                      </graphic>
                   </Label>
                   <Label layoutX="78.0" layoutY="97.0" text="Ajouter des données" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="GREEN" iconLiteral="fas-check-square" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
                      </graphic>
                   </Label>
                   <Label layoutX="78.0" layoutY="113.0" text="Gérer les droits" textFill="WHITE">
                      <graphic>
-                        <FontIcon iconColor="GREEN" iconLiteral="far-window-close" />
+                        <FontIcon iconColor="WHITE" iconLiteral="far-window-close" />
                      </graphic>
                   </Label>
                </children>

@@ -91,6 +91,9 @@ public class Obs_Hippocampe_controller {
      * text field for the number of fly
      */
     private TextField lambertY;
+
+    @FXML
+    private Button user;
     
 
 
@@ -100,18 +103,20 @@ public class Obs_Hippocampe_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Syngnathus acus", "Hippocampus guttulatus", "Hippocampus hippocampus", "Entelurus aequoreus");
+        liste = FXCollections.observableArrayList("Syngnathus acus", "Hippocampus guttulatus", "Hippocampus Hippocampus", "Entelurus aequoreus");
         espece.setItems(liste);
 
 
         liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
         sexe.setItems(liste);
 
-        liste = FXCollections.observableArrayList("casier Crevette", "casier Morgates", "petit Filet", "verveux Anguilles");
+        liste = FXCollections.observableArrayList("casierCrevettes", "casierMorgates", "PetitFilet", "verveuxAnguilles");
         typePeche.setItems(liste);
 
         liste = FXCollections.observableArrayList("oui", "non");
         estGestant.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML
@@ -122,94 +127,111 @@ public class Obs_Hippocampe_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (espece.getPromptText().isEmpty()) {
+        if (espece.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (sexe.getPromptText().isEmpty()) {
+        else if (sexe.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (typePeche.getPromptText().isEmpty()) {
+        else if (typePeche.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
+        
         //test : textfield vide
-        if (estGestant.getPromptText().isEmpty()) {
+        else if (estGestant.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (tempEau.getText().isEmpty()) {
+        else if (tempEau.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (taille.getText().isEmpty()) {
+        else if (taille.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        else if (lambertX.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            //String querry = "INSERT INTO obs_hippocampe VALUES(" + espece.getPromptText() + "," + sexe.getPromptText() + "," + tempEau.getText() + "," + typePeche.getPromptText() + "," + taille.getText() + "," + estGestant.getPromptText() + ");";
-            //s.executeUpdate(querry);
+        else{
 
-            String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+        
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement hippocampeController = c.createStatement();
+                PreparedStatement testHioppocampe = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testHioppocampe.setString(1, lambertX.getText());
+                testHioppocampe.setString(2, lambertY.getText());
+                ResultSet resultatHippocampe = testHioppocampe.executeQuery();
 
-            PreparedStatement idHippocampes = c.prepareStatement("SELECT LAST_INSERT_ID();");
-            ResultSet requete2 = idHippocampes.executeQuery();
-            requete2.next();
-            int idH = requete2.getInt("LAST_INSERT_ID()");
+                if(resultatHippocampe.next()){}
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+                    hippocampeController.executeUpdate(querry1);
+                }
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
 
-            //System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", " + espece.getPromptText() + ", " + sexe.getPromptText() + ", " + tempEau.getText() + "," + typePeche.getPromptText() + "," + taille.getText() + "," + estGestant.getPromptText() + ");";
-            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
-            s.executeUpdate(querry1);
-            querry2.executeUpdate();
-            s.executeUpdate(querry3);
+                PreparedStatement idHippocampes = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idHippocampes.executeQuery();
+                requete2.next();
+                int idH = requete2.getInt("Max(idObs)");
+                
+                int gestant = -1;
+                if (estGestant.getValue().equals(("oui"))){
+                    gestant = 1;
+                }
+                else{
+                    gestant = 0;
+                }
+
+                String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", '" + espece.getValue() + "', '" + sexe.getValue() + "', '" + tempEau.getText() + "','" + typePeche.getValue() + "','" + taille.getText() + "','" + gestant + "');";
+                //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+                querry2.executeUpdate();
+                hippocampeController.executeUpdate(querry3);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             
-        } catch (Exception e) {
-            e.printStackTrace();
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
         }
-        
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
     }
 
     /**
@@ -236,7 +258,7 @@ public class Obs_Hippocampe_controller {
 
         Stage actuel = (Stage)espece.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,11 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 
 
@@ -19,6 +25,21 @@ import java.sql.*;
  */
 public class Obs_Batracien_controller{
     
+    @FXML
+    private DatePicker date;
+
+    @FXML
+    private TextField heureObservation;
+
+    @FXML
+    private TextField lambertX;
+
+    @FXML
+    private TextField lambertY;
+
+    @FXML
+    private Button user;
+
 
     @FXML
     /**
@@ -98,68 +119,11 @@ public class Obs_Batracien_controller{
 
         liste = FXCollections.observableArrayList("froid", "moyen", "chaud");
         meteo_temps.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
-    @FXML
-    /**
-     * Method to create a insert querry to the database
-     * @throws SQLException
-     */
-    private void insert() throws SQLException{
-        Window owner = effectuer.getScene().getWindow();
-        //test : textfield vide
-        if (meteo_ciel.getPromptText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
 
-        }
-        //test : textfield vide
-        if (meteo_pluie.getPromptText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        //test : textfield vide
-        if (meteo_temps.getPromptText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        //test : textfield vide
-        if (meteo_vent.getPromptText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        if (numZoneHumide.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        if (numVegetation.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        if (temperature.getText().isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            String querry = "INSERT INTO obs_batracien VALUES(" + temperature.getText() + "," + meteo_ciel.getPromptText() + "," + meteo_temps.getPromptText() + "," + meteo_vent.getPromptText() + "," + meteo_pluie.getPromptText() + "," + numZoneHumide.getText() + "," + numVegetation.getText() + ");";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
-    }
 
     /**
      * Method who create the message and show it in the screen
@@ -185,8 +149,7 @@ public class Obs_Batracien_controller{
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        System.out.println(ReadInfos.readAdmin());
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
@@ -196,11 +159,104 @@ public class Obs_Batracien_controller{
     }
 
 
-    public void toEspece(){
+    public void toEspece() throws SQLException{ 
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");      
-    }
-    
+        change.go_to("../view/formulaires/Formulaire_obs_batracien_espece.fxml");   
+
+        Window owner = meteo_temps.getScene().getWindow();
+        //test : textfield vide
+        if (meteo_ciel.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        else if (meteo_pluie.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        else if (meteo_temps.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        //test : textfield vide
+        else if (meteo_vent.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        else if (numZoneHumide.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        else if (numVegetation.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        else if (temperature.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        
+        else{
+
+        
+            try {
+                FileWriter f = new FileWriter("obsBatracien.txt");
+                PrintWriter out = new PrintWriter(f);
+                out.println(this.date.getValue());
+                out.println(this.heureObservation.getText());
+                out.println(this.lambertX.getText());
+                out.println(this.lambertY.getText());
+                out.println(this.temperature.getText());
+                out.println(this.meteo_ciel.getValue());
+                out.println(this.meteo_temps.getValue());
+                out.println(this.meteo_vent.getValue());
+                out.println(this.meteo_pluie.getValue());
+
+                try{                
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                    PreparedStatement testZH = c.prepareStatement("SELECT zh_id FROM zonehumide WHERE zh_id = ?");
+                    testZH.setString(1, numZoneHumide.getText());
+                    ResultSet resultatZH = testZH.executeQuery();
+
+                    if(resultatZH.next()){
+                        out.println(this.numZoneHumide.getText());
+                    }
+                    else{
+                        showAlert(Alert.AlertType.ERROR, owner, "zoneHumide", "Zone Huminde non référencé!");
+                    }
+                    
+                    PreparedStatement testV = c.prepareStatement("SELECT idVege FROM vegetation WHERE idVege = ?");
+                    testV.setString(1, numVegetation.getText());
+                    ResultSet resultatV = testV.executeQuery();
+
+                    if(resultatV.next()){
+                        out.println(this.numVegetation.getText());
+                    }
+                    else{
+                        showAlert(Alert.AlertType.ERROR, owner, "vegetation", "Vegetation non référencé!");
+                    }
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
+                out.close();
+
+            } catch (IOException e) {
+
+                System.out.println(e.getMessage());
+            }
+        }
+    }   
 }

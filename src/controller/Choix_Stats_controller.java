@@ -14,14 +14,18 @@ public class Choix_Stats_controller {
     /**
      * The content to do when the page linked to is started
      */
-    private void initialize(){}
+    private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
+
+    }
 
     @FXML
     public void toMainPage(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{
@@ -53,7 +57,7 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)this.user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

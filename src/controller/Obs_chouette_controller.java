@@ -73,6 +73,9 @@ public class Obs_chouette_controller {
      */
     private TextField lambertY;
 
+    @FXML
+    private Button user;
+
 
 
     
@@ -87,9 +90,10 @@ public class Obs_chouette_controller {
         liste = FXCollections.observableArrayList("oui", "non");
         protocole.setItems(liste);
 
-
         liste = FXCollections.observableArrayList("Sonore", "Visuel", "Sonore et visuel");
         typeObs.setItems(liste);
+        user.setText(ReadInfos.getStatus());
+
     }
 
     public void to_Chouette(){
@@ -107,76 +111,93 @@ public class Obs_chouette_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (typeObs.getPromptText().isEmpty()) {
+        if (typeObs.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (protocole.getPromptText().isEmpty()) {
+        else if (protocole.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        if (idChouette.getText().isEmpty()) {
+        else if (idChouette.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertX.getText().isEmpty()) {
+        else if (lambertX.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (lambertY.getText().isEmpty()) {
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (date.getValue() == null) {
+        else if (date.getValue() == null) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        if (heureObs.getText().isEmpty()) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            //String querry = "INSERT INTO obs_chouette VALUES(" + protocole.getPromptText() + "," + typeObs.getPromptText() + "," + idChouette.getPromptText() +");";
-            //s.executeUpdate(querry);
-            String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+        else{
 
-            PreparedStatement id_Chouette = c.prepareStatement("SELECT LAST_INSERT_ID();");
-            ResultSet requete2 = id_Chouette.executeQuery();
-            requete2.next();
-            int idC = requete2.getInt("LAST_INSERT_ID()");
-
-            //System.out.println(Time.valueOf(heureObs.getText()));
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation VALUES(" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-            
-            String querry3 = "INSERT INTO obs_chouette VALUES(" + ", " + protocole.getPromptText() + ", " + typeObs.getPromptText() + ", " + idChouette.getText() + idC +");";
-            //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
-            s.executeUpdate(querry1);
-            querry2.executeUpdate();
-            s.executeUpdate(querry3);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement obsChouetteController = c.createStatement();
+
+                PreparedStatement testChouette = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testChouette.setString(1, lambertX.getText());
+                testChouette.setString(2, lambertY.getText());
+                ResultSet resultatChouette = testChouette.executeQuery();
+
+                if(resultatChouette.next()){}
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+                    obsChouetteController.executeUpdate(querry1);
+                }
+
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+
+                PreparedStatement id_Chouette = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = id_Chouette.executeQuery();
+                requete2.next();
+                int idC = requete2.getInt("Max(idObs)");
+                int protocol = -1;
+                if (protocole.getValue().equals(("oui"))){
+                    protocol = 1;
+                }
+                else{
+                    protocol = 0;
+                }
+
+                String querry3 = "INSERT INTO obs_chouette VALUES('" + protocol + "', '" + typeObs.getValue() + "', '" + idChouette.getText() + "'," + idC +");";
+                //String querry4 = "INSERT INTO aobserve VALUES(" + idL+1 + commune.getText() + "," + lieu_dit.getText() + "," + indice.getPromptText() + ");";
+                querry2.executeUpdate();
+                obsChouetteController.executeUpdate(querry3);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        }
     }
 
     /**
@@ -203,7 +224,7 @@ public class Obs_chouette_controller {
 
         Stage actuel = (Stage)protocole.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.readAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../view/Accueil_Admin.fxml");
         }else{

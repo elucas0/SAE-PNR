@@ -22,11 +22,13 @@ public class Accueil_Utilisateur_controller {
     private Button user;
 
 
-
+    @FXML
     /**
      * The content to do when the page linked to is started
      */
     private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
 
         
     }
@@ -35,22 +37,28 @@ public class Accueil_Utilisateur_controller {
     @FXML
     public void toLogin(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/page_login.fxml");
     }
 
     public void toData(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/choix_stat_liste.fxml");
     }
 
+    public void toManage(){
+
+        Stage actuel = (Stage)deco.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../src/formulaires/ConsultCompte.fxml");
+    }
     
     public void formulaire_obs_batracien(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_batracien.fxml");
 
@@ -58,7 +66,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_loutre(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_loutre.fxml");
 
@@ -66,7 +74,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_gci(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
 
@@ -74,7 +82,7 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_hippocampe(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_hippocampe.fxml");
 
@@ -82,9 +90,33 @@ public class Accueil_Utilisateur_controller {
 
     public void formulaire_obs_chouette(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)deco.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+    }
+    public void formulaire_a_observe(){
+
+        Stage actuel = (Stage)deco.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_a_observe.fxml");
+    }
+    public void formulaire_lieu(){
+
+        Stage actuel = (Stage)deco.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_lieu.fxml");
+    }
+    public void formulaire_zone_humide(){
+
+        Stage actuel = (Stage)deco.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_zone_humide.fxml");
+    }
+    public void formulaire_vegetation(){
+
+        Stage actuel = (Stage)deco.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_vegetation.fxml");
     }
     
 }
