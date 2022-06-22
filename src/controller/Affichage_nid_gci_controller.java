@@ -1,13 +1,10 @@
 package controller;
 
-import modele.donnee.Lieu;
 import modele.donnee.Nid_Gci;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Time;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +37,7 @@ public class Affichage_nid_gci_controller {
     private TableColumn<Nid_Gci,Integer> id;
 
     @FXML 
-    private TableColumn<Nid_Gci,Integer> presentMaisNonObs;
+    private TableColumn<Nid_Gci,Integer> raisonArretObservation;
 
     @FXML 
     private TableColumn<Nid_Gci, Integer> nbEnvols;
@@ -65,12 +62,12 @@ public class Affichage_nid_gci_controller {
     public ObservableList<Nid_Gci> data1 = FXCollections.observableArrayList();
 
     @FXML 
-    public void viewObsGci(int limite){
+    public void viewNidGci(int limite){
 
         table.getItems().clear();
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM nid_Gci ORDER BY obsG LIMIT " + limite;
+            String sql = "SELECT * FROM nid_Gci ORDER BY idNid LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
 
@@ -84,13 +81,15 @@ public class Affichage_nid_gci_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("idNid"));
 
         nomPlage.setCellValueFactory(new PropertyValueFactory<Nid_Gci, String>("plage"));
-        presentMaisNonObs.setCellValueFactory(new PropertyValueFactory<Nid_Gci, Integer>("natureObs"));
-        nbEnvols.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("nombre"));
-        bagueMale.setCellValueFactory(new PropertyValueFactory<Nid_Gci, String>("leNid"));
-        bagueFemelle.setCellValueFactory(new PropertyValueFactory<Nid_Gci,String>("leNid"));
+        raisonArretObservation.setCellValueFactory(new PropertyValueFactory<Nid_Gci, Integer>("raisonArretObservation"));
+        nbEnvols.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("nbEnvols"));
+        bagueMale.setCellValueFactory(new PropertyValueFactory<Nid_Gci, String>("bagueMale"));
+        bagueFemelle.setCellValueFactory(new PropertyValueFactory<Nid_Gci,String>("bagueFemelle"));
+        protection.setCellValueFactory(new PropertyValueFactory<Nid_Gci,Integer>("protection"));
+
 
         table.setItems(data);
     }
@@ -102,10 +101,10 @@ public class Affichage_nid_gci_controller {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("nid_gci"));
         limite.setItems(liste);
 
-        this.viewObsGci(25);
+        this.viewNidGci(25);
     }
 
 
@@ -151,15 +150,14 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_Lieu.fxml");
+        change.go_to("../view/Affichage_lieu.fxml");
 
     }
 
     public void affichage_batracien(){
-
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");       
+        change.go_to("../view/Affichage_batracien.fxml");  
     }
 
 
@@ -167,7 +165,7 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 
@@ -175,14 +173,21 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_obs_gci.fxml");       
+    }
+
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Affichage_nid_gci.fxml");       
     }
 
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_hippocampe.fxml");       
     }
 
 
@@ -190,14 +195,15 @@ public class Affichage_nid_gci_controller {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_chouette.fxml");       
     }
 
     @FXML
     private void changeLimit(){
 
 
-        this.viewObsGci(this.limite.getValue());
+        this.viewNidGci(this.limite.getValue());
     }
+
     
 }

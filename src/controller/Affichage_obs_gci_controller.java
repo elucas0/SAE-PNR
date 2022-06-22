@@ -115,7 +115,7 @@ public class Affichage_obs_gci_controller {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("obs_gci"));
         limite.setItems(liste);
 
         this.viewObsGci(25);

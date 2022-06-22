@@ -183,7 +183,7 @@
                         </MenuButton>
                         <MenuButton fx:id="prospec2" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="GCI" textFill="WHITE" GridPane.rowIndex="5">
                            <items>
-                              <MenuItem fx:id="stat1gci" mnemonicParsing="false" onAction="#toStatGci1" text="stat1" />
+                              <MenuItem fx:id="stat1gci" mnemonicParsing="false" onAction="#toStatGci1" text="Répartition des nids par plage" />
                            </items>
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fas-feather-alt" iconSize="20" />

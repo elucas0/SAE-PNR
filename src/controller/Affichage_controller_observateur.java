@@ -142,15 +142,14 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_Lieu.fxml");
+        change.go_to("../view/Affichage_lieu.fxml");
 
     }
 
     public void affichage_batracien(){
-
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Affichage_batracien.fxml");       
+        change.go_to("../view/Affichage_batracien.fxml");  
     }
 
 
@@ -158,7 +157,7 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_loutre.fxml");       
     }
 
 
@@ -166,14 +165,21 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_obs_gci.fxml");       
+    }
+
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Affichage_nid_gci.fxml");       
     }
 
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_hippocampe.fxml");       
     }
 
 
@@ -181,7 +187,7 @@ public class Affichage_controller_observateur {
 
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        //change.go_to("../view/Affichage_loutre.fxml");       
+        change.go_to("../view/Affichage_chouette.fxml");       
     }
 
     @FXML

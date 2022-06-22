@@ -10,7 +10,7 @@ public class Nid_Gci {
     private int protection;
 	private String plage;
 	private String raisonArretObservation;
-	private String bagueMale ;
+	private String bagueMale;
 	private String bagueFemelle;
     private Date date;
     private Time heure;
@@ -108,6 +108,12 @@ public class Nid_Gci {
 
 	public String getBagueFemelle() {
 		return bagueFemelle;
+	}
+
+
+
+	public String getPlage() {
+		return plage;
 	}
 
 }

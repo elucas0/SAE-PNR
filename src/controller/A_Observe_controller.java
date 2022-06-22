@@ -36,6 +36,9 @@ public class A_Observe_controller {
     * Switch to the page page_login.fxml
     */
     @FXML
+    /**
+     * 
+     */
     public void toLogin(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();

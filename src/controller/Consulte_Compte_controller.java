@@ -19,6 +19,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.cell.PropertyValueFactory;
+import modele.donnee.Lieu;
+
+import java.sql.DriverManager;
 
 public class Consulte_Compte_controller {
 
@@ -41,16 +49,12 @@ public class Consulte_Compte_controller {
     private Button effectuer;
 
     
+    private int limite;
+
+    
 
     public ObservableList<Observateur> data = FXCollections.observableArrayList();
-
-
-
-    @FXML
-    private void initialize(){
-
-        user.setText(ReadInfos.getStatus());
-    }
+    public ObservableList<Observateur> data2 = FXCollections.observableArrayList();
 
     @FXML
     /**
@@ -147,13 +151,60 @@ public class Consulte_Compte_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
+        //id.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
         //date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
         //heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
-        nom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
         //prenom.setCellValueFactory(new PropertyValueFactory<Observateur,String>("prenom"));
-        table.setItems(data);
+        table1.setItems(data);
     }
+
+    @FXML 
+    public void viewUser(int limite){
+        try{
+            table2.getItems().clear();
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1 LIMIT " + limite;
+            PreparedStatement stat = c.prepareStatement(sql);
+            ResultSet rs = stat.executeQuery();
+            while(rs.next()){
+                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
+                if(rs.getString(2) == null){
+
+                    data2.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
+
+
+                }else{
+
+                    data2.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
+
+                }
+            }
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        colonneUser.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        table2.setItems(data2);
+    }
+
+
+    @FXML
+    private void initialize(){
+
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        //limite.setItems(liste);
+
+        this.viewAdmin(25);
+    }
+
+    @FXML
+    private void changeLimit(){
+
+
+        this.viewAdmin(this.limite);
+    }
+
 
 
     /**
