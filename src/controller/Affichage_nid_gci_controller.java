@@ -101,7 +101,7 @@ public class Affichage_nid_gci_controller {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("nid_gci"));
         limite.setItems(liste);
 
         this.viewNidGci(25);
