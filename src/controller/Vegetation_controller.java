@@ -1,11 +1,5 @@
 package controller;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
-import javafx.scene.chart.BubbleChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-=======
 
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -14,7 +8,6 @@ import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
->>>>>>> 54fa6de71e4e937f0066fed0da1cb3b35694c432
 
 
 /**
@@ -33,27 +26,22 @@ public class Vegetation_controller {
     private TextField ripisyle;
 
     @FXML
-<<<<<<< HEAD
-    private TextField idZoneVege;  
-    
-    @FXML
-    private Button user;
-
-=======
     private TextField idZoneVege;
->>>>>>> 54fa6de71e4e937f0066fed0da1cb3b35694c432
 
     @FXML
     /**
      * Button to insert the data in the database
      */
-<<<<<<< HEAD
-    private void initialize() 
-    {
+    private Button effectuer;
+
+    @FXML
+    private Button user;
+
+    @FXML
+    private void initialize(){
 
         user.setText(ReadInfos.getStatus());
-=======
-    private Button effectuer;
+    }
 
     @FXML
     /**
@@ -158,7 +146,6 @@ public class Vegetation_controller {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
->>>>>>> 54fa6de71e4e937f0066fed0da1cb3b35694c432
     }
 
 
