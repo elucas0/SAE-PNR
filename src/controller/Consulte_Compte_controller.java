@@ -5,6 +5,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -60,7 +65,7 @@ public class Consulte_Compte_controller {
     /**
      * The button in the fxml file 
      */
-    private Button effectuer;
+    private Button modifier;
 
     @FXML
     /**
@@ -214,5 +219,17 @@ public class Consulte_Compte_controller {
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/exempleCompte.fxml");
+    }
+
+    public void writeId(){
+
+        try {
+            FileWriter f = new FileWriter("voir.txt");
+            BufferedWriter in = new BufferedWriter(f);
+        } catch (IOException e) {
+            
+            System.err.println(e.getMessage());
+        }
+        
     }
 }

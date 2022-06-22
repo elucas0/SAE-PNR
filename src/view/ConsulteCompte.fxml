@@ -66,7 +66,7 @@
                   </Button>
                </left>
                <right>
-                  <Button fx:id="addAccount" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Ajouter un compte" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="addAccount" mnemonicParsing="false" style="-fx-background-color: #019367;" text="Ajouter un compte" textFill="WHITE" BorderPane.alignment="CENTER" onAction="#addAccount"> 
                      <BorderPane.margin>
                         <Insets right="40.0" />
                      </BorderPane.margin>
