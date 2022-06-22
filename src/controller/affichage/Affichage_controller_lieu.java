@@ -217,6 +217,15 @@ public class Affichage_controller_lieu {
         change.go_to("../../view/affichage/Affichage_chouette.fxml");       
     }
 
+    @FXML
+    /**
+    * Sets the value of the limite combobox
+    */
+   private void changeLimit(){
+
+
+       this.viewLieu(this.limite.getValue());
+   }
 
     
 }

@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_nid_gci_controller">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_nid_gci_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -116,7 +116,7 @@
                      </GridPane.margin>
                   </MenuButton>
                   <Label text="Nombre :" textFill="WHITE" GridPane.columnIndex="3" />
-                  <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" GridPane.columnIndex="4" />
+                  <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" stylesheets="@../css/style.css" GridPane.columnIndex="4" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" top="50.0" />

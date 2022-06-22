@@ -156,8 +156,15 @@ public class Affichage_controller_Chouette {
         limite.setItems(liste);
 
         viewObservation(25);
-    }
+    }@FXML
+     /**
+     * Sets the value of the limite combobox
+     */
+    private void changeLimit(){
 
+
+        this.viewObservation(this.limite.getValue());
+    }
 
     /**
     * Event to do when the button retour is pressed.    
