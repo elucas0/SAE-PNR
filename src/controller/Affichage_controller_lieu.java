@@ -76,7 +76,7 @@ public class Affichage_controller_lieu {
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, 250, 500, 750, 1000, 1500, 2000);
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, 250, 500, 750, 1000, ReadInfos.getMax("lieu"));
         limite.setItems(liste);
         viewLieu(25);
 
