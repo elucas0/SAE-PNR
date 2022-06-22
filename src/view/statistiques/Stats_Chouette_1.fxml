@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Stats_Chouettes_controller1">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.statistiques.Stats_Chouettes_controller1">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -62,16 +62,24 @@
                </children></Pane>
          </right></BorderPane>
    </bottom>
-   <left>
+   <center>
       <BorderPane BorderPane.alignment="CENTER">
-         <left>
-            <PieChart fx:id="pieChart0" title="Cheveches" BorderPane.alignment="CENTER" />
-         </left>
          <center>
             <PieChart fx:id="pieChart1" title="Effraies" BorderPane.alignment="CENTER" />
+         </center></BorderPane>
+   </center>
+   <left>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <PieChart fx:id="pieChart0" title="Cheveches" BorderPane.alignment="CENTER" />
          </center>
-         <right>
-            <PieChart fx:id="pieChart2" title="Hulotte" BorderPane.alignment="CENTER" />
-         </right></BorderPane>
+      </BorderPane>
    </left>
+   <right>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <PieChart fx:id="pieChart2" title="Hulotte" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </right>
 </BorderPane>
