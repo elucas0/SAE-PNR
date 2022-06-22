@@ -69,7 +69,7 @@ public class Stats_Chouettes_controller1 {
 
     @FXML
     /**
-     * Initialize the controller class and set the pie chart
+     * Initialize the controller class and set the pie charts
      * @throws ClassNotFoundException if the driver is not found
      * @throws SQLException if the connection is not established
      */

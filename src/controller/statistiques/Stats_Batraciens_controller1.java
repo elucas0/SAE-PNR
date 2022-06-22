@@ -46,7 +46,7 @@ public class Stats_Batraciens_controller1 {
 
     @FXML
     /**
-     * Initializes the controller class.
+     * Initializes the controller class and the BarChart
      * @throws ClassNotFoundException if the class is not found
      * @throws SQLException if there is a problem with the SQL
      */
@@ -99,7 +99,7 @@ public class Stats_Batraciens_controller1 {
     }
     
     /**
-     * Request the database to get the statistics of the Batraciens
+     * Request the database to get the statistics of the Batraciens using an SQL query
      * @return the series for the BarChart
      * @throws SQLException if there is a problem with the SQL
      * @throws ClassNotFoundException if the class is not found

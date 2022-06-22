@@ -18,31 +18,61 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
-
+/**
+ * Controller of the page Stats_Gci_1.fxml
+ * Displays the statistics of the Gci
+ * @version 1.2
+ */
 public class Stats_Gci_controller1 {
 
     @FXML
+    /**
+     * PieChart from the fxml file to display the statistics of the Gci
+     */
     private PieChart pieChart0;
 
     @FXML
+    /**
+     * Second PieChart from the fxml file to display the statistics of the Gci
+     */
     private PieChart pieChart1;
 
     @FXML
+    /**
+     * Third PieChart from the fxml file to display the statistics of the Gci
+     */
     private PieChart pieChart2;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the home page
+     */
     private Button home;
 
     @FXML
+    /**
+     * Button from the fxml file to refresh the data
+     */
     private Button refresh;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the previous page
+     */
     private Button retour;
 
     @FXML
+    /**
+     * Label from the fxml file to display value of the slice selected by the user
+     */
     private Label label;
 
     @FXML
+    /**
+     * Initialize the controller class and set the pie chart
+     * @throws ClassNotFoundException if the driver is not found
+     * @throws SQLException if the connection is not established
+     */
     public void initialize() throws ClassNotFoundException, SQLException{
         this.pieChart0.getData().clear();
         ObservableList<PieChart.Data> oList0 = requestDB();
@@ -53,6 +83,9 @@ public class Stats_Gci_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "home" is clicked, the user is redirected to the home page
+     */
     public void home(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -67,6 +100,11 @@ public class Stats_Gci_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "retour" is pressed
+     * Switch to the page Choix_espece_stats.fxml
+     * @param event The event that is triggered
+     */
     void retour(ActionEvent event) {
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
@@ -74,11 +112,23 @@ public class Stats_Gci_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "btn" is pressed
+     * Refresh the page with the new data
+     * @param event the event
+     * @throws SQLException the SQL exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     void btn(ActionEvent event) throws SQLException, ClassNotFoundException {
         this.initialize();
     }
 
-    //Create a method to request the database
+     /**
+     * Returns a ObservableList using an SQL request
+     * @return an ObservableList
+     * @throws SQLException if the SQL request fails
+     * @throws ClassNotFoundException if the class is not found
+     */
     public ObservableList<PieChart.Data> requestDB() throws SQLException, ClassNotFoundException {
 
         ObservableList<PieChart.Data> oList = FXCollections.observableArrayList();
@@ -99,6 +149,12 @@ public class Stats_Gci_controller1 {
         return oList;
     }
 
+    /**
+     * Returns the total number of observations
+     * @return the number of observations
+     * @throws SQLException if the SQL request fails
+     * @throws ClassNotFoundException if the class is not found
+     */
     public int getNombreObs() throws SQLException, ClassNotFoundException {
 
         int nombre = 0;
@@ -117,6 +173,10 @@ public class Stats_Gci_controller1 {
         return nombre;
     }
 
+    /**
+     * Sets the label to the value of the clicked slice
+     * @param oList the list of data
+     */
     public void showSliceData(ObservableList<PieChart.Data> oList){
         for(PieChart.Data data : oList){
             data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
