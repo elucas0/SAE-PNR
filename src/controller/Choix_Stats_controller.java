@@ -1,7 +1,6 @@
 package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
 public class Choix_Stats_controller {
@@ -45,7 +44,7 @@ public class Choix_Stats_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Graphics_Stats.fxml");
+        change.go_to("../view/Choix_espece_stats.fxml");
     }
 
 
