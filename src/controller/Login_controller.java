@@ -109,7 +109,7 @@ public class Login_controller {
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window of the Alert
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */
@@ -122,7 +122,10 @@ public class Login_controller {
         alert.show();
     }
 
-
+    /**
+     * If the correct key is typed
+     * @param e event
+     */
     public void keyConnect(KeyEvent e){
 
         if(e.getCode() == KeyCode.ENTER){
@@ -137,7 +140,11 @@ public class Login_controller {
 
     }
 
-
+    /**
+     * Method who writes the infos in a file
+     * @param idObs id of the observation
+     * @param id user name
+     */
     public void writeInfos(int idObs, String id){
 
 
