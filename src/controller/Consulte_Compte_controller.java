@@ -79,18 +79,18 @@ public class Consulte_Compte_controller {
 
     
 
-    @FXML 
+    @FXML
     /**
      * Fill the table with the data from the database
      * @param limite the maximal number of rows to display in the table
      */
-    public void viewAdmin(int limite){
+    public void viewAdmin(){
 
         table1.getItems().clear();
 
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1 LIMIT " + limite;
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1";
 
             PreparedStatement stat = c.prepareStatement(sql);
 
@@ -121,17 +121,14 @@ public class Consulte_Compte_controller {
         table1.setItems(data);
     }
 
-    @FXML
-    /**
-     * Fill the table with the users but with a limited number of rows
-     */
-    public void viewUser(int limite){
+    @FXML 
+    public void viewUser(){
         table2.getItems().clear();
 
         try{
             table2.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0 LIMIT " + limite;
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
 
@@ -170,8 +167,8 @@ public class Consulte_Compte_controller {
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
         //limite.setItems(liste);
 
-        this.viewAdmin(25);
-        this.viewUser(25);
+        this.viewAdmin();
+        this.viewUser();
     }
 
     @FXML
@@ -181,13 +178,13 @@ public class Consulte_Compte_controller {
     private void changeLimit(){
 
 
-        this.viewAdmin(this.limite);
-        this.viewUser(this.limite);
+        this.viewAdmin();
+        this.viewUser();
     }
 
     /**
-     * Event to do when the button retour is pressed.   
-     * Switch to the page Accueil_Utilisateur.fxml
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 
