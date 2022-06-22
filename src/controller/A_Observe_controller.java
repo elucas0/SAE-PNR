@@ -32,6 +32,9 @@ public class A_Observe_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * 
+     */
     public void toLogin(){
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
