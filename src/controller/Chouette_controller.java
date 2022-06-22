@@ -70,13 +70,13 @@ public class Chouette_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (espece.getPromptText().isEmpty()) {
+        if (espece.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (sexe.getPromptText().isEmpty()) {
+        if (sexe.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -87,22 +87,31 @@ public class Chouette_controller {
                 "Please enter good coordonnée");
 
         }
+        else{
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-
-            PreparedStatement querry1 =  c.prepareStatement("INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');");
-            System.out.println("INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');");
-            querry1.executeUpdate();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement ChouetteController = c.createStatement();
+                
+                PreparedStatement testChouette = c.prepareStatement("SELECT * FROM Chouette WHERE numIndividu = ?");
+                testChouette.setString(1, numIndivid.getText());
+                ResultSet resultatChouette = testChouette.executeQuery();
+
+                if(resultatChouette.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Chouette", "Chouette déjà rentré!");
+                }
+                else{
+                    String querry1 = "INSERT INTO CHOUETTE VALUES('"+ numIndivid.getText() +"', '" + espece.getValue() + "', '" + sexe.getValue() + "');";
+                    ChouetteController.executeUpdate(querry1);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

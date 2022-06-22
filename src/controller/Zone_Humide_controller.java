@@ -133,28 +133,43 @@ public class Zone_Humide_controller {
 
         }
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            
-            int temp = -1;
-            if (temporaire.getValue().equals(("oui"))){
-                temp = 1;
-            }
-            else{
-                temp = 0;
-            }
+        else{
 
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + "'," + profondeur.getText() +", " + surface.getText() + ", '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );");
-            querry2.executeUpdate();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement zoneHumideController = c.createStatement();
+                
+                int temp = -1;
+                if (temporaire.getValue().equals(("oui"))){
+                    temp = 1;
+                }
+                else{
+                    temp = 0;
+                }
+                PreparedStatement testZoneHumide = c.prepareStatement("SELECT zh_id FROM nid_gci WHERE zh_temporaire = ? AND zh_profondeur = ? AND zh_surface = ? AND zh_typeMare = ? AND zh_pente = ? AND zh_ouverture = ?");
+                testZoneHumide.setInt(1, temp);
+                testZoneHumide.setString(2, profondeur.getPromptText());
+                testZoneHumide.setString(3, surface.getText());
+                testZoneHumide.setString(4, typeMare.getValue());
+                testZoneHumide.setString(5, pente.getValue());
+                testZoneHumide.setString(6, ouverture.getValue());
+                ResultSet resultatNidGCI = testZoneHumide.executeQuery();
+
+                if(resultatNidGCI.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Observation", "Zone humide déjà rentré!");
+                }
+                else{
+                    String querry = "INSERT INTO zonehumide(zh_temporaire, zh_profondeur, zh_surface, zh_typeMare, zh_pente, zh_ouverture) VALUES('" + temp + "'," + profondeur.getText() +", " + surface.getText() + ", '" + typeMare.getValue() + "','" + pente.getValue() + "','" + ouverture.getValue() + "' );");
+                    zoneHumideController.executeUpdate(querry);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

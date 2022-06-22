@@ -155,7 +155,7 @@ public class Obs_Batracien_controller{
     }
 
 
-    public void toEspece(){ 
+    public void toEspece() throws SQLException{ 
 
         Stage actuel = (Stage)meteo_ciel.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
@@ -163,25 +163,25 @@ public class Obs_Batracien_controller{
 
         Window owner = meteo_temps.getScene().getWindow();
         //test : textfield vide
-        if (meteo_ciel.getPromptText().isEmpty()) {
+        if (meteo_ciel.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (meteo_pluie.getPromptText().isEmpty()) {
+        if (meteo_pluie.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (meteo_temps.getPromptText().isEmpty()) {
+        if (meteo_temps.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        if (meteo_vent.getPromptText().isEmpty()) {
+        if (meteo_vent.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -201,32 +201,57 @@ public class Obs_Batracien_controller{
                 "Please enter good coordonnée");
 
         }
+        else{
+
         
-        try {
-            FileWriter f = new FileWriter("obsBatracien.txt");
-            PrintWriter out = new PrintWriter(f);
-            out.println(this.date.getValue());
-            out.println(this.heureObservation.getText());
-            out.println(this.lambertX.getText());
-            out.println(this.lambertY.getText());
-            out.println(this.temperature.getText());
-            out.println(this.meteo_ciel.getValue());
-            out.println(this.meteo_temps.getValue());
-            out.println(this.meteo_vent.getValue());
-            out.println(this.meteo_pluie.getValue());
-            out.println(this.numZoneHumide.getText());
-            out.println(this.numVegetation.getText());
-            out.close();
+            try {
+                FileWriter f = new FileWriter("obsBatracien.txt");
+                PrintWriter out = new PrintWriter(f);
+                out.println(this.date.getValue());
+                out.println(this.heureObservation.getText());
+                out.println(this.lambertX.getText());
+                out.println(this.lambertY.getText());
+                out.println(this.temperature.getText());
+                out.println(this.meteo_ciel.getValue());
+                out.println(this.meteo_temps.getValue());
+                out.println(this.meteo_vent.getValue());
+                out.println(this.meteo_pluie.getValue());
 
-        } catch (IOException e) {
+                try{                
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                    PreparedStatement testZH = c.prepareStatement("SELECT zh_id FROM zonehumide WHERE zh_id = ?");
+                    testZH.setString(1, numZoneHumide.getText());
+                    ResultSet resultatZH = testZH.executeQuery();
 
-            System.out.println(e.getMessage());
+                    if(resultatZH.next()){
+                        out.println(this.numZoneHumide.getText());
+                    }
+                    else{
+                        showAlert(Alert.AlertType.ERROR, owner, "zoneHumide", "Zone Huminde non référencé!");
+                    }
+                    
+                    PreparedStatement testV = c.prepareStatement("SELECT idVege FROM vegetation WHERE idVege = ?");
+                    testV.setString(1, numVegetation.getText());
+                    ResultSet resultatV = testV.executeQuery();
+
+                    if(resultatV.next()){
+                        out.println(this.numVegetation.getText());
+                    }
+                    else{
+                        showAlert(Alert.AlertType.ERROR, owner, "vegetation", "Vegetation non référencé!");
+                    }
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
+                out.close();
+
+            } catch (IOException e) {
+
+                System.out.println(e.getMessage());
+            }
         }
-
-
-    }
-
-
-
-    
+    }   
 }

@@ -132,27 +132,46 @@ public class Nid_Gci_controller{
 
         }
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
-            int protec = 0;
-            if(estProtege.getValue().equals("oui")){
-                protec = 1;
+        else{
 
-            }else{
-
-                protec = 0;
-            }
-            String querry = "INSERT INTO nid_gci(nomPlage, raisonArretObservation, nbEnvol, protection, bagueMale, bagueFemelle) VALUES('" + nomPlage.getText() + "','" + raisonArret.getValue() + "', '" + nomEnvols.getText() + "', " + protec + ", '" + bagueMale.getText() + "', '" + bagueFemelle.getText() + "');";
-            s.executeUpdate(querry);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement nidGCIController = c.createStatement();
+
+                int protec = -1;
+                if(estProtege.getValue().equals("oui")){
+                    protec = 1;
+
+                }else{
+
+                    protec = 0;
+                }
+
+                PreparedStatement testNidGCI = c.prepareStatement("SELECT idNid FROM nid_gci WHERE nomPlage = ? AND raisonArretObservation = ? AND nbEnvol = ? AND protection = ? AND bagueMale = ? AND bagueFemelle = ?");
+                testNidGCI.setString(1, nomPlage.getText());
+                testNidGCI.setString(2, raisonArret.getPromptText());
+                testNidGCI.setString(3, nomEnvols.getText());
+                testNidGCI.setInt(4, protec);
+                testNidGCI.setString(5, bagueMale.getText());
+                testNidGCI.setString(6, bagueFemelle.getText());
+                ResultSet resultatNidGCI = testNidGCI.executeQuery();
+
+                if(resultatNidGCI.next()){
+                    showAlert(Alert.AlertType.ERROR, owner, "Observation", "Nid déjà rentré!");
+                }
+                else{
+                    String querry = "INSERT INTO nid_gci(nomPlage, raisonArretObservation, nbEnvol, protection, bagueMale, bagueFemelle) VALUES('" + nomPlage.getText() + "','" + raisonArret.getValue() + "', '" + nomEnvols.getText() + "', " + protec + ", '" + bagueMale.getText() + "', '" + bagueFemelle.getText() + "');";
+                    nidGCIController.executeUpdate(querry);
+                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

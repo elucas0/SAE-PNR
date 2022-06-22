@@ -161,44 +161,55 @@ public class Obs_GCI_controller {
 
         }
 
-        //création de l'insert
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            Statement s = c.createStatement();
+        else{
 
-            String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
-
-
-            PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-
-
-            PreparedStatement idGCI = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-            ResultSet requete2 = idGCI.executeQuery();
-            requete2.next();
-            int idG = requete2.getInt("Max(idObs)");
-
-            int protec = 0;
-            if(presentMaisNonObs.getValue().equals("oui")){
-                protec = 1;
-
-            }else{
-
-                protec = 0;
-            }
-
-            String querry3 = "INSERT INTO obs_gci VALUES(" + idG + ", '" + natureObs.getValue() + "', '" + nombre.getText() + "', " + protec +  ", '" + idNid.getText() + "');";
-            String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idG + ");";
-            s.executeUpdate(querry1);
-            querry2.executeUpdate();
-            s.executeUpdate(querry3);
-            s.executeUpdate(querry4);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            //création de l'insert
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+                Statement obsGCIController = c.createStatement();
+
+                PreparedStatement testGCI = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testGCI.setString(1, lambertX.getText());
+                testGCI.setString(2, lambertY.getText());
+                ResultSet resultatGCI = testGCI.executeQuery();
+
+                if(resultatGCI.next()){}
+                else{
+                    String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
+                    obsGCIController.executeUpdate(querry1);
+                }
+
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+
+                PreparedStatement idGCI = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idGCI.executeQuery();
+                requete2.next();
+                int idG = requete2.getInt("Max(idObs)");
+
+                int present = 0;
+                if(presentMaisNonObs.getValue().equals("oui")){
+                    present = 1;
+
+                }else{
+
+                    present = 0;
+                }
+
+                String querry3 = "INSERT INTO obs_gci VALUES(" + idG + ", '" + natureObs.getValue() + "', '" + nombre.getText() + "', " + present +  ", '" + idNid.getText() + "');";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idG + ");";
+
+                querry2.executeUpdate();
+                obsGCIController.executeUpdate(querry3);
+                obsGCIController.executeUpdate(querry4);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+        }
     }
 
     /**
