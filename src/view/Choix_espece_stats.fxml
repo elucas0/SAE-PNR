@@ -167,7 +167,7 @@
                      <children>
                         <MenuButton fx:id="prospec" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Hippocampe" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="1">
                            <items>
-                              <MenuItem fx:id="stat1hippocampe" mnemonicParsing="false" onAction="#toStatHippocampe1" text="stat1" />
+                              <MenuItem fx:id="stat1hippocampe" mnemonicParsing="false" onAction="#toStatHippocampe1" text="Effectif des hippocampes selon leur sexe pour toutes les espèces" />
                            </items>
                            <graphic>
                               <FontIcon iconColor="WHITE" iconLiteral="fas-chess-knight" iconSize="20" text="" />
