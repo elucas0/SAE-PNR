@@ -6,6 +6,9 @@ import javafx.stage.Stage;
 public class Choix_Stats_controller {
 
     @FXML
+    /**
+     * The account button in the fxml file
+     */
     private Button user;
 
     
@@ -20,6 +23,10 @@ public class Choix_Stats_controller {
     }
 
     @FXML
+    /**
+     * Event to do when the button retour is pressed.    
+     * Switch to the page Accueil_Utilisateur.fxml
+    */
     public void toMainPage(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
@@ -33,6 +40,10 @@ public class Choix_Stats_controller {
         }
     }
 
+    /**
+     * When a button linked to "toObs" is pressed
+     * Switch to the page Affichage.fxml to display the table selection menu
+     */
     public void toObs(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
@@ -40,6 +51,10 @@ public class Choix_Stats_controller {
         change.go_to("../view/Affichage.fxml");
     }
 
+    /**
+     * When a button linked to "toGraphics" is pressed
+     * Switch to the page Choix_espece_stats.fxml to display the choice of the animal
+     */
     public void toGraphics(){
 
         Stage actuel = (Stage)user.getScene().getWindow();

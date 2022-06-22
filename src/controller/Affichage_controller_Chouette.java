@@ -25,6 +25,9 @@ import java.sql.DriverManager;
 public class Affichage_controller_Chouette {
     
     @FXML
+    /**
+     * Combo box to select the number of rows to display
+     */
     private ComboBox<Integer> limite;
 
     @FXML
@@ -33,30 +36,75 @@ public class Affichage_controller_Chouette {
      */
     private Button retour;
 
+    /**
+     * The table view in the fxml file
+     */
     @FXML 
     private TableView<OChouette> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<OChouette,Integer> numobs ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for id of the animal
+     */
     private TableColumn<OChouette,String> lenumindividu ;
 
-    @FXML 
-    private TableColumn<OChouette,String> typeobs  ;
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the name of type of observation
+     */
+    private TableColumn<OChouette,String> typeobs;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the genre
+     */
     private TableColumn<OChouette,String> sexe;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the species
+     */
     private TableColumn<OChouette,String> espece;
-    @FXML private TableColumn<OChouette,Date> date;
-    @FXML private TableColumn<OChouette,Time> heure;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the date of the observation
+     */
+    private TableColumn<OChouette,Date> date;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
+    private TableColumn<OChouette,Time> heure;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate
+     */
     private TableColumn<OChouette,Double> x;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the type of protocole used
+     */
     private TableColumn<OChouette,Integer> protocole ;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate
+     */
     private TableColumn<OChouette,Double> y;
 
+    /**
+     * Observable list for the owl observations
+     */
     public ObservableList<OChouette> data = FXCollections.observableArrayList();
     
 
@@ -98,7 +146,7 @@ public class Affichage_controller_Chouette {
 
     @FXML
     /**
-     * Initialize elements when the fxml file is dilpayed
+     * Initialize elements when the fxml file is displayed
      */
     private void initialize()  {
 
@@ -122,7 +170,7 @@ public class Affichage_controller_Chouette {
 
 
     /**
-    * Event to do when the button retour is pressed.    
+    * Event to do when the button retour is pressed.
     * Switch to the page Accueil_Utilisateur.fxml
     */
     public void home(){

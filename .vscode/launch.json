@@ -9,6 +9,13 @@
             "name": "Launch scene",
             "request": "launch",
             "mainClass": "scene",
+            "projectName": "SAE-PNR_72596c6b"
+        },
+        {
+            "type": "java",
+            "name": "Launch scene",
+            "request": "launch",
+            "mainClass": "scene",
             "projectName": "SAE-PNR_3eae635f"
         },
         {

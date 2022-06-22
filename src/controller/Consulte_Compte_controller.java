@@ -1,93 +1,145 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import modele.donnee.User;
 
 public class Consulte_Compte_controller {
 
     @FXML
-    private TableView <User> table1;
+    /**
+     * The table view in the fxml file for the admins
+     */
+    private TableView <Observateur> table1;
 
     @FXML
-    private TableView <User> table2;
+    /**
+     * The table view in the fxml file for the users
+     */
+    private TableView <Observateur> table2;
 
     @FXML
-    private  TableColumn<User,String> colonneAdmin;
+    /**
+     * The table column in the fxml file for the name of the admin
+     */
+    private  TableColumn<Observateur,String> colonneAdmin;
 
     @FXML
-    private TableColumn<User,String> colonneUser;
+    /**
+     * The table column in the fxml file for the id of the admin
+     */
+    private  TableColumn<Observateur,Integer> colonneAdminId;
 
     @FXML
+    /**
+     * The table column in the fxml file for the name of the user
+     */
+    private TableColumn<Observateur,String> colonneUser;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the user id
+     */
     private  TableColumn<Observateur,Integer> colonneUserId;
 
     @FXML
+    /**
+     * The button in the fxml file 
+     */
     private Button user;
 
     @FXML
-    private Button effectuer;
+    /**
+     * The button in the fxml file 
+     */
+    private Button modifier;
 
     @FXML
+    /**
+     * Maximal number of rows to display in the table
+     */
     private int limite;
+
+    @FXML
+    private TextField id;
+
+    /**
+     * ObservableList of observators
+     */
+    public ObservableList<Observateur> data = FXCollections.observableArrayList();
+
+    /**
+     * ObservableList of places
+     */
+    public ObservableList<Observateur> data2 = FXCollections.observableArrayList();
 
     
 
-    @FXML 
-    public void viewUser(){
+    @FXML
+    /**
+     * Fill the table with the data from the database
+     */
+    public void viewAdmin(){
 
         table1.getItems().clear();
-        table2.getItems().clear();
 
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM registration WHERE administration = 1";
-            String sql2 = "SELECT * FROM registration WHERE administration = 0";
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1";
 
             PreparedStatement stat = c.prepareStatement(sql);
-            PreparedStatement stat2 = c.prepareStatement(sql2);
 
             ResultSet rs = stat.executeQuery();
-            ResultSet rs2 = stat2.executeQuery();
-
             
             while(rs.next()){
                 //data.add(new Batracien(id, date, heure, lieu, observateurs)
                 //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data.add(new User(rs.getInt(1), rs.getString(2), rs.getInt(4)));
-            }
-            while(rs2.next()){
-                //data.add(new Batracien(id, date, heure, lieu, observateurs)
-                //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data2.add(new User(rs2.getInt(1), rs2.getString(2), rs2.getInt(4)));
+                if(rs.getString(2) == null){
+
+                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
+
+                }else{
+
+                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
+
+                }
             }
             c.close();
             stat.close();
             rs.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
+        colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        colonneAdminId.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
+        table1.setItems(data);
     }
 
     @FXML 
-    public void viewUser(int limite){
+    public void viewUser(){
+        table2.getItems().clear();
+
         try{
             table2.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0 LIMIT " + limite;
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
+
             while(rs.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
                 if(rs.getString(2) == null){
@@ -102,6 +154,9 @@ public class Consulte_Compte_controller {
                 }
             }
             c.close();
+            stat.close();
+            rs.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -112,28 +167,32 @@ public class Consulte_Compte_controller {
 
 
     @FXML
+    /**
+     * Initialize the tables with the users and the possible numbers of rows to display
+     */
     private void initialize(){
 
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
         //limite.setItems(liste);
 
-        this.viewAdmin(25);
-        this.viewUser(25);
+        this.viewAdmin();
+        this.viewUser();
     }
 
     @FXML
+    /**
+     * Define the limit of rows to display in the table
+     */
     private void changeLimit(){
 
 
-        this.viewAdmin(this.limite);
+        this.viewAdmin();
+        this.viewUser();
     }
 
-
-
-
-
     /**
-    * Event to do when the button retour is pressed.    * Switch to the page Accueil_Utilisateur.fxml
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 
@@ -143,11 +202,45 @@ public class Consulte_Compte_controller {
 
     }
 
-
+    /**
+     * When a button linked to "addAccount" is pressed
+     * Switch to the page Formulaire_observateur.fxml
+     */
     public void addAccount(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_observateur.fxml");
+    }
+
+    public void voir(){
+
+        Stage actuel = (Stage)user.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/exempleCompte.fxml");
+    }
+
+    public void writeId(){
+
+        try {
+
+            if(id.getText().isEmpty()){
+
+                System.err.println("writeId : the field id must not be empty");
+            }else{
+
+                FileWriter f = new FileWriter("voir.txt");
+                BufferedWriter b = new BufferedWriter(f);
+                PrintWriter out = new PrintWriter(b);
+                out.println(id.getText());
+                f.close();
+                b.close();
+                out.close();
+            }
+        } catch (IOException e) {
+            
+            System.err.println(e.getMessage());
+        }
+        
     }
 }

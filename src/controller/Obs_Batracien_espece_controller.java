@@ -35,6 +35,9 @@ public class Obs_Batracien_espece_controller{
     
 
     @FXML
+    /**
+     * Button from the fxml file to send the observation to the database
+     */
     private Button effectuer;
 
     @FXML
@@ -60,22 +63,66 @@ public class Obs_Batracien_espece_controller{
     private TextField nbPonte;
 
     @FXML
+    /**
+     * text field for the number of reproduction
+     */
     private TextField nbAmplexus;
 
     @FXML
+    /**
+     * text field for the number of adults
+     */
     private TextField nbAdultes;
 
     @FXML
+    /**
+     * text field for the number of juveniles
+     */
     private TextField nbTetards;
 
+    /**
+     * X coordinate of the observation
+     */
     private double lambertX;
+
+    /**
+     * Y coordinate of the observation
+     */
     private double lambertY;
+
+    /**
+     * The time of the observation
+     */
     private Time heureObs;
+
+    /**
+     * The date of the observation
+     */
     private Date date;
+
+    /**
+     * List of the different weather conditions
+     */
     private String[] temps;
+
+    /**
+     * Id of the wetland
+     */
     private int zoneHumide;
+
+    /**
+     * Id of the vegetation
+     */
     private int vegetation;
+
+    /**
+     * Temperature
+     */
     private int temperature;
+
+    /**
+     * id of the observation
+     */
     private int numObs;
 
 
@@ -124,7 +171,7 @@ public class Obs_Batracien_espece_controller{
     @FXML
     /**
      * Method to create a insert querry to the database
-     * @throws SQLException
+     * @throws SQLException if the querry is not well written
      */
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
@@ -223,7 +270,7 @@ public class Obs_Batracien_espece_controller{
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window where the message is shown
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */
@@ -236,7 +283,9 @@ public class Obs_Batracien_espece_controller{
         alert.show();
     }
 
-
+    /**
+     * Reads the batracien text file containing the previous informations
+     */
     private void readBatracien(){
 
         try {
