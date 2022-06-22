@@ -1,11 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
@@ -14,33 +10,23 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import modele.donnee.User;
 
 public class Consulte_Compte_controller {
 
     @FXML
-    /**
-     * Table view in the fxml file
-     */
-    private TableView <User> table1;
+    private TableView <Observateur> table1;
 
     @FXML
-    /**
-     * Second table view in the fxml file
-     */
-    private TableView <User> table2;
+    private TableView <Observateur> table2;
 
     @FXML
-    /**
-     * The table column in the fxml file for the admins
-     */
-    private  TableColumn<User,String> colonneAdmin;
+    private  TableColumn<Observateur,String> colonneAdmin;
 
     @FXML
-    /**
-     * The table column in the fxml file for the users
-     */
-    private TableColumn<User,String> colonneUser;
+    private  TableColumn<Observateur,Integer> colonneAdminId;
+
+    @FXML
+    private TableColumn<Observateur,String> colonneUser;
 
     @FXML
     /**
@@ -66,45 +52,54 @@ public class Consulte_Compte_controller {
      */
     private int limite;
 
+    /**
+     * ObservableList of observators
+     */
+    public ObservableList<Observateur> data = FXCollections.observableArrayList();
+
+    /**
+     * ObservableList of places
+     */
+    public ObservableList<Observateur> data2 = FXCollections.observableArrayList();
+
     
 
-    @FXML
-    /**
-     * Fill the table with the users
-     */
-    public void viewUser(){
+    @FXML 
+    public void viewAdmin(int limite){
 
         table1.getItems().clear();
-        table2.getItems().clear();
 
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM registration WHERE administration = 1";
-            String sql2 = "SELECT * FROM registration WHERE administration = 0";
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 1 LIMIT " + limite;
 
             PreparedStatement stat = c.prepareStatement(sql);
-            PreparedStatement stat2 = c.prepareStatement(sql2);
 
             ResultSet rs = stat.executeQuery();
-            ResultSet rs2 = stat2.executeQuery();
-
             
             while(rs.next()){
                 //data.add(new Batracien(id, date, heure, lieu, observateurs)
                 //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data.add(new User(rs.getInt(1), rs.getString(2), rs.getInt(4)));
-            }
-            while(rs2.next()){
-                //data.add(new Batracien(id, date, heure, lieu, observateurs)
-                //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data2.add(new User(rs2.getInt(1), rs2.getString(2), rs2.getInt(4)));
+                if(rs.getString(2) == null){
+
+                    data.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
+
+                }else{
+
+                    data.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
+
+                }
             }
             c.close();
             stat.close();
             rs.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
+        colonneAdmin.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        colonneAdminId.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
+        table1.setItems(data);
     }
 
     @FXML
@@ -112,12 +107,15 @@ public class Consulte_Compte_controller {
      * Fill the table with the users but with a limited number of rows
      */
     public void viewUser(int limite){
+        table2.getItems().clear();
+
         try{
             table2.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0 LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
+
             while(rs.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
                 if(rs.getString(2) == null){
@@ -132,6 +130,9 @@ public class Consulte_Compte_controller {
                 }
             }
             c.close();
+            stat.close();
+            rs.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -162,6 +163,7 @@ public class Consulte_Compte_controller {
 
 
         this.viewAdmin(this.limite);
+        this.viewUser(this.limite);
     }
 
     /**
