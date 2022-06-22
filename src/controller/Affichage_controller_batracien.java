@@ -37,49 +37,94 @@ public class Affichage_controller_batracien {
      */
     private Button retour;
 
-    @FXML 
+    @FXML
+    /**
+     * The table in the fxml file
+     */
     private TableView<Batracien> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<Batracien,Integer> id ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the date of the observation
+     */
     private TableColumn<Batracien,Date> date ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
     private TableColumn<Batracien,Time> heure ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate of the observation
+     */
     private TableColumn<Batracien,Lieu> coordX ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate of the observation
+     */
     private TableColumn<Batracien,Lieu> coordY ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the type of the name of the observator
+     */
     private TableColumn<Batracien,Integer> observateur;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file
+     */
     private TableColumn<Batracien,String> resObs ;
 
     @FXML 
+    /**
+     * The table column in the fxml file for the species
+     */
     private TableColumn<Batracien,String> espece ;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of adults
+     */
     private TableColumn<Batracien,Integer> adulte; 
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of reproductives
+     */
     private TableColumn<Batracien,Integer> amplexus;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of births
+     */
     private TableColumn<Batracien,Integer> ponte;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of juveniles
+     */
     private TableColumn<Batracien,Integer> tetards;
 
-
+    /**
+     * Observable list of Batracien
+     */
     public ObservableList<Batracien> data = FXCollections.observableArrayList();
 
     @FXML 
+    /**
+     * Fill the table with the data from the database
+     * @param limite the number of rows to display
+     */
     public void viewObservation(int limite){
 
         table.getItems().clear();
@@ -160,6 +205,10 @@ public class Affichage_controller_batracien {
         }
     }
 
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -168,6 +217,10 @@ public class Affichage_controller_batracien {
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -176,6 +229,10 @@ public class Affichage_controller_batracien {
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -184,6 +241,10 @@ public class Affichage_controller_batracien {
     }
 
 
+    /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -191,7 +252,10 @@ public class Affichage_controller_batracien {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -199,6 +263,10 @@ public class Affichage_controller_batracien {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -206,7 +274,10 @@ public class Affichage_controller_batracien {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -215,8 +286,10 @@ public class Affichage_controller_batracien {
     }
 
     @FXML
+    /**
+     * Sets the value of the limite combobox
+     */
     private void changeLimit(){
-
 
         this.viewObservation(this.limite.getValue());
     }

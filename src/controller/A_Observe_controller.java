@@ -23,12 +23,21 @@ import javafx.stage.Window;
 public class A_Observe_controller {
 
     @FXML
+    /**
+     * TextField to enter the id of the observator
+     */
     private TextField lobservateur;
 
     @FXML
+    /**
+     * TextField to enter the id of the observation
+     */
     private TextField lobservation;
 
     @FXML
+    /**
+     * Button to add the observation
+     */
     private Button effectuer;
 
     /**
@@ -37,7 +46,7 @@ public class A_Observe_controller {
     */
     @FXML
     /**
-     * 
+     * When a button linked to "toLogin" is pressed
      */
     public void toLogin(){
 
@@ -185,7 +194,7 @@ public class A_Observe_controller {
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner Window who create the alert
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */

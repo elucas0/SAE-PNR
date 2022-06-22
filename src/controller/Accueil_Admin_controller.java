@@ -108,7 +108,7 @@ public class Accueil_Admin_controller {
     }
     
     /**
-    * When a button linked to "formulaire_obs_loutre" is pressed   
+    * When a button linked to "formulaire_obs_gci" is pressed   
     * Switch to the page Formulaire_obs_loutre.fxmll
     */
     public void formulaire_obs_gci(){
@@ -119,6 +119,10 @@ public class Accueil_Admin_controller {
 
     }
 
+    /**
+     * When a button linked to "formulaire_obs_hippocampe" is pressed
+     * Switch to the page Formulaire_obs_hippocampe.fxml
+     */
     public void formulaire_obs_hippocampe(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
@@ -127,30 +131,54 @@ public class Accueil_Admin_controller {
 
     }
 
+    /**
+     * When a button linked to "formulaire_obs_chouette" is pressed
+     * Switch to the page Formulaire_obs_chouette.fxml
+     */
     public void formulaire_obs_chouette(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
     }
+
+    /**
+     * When a button linked to "formulaire_a_observe" is pressed
+     * Switch to the page Formulaire_a_observe.fxml
+     */
     public void formulaire_a_observe(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_a_observe.fxml");
     }
-    public void formulaire_lieu(){
+
+    /**
+     * When a button linked to "formulaire_a_observe" is pressed
+     * Switch to the page Formulaire_a_observe.fxml
+     */
+     public void formulaire_lieu(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_lieu.fxml");
     }
+
+    /**
+     * When a button linked to "formulaire_zone_humide" is pressed
+     * Switch to the page Formulaire_zone_humide.fxml
+     */
     public void formulaire_zone_humide(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/formulaires/Formulaire_zone_humide.fxml");
     }
+
+    /**
+     * When a button linked to "formulaire_vegetation" is pressed
+     * Switch to the page Formulaire_vegetation.fxml
+     */
     public void formulaire_vegetation(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();

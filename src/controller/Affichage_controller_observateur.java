@@ -19,6 +19,9 @@ import modele.donnee.Observateur;
 
 import java.sql.DriverManager;
 
+/**
+ * 
+ */
 public class Affichage_controller_observateur {
     
     @FXML
@@ -31,29 +34,59 @@ public class Affichage_controller_observateur {
     private Button retour;
 
     @FXML 
+    /**
+     * The table in the fxml file
+     */
     private TableView<Observateur> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<Observateur,Integer> id;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the name
+     */
     private TableColumn<Observateur,String> nom;
 
     @FXML 
+    /**
+     * The table column in the fxml file for the first name
+     */
     private TableColumn<Observateur,String> prenom;
-   // @FXML private TableColumn<Observateur,> date;
+   
+    // @FXML private TableColumn<Observateur,> date;
    // @FXML private TableColumn<Observateur,Time> heure;
-    @FXML 
+    
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate
+     */
     private TableColumn<Lieu,Double> coordx;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate
+     */
     private TableColumn<Lieu,Double> coordy;
 
+    /**
+     * ObservableList of observators
+     */
     public ObservableList<Observateur> data = FXCollections.observableArrayList();
 
+    /**
+     * ObservableList of places
+     */
     public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the data from the database
+     * @param limite the number of observators to display
+     */
     public void viewObservation(int limite){
         try{
             table.getItems().clear();
@@ -129,7 +162,10 @@ public class Affichage_controller_observateur {
         }
     }
 
-
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -138,6 +174,10 @@ public class Affichage_controller_observateur {
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -146,13 +186,20 @@ public class Affichage_controller_observateur {
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/Affichage_batracien.fxml");  
     }
 
-
+    /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -160,7 +207,10 @@ public class Affichage_controller_observateur {
         change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -168,6 +218,10 @@ public class Affichage_controller_observateur {
         change.go_to("../view/Affichage_obs_gci.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_nid_gci" is pressed
+     * Switch to the page affichage_nid_gci.fxml
+     */
     public void affichage_nid_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -175,6 +229,10 @@ public class Affichage_controller_observateur {
         change.go_to("../view/Affichage_nid_gci.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -182,7 +240,10 @@ public class Affichage_controller_observateur {
         change.go_to("../view/Affichage_hippocampe.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -191,6 +252,9 @@ public class Affichage_controller_observateur {
     }
 
     @FXML
+    /**
+     * Sets the value of the limite combobox
+     */
     private void changeLimit(){
 
 

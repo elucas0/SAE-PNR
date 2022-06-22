@@ -34,37 +34,93 @@ public class Affichage_controller_hippocampe {
     private Button retour;
 
     @FXML 
+    /**
+     * The table in the fxml file
+     */
     private TableView<Hippocampe> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<Hippocampe,Integer> obsh;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for type of observation
+     */
     private TableColumn<Hippocampe,String> typepeche;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the size
+     */
     private TableColumn<Hippocampe,String> taille ;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the name of the place
+     */
     private TableColumn<Hippocampe,String> lieudit;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the genre of the animal
+     */
     private TableColumn<Hippocampe,String> sexe;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the name of the species
+     */
     private TableColumn<Hippocampe,String> espece;
-    @FXML private TableColumn<Hippocampe,Date> date;
-    @FXML private TableColumn<Hippocampe,Time> heure;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the date of the observation
+     */
+    private TableColumn<Hippocampe,Date> date;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
+    private TableColumn<Hippocampe,Time> heure;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate
+     */
     private TableColumn<Hippocampe,Double> x;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the temperature of the water
+     */
     private TableColumn<Hippocampe,Integer> temperatureeau;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the temperature state of the animal
+     */
     private TableColumn<Hippocampe,Integer> gestant;
-    @FXML 
+
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate
+     */
     private TableColumn<Hippocampe,Double> y;
 
+    /**
+     * Observable list of hippocampe
+     */
     public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
 
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the data from the database
+     */
     public void viewObservation(){
         try{
             table.getItems().clear();
@@ -140,7 +196,10 @@ public class Affichage_controller_hippocampe {
         }
     }
 
-
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -149,6 +208,10 @@ public class Affichage_controller_hippocampe {
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -157,9 +220,17 @@ public class Affichage_controller_hippocampe {
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){}
 
 
+    /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -167,7 +238,10 @@ public class Affichage_controller_hippocampe {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -175,6 +249,10 @@ public class Affichage_controller_hippocampe {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -182,7 +260,10 @@ public class Affichage_controller_hippocampe {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -190,7 +271,4 @@ public class Affichage_controller_hippocampe {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
-
-    
 }
