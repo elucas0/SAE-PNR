@@ -76,12 +76,7 @@ public class Exemple_Compte_controller {
             c.close();
             Stage actuel = (Stage)user.getScene().getWindow();
             ChangerPage change = new ChangerPage(actuel);
-            if(Consulte_Compte_controller.getId() == ReadInfos.getId()){
-                change.go_to("../view/page_loging.fxml");
-            }
-            else{
-                change.go_to("../view/consulteCompte.fxml");
-            }
+            change.go_to("../../view/page_loging.fxml");
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +91,7 @@ public class Exemple_Compte_controller {
     public void retour(){
         Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/consulteCompte.fxml");
+        change.go_to("../../view/consulteCompte.fxml");
 
     }
 
@@ -107,6 +102,10 @@ public class Exemple_Compte_controller {
     public void historique(){
         Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
+<<<<<<< HEAD
         change.go_to("../view/affichages/Affichage_historique.fxml");
+=======
+        change.go_to("../../view/Affichage_historique.fxml");
+>>>>>>> 58aedc72bf5cedca36a4aa4cd916850c990674ab
     }
 }

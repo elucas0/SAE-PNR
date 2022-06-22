@@ -10,10 +10,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
-
-import controller.utilitaires.ChangerPage;
-import controller.utilitaires.ReadInfos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +22,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import controller.utilitaires.ChangerPage;
 
 public class Consulte_Compte_controller {
 
@@ -208,7 +206,7 @@ public class Consulte_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Accueil_Admin.fxml");
+        change.go_to("../../view/Accueil_Admin.fxml");
 
     }
 
@@ -220,14 +218,14 @@ public class Consulte_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_observateur.fxml");
+        change.go_to("../../view/formulaires/Formulaire_observateur.fxml");
     }
 
     public void voir(){
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/exempleCompte.fxml");
+        change.go_to("../../view/exempleCompte.fxml");
     }
 
     public void writeId(){

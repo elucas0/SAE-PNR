@@ -108,7 +108,8 @@ public class Affichage_Historique_controller {
     public void home(){
         Stage actuel = (Stage)home.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Accueil_Admin.fxml");
+        change.go_to("../../view/Accueil_Admin.fxml");
     }
+    
     
 }

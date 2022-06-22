@@ -12,10 +12,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import controller.utilitaires.ChangerPage;
 
-import java.io.BufferedReader;
 import java.io.FileWriter;
-import java.io.FilterWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -78,16 +77,18 @@ public class Login_controller {
                     Stage stage = (Stage)id.getScene().getWindow();
                     ChangerPage page = new ChangerPage(stage);
                     this.writeInfos(r.getInt("id"), r.getString("full_name"));
-
+                    System.out.println("passe");
                     //redirige sur la page utilisateur
                     if(r.getInt("administration") == 0){
+                        System.out.println("passe");
 
-                        page.go_to("../view/Accueil_Utilisateur.fxml");
-
+                        page.go_to("../../view/Accueil_Utilisateur.fxml");
                     }
+
                     //redirige sur la page administrateur
                     else{
-                        page.go_to("../view/Accueil_Admin.fxml");
+                        page.go_to("../../view/Accueil_Admin.fxml");
+
                     }                        
                 }
                 //test mot de passe correspond pas a l'identifiant

@@ -110,7 +110,7 @@ public class Obs_chouette_controller {
 
         Stage actuel = (Stage)protocole.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_chouette.fxml");
+        change.go_to("../../view/formulaires/Formulaire_chouette.fxml");
     }
 
     @FXML
@@ -237,10 +237,10 @@ public class Obs_chouette_controller {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 

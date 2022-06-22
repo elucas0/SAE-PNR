@@ -33,7 +33,7 @@ public class CreerCompte {
 
         try {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            PreparedStatement s = c.prepareStatement("SELECT idObservateur, nom FROM observateur");
+            PreparedStatement s = c.prepareStatement("SELECT idObservateur, nom FROM observateur WHERE nom != administrateur");
             Statement s2 = c.createStatement();
             ResultSet r = s.executeQuery();
             while(r.next()){

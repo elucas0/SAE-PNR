@@ -51,7 +51,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/page_login.fxml");
+        change.go_to("../../view/page_login.fxml");
     }
     
     /**
@@ -62,7 +62,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/choix_stat_liste.fxml");
+        change.go_to("../../view/choix_stat_liste.fxml");
     }
 
     /**
@@ -73,7 +73,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_batracien.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_batracien.fxml");
 
     }
 
@@ -85,7 +85,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_loutre.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_loutre.fxml");
 
     }
 
@@ -97,7 +97,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_gci.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_gci.fxml");
 
     }
 
@@ -109,7 +109,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_hippocampe.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_hippocampe.fxml");
 
     }
 
@@ -121,7 +121,7 @@ public class A_Observe_controller {
 
         Stage actuel = (Stage)lobservateur.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_obs_chouette.fxml");
+        change.go_to("../../view/formulaires/Formulaire_obs_chouette.fxml");
     }
 
 
@@ -135,10 +135,10 @@ public class A_Observe_controller {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
 
