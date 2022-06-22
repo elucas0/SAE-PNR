@@ -57,7 +57,7 @@ public class Affichage_controller_batracien {
     private TableColumn<Batracien,Lieu> coordY ;
 
     @FXML 
-    private TableColumn<Batracien,Integer> observateurs;
+    private TableColumn<Batracien,Integer> observateur;
 
     @FXML 
     private TableColumn<Batracien,String> resObs ;
@@ -88,7 +88,7 @@ public class Affichage_controller_batracien {
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT * FROM Obs_Batracien ORDER BY obsB LIMIT " + limite;
             String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM observation, Obs_Batracien WHERE idObs = obsB ORDER BY idObs" + limite;
-            String sql3 = "SELECT lobservateur FROM observation,Obs_Batracien,AObserve,observateur WHERE lobservateur=idObservateur AND idObs = obsB AND lobservation=idObs ORDER BY idObs LIMIT 25";
+            String sql3 = "SELECT lobservateur FROM observation,Obs_Batracien,AObserve,observateur WHERE lobservateur=idObservateur AND idObs = obsB AND lobservation=idObs ORDER BY idObs";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             PreparedStatement stat2= c.prepareStatement(sql2);
@@ -99,7 +99,7 @@ public class Affichage_controller_batracien {
             while(rs.next()&& rs2.next()&&rs3.next()){
                 //data.add(new Batracien(id, date, heure, lieu, observateurs)
                 //ArrayList array = new ArrayList<int>(rs3.getInt());
-                data.add(new Batracien(rs.getInt(1),rs2.getDate(1),rs2.getTime(2), rs2.getDouble(3), rs2.getDouble(4),rs3.getInt(1), rs.getString("espece"), rs.getInt("nombreAdultes "), rs.getInt("nombreAdultes "), rs.getInt("nombreAdultes "), rs.getInt("nombreAdultes ")));
+                data.add(new Batracien(rs.getInt(1),rs2.getDate(1),rs2.getTime(2), rs2.getDouble(3), rs2.getDouble(4),rs3.getInt(1), rs.getString("espece"), rs.getInt("nombreAdultes "), rs.getInt("nombreAmplexus "), rs.getInt("nombreTetard "), rs.getInt("nombrePonte")));
             }
             c.close();
         }catch (Exception e){
@@ -110,7 +110,7 @@ public class Affichage_controller_batracien {
         heure.setCellValueFactory(new PropertyValueFactory<Batracien,Time>("heure"));
         coordX.setCellValueFactory(new PropertyValueFactory<Batracien,Lieu>("coordX"));
         coordY.setCellValueFactory(new PropertyValueFactory<Batracien,Lieu>("coordY"));
-        observateurs.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("observateurs"));
+        observateur.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("observateurs"));
         espece.setCellValueFactory(new PropertyValueFactory<Batracien, String>("espece"));
         tetards.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombreTetard"));
         adulte.setCellValueFactory(new PropertyValueFactory<Batracien,Integer>("nombreAdulte"));
