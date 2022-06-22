@@ -6,10 +6,10 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.donnee.Observateur;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -91,7 +91,6 @@ public class Consulte_Compte_controller {
     @FXML
     /**
      * Fill the table with the data from the database
-     * @param limite the maximal number of rows to display in the table
      */
     public void viewAdmin(){
 
@@ -224,8 +223,20 @@ public class Consulte_Compte_controller {
     public void writeId(){
 
         try {
-            FileWriter f = new FileWriter("voir.txt");
-            BufferedWriter in = new BufferedWriter(f);
+
+            if(id.getText().isEmpty()){
+
+                System.err.println("writeId : the field id must not be empty");
+            }else{
+
+                FileWriter f = new FileWriter("voir.txt");
+                BufferedWriter b = new BufferedWriter(f);
+                PrintWriter out = new PrintWriter(b);
+                out.println(id.getText());
+                f.close();
+                b.close();
+                out.close();
+            }
         } catch (IOException e) {
             
             System.err.println(e.getMessage());
