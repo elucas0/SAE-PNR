@@ -18,28 +18,53 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
-
+/**
+ * Controller of the page Stats_Chouette_1.fxml
+ * Displays the statistics of the owls
+ * @version 1.2
+ */
 public class Stats_Chouettes_controller1 {
 
     @FXML
+    /**
+     * PieChart from the fxml file to display the statistics of the owls
+     */
     private PieChart pieChart0;
 
     @FXML
+    /**
+     * Second PieChart from the fxml file to display the statistics of the owls
+     */
     private PieChart pieChart1;
 
     @FXML
+    /**
+     * Third PieChart from the fxml file to display the statistics of the owls
+     */
     private PieChart pieChart2;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the home page
+     */
     private Button home;
 
     @FXML
+    /**
+     * Button from the fxml file to refresh the data
+     */
     private Button refresh;
 
     @FXML
+    /**
+     * Button from the fxml file to get back to the previous page
+     */     
     private Button retour;
 
     @FXML
+    /**
+     * Label from the fxml file to display the value of the slice selected by the user
+     */
     private Label label;
 
     @FXML
