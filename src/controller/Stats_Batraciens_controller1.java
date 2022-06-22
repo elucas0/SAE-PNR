@@ -80,5 +80,4 @@ public class Stats_Batraciens_controller1 {
         c.close();  
         return series;
     }
-
 }

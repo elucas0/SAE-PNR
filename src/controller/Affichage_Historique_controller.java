@@ -37,12 +37,20 @@ public class Affichage_Historique_controller {
 
     }
 
+    /**
+    * Event to do when the button retour is pressed.    
+    * Switch to the page choix_stat_liste.fxml
+    */
     public void retour(){
         Stage actuel = (Stage)home.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../view/exempleCompte.fxml");
     }
 
+    /**
+    * Event to do when the button retour is pressed.    
+    * Switch to the page Accueil_Utilisateur.fxml
+    */
     public void home(){
         Stage actuel = (Stage)home.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);

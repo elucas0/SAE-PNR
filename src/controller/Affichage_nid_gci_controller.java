@@ -22,6 +22,9 @@ public class Affichage_nid_gci_controller {
 
 
     @FXML
+    /**
+     * ComboBox for the number of rows to display
+     */
     private ComboBox<Integer> limite;
 
     @FXML
@@ -30,38 +33,69 @@ public class Affichage_nid_gci_controller {
      */
     private Button retour;
 
-    @FXML 
+    @FXML
+    /**
+     * The table in the fxml file
+     */
     private TableView<Nid_Gci> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<Nid_Gci,Integer> id;
 
     @FXML 
+    /**
+     * The table column in the fxml file for the reason of the end  of the observation
+     */
     private TableColumn<Nid_Gci,Integer> raisonArretObservation;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of flies
+     */
     private TableColumn<Nid_Gci, Integer> nbEnvols;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the number of protections
+     */
     private TableColumn<Nid_Gci, Integer> protection;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the type of bague for a male
+     */
     private TableColumn<Nid_Gci, String> bagueMale;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the type of bague for a female
+     */
     private TableColumn<Nid_Gci,String> bagueFemelle;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file the name of the beach
+     */
     private TableColumn<Nid_Gci,String> nomPlage;
 
-
-
-
+    /**
+     * ObservableList for the Gci nests
+     */
     public ObservableList<Nid_Gci> data = FXCollections.observableArrayList();
 
+    /**
+     * Second ObservableList for the Gci nests
+     */
     public ObservableList<Nid_Gci> data1 = FXCollections.observableArrayList();
 
     @FXML 
+    /**
+     * Fill the table with the data from the database
+     * @param limite the number of Gci nests to display
+     */
     public void viewNidGci(int limite){
 
         table.getItems().clear();
@@ -137,7 +171,10 @@ public class Affichage_nid_gci_controller {
         }
     }
 
-
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -146,6 +183,10 @@ public class Affichage_nid_gci_controller {
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -154,6 +195,10 @@ public class Affichage_nid_gci_controller {
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
@@ -161,6 +206,10 @@ public class Affichage_nid_gci_controller {
     }
 
 
+     /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -169,6 +218,10 @@ public class Affichage_nid_gci_controller {
     }
 
 
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -176,6 +229,10 @@ public class Affichage_nid_gci_controller {
         change.go_to("../view/Affichage_obs_gci.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_nid_gci" is pressed
+     * Switch to the page affichage_nid_gci.fxml
+     */
     public void affichage_nid_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -183,6 +240,10 @@ public class Affichage_nid_gci_controller {
         change.go_to("../view/Affichage_nid_gci.fxml");       
     }
 
+     /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -190,7 +251,10 @@ public class Affichage_nid_gci_controller {
         change.go_to("../view/Affichage_hippocampe.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -205,5 +269,4 @@ public class Affichage_nid_gci_controller {
         this.viewNidGci(this.limite.getValue());
     }
 
-    
 }

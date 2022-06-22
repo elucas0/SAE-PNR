@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_controller_chouette">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Affichage_controller_Chouette">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -76,7 +76,7 @@
                   <Insets bottom="20.0" />
                </BorderPane.margin>
                <columns>
-                  <TableColumn fx:id="numObs" prefWidth="75.0" text="numObs " />
+                  <TableColumn fx:id="numobs" prefWidth="75.0" text="numObs " />
                   <TableColumn fx:id="date" prefWidth="75.0" text="date" />
                   <TableColumn fx:id="heure" prefWidth="75.0" text="heure" />
                   <TableColumn prefWidth="75.0" text="coordX" fx:id="x" />

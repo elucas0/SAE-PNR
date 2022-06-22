@@ -114,16 +114,9 @@ public class Observateur_controller {
                     showAlert(Alert.AlertType.CONFIRMATION, owner, "Observateur", "rentré!");
                 }
 
-
-                PreparedStatement idObs = c.prepareStatement("SELECT MAX(idObs) FROM Observateur;");
-                ResultSet requete2 = idObs.executeQuery();
-                requete2.next();
-                int idO = requete2.getInt("Max(idObs)");
-
-                PreparedStatement testObservateur = c.prepareStatement("SELECT * FROM Observateur WHERE idObservateur = ? AND nom = ? AND prenom = ?");
-                testObservateur.setString(1, idCompte.getText());
-                testObservateur.setString(2, nom.getText());
-                testObservateur.setString(3, prenom.getText());
+                PreparedStatement testObservateur = c.prepareStatement("SELECT * FROM Observateur WHERE nom = ? AND prenom = ?");
+                testObservateur.setString(1, nom.getText());
+                testObservateur.setString(2, prenom.getText());
                 ResultSet resultatObservateur = testObservateur.executeQuery();
 
                 if(resultatObservateur.next()){

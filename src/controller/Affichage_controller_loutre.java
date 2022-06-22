@@ -25,6 +25,9 @@ import java.sql.DriverManager;
 public class Affichage_controller_loutre {
     
     @FXML
+    /**
+     * The combo box in the fxml file that allows to select the number of observations to display
+     */
     private ComboBox<Integer> limite;
 
     @FXML
@@ -34,32 +37,72 @@ public class Affichage_controller_loutre {
     private Button retour;
 
     @FXML 
+    /**
+     * The table in the fxml file
+     */
     private TableView<Loutre> table;
 
     @FXML 
+    /**
+     * The table column in the fxml file for the id
+     */
     private TableColumn<Loutre,Integer> id;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the name of the observator
+     */
     private TableColumn<Loutre,String> nom;
 
     @FXML 
+    /**
+     * The table column in the fxml file for the name of the city
+     */
     private TableColumn<Loutre,String> commune;
+    
     @FXML 
+    /**
+     * The table column in the fxml file for the name of the place
+     */
     private TableColumn<Loutre,String> lieudit;
-    @FXML 
+    
+    @FXML
+    /**
+     * The table column in the fxml file for the indicator of the presence
+     */
     private TableColumn<Loutre,String> indice;
-    @FXML private TableColumn<Loutre,Date> date;
-    @FXML private TableColumn<Loutre,Time> heure;
-    @FXML 
+    
+    @FXML
+    /**
+     * The table column in the fxml file for the date
+     */
+    private TableColumn<Loutre,Date> date;
+    
+    @FXML
+    /**
+     * The table column in the fxml file for the time
+     */
+     private TableColumn<Loutre,Time> heure;
+    
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate
+     */
     private TableColumn<Loutre,Double> x;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate
+     */
     private TableColumn<Loutre,Double> y;
 
     public ObservableList<Loutre> data = FXCollections.observableArrayList();
 
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the data from the database
+     */
     public void viewObservation(){
         try{
             table.getItems().clear();
@@ -132,7 +175,10 @@ public class Affichage_controller_loutre {
         }
     }
 
-
+    /**
+     * When a button linked to "affichage_observateur" is pressed
+     * Switch to the page affichage_observateur.fxml
+     */
     public void affichage_observateur(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -141,6 +187,10 @@ public class Affichage_controller_loutre {
 
     }
 
+    /**
+     * When a button linked to "affichage_lieu" is pressed
+     * Switch to the page affichage_lieu.fxml
+     */
     public void affichage_lieu(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -149,9 +199,17 @@ public class Affichage_controller_loutre {
 
     }
 
+    /**
+     * When a button linked to "affichage_batracien" is pressed
+     * Switch to the page affichage_batracien.fxml
+     */
     public void affichage_batracien(){}
 
 
+    /**
+     * When a button linked to "affichage_loutre" is pressed
+     * Switch to the page affichage_loutre.fxml
+     */
     public void affichage_loutre(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -159,7 +217,10 @@ public class Affichage_controller_loutre {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_gci" is pressed
+     * Switch to the page affichage_gci.fxml
+     */
     public void affichage_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -167,6 +228,10 @@ public class Affichage_controller_loutre {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_hippocampe" is pressed
+     * Switch to the page affichage_hippocampe.fxml
+     */
     public void affichage_hippocampe(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -174,7 +239,10 @@ public class Affichage_controller_loutre {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
+    /**
+     * When a button linked to "affichage_chouette" is pressed
+     * Switch to the page affichage_chouette.fxml
+     */
     public void affichage_chouette(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();
@@ -182,7 +250,4 @@ public class Affichage_controller_loutre {
         //change.go_to("../view/Affichage_loutre.fxml");       
     }
 
-
-
-    
 }

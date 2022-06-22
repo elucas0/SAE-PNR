@@ -89,7 +89,9 @@ public class Choix_Espece_Stats_controller {
 
     @FXML
     void toStatGci1(ActionEvent event) {
-
+        Stage actuel = (Stage)nom_compte.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/Stats_Gci_1.fxml");
     }
 
     @FXML

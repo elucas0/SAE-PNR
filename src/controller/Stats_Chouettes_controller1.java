@@ -39,6 +39,11 @@ public class Stats_Chouettes_controller1 {
     private Label label;
 
     @FXML
+    /**
+     * Initialize the controller class and set the pie chart
+     * @throws ClassNotFoundException if the driver is not found
+     * @throws SQLException if the connection is not established
+     */
     public void initialize() throws ClassNotFoundException, SQLException{
         this.pieChart0.getData().clear();
         this.pieChart1.getData().clear();
@@ -57,8 +62,10 @@ public class Stats_Chouettes_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "home" is clicked, the user is redirected to the home page
+     */
     public void home(){
-
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
@@ -71,6 +78,11 @@ public class Stats_Chouettes_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "retour" is pressed
+     * Switch to the page Choix_espece_stats.fxml
+     * @param event The event that is triggered
+     */
     void retour(ActionEvent event) {
         Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
@@ -78,11 +90,24 @@ public class Stats_Chouettes_controller1 {
     }
 
     @FXML
+    /**
+     * When a button linked to "btn" is pressed
+     * Refresh the page with the new data
+     * @param event the event
+     * @throws SQLException the SQL exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     void btn(ActionEvent event) throws SQLException, ClassNotFoundException {
         this.initialize();
     }
 
-    //Create a method to request the database
+    /**
+     * Returns a ObservableList for a given species using an SQL request
+     * @param species the species to request
+     * @return an ObservableList
+     * @throws SQLException if the SQL request fails
+     * @throws ClassNotFoundException if the class is not found
+     */
     public ObservableList<PieChart.Data> requestDB(String species) throws SQLException, ClassNotFoundException {
 
         ObservableList<PieChart.Data> oList = FXCollections.observableArrayList();
@@ -105,6 +130,13 @@ public class Stats_Chouettes_controller1 {
         return oList;
     }
 
+    /**
+     * Returns the total number of observations of a given species
+     * @param species the species
+     * @return the number of observations
+     * @throws SQLException if the SQL request fails
+     * @throws ClassNotFoundException if the class is not found
+     */
     public int getNombreObs(String species) throws SQLException, ClassNotFoundException {
 
         int nombre = 0;
@@ -123,6 +155,11 @@ public class Stats_Chouettes_controller1 {
         return nombre;
     }
 
+    /**
+     * Sets the label to the value of the clicked slice
+     * @param oList the list of data
+     * @param species the species of the slice
+     */
     public void showSliceData(ObservableList<PieChart.Data> oList, String species){
         for(PieChart.Data data : oList){
             data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){

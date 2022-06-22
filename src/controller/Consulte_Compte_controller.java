@@ -6,18 +6,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import modele.donnee.Observateur;
-
 import java.sql.*;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.paint.Color;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import modele.donnee.User;
@@ -28,13 +22,16 @@ public class Consulte_Compte_controller {
     private TableView <User> table1;
 
     @FXML
-    private  TableColumn<User,String> colonneAdmin;
-
-    @FXML
     private TableView <User> table2;
 
     @FXML
+    private  TableColumn<User,String> colonneAdmin;
+
+    @FXML
     private TableColumn<User,String> colonneUser;
+
+    @FXML
+    private  TableColumn<Observateur,Integer> colonneUserId;
 
     @FXML
     private Button user;
@@ -42,19 +39,10 @@ public class Consulte_Compte_controller {
     @FXML
     private Button effectuer;
 
-    
-
-    public ObservableList<User> data = FXCollections.observableArrayList();
-    public ObservableList<User> data2 = FXCollections.observableArrayList();
-
-
-
-
     @FXML
-    private void initialize(){
-        user.setText(ReadInfos.getStatus());
-        this.viewUser();
-    }
+    private int limite;
+
+    
 
     @FXML 
     public void viewUser(){
@@ -90,14 +78,56 @@ public class Consulte_Compte_controller {
         }catch (Exception e){
             e.printStackTrace();
         }
-        System.out.println("passe");
-        colonneAdmin.setCellValueFactory(new PropertyValueFactory<User, String>("nomCompte"));
-        colonneUser.setCellValueFactory(new PropertyValueFactory<User, String>("nomCompte"));
+    }
 
+    @FXML 
+    public void viewUser(int limite){
+        try{
+            table2.getItems().clear();
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT * FROM Observateur JOIN registration ON id = idObservateur WHERE administration = 0 LIMIT " + limite;
+            PreparedStatement stat = c.prepareStatement(sql);
+            ResultSet rs = stat.executeQuery();
+            while(rs.next()){
+                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
+                if(rs.getString(2) == null){
 
-        table1.setItems(data);
+                    data2.add(new Observateur(rs.getInt(1),"null",rs.getString(3)));
+                    
+
+                }else{
+
+                    data2.add(new Observateur(rs.getInt(1),rs.getString(2),rs.getString(3)));
+
+                }
+            }
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        colonneUser.setCellValueFactory(new PropertyValueFactory<Observateur,String>("nom"));
+        colonneUserId.setCellValueFactory(new PropertyValueFactory<Observateur,Integer>("id"));
         table2.setItems(data2);
     }
+
+
+    @FXML
+    private void initialize(){
+
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        //limite.setItems(liste);
+
+        this.viewAdmin(25);
+        this.viewUser(25);
+    }
+
+    @FXML
+    private void changeLimit(){
+
+
+        this.viewAdmin(this.limite);
+    }
+
 
 
 

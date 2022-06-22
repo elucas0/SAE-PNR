@@ -29,20 +29,38 @@ public class Affichage_controller_lieu {
     private Button retour;
 
     @FXML
+    /**
+     * ComboBox for the number of rows to display
+     */
     private ComboBox<Integer> limite;
 
-
     @FXML 
+    /**
+     * The table in the fxml file
+     */
     private TableView<Lieu> table;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for x coordinate
+     */
     private TableColumn<Lieu,Double> coordx;
 
-    @FXML 
+    @FXML
+    /**
+     * The table column in the fxml file for y coordinate
+     */
     private TableColumn<Lieu,Double> coordy;
     
+    /**
+     * ObservableList for the places
+     */
     public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
 
+    /**
+     * Fill the table with the data from the database
+     * @param limite the number of rows to display
+     */
     public void viewLieu(int limite){
 
         table.getItems().clear();
@@ -114,6 +132,9 @@ public class Affichage_controller_lieu {
 
 
     @FXML
+    /**
+     * Sets the value of the limite combobox
+     */
     private void changeLimit(){
 
 

@@ -18,8 +18,12 @@ public class Affichage_controller {
     private Button retour;
 
     @FXML
+    /**
+     * The table in the fxml file
+     */
     private TableView<String> table;
 
+    
     private TableColumn<?, ?> colonne;
 
     @FXML

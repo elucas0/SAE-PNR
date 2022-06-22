@@ -39,7 +39,7 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <right>
-            <Button fx:id="addAcount" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #019367;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="addAcount" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #019367;" text="Ajouter un compte " textFill="WHITE" BorderPane.alignment="CENTER" onAction="#addAccount">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="fas-plus-circle" iconSize="30" />
                </graphic>
@@ -50,9 +50,9 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+                  <Button fx:id="back" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
                      <graphic>
-                        <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                        <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                      </graphic>
                      <BorderPane.margin>
                         <Insets left="100.0" />
@@ -81,12 +81,14 @@
          <children>
             <TableView fx:id="table1" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="colonneAdmin" prefWidth="166.0" text="Administrateurs :" />
+                <TableColumn fx:id="colonneAdmin" prefWidth="110.0" text="Administrateurs :" />
+                <TableColumn fx:id="colonneAdminId" prefWidth="100.0" text="id :" />
               </columns>
             </TableView>
             <TableView fx:id="table2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
               <columns>
-                <TableColumn fx:id="colonneUser" prefWidth="165.0" text="Utilisateurs :" />
+                <TableColumn fx:id="colonneUser" prefWidth="110.0" text="Utilisateurs :" />
+                <TableColumn fx:id="colonneUserId" prefWidth="100.0" text="id :" />
               </columns>
             </TableView>
          </children>
