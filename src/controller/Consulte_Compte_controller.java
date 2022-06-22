@@ -19,32 +19,59 @@ import modele.donnee.User;
 public class Consulte_Compte_controller {
 
     @FXML
+    /**
+     * Table view in the fxml file
+     */
     private TableView <User> table1;
 
     @FXML
+    /**
+     * Second table view in the fxml file
+     */
     private TableView <User> table2;
 
     @FXML
+    /**
+     * The table column in the fxml file for the admins
+     */
     private  TableColumn<User,String> colonneAdmin;
 
     @FXML
+    /**
+     * The table column in the fxml file for the users
+     */
     private TableColumn<User,String> colonneUser;
 
     @FXML
+    /**
+     * The table column in the fxml file for the user id
+     */
     private  TableColumn<Observateur,Integer> colonneUserId;
 
     @FXML
+    /**
+     * The button in the fxml file 
+     */
     private Button user;
 
     @FXML
+    /**
+     * The button in the fxml file 
+     */
     private Button effectuer;
 
     @FXML
+    /**
+     * Maximal number of rows to display in the table
+     */
     private int limite;
 
     
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the users
+     */
     public void viewUser(){
 
         table1.getItems().clear();
@@ -80,7 +107,10 @@ public class Consulte_Compte_controller {
         }
     }
 
-    @FXML 
+    @FXML
+    /**
+     * Fill the table with the users but with a limited number of rows
+     */
     public void viewUser(int limite){
         try{
             table2.getItems().clear();
@@ -112,6 +142,9 @@ public class Consulte_Compte_controller {
 
 
     @FXML
+    /**
+     * Initialize the tables with the users and the possible numbers of rows to display
+     */
     private void initialize(){
 
         ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
@@ -122,18 +155,18 @@ public class Consulte_Compte_controller {
     }
 
     @FXML
+    /**
+     * Define the limit of rows to display in the table
+     */
     private void changeLimit(){
 
 
         this.viewAdmin(this.limite);
     }
 
-
-
-
-
     /**
-    * Event to do when the button retour is pressed.    * Switch to the page Accueil_Utilisateur.fxml
+     * Event to do when the button retour is pressed.   
+     * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 
@@ -143,7 +176,10 @@ public class Consulte_Compte_controller {
 
     }
 
-
+    /**
+     * When a button linked to "addAccount" is pressed
+     * Switch to the page Formulaire_observateur.fxml
+     */
     public void addAccount(){
 
         Stage actuel = (Stage)user.getScene().getWindow();

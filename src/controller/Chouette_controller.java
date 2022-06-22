@@ -31,12 +31,21 @@ public class Chouette_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * The account button in the fxml file
+     */
     private Button nom_compte;
 
     @FXML
+    /**
+     * Text field to insert the id of the animal
+     */
     private TextField numIndivid;
 
     @FXML
+    /**
+     * Combo box to select the species of observation
+     */
     private ComboBox<String> espece;
 
     @FXML
@@ -46,14 +55,14 @@ public class Chouette_controller {
     private ComboBox<String> sexe;
 
     @FXML
+    /**
+     * The account button in the fxml file
+     */
     private Button user;
-
-
-
 
     @FXML
     /**
-     * Initialize elements when the fxml file is dilpayed
+     * Initialize elements when the fxml file is displayed
      */
     private void initialize() 
     {
@@ -70,7 +79,7 @@ public class Chouette_controller {
     @FXML
     /**
      * Method to create a insert querry to the database
-     * @throws SQLException
+     * @throws SQLException if the querry is not well written
      */
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
@@ -123,7 +132,7 @@ public class Chouette_controller {
     /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
-     * @param owner
+     * @param owner The owner of the window
      * @param title Title of the message screen
      * @param message Message who appear in screen
      */
