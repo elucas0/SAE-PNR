@@ -24,6 +24,14 @@ public class Stats_Batraciens_controller1 {
     @FXML
     private Button retour;
 
+    @FXML
+    public void initialize() throws ClassNotFoundException, SQLException {
+        barChartBatracien.getData().clear();
+        XYChart.Series<String, Number> series = requestDB();
+        series.setName("Nombre de batraciens");
+        barChartBatracien.getData().add(series);
+    }
+
 
     @FXML
     public void home(){
@@ -48,10 +56,7 @@ public class Stats_Batraciens_controller1 {
 
     @FXML
     void btn(ActionEvent event) throws SQLException, ClassNotFoundException {
-        barChartBatracien.getData().clear();
-        XYChart.Series<String, Number> series = requestDB();
-        series.setName("Nombre de batraciens");
-        barChartBatracien.getData().add(series);
+        this.initialize();
     }
     //Create a method to request the database
     public XYChart.Series<String, Number> requestDB() throws SQLException, ClassNotFoundException {
