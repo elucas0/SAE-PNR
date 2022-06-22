@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
+import modele.donnee.Hippocampe;
 import modele.donnee.Loutre;
 
 
@@ -33,29 +33,34 @@ public class Affichage_controller_hippocampe {
     private Button retour;
 
     @FXML 
-    private TableView<Loutre> table;
+    private TableView<Hippocampe> table;
 
     @FXML 
-    private TableColumn<Loutre,Integer> id;
+    private TableColumn<Hippocampe,Integer> obsh;
 
     @FXML 
-    private TableColumn<Loutre,String> nom;
+    private TableColumn<Hippocampe,String> typepeche;
 
     @FXML 
-    private TableColumn<Loutre,String> commune;
+    private TableColumn<Hippocampe,String> taille ;
     @FXML 
-    private TableColumn<Loutre,String> lieudit;
+    private TableColumn<Hippocampe,String> lieudit;
     @FXML 
-    private TableColumn<Loutre,String> indice;
-    @FXML private TableColumn<Loutre,Date> date;
-    @FXML private TableColumn<Loutre,Time> heure;
+    private TableColumn<Hippocampe,String> sexe;
     @FXML 
-    private TableColumn<Loutre,Double> x;
+    private TableColumn<Hippocampe,String> espece;
+    @FXML private TableColumn<Hippocampe,Date> date;
+    @FXML private TableColumn<Hippocampe,Time> heure;
+    @FXML 
+    private TableColumn<Hippocampe,Double> x;
+    @FXML 
+    private TableColumn<Hippocampe,Integer> temperatureeau;
+    @FXML 
+    private TableColumn<Hippocampe,Integer> gestant;
+    @FXML 
+    private TableColumn<Hippocampe,Double> y;
 
-    @FXML 
-    private TableColumn<Loutre,Double> y;
-
-    public ObservableList<Loutre> data = FXCollections.observableArrayList();
+    public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
 
 
     @FXML 
@@ -71,20 +76,23 @@ public class Affichage_controller_hippocampe {
             ResultSet rs2 = stat2.executeQuery();
             while(rs.next() && rs2.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                    data.add(new Loutre(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getString(4)));
+                    data.add(new Hippocampe(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6),rs.getInt(7)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Loutre,Integer>("id"));
-        date.setCellValueFactory(new PropertyValueFactory<Loutre,Date>("date"));
-        heure.setCellValueFactory(new PropertyValueFactory<Loutre,Time>("heure"));
-        x.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordx"));
-        y.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordy"));
-        indice.setCellValueFactory(new PropertyValueFactory<Loutre,String>("indice"));
-        lieudit.setCellValueFactory(new PropertyValueFactory<Loutre,String>("lieudit"));
-        commune.setCellValueFactory(new PropertyValueFactory<Loutre,String>("commune"));
+        obsh.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Hippocampe,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Hippocampe,Time>("heure"));
+        x.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordx"));
+        y.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordy"));
+        taille .setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("taille"));
+        typepeche.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("peche"));
+        sexe.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("sexe"));
+        espece.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("espece"));
+        temperatureeau.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("eau"));
+        gestant.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("gestant"));
         table.setItems(data);
     }
 
