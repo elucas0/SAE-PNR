@@ -1,4 +1,4 @@
-package controller.formulaire;
+package controller.formulaires;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

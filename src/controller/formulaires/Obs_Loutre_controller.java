@@ -1,8 +1,8 @@
-package controller.formulaire;
+package controller.formulaires;
 
 import javafx.fxml.FXML;
-
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,30 +15,18 @@ import controller.utilitaires.ReadInfos;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
-import javafx.scene.control.DatePicker;
 
 /**
- * The controller of the page Formulaire_obs_gci.fxml. It manages it.
- * @version 1.2
+ * The controller of the page Formulaire_obs_loutre.fxml. It manages it.
+ * @version 1.1
  */
-public class Obs_GCI_controller {
-
-    @FXML
-    private Button user;
-
-
+public class Obs_Loutre_controller {
+    
     @FXML
     /**
-     * The combobox with the nature of the observation in the fxml file.
+     * The combobox with the indication of the observation in the fxml file.
      */
-    private ComboBox<String> natureObs;
-
-    @FXML
-    /**
-     * The combobox that tell if the nest was present but there wasn't
-     * any observation, in the fxml file.
-     */
-    private ComboBox<String> presentMaisNonObs;
+    private ComboBox<String> indice;
 
 
     /**
@@ -47,30 +35,17 @@ public class Obs_GCI_controller {
      */
     private ObservableList<String> liste;
 
-
-    /**
-     * An ObservableList<String> that will contain the list of elements to add to the
-     * different combobx.
-     */
-    private ObservableList<String> liste2;  
-    
     @FXML
     /**
      * text field for the number of fly
      */
-    private TextField idNid;
+    private TextField commune;
 
     @FXML
     /**
      * text field for the number of fly
      */
-    private TextField nombre;
-
-    @FXML
-    /**
-     * Button to insert the data in the database
-     */
-    private Button effectuer;
+    private TextField lieu_dit;
 
     @FXML
     /**
@@ -96,6 +71,16 @@ public class Obs_GCI_controller {
      */
     private TextField lambertY;
 
+    @FXML
+    /**
+     * Button to insert the data in the database
+     */
+    private Button effectuer;
+
+    @FXML
+    private Button user;
+    
+
 
     @FXML
     /**
@@ -103,13 +88,9 @@ public class Obs_GCI_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Oeuf", "Poussin", "Nid");
-        liste2 = FXCollections.observableArrayList("oui", "non");
-
-        presentMaisNonObs.setItems(liste2);
-        natureObs.setItems(liste);
+        liste = FXCollections.observableArrayList("Positif","Negatif","Non prospection");
+        indice.setItems(liste);
         user.setText(ReadInfos.getStatus());
-
 
     }
 
@@ -121,37 +102,31 @@ public class Obs_GCI_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (natureObs.getValue() == null) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        //test : textfield vide
-        else if (presentMaisNonObs.getValue() == null) {
-            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
-                "Please enter good coordonnée");
-
-        }
-        
-        else if (idNid.getText() == null) {
+        if (indice.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        else if (nombre.getText() == null) {
+        else if (commune.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        else if (lambertX.getText() == null) {
+        else if (lieu_dit.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
 
-        else if (lambertY.getText() == null) {
+        else if (lambertX.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        else if (lambertY.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -163,7 +138,7 @@ public class Obs_GCI_controller {
 
         }
 
-        else if (heureObs.getText() == null) {
+        else if (heureObs.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -176,41 +151,30 @@ public class Obs_GCI_controller {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-                Statement obsGCIController = c.createStatement();
+                Statement obsLoutreController = c.createStatement();
+                PreparedStatement testLoutre = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testLoutre.setString(1, lambertX.getText());
+                testLoutre.setString(2, lambertY.getText());
+                ResultSet resultatLoutre = testLoutre.executeQuery();
 
-                PreparedStatement testGCI = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
-                testGCI.setString(1, lambertX.getText());
-                testGCI.setString(2, lambertY.getText());
-                ResultSet resultatGCI = testGCI.executeQuery();
-
-                if(resultatGCI.next()){}
+                if(resultatLoutre.next()){}
                 else{
                     String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
-                    obsGCIController.executeUpdate(querry1);
+                    obsLoutreController.executeUpdate(querry1);
                 }
-
-                PreparedStatement querry2 = c.prepareStatement("INSERT INTO observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-
-                PreparedStatement idGCI = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-                ResultSet requete2 = idGCI.executeQuery();
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+                
+                PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idLoutre.executeQuery();
                 requete2.next();
-                int idG = requete2.getInt("Max(idObs)");
+                int idL = requete2.getInt("Max(idObs)");
 
-                int present = 0;
-                if(presentMaisNonObs.getValue().equals("oui")){
-                    present = 1;
-
-                }else{
-
-                    present = 0;
-                }
-
-                String querry3 = "INSERT INTO obs_gci VALUES(" + idG + ", '" + natureObs.getValue() + "', '" + nombre.getText() + "', " + present +  ", '" + idNid.getText() + "');";
-                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idG + ");";
-
+                String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idL + ");";
+                
                 querry2.executeUpdate();
-                obsGCIController.executeUpdate(querry3);
-                obsGCIController.executeUpdate(querry4);
+                obsLoutreController.executeUpdate(querry3);
+                obsLoutreController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -238,25 +202,12 @@ public class Obs_GCI_controller {
 
 
     /**
-     * Event to do when the button aNid is pressed.
-     * Switch to the page Formulaire_nid_gci.fxml
-     */
-    public void to_Nid(){
-
-        Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_nid_gci.fxml");
-        
-    }
-
-
-    /**
     * Event to do when the button retour is pressed.    
-    * Switch to the page Formulaire_nid_gci.fxml
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 
-        Stage actuel = (Stage)presentMaisNonObs.getScene().getWindow();
+        Stage actuel = (Stage)indice.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
@@ -266,5 +217,4 @@ public class Obs_GCI_controller {
             change.go_to("../view/Accueil_Utilisateur.fxml");
         }
     }
-
 }

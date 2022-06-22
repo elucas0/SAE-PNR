@@ -1,6 +1,6 @@
-package controller.formulaire;
-import javafx.fxml.FXML;
+package controller.formulaires;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
@@ -17,34 +17,53 @@ import java.sql.*;
 import javafx.scene.control.DatePicker;
 
 /**
- * The controller of the page Formulaire_obs_chouette.fxml. It manages it.
- * @version 1.3
+ * The controller of the page Formulaire_cbs_hippocampe.fxml. It manages it.
+ * @version 1.1
  */
-public class Obs_chouette_controller {
+public class Obs_Hippocampe_controller {
 
     @FXML
     /**
-     * The combobox with the observation's type in the fxml file.
+     * The combobox with the seahorse's specie in the fxml file.
      */
-    private ComboBox<String> typeObs;
+    private ComboBox<String> espece;
 
     @FXML
     /**
-     * The combobox wich says if a protocol was applied type in the fxml file.
+     * The combobox that tell about the gender in the fxml file.
      */
-    private ComboBox<String> protocole;
+    private ComboBox<String> sexe;
 
+    @FXML
+    /**
+     * The combobox that tell about the fishing's type in the fxml file.
+     */
+    private ComboBox<String> typePeche;
+
+    @FXML
+    /**
+     * The combobox that tell if the male seahors is pregnant, in the fxml file.
+     */
+    private ComboBox<String> estGestant;
+
+    @FXML
     /**
      * An ObservableList<String> that will contain the list of elements to add to the
-     * different combobox.
+     * different combobx.
      */
     private ObservableList<String> liste;
 
     @FXML
     /**
-     * text field for the id
+     * text field for the number of fly
      */
-    private TextField idChouette;
+    private TextField tempEau;
+
+    @FXML
+    /**
+     * text field for the number of fly
+     */
+    private TextField taille;
 
     @FXML
     /**
@@ -54,33 +73,30 @@ public class Obs_chouette_controller {
 
     @FXML
     /**
-     * text field for the hours
+     * text field for the number of fly
      */
     private TextField heureObs;
 
     @FXML
     /**
-     * text field for the Date
+     * text field for the number of fly
      */
     private DatePicker date;
 
     @FXML
     /**
-     * text field for the X Lambert coordinate
+     * text field for the number of fly
      */
     private TextField lambertX;
 
     @FXML
     /**
-     * text field for the Y Lambert coordinate
+     * text field for the number of fly
      */
     private TextField lambertY;
 
     @FXML
     private Button user;
-
-
-
     
 
 
@@ -90,20 +106,20 @@ public class Obs_chouette_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("oui", "non");
-        protocole.setItems(liste);
+        liste = FXCollections.observableArrayList("Syngnathus acus", "Hippocampus guttulatus", "Hippocampus Hippocampus", "Entelurus aequoreus");
+        espece.setItems(liste);
 
-        liste = FXCollections.observableArrayList("Sonore", "Visuel", "Sonore et visuel");
-        typeObs.setItems(liste);
+
+        liste = FXCollections.observableArrayList("male", "femelle", "inconnu");
+        sexe.setItems(liste);
+
+        liste = FXCollections.observableArrayList("casierCrevettes", "casierMorgates", "PetitFilet", "verveuxAnguilles");
+        typePeche.setItems(liste);
+
+        liste = FXCollections.observableArrayList("oui", "non");
+        estGestant.setItems(liste);
         user.setText(ReadInfos.getStatus());
 
-    }
-
-    public void to_Chouette(){
-
-        Stage actuel = (Stage)protocole.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/formulaires/Formulaire_chouette.fxml");
     }
 
     @FXML
@@ -114,19 +130,38 @@ public class Obs_chouette_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (typeObs.getValue().isEmpty()) {
+        if (espece.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         //test : textfield vide
-        else if (protocole.getValue().isEmpty()) {
+        else if (sexe.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
         
-        else if (idChouette.getText().isEmpty()) {
+        else if (typePeche.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+        
+        //test : textfield vide
+        else if (estGestant.getValue().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        else if (tempEau.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
+                "Please enter good coordonnée");
+
+        }
+
+        else if (taille.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -163,38 +198,37 @@ public class Obs_chouette_controller {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-                Statement obsChouetteController = c.createStatement();
+                Statement hippocampeController = c.createStatement();
+                PreparedStatement testHioppocampe = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testHioppocampe.setString(1, lambertX.getText());
+                testHioppocampe.setString(2, lambertY.getText());
+                ResultSet resultatHippocampe = testHioppocampe.executeQuery();
 
-                PreparedStatement testChouette = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
-                testChouette.setString(1, lambertX.getText());
-                testChouette.setString(2, lambertY.getText());
-                ResultSet resultatChouette = testChouette.executeQuery();
-
-                if(resultatChouette.next()){}
+                if(resultatHippocampe.next()){}
                 else{
                     String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
-                    obsChouetteController.executeUpdate(querry1);
+                    hippocampeController.executeUpdate(querry1);
                 }
-
                 PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
 
-                PreparedStatement id_Chouette = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-                ResultSet requete2 = id_Chouette.executeQuery();
+                PreparedStatement idHippocampes = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = idHippocampes.executeQuery();
                 requete2.next();
-                int idC = requete2.getInt("Max(idObs)");
-                int protocol = -1;
-                if (protocole.getValue().equals(("oui"))){
-                    protocol = 1;
+                int idH = requete2.getInt("Max(idObs)");
+                
+                int gestant = -1;
+                if (estGestant.getValue().equals(("oui"))){
+                    gestant = 1;
                 }
                 else{
-                    protocol = 0;
+                    gestant = 0;
                 }
 
-                String querry3 = "INSERT INTO obs_chouette VALUES('" + protocol + "', '" + typeObs.getValue() + "', '" + idChouette.getText() + "'," + idC +");";
-                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idC + ");";
+                String querry3 = "INSERT INTO obs_hippocampe VALUES(" + idH + ", '" + espece.getValue() + "', '" + sexe.getValue() + "', '" + tempEau.getText() + "','" + typePeche.getValue() + "','" + taille.getText() + "','" + gestant + "');";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idH + ");";
                 querry2.executeUpdate();
-                obsChouetteController.executeUpdate(querry3);
-                obsChouetteController.executeUpdate(querry4);
+                hippocampeController.executeUpdate(querry3);
+                hippocampeController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -222,11 +256,11 @@ public class Obs_chouette_controller {
 
     /**
     * Event to do when the button retour is pressed.    
-    * Switch to the page Formulaire_chouette.fxml
+    * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
 
-        Stage actuel = (Stage)protocole.getScene().getWindow();
+        Stage actuel = (Stage)espece.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
@@ -236,8 +270,6 @@ public class Obs_chouette_controller {
             change.go_to("../view/Accueil_Utilisateur.fxml");
         }
     }
-
-
-
+    
     
 }

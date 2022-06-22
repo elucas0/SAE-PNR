@@ -1,4 +1,4 @@
-package controller.formulaire;
+package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
@@ -128,7 +128,7 @@ public class Choix_Espece_Stats_controller {
     void toStatBatracien1(ActionEvent event) {
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Stats_Batracien_1.fxml");
+        change.go_to("../view/statistiques/Stats_Batracien_1.fxml");
     }
 
     @FXML
@@ -140,7 +140,7 @@ public class Choix_Espece_Stats_controller {
     void toStatChouette1(ActionEvent event) {
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Stats_Chouette_1.fxml");
+        change.go_to("../view/statistiques/Stats_Chouette_1.fxml");
     }
 
     @FXML
@@ -152,7 +152,7 @@ public class Choix_Espece_Stats_controller {
     void toStatGci1(ActionEvent event) {
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Stats_Gci_1.fxml");
+        change.go_to("../view/statistiques/Stats_Gci_1.fxml");
     }
 
     @FXML
@@ -164,7 +164,7 @@ public class Choix_Espece_Stats_controller {
     void toStatHippocampe1(ActionEvent event) {
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../view/Stats_Hippocampe_1.fxml");
+        change.go_to("../view/statistiques/Stats_Hippocampe_1.fxml");
     }
 
     @FXML

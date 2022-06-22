@@ -1,8 +1,7 @@
-package controller.formulaire;
-
+package controller.formulaires;
 import javafx.fxml.FXML;
+
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,61 +14,37 @@ import controller.utilitaires.ReadInfos;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
+import javafx.scene.control.DatePicker;
 
 /**
- * The controller of the page Formulaire_obs_loutre.fxml. It manages it.
- * @version 1.1
+ * The controller of the page Formulaire_obs_chouette.fxml. It manages it.
+ * @version 1.3
  */
-public class Obs_Loutre_controller {
-    
+public class Obs_chouette_controller {
+
     @FXML
     /**
-     * The combobox with the indication of the observation in the fxml file.
+     * The combobox with the observation's type in the fxml file.
      */
-    private ComboBox<String> indice;
+    private ComboBox<String> typeObs;
 
+    @FXML
+    /**
+     * The combobox wich says if a protocol was applied type in the fxml file.
+     */
+    private ComboBox<String> protocole;
 
     /**
      * An ObservableList<String> that will contain the list of elements to add to the
-     * different combobx.
+     * different combobox.
      */
     private ObservableList<String> liste;
 
     @FXML
     /**
-     * text field for the number of fly
+     * text field for the id
      */
-    private TextField commune;
-
-    @FXML
-    /**
-     * text field for the number of fly
-     */
-    private TextField lieu_dit;
-
-    @FXML
-    /**
-     * text field for the number of fly
-     */
-    private TextField heureObs;
-
-    @FXML
-    /**
-     * text field for the number of fly
-     */
-    private DatePicker date;
-
-    @FXML
-    /**
-     * text field for the number of fly
-     */
-    private TextField lambertX;
-
-    @FXML
-    /**
-     * text field for the number of fly
-     */
-    private TextField lambertY;
+    private TextField idChouette;
 
     @FXML
     /**
@@ -78,7 +53,34 @@ public class Obs_Loutre_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * text field for the hours
+     */
+    private TextField heureObs;
+
+    @FXML
+    /**
+     * text field for the Date
+     */
+    private DatePicker date;
+
+    @FXML
+    /**
+     * text field for the X Lambert coordinate
+     */
+    private TextField lambertX;
+
+    @FXML
+    /**
+     * text field for the Y Lambert coordinate
+     */
+    private TextField lambertY;
+
+    @FXML
     private Button user;
+
+
+
     
 
 
@@ -88,10 +90,20 @@ public class Obs_Loutre_controller {
      */
     private void initialize() 
     {
-        liste = FXCollections.observableArrayList("Positif","Negatif","Non prospection");
-        indice.setItems(liste);
+        liste = FXCollections.observableArrayList("oui", "non");
+        protocole.setItems(liste);
+
+        liste = FXCollections.observableArrayList("Sonore", "Visuel", "Sonore et visuel");
+        typeObs.setItems(liste);
         user.setText(ReadInfos.getStatus());
 
+    }
+
+    public void to_Chouette(){
+
+        Stage actuel = (Stage)protocole.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../view/formulaires/Formulaire_chouette.fxml");
     }
 
     @FXML
@@ -102,19 +114,19 @@ public class Obs_Loutre_controller {
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();
         //test : textfield vide
-        if (indice.getValue().isEmpty()) {
+        if (typeObs.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-
-        else if (commune.getText().isEmpty()) {
+        //test : textfield vide
+        else if (protocole.getValue().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
         }
-
-        else if (lieu_dit.getText().isEmpty()) {
+        
+        else if (idChouette.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, owner, "OBS Error!",
                 "Please enter good coordonnée");
 
@@ -151,30 +163,38 @@ public class Obs_Loutre_controller {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-                Statement obsLoutreController = c.createStatement();
-                PreparedStatement testLoutre = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
-                testLoutre.setString(1, lambertX.getText());
-                testLoutre.setString(2, lambertY.getText());
-                ResultSet resultatLoutre = testLoutre.executeQuery();
+                Statement obsChouetteController = c.createStatement();
 
-                if(resultatLoutre.next()){}
+                PreparedStatement testChouette = c.prepareStatement("SELECT * FROM lieu WHERE coord_Lambert_X = ? AND coord_Lambert_Y = ?");
+                testChouette.setString(1, lambertX.getText());
+                testChouette.setString(2, lambertY.getText());
+                ResultSet resultatChouette = testChouette.executeQuery();
+
+                if(resultatChouette.next()){}
                 else{
                     String querry1 = "INSERT INTO lieu VALUES(" + lambertX.getText() + "," + lambertY.getText() + ");";
-                    obsLoutreController.executeUpdate(querry1);
+                    obsChouetteController.executeUpdate(querry1);
                 }
-                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
-                
-                PreparedStatement idLoutre = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
-                ResultSet requete2 = idLoutre.executeQuery();
-                requete2.next();
-                int idL = requete2.getInt("Max(idObs)");
 
-                String querry3 = "INSERT INTO obs_loutre VALUES(" + idL+ ", '" + commune.getText() + "', '" + lieu_dit.getText() + "', '" + indice.getValue() + "');";
-                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idL + ");";
-                
+                PreparedStatement querry2 = c.prepareStatement("INSERT INTO Observation(dateObs, heureObs, lieu_Lambert_X, lieu_Lambert_Y) VALUES('" + Date.valueOf(date.getValue()) + "','" + Time.valueOf(heureObs.getText()) +"', " + lambertX.getText() + ", " + lambertY.getText() + ");");
+
+                PreparedStatement id_Chouette = c.prepareStatement("SELECT MAX(idObs) FROM Observation;");
+                ResultSet requete2 = id_Chouette.executeQuery();
+                requete2.next();
+                int idC = requete2.getInt("Max(idObs)");
+                int protocol = -1;
+                if (protocole.getValue().equals(("oui"))){
+                    protocol = 1;
+                }
+                else{
+                    protocol = 0;
+                }
+
+                String querry3 = "INSERT INTO obs_chouette VALUES('" + protocol + "', '" + typeObs.getValue() + "', '" + idChouette.getText() + "'," + idC +");";
+                String querry4 = "INSERT INTO aobserve VALUES(" + ReadInfos.getId() + ", " + idC + ");";
                 querry2.executeUpdate();
-                obsLoutreController.executeUpdate(querry3);
-                obsLoutreController.executeUpdate(querry4);
+                obsChouetteController.executeUpdate(querry3);
+                obsChouetteController.executeUpdate(querry4);
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -200,14 +220,13 @@ public class Obs_Loutre_controller {
         alert.show();
     }
 
-
     /**
     * Event to do when the button retour is pressed.    
-    * Switch to the page Accueil_Utilisateur.fxml
+    * Switch to the page Formulaire_chouette.fxml
     */
     public void retour(){
 
-        Stage actuel = (Stage)indice.getScene().getWindow();
+        Stage actuel = (Stage)protocole.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
@@ -217,4 +236,8 @@ public class Obs_Loutre_controller {
             change.go_to("../view/Accueil_Utilisateur.fxml");
         }
     }
+
+
+
+    
 }

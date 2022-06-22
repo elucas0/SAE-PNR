@@ -1,18 +1,15 @@
-package controller.formulaire;
+package controller.formulaires;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mysql.cj.xdevapi.Statement;
-
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
