@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import modele.donnee.Chouette;
 import modele.donnee.Hippocampe;
 import modele.donnee.Loutre;
 
@@ -68,7 +69,7 @@ public class Affichage_controller_hippocampe {
         try{
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Obs_Hippocampe";
+            String sql = "SELECT * FROM Obs_Chouette";
             String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH";
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
@@ -76,7 +77,7 @@ public class Affichage_controller_hippocampe {
             ResultSet rs2 = stat2.executeQuery();
             while(rs.next() && rs2.next()){
                 //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                    data.add(new Hippocampe(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6),rs.getInt(7)));
+                    data.add(new Chouette(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6),rs.getInt(7)));
             }
             c.close();
         }catch (Exception e){
