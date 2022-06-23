@@ -196,7 +196,7 @@ public class Affichage_controller_batracien {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            PreparedStatement stat = c.prepareStatement("DELETE FROM Obs_Batracien WHERE obsG= ?");
+            PreparedStatement stat = c.prepareStatement("DELETE FROM Obs_Batracien WHERE obsB= ?");
             stat.setString(1,delete.getText());
             int row = stat.executeUpdate();
             //ResultSet rs = stat.executeQuery();
