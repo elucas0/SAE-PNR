@@ -67,6 +67,12 @@ public class Choix_Stats_controller {
     /**
      * The MenuItem button in the fxml file
      */
+    private MenuItem nid_gci;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
     private MenuItem observateur;
 
     @FXML
@@ -80,6 +86,12 @@ public class Choix_Stats_controller {
      * The MenuItem button in the fxml file
      */
     private Button stat;
+
+    @FXML
+    /**
+     * The MenuItem button in the fxml file
+     */
+    private MenuItem tout;
 
 
     @FXML
@@ -96,6 +108,18 @@ public class Choix_Stats_controller {
 
     @FXML
     /**
+     * Exports every table in the database to a csv file
+     * @param event the event
+     * @throws SQLException if the database is not accessible
+     * @throws IOException if the file is not accessible
+     * @throws ClassNotFoundException if the class is not found
+     */
+    void exportation_tout(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.exportAll();
+    }
+
+    @FXML
+    /**
      * Exports the data of the "a_observe" table to a csv file
      * @param event the event
      * @throws SQLException if there is a problem with the SQL
@@ -103,7 +127,9 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_a_observe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
-        ExportData.writeCSV("a_observe");
+        ExportData.writeCSV("aobserve");
+        ExportData.writeCSV("observateur");
+        ExportData.writeCSV("observation");
     }
 
     @FXML
@@ -116,6 +142,18 @@ public class Choix_Stats_controller {
      */
     void exportation_lieu(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         ExportData.writeCSV("lieu");
+    }
+
+    @FXML
+    /**
+     * Exports the data of the "nid_gci" table to a csv file
+     * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
+     */
+    void exportation_nid_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("nid_gci");
     }
 
     @FXML
@@ -140,6 +178,7 @@ public class Choix_Stats_controller {
      */
     void exportation_obs_chouette(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         ExportData.writeCSV("obs_chouette");
+        ExportData.writeCSV("chouette");
     }
 
     @FXML
@@ -188,6 +227,7 @@ public class Choix_Stats_controller {
      */
     void exportation_vegetation(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         ExportData.writeCSV("vegetation");
+        ExportData.writeCSV("lieu_vegetation");
     }
 
 
@@ -211,7 +251,7 @@ public class Choix_Stats_controller {
      * @param event the event
      */
     void exportation_zone_humide(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
-        ExportData.writeCSV("zone_humide");
+        ExportData.writeCSV("zonehumide");
     }
 
     
