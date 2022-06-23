@@ -141,7 +141,10 @@ public class Exemple_Compte_controller {
         change.go_to("../../view/affichage/Affichage_historique.fxml");
     }
 
-
+    /**
+     * Event to do when the button history is pressed.
+     * Switch to the page Formulaire_modifier_compte.fxml
+     */
     public void toModifier(){
 
         Stage actuel = (Stage)back.getScene().getWindow();
