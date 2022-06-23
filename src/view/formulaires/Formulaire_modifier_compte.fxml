@@ -39,16 +39,6 @@
          </right>
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                  <ImageView fitHeight="75.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                     <image>
-                        <Image url="@img/colibri.png" />
-                     </image>
-                     <BorderPane.margin>
-                        <Insets left="120.0" />
-                     </BorderPane.margin>
-                  </ImageView>
-               </center>
                <left>
                   <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </left>
@@ -169,22 +159,12 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <Label text="id du compte :" textFill="WHITE" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="profondeur" prefHeight="9.0" prefWidth="91.0" GridPane.rowIndex="2">
+                        <TextField fx:id="nom" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="surface" GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <Label text="Nouveau nom de compte ::" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="Nouveau nom de compte :" textFill="WHITE" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="100.0" />
                            </GridPane.margin>
@@ -216,12 +196,12 @@
                               <Insets left="100.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="surface1" GridPane.rowIndex="2">
+                        <TextField fx:id="mdp" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="surface2" GridPane.rowIndex="4">
+                        <TextField fx:id="confirmMdp" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets left="100.0" right="100.0" />
                            </GridPane.margin>
