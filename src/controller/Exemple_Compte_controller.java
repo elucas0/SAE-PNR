@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 import controller.utilitaires.ChangerPage;
-import controller.utilitaires.ReadInfos;
 
 /**
  * The controller for compte view
@@ -102,10 +101,6 @@ public class Exemple_Compte_controller {
     public void historique(){
         Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-<<<<<<< HEAD
-        change.go_to("../view/affichages/Affichage_historique.fxml");
-=======
-        change.go_to("../../view/Affichage_historique.fxml");
->>>>>>> 58aedc72bf5cedca36a4aa4cd916850c990674ab
+        change.go_to("../../view/affichages/Affichage_historique.fxml");
     }
 }
