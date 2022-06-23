@@ -40,7 +40,13 @@ public class Exemple_Compte_controller {
     private Button history;
 
     @FXML
+    private Label userName;
+
+    @FXML
     private Label description;
+
+    @FXML
+    private Label droit;
 
 
     @FXML
@@ -48,9 +54,15 @@ public class Exemple_Compte_controller {
      * Initialize elements when the fxml file is displayed
      */
     private void initialize(){
-       //description.setText("admin");
-
-        //user.setText(ReadInfos.getStatus());
+        userName.setText(ReadInfos.getStatus());
+       
+        description.setText("");
+        if (ReadInfos.estAdmin()){
+            droit.setText("Droits Administrateur");
+        }
+        else{
+            droit.setText("Droits Utilisateur");
+        }
     }
 
     @FXML
