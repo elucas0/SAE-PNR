@@ -206,9 +206,15 @@ public class Consulte_Compte_controller {
     */
     public void retour(){
 
-        Stage actuel = (Stage)user.getScene().getWindow();
+        Stage actuel = (Stage)id.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/Accueil_Admin.fxml");
+        if(ReadInfos.estAdmin()){
+
+            change.go_to("../../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
+        }
 
     }
 
@@ -248,10 +254,8 @@ public class Consulte_Compte_controller {
 
             }else{
                 if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"))){
-                    System.out.println(Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"));
                     FileWriter f = new FileWriter("voir.txt");
                     BufferedWriter b = new BufferedWriter(f);
-                    System.out.println("passe");
     
                     PrintWriter out = new PrintWriter(b);
                     out.println(id.getText());
@@ -284,7 +288,10 @@ public class Consulte_Compte_controller {
 
             FileReader file = new FileReader("voir.txt");
             BufferedReader in = new BufferedReader(file);
+            System.out.println("paseeeeeeeeeeeeeeeeeeeeeee1");
             ret = Integer.parseInt(in.readLine());
+            System.out.println("paseeeeeeeeeee2");
+            in.close();
 
 
         } catch (FileNotFoundException e) {

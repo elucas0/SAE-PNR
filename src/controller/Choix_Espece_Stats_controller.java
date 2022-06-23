@@ -99,7 +99,7 @@ public class Choix_Espece_Stats_controller {
 
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        if(ReadInfos.estAdmin() == true){
+        if(ReadInfos.estAdmin()){
 
             change.go_to("../../view/Accueil_Admin.fxml");
         }else{
@@ -116,7 +116,13 @@ public class Choix_Espece_Stats_controller {
     public void retour(){
         Stage actuel = (Stage)nom_compte.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/Accueil_Utilisateur.fxml");
+        if(ReadInfos.estAdmin()){
+
+            change.go_to("../../view/Accueil_Admin.fxml");
+        }else{
+
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
+        }
     }
 
     @FXML
