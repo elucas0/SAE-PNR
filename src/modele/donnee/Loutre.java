@@ -19,8 +19,11 @@ public class Loutre {
 	 * @param id l'id de observation
 	 * @param date date de l'observation
 	 * @param heure heure de l'observation
-	 * @param lieu lieu de l'observation
-	 * @param observateurs nom des observateurs
+	 * @param x coord x
+	 * @param y coord y
+	 * @param commune nom des observateurs
+	 * @param lieudit nom du lieu
+	 * @param indice indice positif ou negatif
 	 */
 	public Loutre(int id, Date date, Time heure, Double x,Double y,String commune,String lieudit,String indice) {
 		this.id=id;
@@ -32,6 +35,7 @@ public class Loutre {
 		this.lieudit=lieudit;
 		this.indice=indice;
 	}
+	/**get Id */
 	public int getId() {
 		return id;
 	}

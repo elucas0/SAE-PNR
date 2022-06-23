@@ -21,10 +21,13 @@ public class ObservationGci {
 	 * @param id id of the observation
 	 * @param date date of the observation
 	 * @param heure time of the observation
-	 * @param lieu location of the observation
+	 * @param coordX location x of the observation
+	 * @param coordY location y of the observation
 	 * @param observateur list of the observers
 	 * @param nature nature of the observation
 	 * @param leNombre number of the observation
+	 * @param leNid number of the observation
+	 * @param presentMaisNonObs number of the observation
 	 */
 	public ObservationGci(int id, Date date, Time heure, double coordX, double coordY, int observateur, String nature, int leNombre, int leNid, int presentMaisNonObs) {
 
