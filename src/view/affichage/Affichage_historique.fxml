@@ -74,11 +74,8 @@
                   <Insets bottom="20.0" />
                </BorderPane.margin>
                <columns>
-                  <TableColumn fx:id="id" prefWidth="75.0" text="Observation" />
-                  <TableColumn fx:id="date" prefWidth="75.0" text="Observation" />
-                  <TableColumn fx:id="heure" prefWidth="75.0" text="Observation" />
-                  <TableColumn fx:id="lieuX" prefWidth="75.0" text="Observation" />
-                  <TableColumn fx:id="lieuY" prefWidth="75.0" text="Observation" />
+                  <TableColumn fx:id="idObservateur" prefWidth="75.0" text="idObservateur" />
+                  <TableColumn fx:id="idObservation" prefWidth="75.0" text="idObservation" />
                </columns>
             </TableView>
          </center>
