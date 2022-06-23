@@ -130,7 +130,7 @@
                         <FontIcon iconLiteral="fas-water" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#exportation_vegetation" text="Vegetation">
+                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#exportation_vegetation" text="Vegetation et lieu vegetation">
                      <graphic>
                         <FontIcon iconLiteral="fas-tree" />
                      </graphic>

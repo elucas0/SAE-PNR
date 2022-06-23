@@ -119,7 +119,7 @@ public class Choix_Stats_controller {
     void exportation_tout(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.exportAll();
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Toutes les tables ont été exportées avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Toutes les tables ont été exportées avec succès");
     }
 
     @FXML
@@ -135,7 +135,7 @@ public class Choix_Stats_controller {
         ExportData.writeCSV("aobserve");
         ExportData.writeCSV("observateur");
         ExportData.writeCSV("observation");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Tables aobserve, observateur et observation exportées avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables aobserve, observateur et observation exportées avec succès");
     }
 
     @FXML
@@ -149,7 +149,7 @@ public class Choix_Stats_controller {
     void exportation_lieu(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("lieu");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table lieu exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table lieu exportée avec succès");
 
     }
 
@@ -164,7 +164,7 @@ public class Choix_Stats_controller {
     void exportation_nid_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("nid_gci");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table nid_gci exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table nid_gci exportée avec succès");
 
     }
 
@@ -179,7 +179,7 @@ public class Choix_Stats_controller {
     void exportation_obs_batracien(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_batracien");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table obs_batracien exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_batracien exportée avec succès");
     }
 
     @FXML
@@ -194,7 +194,7 @@ public class Choix_Stats_controller {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_chouette");
         ExportData.writeCSV("chouette");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Tables obs_chouette et chouette exportées avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables obs_chouette et chouette exportées avec succès");
     }
 
     @FXML
@@ -208,7 +208,7 @@ public class Choix_Stats_controller {
     void exportation_obs_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_gci");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table obs_gci exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_gci exportée avec succès");
     }
 
     @FXML
@@ -222,7 +222,7 @@ public class Choix_Stats_controller {
     void exportation_obs_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_hippocampe");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table obs_hippocampe exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_hippocampe exportée avec succès");
 
     }
 
@@ -237,7 +237,7 @@ public class Choix_Stats_controller {
     void exportation_obs_loutre(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_loutre");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table obs_loutre exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_loutre exportée avec succès");
     }
 
     @FXML
@@ -252,7 +252,7 @@ public class Choix_Stats_controller {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("vegetation");
         ExportData.writeCSV("lieu_vegetation");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Tables vegetation et lieu_vegetation exportées avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables vegetation et lieu_vegetation exportées avec succès");
     }
 
 
@@ -267,7 +267,7 @@ public class Choix_Stats_controller {
     void exportation_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_hippocampe");
-        showAlert(Alert.AlertType.CONFIRMATION, owner, "Export", "Table obs_hippocampe exportée avec succès");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_hippocampe exportée avec succès");
     }
 
 
