@@ -77,6 +77,9 @@ public class Modifier_Compte_controller{
                 e.printStackTrace();
             }
         }
+        Stage actuel = (Stage)mdp.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/exempleCompte.fxml");
     }
 
 
