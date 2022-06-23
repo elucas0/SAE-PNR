@@ -155,9 +155,9 @@ public class Affichage_controller_loutre {
         }
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "DELETE FROM Obs_Loutre WHERE ObsL=idObs";
+            String sql = "DELETE FROM Obs_Loutre WHERE ObsL= "idL;
             PreparedStatement stat = c.prepareStatement(sql);
-            ResultSet rs = stat.executeQuery();
+            //ResultSet rs = stat.executeQuery();
             c.close();
             viewObservation(25);
         }catch (Exception e){
@@ -222,7 +222,7 @@ public class Affichage_controller_loutre {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin() == true){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
             change.go_to("../../view/Accueil_Utilisateur.fxml");
