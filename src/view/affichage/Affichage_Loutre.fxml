@@ -61,7 +61,7 @@
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="delete" layoutX="23.0" layoutY="10.0" onAction="#delete_obs" prefHeight="30.0" prefWidth="163.0" promptText="Supprimer une observation" />
+                  <TextField fx:id="delete" layoutX="23.0" layoutY="10.0" onAction="#delete_obs" onKeyPressed="#keyDelete" prefHeight="30.0" prefWidth="163.0" promptText="Supprimer une observation" />
                   <Label layoutX="8.0" layoutY="17.0" text="id:" />
                </children></Pane>
          </right></BorderPane>

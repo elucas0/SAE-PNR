@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
 
 import controller.utilitaires.ChangerPage;
@@ -16,10 +17,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import modele.donnee.Loutre;
-
-
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import java.sql.DriverManager;
 
 public class Affichage_controller_loutre {
@@ -95,7 +98,7 @@ public class Affichage_controller_loutre {
      * The table column in the fxml file for the y coordinate
      */
     private TableColumn<Loutre,Double> y;
-
+    @FXML private TextField delete;
     public ObservableList<Loutre> data = FXCollections.observableArrayList();
 
 
@@ -131,8 +134,51 @@ public class Affichage_controller_loutre {
         commune.setCellValueFactory(new PropertyValueFactory<Loutre,String>("commune"));
         table.setItems(data);
     }
+    /**
+     * If the correct key is typed
+     * @param e event
+     */
+    public void keyDelete(KeyEvent e){
+
+        if(e.getCode() == KeyCode.ENTER){
+            delete_obs();
+        }
 
 
+    }
+    @FXML
+    public void delete_obs(){
+        if (delete.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Erreur!",
+                "Entré un nombre");
+            
+        }
+        try{
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "DELETE FROM Obs_Loutre WHERE ObsL=idObs";
+            PreparedStatement stat = c.prepareStatement(sql);
+            ResultSet rs = stat.executeQuery();
+            c.close();
+            viewObservation(25);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner Window of the Alert
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
+    private static void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
+    }
+    
     @FXML
     /**
      * Initialize elements when the fxml file is dilpayed
