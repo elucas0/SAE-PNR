@@ -224,9 +224,9 @@ public class Consulte_Compte_controller {
 
     public void voir(){
 
+        this.writeId();
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        this.writeId();
         change.go_to("../../view/exempleCompte.fxml");
     }
 
@@ -237,15 +237,19 @@ public class Consulte_Compte_controller {
             if(id.getText().isEmpty()){
 
                 System.err.println("writeId : the field id must not be empty");
-            }else{
 
-                FileWriter f = new FileWriter("voir.txt");
-                BufferedWriter b = new BufferedWriter(f);
-                PrintWriter out = new PrintWriter(b);
-                out.println(id.getText());
-                f.close();
-                b.close();
-                out.close();
+            }else{
+                if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"))){
+                    FileWriter f = new FileWriter("voir.txt");
+                    BufferedWriter b = new BufferedWriter(f);
+                    System.out.println("passe");
+    
+                    PrintWriter out = new PrintWriter(b);
+                    out.println(id.getText());
+                    out.close();
+
+                } 
+
             }
         } catch (IOException e) {
             
