@@ -165,7 +165,7 @@
                         <Insets right="2.0" />
                      </GridPane.margin>
                      <children>
-                        <MenuButton fx:id="prospec" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Hippocampe" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="1">
+                        <MenuButton fx:id="prospec" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #A4A4A4;" text="Hippocampe" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="1">
                            <items>
                               <MenuItem fx:id="stat1hippocampe" mnemonicParsing="false" onAction="#toStatHippocampe1" text="Effectif des hippocampes selon leur sexe pour toutes les espèces" />
                            </items>
@@ -173,7 +173,7 @@
                               <FontIcon iconColor="WHITE" iconLiteral="fas-chess-knight" iconSize="20" text="" />
                            </graphic>
                         </MenuButton>
-                        <MenuButton fx:id="prospec1" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Chouette" textFill="WHITE" GridPane.rowIndex="3">
+                        <MenuButton fx:id="prospec1" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #A4A4A4;" text="Chouette" textFill="WHITE" GridPane.rowIndex="3">
                            <items>
                               <MenuItem fx:id="stat1chouette" mnemonicParsing="false" onAction="#toStatChouette1" text="Effectif du type de l'observation par espèce" />
                            </items>
@@ -181,7 +181,7 @@
                               <FontIcon iconColor="WHITE" iconLiteral="fab-earlybirds" iconSize="20" />
                            </graphic>
                         </MenuButton>
-                        <MenuButton fx:id="prospec2" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="GCI" textFill="WHITE" GridPane.rowIndex="5">
+                        <MenuButton fx:id="prospec2" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #A4A4A4;" text="GCI" textFill="WHITE" GridPane.rowIndex="5">
                            <items>
                               <MenuItem fx:id="stat1gci" mnemonicParsing="false" onAction="#toStatGci1" text="Répartition des nids par plage" />
                            </items>
@@ -205,7 +205,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <MenuButton fx:id="prospec3" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Batracien" textFill="WHITE" GridPane.rowIndex="1">
+                        <MenuButton fx:id="prospec3" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #A4A4A4;" text="Batracien" textFill="WHITE" GridPane.rowIndex="1">
                            <items>
                               <MenuItem fx:id="stat1batracien" mnemonicParsing="false" onAction="#toStatBatracien1" text="Nombre de batraciens selon la météo" />
                            </items>
@@ -213,7 +213,7 @@
                               <FontIcon iconColor="WHITE" iconLiteral="fas-frog" iconSize="20" />
                            </graphic>
                         </MenuButton>
-                        <MenuButton fx:id="prospec4" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Loutre" textFill="WHITE" GridPane.rowIndex="3">
+                        <MenuButton fx:id="prospec4" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #A4A4A4;" text="Loutre" textFill="WHITE" GridPane.rowIndex="3">
                            <items>
                               <MenuItem fx:id="stat1loutre" mnemonicParsing="false" onAction="#toStatLoutre1" text="stat1" />
                            </items>

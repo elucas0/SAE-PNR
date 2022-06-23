@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login_controller">
+<BorderPane fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login_controller">
    <left>
       <Pane fx:id="gauche" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -21,7 +21,7 @@
          </BorderPane.margin></Pane>
    </left>
    <center>
-      <GridPane fx:id="centre" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="205.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+      <GridPane fx:id="centre" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="206.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="100.0" />
         </columnConstraints>
@@ -32,8 +32,8 @@
             <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="id" prefHeight="25.0" prefWidth="198.0" promptText="identifiant" GridPane.rowIndex="1" />
-            <Pane prefHeight="121.0" prefWidth="190.0">
+            <TextField fx:id="id" prefHeight="25.0" prefWidth="198.0" promptText="identifiant" stylesheets="@css/style.css" GridPane.rowIndex="1" />
+            <Pane prefHeight="104.0" prefWidth="206.0">
                <children>
                   <ImageView fitHeight="131.0" fitWidth="146.0" layoutX="40.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,10 +41,10 @@
                      </image>
                   </ImageView>
                </children></Pane>
-            <PasswordField fx:id="mdp" onKeyPressed="#keyConnect" promptText="mot de passe" GridPane.rowIndex="2" />
-            <Button fx:id="bouton_connexion" contentDisplay="CENTER" mnemonicParsing="false" onAction="#connect" stylesheets="@css/style.css" text=" " GridPane.rowIndex="3">
+            <PasswordField fx:id="mdp" onKeyPressed="#keyConnect" promptText="mot de passe" stylesheets="@css/style.css" GridPane.rowIndex="2" />
+            <Button fx:id="bouton_connexion" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#connect" prefHeight="50.0" stylesheets="@css/style.css" text=" " textAlignment="CENTER" GridPane.rowIndex="3">
                <graphic>
-                  <FontIcon iconLiteral="far-arrow-alt-circle-right" selectionEnd="0" wrappingWidth="14.000008344650269" />
+                  <FontIcon iconLiteral="far-arrow-alt-circle-right" selectionEnd="0" textAlignment="CENTER" wrappingWidth="14.000008344650269" />
                </graphic></Button>
          </children>
          <opaqueInsets>

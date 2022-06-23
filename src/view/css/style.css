@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Metropolis';
+  src: url('Metropolis-Medium.otf');
+}
+
 fx:frame{
 	
 	width : 100%;
@@ -7,7 +12,7 @@ fx:frame{
   -fx-background-radius: 10;
   -fx-background-insets: 1;
   -fx-alignment: center ;
-
+  -fx-font-family: "Metropolis";
 
 }
 .button {
@@ -15,24 +20,37 @@ fx:frame{
   -fx-background-insets: 1;
   -fx-border-width:6;
   -fx-alignment: center ;
-
-
+  -fx-font-size: 20;
+  -fx-font-family: "Metropolis";
 }
+
 .menu-button{
   -fx-background-radius: 7;
   -fx-background-insets: 1;
   -fx-border-width:6;
+  -fx-font-size: 20;
+  -fx-alignment: center ;
+  -fx-font-family: "Metropolis";
+
+}
+
+}.label{
+  -fx-font-family: "Metropolis";
+  -fx-font-size: 20;
   -fx-alignment: center ;
 
 }
-.menu-item: hover{
 
-}
 .combo-box{
   -fx-background-radius: 7;
   -fx-background-insets: 1;
+  -fx-font-size: 20;
+  -fx-font-family: "Metropolis";
 }
+
 .text-field {
   -fx-background-radius: 70;
-  -fx-background-insets: 1;	
+  -fx-background-insets: 1;
+  -fx-font-size: 15;
+  -fx-font-family: "Metropolis";
 }
