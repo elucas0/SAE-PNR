@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Metropolis';
-  src: url('Metropolis-Medium.otf');
+  font-family: 'Metropolis-Regular';
+  src: url('Metropolis-Regular.otf');
 }
 
 fx:frame{
@@ -12,7 +12,7 @@ fx:frame{
   -fx-background-radius: 10;
   -fx-background-insets: 1;
   -fx-alignment: center ;
-  -fx-font-family: "Metropolis";
+  -fx-font-family: "Metropolis-Regular";
 
 }
 .button {
@@ -21,7 +21,13 @@ fx:frame{
   -fx-border-width:6;
   -fx-alignment: center ;
   -fx-font-size: 20;
-  -fx-font-family: "Metropolis";
+  -fx-font-family: "Metropolis-Regular";
+}
+
+.button:hover {
+  -fx-background-radius: 7;
+  -fx-border-color: #ffffff;
+  -fx-border-width:6;
 }
 
 .menu-button{
@@ -30,12 +36,17 @@ fx:frame{
   -fx-border-width:6;
   -fx-font-size: 20;
   -fx-alignment: center ;
-  -fx-font-family: "Metropolis";
+  -fx-font-family: "Metropolis-Regular";
 
 }
 
+.menu-button:hover {
+  -fx-background-radius: 7;
+  -fx-border-color: #ffffff;
+  -fx-border-width:6;
+
 }.label{
-  -fx-font-family: "Metropolis";
+  -fx-font-family: "Metropolis-Regular";
   -fx-font-size: 20;
   -fx-alignment: center ;
 
@@ -45,7 +56,7 @@ fx:frame{
   -fx-background-radius: 7;
   -fx-background-insets: 1;
   -fx-font-size: 20;
-  -fx-font-family: "Metropolis";
+  -fx-font-family: "Metropolis-Regular";
 }
 
 .text-field {

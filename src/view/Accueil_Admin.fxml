@@ -60,7 +60,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #A4A4A4;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A4A4A4;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="20.0" />
                      </BorderPane.margin>
@@ -72,7 +72,7 @@
             </BorderPane>
          </left>
          <center>
-            <MenuButton fx:id="prospec" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A4A4A4;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
+            <MenuButton fx:id="prospec" mnemonicParsing="false" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #A4A4A4;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
               <items>
                 <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#formulaire_obs_batracien" text="Batracien ">
                      <graphic>
@@ -127,7 +127,7 @@
             </MenuButton>
          </center>
          <right>
-            <Button fx:id="gestion" mnemonicParsing="false" onAction="#toManage" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #A4A4A4;" text="Gestion des comptes" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="gestion" mnemonicParsing="false" onAction="#toManage" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A4A4A4;" text="Gestion des comptes" textFill="WHITE" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
