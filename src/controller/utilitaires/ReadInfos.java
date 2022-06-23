@@ -152,9 +152,8 @@ public class ReadInfos {
 
 
     /**
-     * Get the maximum number of rows of the table
-     * @param table the table
-     * @return the maximum number of rows of the table
+     * Get the maximum id of the table registration
+     * @return the maximum id of the table registration
      */
     public static int getMaxIdRegistration(){
 

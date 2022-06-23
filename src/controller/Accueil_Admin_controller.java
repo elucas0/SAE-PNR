@@ -4,7 +4,6 @@ import controller.utilitaires.ReadInfos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**

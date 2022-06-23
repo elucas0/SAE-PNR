@@ -317,6 +317,10 @@ public class Affichage_controller_loutre {
         change.go_to("../../view/affichage/Affichage_chouette.fxml");       
     }
 
+    /**
+     * When a button linked to "affichage_nid_gci" is pressed
+     * Switch to the page affichage_nid_gci.fxml
+     */
     public void affichage_nid_gci(){
 
         Stage actuel = (Stage)retour.getScene().getWindow();

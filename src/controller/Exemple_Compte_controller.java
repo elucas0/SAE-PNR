@@ -46,12 +46,21 @@ public class Exemple_Compte_controller {
     private Button history;
 
     @FXML
+    /**
+     * The label tha contain the user's full_name and id
+     */
     private Label userName;
 
     @FXML
+    /**
+     * A label that contain some descriptions about the account
+     */
     private Label description;
 
     @FXML
+    /**
+     * Label that displays the privileges level of the account
+     */
     private Label droit;
 
 
