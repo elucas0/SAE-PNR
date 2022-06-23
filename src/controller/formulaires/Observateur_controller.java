@@ -108,11 +108,16 @@ public class Observateur_controller {
                 testRegistration.setInt(4, admin);
                 ResultSet resultatRegistration = testRegistration.executeQuery();
 
+                PreparedStatement id_Registration = c.prepareStatement("SELECT MAX(id) FROM registration;");
+                ResultSet requete2 = id_Registration.executeQuery();
+                requete2.next();
+                int idR = requete2.getInt("Max(id)");
+
                 if(resultatRegistration.next()){
                     showAlert(Alert.AlertType.ERROR, owner, "Registration", "Compte déjà créée!");
                 }
                 else{
-                    String querry1 = "INSERT INTO registration VALUES(" + idCompte.getText() + ",'" + prenom.getText() + "','" + mdp.getText() + "','" + admin + "');";
+                    String querry1 = "INSERT INTO registration VALUES(" + idR + ",'" + prenom.getText() + "','" + mdp.getText() + "','" + admin + "');";
                     ObservateurController.executeUpdate(querry1);
                     showAlert(Alert.AlertType.CONFIRMATION, owner, "Observateur", "rentré!");
                 }
