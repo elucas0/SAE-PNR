@@ -96,6 +96,9 @@ public class Obs_Hippocampe_controller {
     private TextField lambertY;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
     
 

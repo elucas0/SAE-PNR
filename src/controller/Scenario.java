@@ -1,12 +1,18 @@
 package controller;
-import java.util.ArrayList;
 
 import controller.utilitaires.ReadInfos;
-import modele.donnee.*;
 
+
+/**
+ * Some tests about the package utilitaires
+ */
 public class Scenario {
 
     
+    /**
+     * Main method of the class
+     * @param args
+     */
     public static void main(String[] args){
 
         //renvoie true avec un compte administrateur, sinon false

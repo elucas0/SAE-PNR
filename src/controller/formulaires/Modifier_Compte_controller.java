@@ -3,7 +3,6 @@ package controller.formulaires;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import controller.Consulte_Compte_controller;
@@ -21,18 +20,33 @@ public class Modifier_Compte_controller{
 
 
     @FXML
+    /**
+     * The TextField with the new name
+     */
     private TextField nom;
 
     @FXML
+    /**
+     * The TextField with the new password
+     */
     private TextField mdp;
 
     @FXML
+    /**
+     * A TextFiel where you confirm the new password
+     */
     private TextField confirmerMdp;
 
     @FXML
+    /**
+     * The button that contain the user's id and full_name
+     */
     private Button user;
 
     @FXML
+    /**
+     * Initialize elements when the fxml file is displayed
+     */
     private void initialize(){
 
         user.setText(ReadInfos.getStatus());
@@ -77,6 +91,9 @@ public class Modifier_Compte_controller{
                 e.printStackTrace();
             }
         }
+        Stage actuel = (Stage)mdp.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/exempleCompte.fxml");
     }
 
 
@@ -96,7 +113,10 @@ public class Modifier_Compte_controller{
         alert.show();
     }
 
-
+    /**
+     * Event to do when the button retour is pressed.    
+     * Switch to the page Accueil_Utilisateur.fxml
+    */
     public void retour(){
 
         Stage actuel = (Stage)mdp.getScene().getWindow();

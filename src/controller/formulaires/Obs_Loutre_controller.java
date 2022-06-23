@@ -78,6 +78,9 @@ public class Obs_Loutre_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
     
 
