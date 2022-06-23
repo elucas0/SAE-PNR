@@ -22,4 +22,21 @@ public class ExportData {
 
         writer.close();
     }
+
+    public static void exportAll() throws SQLException, IOException, ClassNotFoundException {
+        writeCSV("aobserve");
+        writeCSV("lieu");
+        writeCSV("lieu_vegetation");
+        writeCSV("nid_gci");
+        writeCSV("chouette");
+        writeCSV("obs_batracien");
+        writeCSV("obs_chouette");
+        writeCSV("obs_gci");
+        writeCSV("obs_hippocampe");
+        writeCSV("obs_loutre");
+        writeCSV("observateur");
+        writeCSV("observation");
+        writeCSV("vegetation");
+        writeCSV("zonehumide");
+    }
 }

@@ -66,10 +66,10 @@ public class Exemple_Compte_controller {
             Statement s = c.createStatement();
 
             String query = "DELETE FROM registration WHERE id = " + Consulte_Compte_controller.getId() + ";";
-            s.executeQuery(query);
+            s.executeUpdate(query);
 
             String query2 = "DELETE FROM Observateur WHERE idObservateur = " + Consulte_Compte_controller.getId() + ";";
-            s.executeQuery(query2);
+            s.executeUpdate(query2);
 
             s.close();
             c.close();

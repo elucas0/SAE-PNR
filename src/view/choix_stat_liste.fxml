@@ -90,6 +90,11 @@
                   <FontIcon iconColor="WHITE" iconLiteral="fas-file-upload" iconSize="20" />
                </graphic>
                <items>
+                  <MenuItem fx:id="tout" mnemonicParsing="false" onAction="#exportation_tout" text="Toutes les tables">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-th" />
+                     </graphic>
+                  </MenuItem>
                   <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#exportation_obs_batracien" text="Batracien ">
                      <graphic>
                         <FontIcon iconLiteral="fas-frog" />
@@ -105,7 +110,12 @@
                         <FontIcon iconLiteral="fas-feather-alt" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#formulaire_obs_hippocampe" text="Hippocampe ">
+                  <MenuItem fx:id="nid_gci" mnemonicParsing="false" onAction="#exportation_nid_gci" text="Nid GCI">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-egg" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#exportation_obs_hippocampe" text="Hippocampe ">
                      <graphic>
                         <FontIcon iconLiteral="fas-chess-knight" />
                      </graphic>
@@ -120,7 +130,7 @@
                         <FontIcon iconLiteral="fas-water" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#exportation_vegetation" text="Vegetation">
+                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#exportation_vegetation" text="Vegetation et lieu vegetation">
                      <graphic>
                         <FontIcon iconLiteral="fas-tree" />
                      </graphic>
@@ -130,7 +140,7 @@
                         <FontIcon iconLiteral="fas-map-marked-alt" />
                      </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#exportation_a_observe" text="Observateur">
+                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#exportation_a_observe" text="Observateur et observation">
                      <graphic>
                         <FontIcon iconLiteral="fas-search" />
                      </graphic>
