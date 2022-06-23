@@ -8,8 +8,10 @@ import java.sql.SQLException;
 
 import controller.Consulte_Compte_controller;
 import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -27,7 +29,13 @@ public class Modifier_Compte_controller{
     @FXML
     private TextField confirmerMdp;
 
+    @FXML
+    private Button user;
+
+    @FXML
     private void initialize(){
+
+        user.setText(ReadInfos.getStatus());
 
 
     }
@@ -59,20 +67,11 @@ public class Modifier_Compte_controller{
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-
-                PreparedStatement modifierCompte = c.prepareStatement("SELECT * FROM aobserve WHERE lobservateur = ? AND lobservation = ?");
-
-                ResultSet resultatAObserve = modifierCompte.executeQuery();
-
-                if(resultatAObserve.next()){
-                    showAlert(Alert.AlertType.ERROR, owner, "Observation", "Observateur déjà rentré pour cette observation!");
-                }
-                else{
-                    String s = "UPDATE registration SET nom = " + nom.getText() + ", password = " + mdp.getText() +" WHERE id = " + Consulte_Compte_controller.getId() + ";";
-                    PreparedStatement querry1 = c.prepareStatement(s);
-                    querry1.executeUpdate();
-                    showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
-                }
+                String s = "UPDATE registration SET full_name = '" + nom.getText() + "', password = '" + mdp.getText() +"' WHERE id = " + Consulte_Compte_controller.getId() + ";";
+                PreparedStatement querry1 = c.prepareStatement(s);
+                querry1.executeUpdate();
+                showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
+            
                 
             } catch (Exception e) {
                 e.printStackTrace();
