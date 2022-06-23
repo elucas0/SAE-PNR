@@ -1,6 +1,7 @@
 package controller.affichage;
 import controller.Consulte_Compte_controller;
 import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.sql.*;
  * @version 1.0
  */
 public class Affichage_Historique_controller {
-
+    int limite = 1;
     /**
      * The page's home button
      */
@@ -55,6 +56,9 @@ public class Affichage_Historique_controller {
     @FXML
     private void initialize() 
     {
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("observateur"));
+        //limite.setItems(liste)
+        this.viewAobserve(25);
     }
     /**
      * Fill the table with the data from the database
@@ -62,13 +66,14 @@ public class Affichage_Historique_controller {
      */
     public void viewAobserve(int limite){
 
-        tabePricipale.getItems().clear();
+        //tabePricipale.getItems().clear();
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT * FROM aobserve WHERE lobservateur = " + Consulte_Compte_controller.getId() + " LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             while(rs.next()){
+                System.out.println("passsssssssssssssssssssssssssssssssssssse bien");
                 data.add(new Aobserve(rs.getInt(1), rs.getInt(2)));
             }
             c.close();
@@ -99,5 +104,15 @@ public class Affichage_Historique_controller {
         Stage actuel = (Stage)home.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/Accueil_Admin.fxml");
+    }
+
+    @FXML
+    /**
+     * Define the limit of rows to display in the table
+     */
+    private void changeLimit(){
+
+
+        this.viewAobserve(this.limite);
     }
 }

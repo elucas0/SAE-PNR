@@ -248,10 +248,8 @@ public class Consulte_Compte_controller {
 
             }else{
                 if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"))){
-                    System.out.println(Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"));
                     FileWriter f = new FileWriter("voir.txt");
                     BufferedWriter b = new BufferedWriter(f);
-                    System.out.println("passe");
     
                     PrintWriter out = new PrintWriter(b);
                     out.println(id.getText());
@@ -284,7 +282,10 @@ public class Consulte_Compte_controller {
 
             FileReader file = new FileReader("voir.txt");
             BufferedReader in = new BufferedReader(file);
+            System.out.println("paseeeeeeeeeeeeeeeeeeeeeee1");
             ret = Integer.parseInt(in.readLine());
+            System.out.println("paseeeeeeeeeee2");
+            in.close();
 
 
         } catch (FileNotFoundException e) {
