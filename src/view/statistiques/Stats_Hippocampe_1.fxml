@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Stats_Hippocampes_controller1">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.statistiques.Stats_Hippocampes_controller1">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -65,19 +65,19 @@
    <left>
       <BorderPane BorderPane.alignment="CENTER">
          <top>
-            <PieChart fx:id="pieChart0" legendSide="LEFT" prefHeight="300.0" prefWidth="500.0" title="Entelurus aequoreus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart0" legendSide="LEFT" prefHeight="400.0" prefWidth="500.0" title="Entelurus aequoreus" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
-            <PieChart fx:id="pieChart1" legendSide="LEFT" prefHeight="300.0" prefWidth="500.0" title="Hippocampus guttulatus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart1" legendSide="LEFT" prefHeight="400.0" prefWidth="500.0" title="Hippocampus guttulatus" BorderPane.alignment="CENTER" />
          </bottom></BorderPane>
    </left>
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <top>
-            <PieChart fx:id="pieChart2" legendSide="RIGHT" prefHeight="300.0" prefWidth="500.0" title="Hippocampus hippocampus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart2" legendSide="RIGHT" prefHeight="400.0" prefWidth="500.0" title="Hippocampus hippocampus" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
-            <PieChart fx:id="pieChart3" legendSide="RIGHT" prefHeight="300.0" prefWidth="500.0" title="Syngnathus acus" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart3" legendSide="RIGHT" prefHeight="400.0" prefWidth="500.0" title="Syngnathus acus" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
    </center>

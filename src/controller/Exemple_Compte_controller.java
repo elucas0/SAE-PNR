@@ -101,6 +101,6 @@ public class Exemple_Compte_controller {
     public void historique(){
         Stage actuel = (Stage)back.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/affichages/Affichage_historique.fxml");
+        change.go_to("../../view/affichage/Affichage_historique.fxml");
     }
 }

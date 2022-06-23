@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_controller_batracien">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_controller_batracien">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -107,7 +107,25 @@
               </rowConstraints>
                <children>
                   <MenuButton fx:id="filtre_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Ajouter un filtre" GridPane.columnIndex="1">
-                    <items>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-filter" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <items>
+                        <MenuItem fx:id="observateur1" mnemonicParsing="false" onAction="#affichage_observateur" text="Observateur">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-search" />
+                           </graphic>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#affichage_lieu" text="Lieu">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-map-marked-alt" />
+                           </graphic>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#affichage_batracien" text="Batracien ">
                            <graphic>
                               <FontIcon iconLiteral="fas-frog" />
@@ -126,7 +144,13 @@
                            </graphic>
                         </MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#affichage_hippocampe" text="Hippocampe ">
+                        <MenuItem fx:id="nidgci" mnemonicParsing="false" onAction="#affichage_nid_gci" text="Nid GCI">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-feather-alt" />
+                           </graphic>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="hippocampe" mnemonicParsing="false" onAction="#affichage_hippocampe" text="Hippocampe ">
                            <graphic>
                               <FontIcon iconLiteral="fas-chess-knight" />
                            </graphic>
@@ -137,13 +161,7 @@
                               <FontIcon iconLiteral="fab-earlybirds" />
                            </graphic>
                         </MenuItem>
-                    </items>
-                     <graphic>
-                        <FontIcon iconLiteral="fas-filter" />
-                     </graphic>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" top="10.0" />
-                     </GridPane.margin>
+                     </items>
                   </MenuButton>
                   <ComboBox fx:id="limite" onAction="#changeLimit" prefWidth="150.0" GridPane.columnIndex="4" />
                   <Label text="Nombre :" textFill="WHITE" GridPane.columnIndex="3" />

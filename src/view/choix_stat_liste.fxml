@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -82,6 +84,63 @@
                </graphic>
             </Button>
          </right>
+         <center>
+            <MenuButton alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" stylesheets="@css/style.css" text="Exportation" textFill="WHITE" BorderPane.alignment="CENTER">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fas-file-upload" iconSize="20" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#exportation_obs_batracien" text="Batracien ">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-frog" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="loutre" mnemonicParsing="false" onAction="#exportation_obs_loutre" text="Loutre">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-otter" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="gci" mnemonicParsing="false" onAction="#exportation_obs_gci" text="GCI">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-feather-alt" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="Hippocampe" mnemonicParsing="false" onAction="#formulaire_obs_hippocampe" text="Hippocampe ">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-chess-knight" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="chouette" mnemonicParsing="false" onAction="#exportation_obs_chouette" text="Chouette">
+                     <graphic>
+                        <FontIcon iconLiteral="fab-earlybirds" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="zonehumide" mnemonicParsing="false" onAction="#exportation_zone_humide" text="Zone Humide">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-water" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="vegetation" mnemonicParsing="false" onAction="#exportation_vegetation" text="Vegetation">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-tree" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="lieu" mnemonicParsing="false" onAction="#exportation_lieu" text="Lieu">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-map-marked-alt" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#exportation_a_observe" text="Observateur">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-search" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </MenuButton>
+         </center>
       </BorderPane>
    </center>
 </BorderPane>

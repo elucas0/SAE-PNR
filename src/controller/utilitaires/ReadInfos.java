@@ -10,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/**
+ * Class that reads the information from a file
+ */
 public class ReadInfos {
 
 
@@ -120,7 +122,11 @@ public class ReadInfos {
         return ret;
     }
 
-
+    /**
+     * Get the maximum number of rows of the table
+     * @param table the table
+     * @return the maximum number of rows of the table
+     */
     public static int getMax(String table){
 
         int ret = 0;
@@ -144,8 +150,4 @@ public class ReadInfos {
         return ret;
     }
 
-
-
-
- 
 }

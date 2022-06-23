@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_controller_hippocampe">
+<BorderPane style="-fx-min-height: 100%; -fx-min-width: 100%;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.affichage.Affichage_controller_hippocampe">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -79,16 +79,16 @@
                </BorderPane.margin>
                <columns>
                   <TableColumn fx:id="obsh" prefWidth="75.0" text="obsH" />
+                  <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                  <TableColumn fx:id="heure" prefWidth="75.0" text="Heure" />
+                  <TableColumn prefWidth="75.0" text="coordX" fx:id="x" />
+                  <TableColumn fx:id="y" prefWidth="75.0" text="coordY" />
                   <TableColumn fx:id="espece" prefWidth="75.0" text="espece " />
                   <TableColumn fx:id="sexe" prefWidth="75.0" text="sexe " />
                   <TableColumn fx:id="temperatureeau" prefWidth="75.0" text="temperatureEau " />
                   <TableColumn fx:id="typepeche" prefWidth="75.0" text="typePeche " />
                   <TableColumn fx:id="taille" prefWidth="75.0" text="taille" />
                   <TableColumn fx:id="gestant" prefWidth="75.0" text="gestant " />
-                  <TableColumn prefWidth="75.0" text="coordX" fx:id="x" />
-                  <TableColumn fx:id="y" prefWidth="75.0" text="coordY" />
-                  <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="heure" prefWidth="75.0" text="Heure" />
                </columns>
             </TableView>
          </center>

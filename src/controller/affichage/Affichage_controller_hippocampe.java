@@ -1,8 +1,10 @@
 package controller.affichage;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Time;
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
@@ -15,12 +17,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Lieu;
+import modele.donnee.Hippocampe;
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_lieu {
+public class Affichage_controller_hippocampe{
     
+    @FXML
+    /**
+     * Combo box to select the number of rows to display
+     */
+    private ComboBox<Integer> limite;
 
     @FXML
     /**
@@ -28,78 +35,141 @@ public class Affichage_controller_lieu {
      */
     private Button retour;
 
-    @FXML
     /**
-     * ComboBox for the number of rows to display
+     * The table view in the fxml file
      */
-    private ComboBox<Integer> limite;
-
     @FXML 
-    /**
-     * The table in the fxml file
-     */
-    private TableView<Lieu> table;
+    private TableView<Hippocampe> table;
 
     @FXML
     /**
-     * The table column in the fxml file for x coordinate
+     * The table column in the fxml file for the id
      */
-    private TableColumn<Lieu,Double> coordx;
+    private TableColumn<Hippocampe,Integer> obsh ;
+
 
     @FXML
     /**
-     * The table column in the fxml file for y coordinate
+     * The table column in the fxml file for the name of type of fishing
      */
-    private TableColumn<Lieu,Double> coordy;
+    private TableColumn<Hippocampe,String> typepeche;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the genre
+     */
+    private TableColumn<Hippocampe,String> sexe;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the species
+     */
+    private TableColumn<Hippocampe,String> espece;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the date of the observation
+     */
+    private TableColumn<Hippocampe,Date> date;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
+    private TableColumn<Hippocampe,Time> heure;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the x coordinate
+     */
+    private TableColumn<Hippocampe,Double> x;
+
+    @FXML
+    /**
+     * The table column in the fxml file for temperature 
+     */
+    private TableColumn<Hippocampe,Integer> temperatureeau  ;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the y coordinate
+     */
+    private TableColumn<Hippocampe,Double> y;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the size
+     */
+    private TableColumn<Hippocampe,Double> taille;
+
+    @FXML
+    /**
+     * The table column in the fxml file for pregnant 0 or 1
+     */
+    private TableColumn<Hippocampe,Integer> gestant;
+    /**
+     * Observable list for the owl observations
+     */
+    public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
     
-    /**
-     * ObservableList for the places
-     */
-    public ObservableList<Lieu> data1 = FXCollections.observableArrayList();
 
+    @FXML
     /**
      * Fill the table with the data from the database
-     * @param limite the number of rows to display
      */
-    public void viewLieu(int limite){
-
-        table.getItems().clear();
+    public void viewObservation(int limite){
         try{
+            table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Lieu LIMIT " + limite;
+            String sql = "SELECT obsH,espece ,sexe ,temperatureEau ,typePeche,taille,gestant FROM Obs_Hippocampe LIMIT "+limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH LIMIT "+limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
-            while(rs.next()){
-                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-
-                if((rs.getDouble(1) != 0.0) && (rs.getDouble(2) != 0.0)){
-
-                    data1.add(new Lieu(rs.getDouble(1),rs.getDouble(2)));
-
-                }
+            PreparedStatement stat2 = c.prepareStatement(sql2);
+            ResultSet rs2 = stat2.executeQuery();
+            while(rs.next() && rs2.next()){
+                //int id, Date date, Time heure,  Double x,Double y, String lEspece,  String leSexe,int eau, String peche,double taille,int gestant
+                    data.add(new Hippocampe(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6), rs.getInt(7)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        coordx.setCellValueFactory(new PropertyValueFactory<Lieu,Double>("coordX"));
-        coordy.setCellValueFactory(new PropertyValueFactory<Lieu,Double>("coordY"));
-        table.setItems(data1);
+        obsh.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Hippocampe,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Hippocampe,Time>("heure"));
+        x.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordx"));
+        y.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordy"));
+        espece .setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("espece"));
+        sexe.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("sexe"));
+        temperatureeau.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("eau"));
+        typepeche.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("peche"));
+        taille.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("taille"));
+        gestant .setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("gestant"));
+        table.setItems(data);
     }
 
 
     @FXML
     /**
-     * Initialize elements when the fxml file is dilpayed
+     * Initialize elements when the fxml file is displayed
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, 250, 500, 750, 1000, ReadInfos.getMax("lieu"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("Obs_Chouette"));
         limite.setItems(liste);
-        viewLieu(25);
 
+        viewObservation(25);
     }
+    @FXML
+     /**
+     * Sets the value of the limite combobox
+     */
+    private void changeLimit(){
 
+
+        this.viewObservation(this.limite.getValue());
+    }
 
     /**
     * Event to do when the button retour is pressed.    
@@ -142,6 +212,14 @@ public class Affichage_controller_lieu {
 
     }
 
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
+    }
+
+    
     /**
      * When a button linked to "affichage_lieu" is pressed
      * Switch to the page affichage_lieu.fxml
@@ -199,13 +277,6 @@ public class Affichage_controller_lieu {
         change.go_to("../../view/affichage/Affichage_hippocampe.fxml");       
     }
 
-    public void affichage_nid_gci(){
-
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
-    }
-
     /**
      * When a button linked to "affichage_chouette" is pressed
      * Switch to the page affichage_chouette.fxml
@@ -217,15 +288,4 @@ public class Affichage_controller_lieu {
         change.go_to("../../view/affichage/Affichage_chouette.fxml");       
     }
 
-    @FXML
-    /**
-    * Sets the value of the limite combobox
-    */
-   private void changeLimit(){
-
-
-       this.viewLieu(this.limite.getValue());
-   }
-
-    
 }

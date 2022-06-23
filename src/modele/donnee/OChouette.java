@@ -1,5 +1,5 @@
 package modele.donnee;
-import java.util.ArrayList;
+
 import java.sql.Date;
 import java.sql.Time;
 
@@ -12,49 +12,8 @@ public class OChouette {
 	 * The observation's type
 	 */
 	private int id;
-	public int getId() {
-		return id;
-	}
 
 
-	public int getProtocole() {
-		return protocole;
-	}
-
-
-	public Date getDate() {
-		return date;
-	}
-
-
-	public Time getHeure() {
-		return heure;
-	}
-
-
-	public Double getCoordx() {
-		return coordx;
-	}
-
-
-	public Double getCoordy() {
-		return coordy;
-	}
-
-
-	public String getLenumIndividu() {
-		return lenumIndividu;
-	}
-
-
-	public String getSexe() {
-		return sexe;
-	}
-
-
-	public String getEspece() {
-		return espece;
-	}
 
 	private int protocole;
 	private Date date;
@@ -111,6 +70,51 @@ public class OChouette {
 	public EspeceObservee especeObs() {
 
 		return EspeceObservee.CHOUETTE;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public int getProtocole() {
+		return protocole;
+	}
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+	public Time getHeure() {
+		return heure;
+	}
+
+
+	public Double getCoordx() {
+		return coordx;
+	}
+
+
+	public Double getCoordy() {
+		return coordy;
+	}
+
+
+	public String getLenumIndividu() {
+		return lenumIndividu;
+	}
+
+
+	public String getSexe() {
+		return sexe;
+	}
+
+
+	public String getEspece() {
+		return espece;
 	}
 
 

@@ -1,15 +1,14 @@
 package controller.affichage;
 
-import java.net.URL;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.util.ResourceBundle;
+
 import java.sql.ResultSet;
 import java.sql.Time;
-import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
