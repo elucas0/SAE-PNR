@@ -103,4 +103,12 @@ public class Exemple_Compte_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/affichage/Affichage_historique.fxml");
     }
+
+
+    public void toModifier(){
+
+        Stage actuel = (Stage)back.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/formulaires/Formulaire_modifier_compte.fxml");
+    }
 }
