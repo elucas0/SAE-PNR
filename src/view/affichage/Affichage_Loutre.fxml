@@ -56,13 +56,16 @@
                      </graphic>
                   </Button>
                </center>
+               <right>
+                  <Label text="id:" BorderPane.alignment="CENTER" />
+               </right>
             </BorderPane>
          </center>
          <right>
             <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="delete" layoutX="23.0" layoutY="10.0" onAction="#delete_obs" onKeyPressed="#keyDelete" prefHeight="30.0" prefWidth="163.0" promptText="Supprimer une observation" />
-                  <Label layoutX="8.0" layoutY="17.0" text="id:" />
+                  <TextField fx:id="delete" layoutY="10.0" onAction="#delete_obs" onKeyPressed="#keyDelete" prefHeight="30.0" prefWidth="163.0" promptText="Supprimer une observation" />
+                  <Button fx:id="buttondelete" layoutX="163.0" layoutY="13.0" mnemonicParsing="false" onAction="#delete_obs" text="      " />
                </children></Pane>
          </right></BorderPane>
    </bottom>
