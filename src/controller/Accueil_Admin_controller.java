@@ -11,34 +11,38 @@ import javafx.stage.Stage;
  * @version 1.0
  */
 public class Accueil_Admin_controller {
+
+    @FXML
     /**
      * Button to disconnect from the application
      */
-    @FXML
     private Button deco;
 
+
+    @FXML
     /**
      * Button to acess all the observation in the database
      */
-    @FXML
     private Button vue;
 
+
+    @FXML
     /**
      * Button to create an observation 
      */
-    @FXML
     private MenuButton prospec;
 
+    @FXML
     /**
      * Button to manage the users account 
      */
-    @FXML
     private Button gestion;
 
+
+    @FXML
     /**
      * Button to acess information about of the user account
      */
-    @FXML
     private Button user;
     
     @FXML
@@ -50,11 +54,12 @@ public class Accueil_Admin_controller {
         user.setText(ReadInfos.getStatus());
     }
 
+
+    @FXML
     /**
     * When a button linked to "toLogin" is pressed   
     * Switch to the page page_login.fxml
     */
-    @FXML
     public void toLogin(){
 
         Stage actuel = (Stage)gestion.getScene().getWindow();

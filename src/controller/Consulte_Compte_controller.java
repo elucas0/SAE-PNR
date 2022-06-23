@@ -139,6 +139,9 @@ public class Consulte_Compte_controller {
     }
 
     @FXML 
+    /**
+     * Fill the table with the data from the database
+     */
     public void viewUser(){
         table2.getItems().clear();
 
