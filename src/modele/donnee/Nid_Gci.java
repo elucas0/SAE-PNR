@@ -23,12 +23,13 @@ public class Nid_Gci {
 	/**
 	 * Generate an ObsGCI
 	 * @param id id of the observation
-	 * @param date date of the observation
+	 * @param nomPlage name of the beach
 	 * @param heure time of the observation
-	 * @param lieu location of the observation
-	 * @param observateur list of the observers
-	 * @param nature nature of the observation
-	 * @param leNombre number of the observation
+	 * @param raisonArretObservation reason why the observation
+	 * @param nbEnvols number of flight
+	 * @param protection protection
+	 * @param bagueMale male ring
+	 * @param bagueMale female ring
 	 */
 	public Nid_Gci(int id, String nomPlage,  String raisonArretObservation, int nbEnvols, int protection,String bagueMale,String bagueFemelle) {
 
@@ -47,53 +48,83 @@ public class Nid_Gci {
 	}
 
 
-
+	/**
+	 * Get the date of observation
+	 * @return date
+	 */
 	public Date getDate() {
 		return date;
 	}
-
+	/**
+	 * Get the hour of observation
+	 * @return time
+	 */
 	public Time getHeure() {
 		return heure;
 	}
-
+	/**
+	 * Get the coordx of observation
+	 * @return coordx
+	 */
 	public double getCoordX() {
 		return coordX;
 	}
-
+	/**
+	 * Get the coordx of observation
+	 * @return coordy
+	 */
 	public double getCoordY() {
 		return coordY;
 	}
-
+	/**
+	 * Get the observateur of observation
+	 * @return coordx
+	 */
 	public int getObservateur() {
 		return observateur;
 	}
 
 
-
+	/**
+	 * Get the flights numbers
+	 * @return number
+	 */
 	public int getNbEnvols() {
 		return nbEnvols;
 	}
 
 
-
+	/**
+	 * Get the nest id
+	 * @return nest id
+	 */
 	public int getIdNid() {
 		return idNid;
 	}
 
 
-
+	/**
+	 * Get the protection
+	 * @return number of the protection
+	 */
 	public int getProtection() {
 		return protection;
 	}
 
 
-
+	/**
+	 * Get the beach name
+	 * @return beach name
+	 */
 	public String getNomPlage() {
 		return plage;
 	}
 
 
-
+	/**
+	 * Get the reason of the stop of observation
+	 * @return reason
+	 */
 	public String getRaisonArretObservation() {
 		return raisonArretObservation;
 	}

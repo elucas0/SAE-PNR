@@ -45,12 +45,14 @@ public class Batracien  {
 	 * @param id id of the observation
 	 * @param date date of the observation
 	 * @param heure time of the observation
-	 * @param lieu location of the observation
-	 * @param observateur list of the observers
-	 * @param resObs  contain the number of adults(resObs[0]), 
-	 * of amplexus (resObs[1]), of tadpoles (resObs[2])
-	 * and of egg-layings (resObs[3]).
-	 * @param lEspece the frogg' specie
+	 * @param x coord x
+	 * @param y coord y
+	 * @param observateurs list of the observers
+	 * @param espece the frogg' specie
+	 * @param adulte the frogg' specie
+	 * @param amplexus clasp
+	 * @param tetard number of tetard
+	 * @param ponte number of egg
 	 */
 	public Batracien(int id, Date date, Time heure, double coordX, double coordY,  int observateurs, String espece, int adulte, int amplexus,  int tetard, int ponte) {
 		this.id=id;
