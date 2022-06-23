@@ -190,6 +190,21 @@ public class Choix_Stats_controller {
         ExportData.writeCSV("vegetation");
     }
 
+
+    @FXML
+    /**
+     * Exports the data of the "vegetation" table to a csv file
+     * @param event the event
+     * @throws SQLException if there is a problem with the SQL
+     * @throws ClassNotFoundException if the class is not found
+     * @throws IOException if there is a problem with the IO
+     */
+    void exportation_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        ExportData.writeCSV("vegetation");
+    }
+
+
+
     @FXML
     /**
      * Exports the data of the "zone_humide" table to a csv file
@@ -261,10 +276,10 @@ public class Choix_Stats_controller {
         ChangerPage change = new ChangerPage(actuel);
         if(ReadInfos.estAdmin()){
 
-            change.go_to("../view/Accueil_Admin.fxml");
+            change.go_to("../../view/Accueil_Admin.fxml");
         }else{
 
-            change.go_to("../view/Accueil_Utilisateur.fxml");
+            change.go_to("../../view/Accueil_Utilisateur.fxml");
         }
     }
     
