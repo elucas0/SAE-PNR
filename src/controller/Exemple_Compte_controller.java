@@ -128,6 +128,6 @@ public class Exemple_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/formulaires/Formulaire_modifier_compte.fxml");        
+        change.go_to("../../formulaires/Formulaire_modifier_compte.fxml");        
     }
 }
