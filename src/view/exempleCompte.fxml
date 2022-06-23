@@ -65,7 +65,7 @@
                         <Label fx:id="userName" layoutX="105.0" layoutY="104.0" text="Utilisateur 1" textFill="WHITE" />
                         <Button fx:id="modifier" layoutX="201.0" layoutY="100.0" mnemonicParsing="false" onAction="#toModifier">
                            <graphic>
-                              <FontIcon iconLiteral="fas-pen-square" iconSize="30" />
+                              <FontIcon iconLiteral="fas-pen-square" iconSize="20" />
                            </graphic>
                         </Button>
                      </children></AnchorPane>

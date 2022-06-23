@@ -108,7 +108,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4E4E4E;" styleClass="border-pane" GridPane.columnIndex="1">
                            <center>
-                              <Label text="Ajout d'une zone humide" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <Label text="Modifier un compte" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="20.0" />
                                  </font></Label>
