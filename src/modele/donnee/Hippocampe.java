@@ -1,7 +1,6 @@
 package modele.donnee;
 import java.sql.Time;
 import java.sql.Date;
-import java.util.ArrayList;
 
 
 /**
@@ -195,9 +194,9 @@ public class Hippocampe{
 	 * Methode pour changer le type de peche
 	 * @param typePeche le nouveau type de peche
 	 */
-	public void setTypePeche(String typePeche) {
-		if(typePeche != null){
-			this.typePeche = typePeche;
+	public void setTypePeche(String typepeche) {
+		if(typepeche != null){
+			this.peche = typepeche;
 		}
 		else{
 			System.err.println("setTypePeche : paramètre erroné");

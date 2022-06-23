@@ -17,16 +17,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Loutre;
-
+import modele.donnee.Hippocampe;
 
 import java.sql.DriverManager;
 
-public class Affichage_controller_loutre {
+public class Affichage_controller_hippocampe{
     
     @FXML
     /**
-     * The combo box in the fxml file that allows to select the number of observations to display
+     * Combo box to select the number of rows to display
      */
     private ComboBox<Integer> limite;
 
@@ -36,68 +35,83 @@ public class Affichage_controller_loutre {
      */
     private Button retour;
 
-    @FXML 
     /**
-     * The table in the fxml file
+     * The table view in the fxml file
      */
-    private TableView<Loutre> table;
-
     @FXML 
+    private TableView<Hippocampe> table;
+
+    @FXML
     /**
      * The table column in the fxml file for the id
      */
-    private TableColumn<Loutre,Integer> id;
+    private TableColumn<Hippocampe,Integer> obsh ;
+
 
     @FXML
     /**
-     * The table column in the fxml file for the name of the observator
+     * The table column in the fxml file for the name of type of fishing
      */
-    private TableColumn<Loutre,String> nom;
+    private TableColumn<Hippocampe,String> typepeche;
 
-    @FXML 
-    /**
-     * The table column in the fxml file for the name of the city
-     */
-    private TableColumn<Loutre,String> commune;
-    
-    @FXML 
-    /**
-     * The table column in the fxml file for the name of the place
-     */
-    private TableColumn<Loutre,String> lieudit;
-    
     @FXML
     /**
-     * The table column in the fxml file for the indicator of the presence
+     * The table column in the fxml file for the genre
      */
-    private TableColumn<Loutre,String> indice;
-    
+    private TableColumn<Hippocampe,String> sexe;
+
     @FXML
     /**
-     * The table column in the fxml file for the date
+     * The table column in the fxml file for the species
      */
-    private TableColumn<Loutre,Date> date;
-    
+    private TableColumn<Hippocampe,String> espece;
+
     @FXML
     /**
-     * The table column in the fxml file for the time
+     * The table column in the fxml file for the date of the observation
      */
-     private TableColumn<Loutre,Time> heure;
-    
+    private TableColumn<Hippocampe,Date> date;
+
+    @FXML
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
+    private TableColumn<Hippocampe,Time> heure;
+
     @FXML
     /**
      * The table column in the fxml file for the x coordinate
      */
-    private TableColumn<Loutre,Double> x;
+    private TableColumn<Hippocampe,Double> x;
+
+    @FXML
+    /**
+     * The table column in the fxml file for temperature 
+     */
+    private TableColumn<Hippocampe,Integer> temperatureeau  ;
 
     @FXML
     /**
      * The table column in the fxml file for the y coordinate
      */
-    private TableColumn<Loutre,Double> y;
+    private TableColumn<Hippocampe,Double> y;
 
-    public ObservableList<Loutre> data = FXCollections.observableArrayList();
+    @FXML
+    /**
+     * The table column in the fxml file for the size
+     */
+    private TableColumn<Hippocampe,Double> taille;
 
+    @FXML
+    /**
+     * The table column in the fxml file for pregnant 0 or 1
+     */
+    private TableColumn<Hippocampe,Integer> gestant;
+    /**
+     * Observable list for the owl observations
+     */
+    public ObservableList<Hippocampe> data = FXCollections.observableArrayList();
+    
 
     @FXML
     /**
@@ -107,35 +121,38 @@ public class Affichage_controller_loutre {
         try{
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Obs_Loutre LIMIT "+limite;
-            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Loutre,Observation WHERE idObs=ObsL LIMIT "+limite;
+            String sql = "SELECT obsH,espece ,sexe ,temperatureEau ,typePeche,taille,gestant FROM Obs_Hippocampe LIMIT "+limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH LIMIT "+limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             PreparedStatement stat2 = c.prepareStatement(sql2);
             ResultSet rs2 = stat2.executeQuery();
             while(rs.next() && rs2.next()){
-                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-                    data.add(new Loutre(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getString(4)));
+                //int id, Date date, Time heure,  Double x,Double y, String lEspece,  String leSexe,int eau, String peche,double taille,int gestant
+                    data.add(new Hippocampe(rs.getInt(1), rs2.getDate(1), rs2.getTime(2),rs2.getDouble(3), rs2.getDouble(4), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getDouble(6), rs.getInt(7)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Loutre,Integer>("id"));
-        date.setCellValueFactory(new PropertyValueFactory<Loutre,Date>("date"));
-        heure.setCellValueFactory(new PropertyValueFactory<Loutre,Time>("heure"));
-        x.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordx"));
-        y.setCellValueFactory(new PropertyValueFactory<Loutre,Double>("coordy"));
-        indice.setCellValueFactory(new PropertyValueFactory<Loutre,String>("indice"));
-        lieudit.setCellValueFactory(new PropertyValueFactory<Loutre,String>("lieudit"));
-        commune.setCellValueFactory(new PropertyValueFactory<Loutre,String>("commune"));
+        obsh.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<Hippocampe,Date>("date"));
+        heure.setCellValueFactory(new PropertyValueFactory<Hippocampe,Time>("heure"));
+        x.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordx"));
+        y.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("coordy"));
+        espece .setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("espece"));
+        sexe.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("sexe"));
+        temperatureeau.setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("eau"));
+        typepeche.setCellValueFactory(new PropertyValueFactory<Hippocampe,String>("peche"));
+        taille.setCellValueFactory(new PropertyValueFactory<Hippocampe,Double>("taille"));
+        gestant .setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("gestant"));
         table.setItems(data);
     }
 
 
     @FXML
     /**
-     * Initialize elements when the fxml file is dilpayed
+     * Initialize elements when the fxml file is displayed
      */
     private void initialize()  {
 
@@ -143,7 +160,8 @@ public class Affichage_controller_loutre {
         limite.setItems(liste);
 
         viewObservation(25);
-    }@FXML
+    }
+    @FXML
      /**
      * Sets the value of the limite combobox
      */
@@ -152,7 +170,6 @@ public class Affichage_controller_loutre {
 
         this.viewObservation(this.limite.getValue());
     }
-
 
     /**
     * Event to do when the button retour is pressed.    
@@ -195,6 +212,14 @@ public class Affichage_controller_loutre {
 
     }
 
+    public void affichage_nid_gci(){
+
+        Stage actuel = (Stage)retour.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
+    }
+
+    
     /**
      * When a button linked to "affichage_lieu" is pressed
      * Switch to the page affichage_lieu.fxml
@@ -262,13 +287,5 @@ public class Affichage_controller_loutre {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/affichage/Affichage_chouette.fxml");       
     }
-
-    public void affichage_nid_gci(){
-
-        Stage actuel = (Stage)retour.getScene().getWindow();
-        ChangerPage change = new ChangerPage(actuel);
-        change.go_to("../../view/affichage/Affichage_nid_gci.fxml"); 
-    }
-
 
 }

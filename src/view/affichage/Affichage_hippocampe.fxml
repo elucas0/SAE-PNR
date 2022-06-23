@@ -79,16 +79,16 @@
                </BorderPane.margin>
                <columns>
                   <TableColumn fx:id="obsh" prefWidth="75.0" text="obsH" />
+                  <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                  <TableColumn fx:id="heure" prefWidth="75.0" text="Heure" />
+                  <TableColumn prefWidth="75.0" text="coordX" fx:id="x" />
+                  <TableColumn fx:id="y" prefWidth="75.0" text="coordY" />
                   <TableColumn fx:id="espece" prefWidth="75.0" text="espece " />
                   <TableColumn fx:id="sexe" prefWidth="75.0" text="sexe " />
                   <TableColumn fx:id="temperatureeau" prefWidth="75.0" text="temperatureEau " />
                   <TableColumn fx:id="typepeche" prefWidth="75.0" text="typePeche " />
                   <TableColumn fx:id="taille" prefWidth="75.0" text="taille" />
                   <TableColumn fx:id="gestant" prefWidth="75.0" text="gestant " />
-                  <TableColumn prefWidth="75.0" text="coordX" fx:id="x" />
-                  <TableColumn fx:id="y" prefWidth="75.0" text="coordY" />
-                  <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="heure" prefWidth="75.0" text="Heure" />
                </columns>
             </TableView>
          </center>

@@ -17,9 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Chouette;
-import modele.donnee.Hippocampe;
-import modele.donnee.Loutre;
+
 import modele.donnee.OChouette;
 
 import java.sql.DriverManager;
@@ -119,7 +117,7 @@ public class Affichage_controller_Chouette {
             table.getItems().clear();
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT numObs,protocole,typeObs,leNumIndividu,espece,sexe FROM Obs_Chouette,Chouette LIMIT "+limite;
-            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Obs_Hippocampe,Observation WHERE idObs=ObsH LIMIT "+limite;
+            String sql2 = "SELECT dateObs,heureObs,lieu_lambert_X, lieu_Lambert_Y FROM Observation,Obs_Chouette WHERE idObs=numObs LIMIT "+limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             PreparedStatement stat2 = c.prepareStatement(sql2);
