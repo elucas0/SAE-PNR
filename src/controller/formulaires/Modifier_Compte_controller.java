@@ -80,7 +80,7 @@ public class Modifier_Compte_controller{
     }
 
 
-        /**
+    /**
      * Method who create the message and show it in the screen
      * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
      * @param owner Window where the message is shown

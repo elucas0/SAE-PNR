@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-81
-Posselt
-=======
 0
-test
->>>>>>> 2adb529f61e421f846674dd6acd3125ac8a34ff8
+admin

@@ -35,6 +35,12 @@ public class Exemple_Compte_controller {
 
     @FXML
     /**
+     * The modifier button in the fxml file
+     */
+    private Button modifier;
+
+    @FXML
+    /**
      * The button to display the history of the account
      */
     private Button history;
@@ -54,10 +60,22 @@ public class Exemple_Compte_controller {
      * Initialize elements when the fxml file is displayed
      */
     private void initialize(){
-        userName.setText(ReadInfos.getStatus());
+        userName.setText("Compte numéro : " + Integer.toString(Consulte_Compte_controller.getId()));
        
         description.setText("");
-        if (ReadInfos.estAdmin()){
+        int admin = -1;
+        try{
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT administration FROM registration WHERE id = " + Consulte_Compte_controller.getId();
+            PreparedStatement stat = c.prepareStatement(sql);
+            ResultSet rs = stat.executeQuery();
+            rs.next();
+            admin = rs.getInt("administration");
+            c.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if (admin == 1){
             droit.setText("Droits Administrateur");
         }
         else{
