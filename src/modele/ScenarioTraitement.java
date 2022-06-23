@@ -6,7 +6,16 @@ import java.util.ArrayList;
 import modele.donnee.*;
 import modele.traitement.*;
 
+
+/**
+ * Test the package traitement
+ */
 public class ScenarioTraitement {
+
+    /**
+     * Main method of the class
+     * @param args some arguments
+     */
     public static void main(String[] args) {
         
         Lieu lieu = new Lieu(48.862725, 2.287592);
