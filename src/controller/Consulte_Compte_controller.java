@@ -22,6 +22,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Scanner;
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
@@ -238,7 +239,6 @@ public class Consulte_Compte_controller {
 
                 System.err.println("writeId : the field id must not be empty");
             }else{
-
                 FileWriter f = new FileWriter("voir.txt");
                 BufferedWriter b = new BufferedWriter(f);
                 PrintWriter out = new PrintWriter(b);
@@ -253,6 +253,8 @@ public class Consulte_Compte_controller {
         }
         
     }
+
+
 
     /**
      * Get the user's id

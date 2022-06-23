@@ -55,13 +55,12 @@ public class Affichage_Historique_controller {
     @FXML
     private void initialize() 
     {
-
     }
     /**
      * Fill the table with the data from the database
      * @param limite the number of rows to display
      */
-    public void viewLieu(int limite){
+    public void viewAobserve(int limite){
 
         tabePricipale.getItems().clear();
         try{
@@ -101,6 +100,4 @@ public class Affichage_Historique_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/Accueil_Admin.fxml");
     }
-    
-    
 }

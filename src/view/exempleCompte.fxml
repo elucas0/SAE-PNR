@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,13 +16,6 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Exemple_Compte_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <center>
-            <FontIcon accessibleRole="PARENT" iconLiteral="far-user-circle" iconSize="75" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets right="75.0" />
-               </BorderPane.margin>
-            </FontIcon>
-         </center>
          <left>
             <ImageView fitHeight="114.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <BorderPane.margin>
@@ -37,7 +31,7 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <left>
-            <Button fx:id="back" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
+            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                </graphic>
@@ -68,11 +62,16 @@
                <children>
                   <Label layoutX="110.0" layoutY="9.0" text="Utilisateur 1" textFill="WHITE" />
                   <Label layoutX="40.0" layoutY="39.0" text="Compte ajoutée le 05/02/2022" textFill="WHITE" />
-                  <Button fx:id="modifier" layoutX="224.0" layoutY="14.0" mnemonicParsing="false" onAction="#toModifier">
-                     <graphic>
-                        <FontIcon iconLiteral="fas-pen-square" iconSize="30" />
-                     </graphic>
-                  </Button>
+                  <AnchorPane layoutY="-77.0" prefHeight="169.0" prefWidth="305.0">
+                     <children>
+                        <Button fx:id="pen" layoutX="243.0" layoutY="85.0" maxHeight="25.0" maxWidth="28.0" minHeight="25.0" minWidth="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="A" onAction="#toModifier">
+                           <padding>
+                              <Insets left="270.0" top="20.0" />
+                           </padding>
+                        </Button>
+                        <FontIcon iconLiteral="fas-pen-square" iconSize="30" layoutX="244.0" layoutY="108.0" />
+                     </children></AnchorPane>
+                  <FontIcon accessibleRole="PARENT" iconLiteral="far-user-circle" iconSize="75" x="110.0" y="-10.0" />
                </children>
             </Pane>
             <Pane maxHeight="143.0" maxWidth="300.0" minHeight="143.0" minWidth="300.0" prefHeight="143.0" prefWidth="300.0" style="-fx-background-color: #696969;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -97,7 +96,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" onAction="#historique" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#historique">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
                </graphic>
@@ -105,7 +104,7 @@
                   <Insets right="150.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#deleteUser">
                <GridPane.margin>
                   <Insets left="150.0" />
                </GridPane.margin>
