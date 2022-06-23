@@ -3,11 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -54,10 +56,21 @@
                      </graphic>
                   </Button>
                </center>
+               <right>
+                  <Label text="id:" BorderPane.alignment="CENTER" />
+               </right>
             </BorderPane>
          </center>
          <right>
-            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="delete" layoutY="10.0" onAction="#delete_obs" onKeyPressed="#keyDelete" prefHeight="30.0" prefWidth="163.0" promptText="Supprimer une observation" />
+                  <Button fx:id="buttondelete" layoutX="163.0" layoutY="13.0" mnemonicParsing="false" onAction="#delete_obs" style="-fx-background-color: #019367;">
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-check" />
+                     </graphic>
+                  </Button>
+               </children></Pane>
          </right></BorderPane>
    </bottom>
    <left>

@@ -2,6 +2,7 @@ package controller.affichage;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Time;
@@ -11,15 +12,17 @@ import controller.utilitaires.ReadInfos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import modele.donnee.Hippocampe;
-
-import java.sql.DriverManager;
+import javafx.scene.control.TextField;
 
 public class Affichage_controller_hippocampe{
     
@@ -107,6 +110,12 @@ public class Affichage_controller_hippocampe{
      * The table column in the fxml file for pregnant 0 or 1
      */
     private TableColumn<Hippocampe,Integer> gestant;
+
+    /**
+     * The textField
+     */
+    @FXML private TextField delete;
+
     /**
      * Observable list for the owl observations
      */
@@ -148,7 +157,56 @@ public class Affichage_controller_hippocampe{
         gestant .setCellValueFactory(new PropertyValueFactory<Hippocampe,Integer>("gestant"));
         table.setItems(data);
     }
+    /**
+     * If the correct key is typed
+     * @param e event
+     */
+    public void keyDelete(KeyEvent e){
 
+        if(e.getCode() == KeyCode.ENTER){
+            delete_obs();
+        }
+
+
+    }
+    /**
+     * Take text in textfield and delete the row with the id typed
+     */
+    @FXML
+    public void delete_obs(){
+        if (delete.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Erreur!",
+                "Entré un nombre");
+            
+        }
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            PreparedStatement stat = c.prepareStatement("DELETE FROM Obs_Hippocampe WHERE ObsH= ?");
+            stat.setString(1,delete.getText());
+            int row = stat.executeUpdate();
+            //ResultSet rs = stat.executeQuery();
+
+            c.close();
+            viewObservation(25);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner Window of the Alert
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
+    private static void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
+    }
 
     @FXML
     /**

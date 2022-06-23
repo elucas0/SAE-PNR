@@ -16,14 +16,22 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Alert;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import modele.donnee.OChouette;
 
 import java.sql.DriverManager;
 
 public class Affichage_controller_Chouette {
-    
+    /**
+     * The textField
+     */
+    @FXML private TextField delete;
+
+
     @FXML
     /**
      * Combo box to select the number of rows to display
@@ -141,6 +149,55 @@ public class Affichage_controller_Chouette {
         espece.setCellValueFactory(new PropertyValueFactory<OChouette,String>("espece"));
         protocole.setCellValueFactory(new PropertyValueFactory<OChouette,Integer>("Protocole"));
         table.setItems(data);
+    }
+    /**
+     * If the correct key is typed
+     * @param e event
+     */
+    public void keyDelete(KeyEvent e){
+
+        if(e.getCode() == KeyCode.ENTER){
+            delete_obs();
+        }
+
+
+    }
+    /**
+     * Take text in textfield and delete the row with the id typed
+     */
+    @FXML
+    public void delete_obs(){
+        if (delete.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Erreur!",
+                "Entré un nombre");
+            
+        }
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            PreparedStatement stat = c.prepareStatement("DELETE FROM Obs_Chouette WHERE numObs = ?");
+            stat.setString(1,delete.getText());
+            int row = stat.executeUpdate();
+            //ResultSet rs = stat.executeQuery();
+            c.close();
+            viewObservation(25);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner Window of the Alert
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
+    private static void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
     }
 
 

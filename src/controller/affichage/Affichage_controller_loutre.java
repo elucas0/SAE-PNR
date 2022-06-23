@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 
+import com.mysql.cj.xdevapi.Statement;
+
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
 import javafx.collections.FXCollections;
@@ -24,7 +26,6 @@ import modele.donnee.Loutre;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import java.sql.DriverManager;
-
 public class Affichage_controller_loutre {
     
     @FXML
@@ -98,6 +99,9 @@ public class Affichage_controller_loutre {
      * The table column in the fxml file for the y coordinate
      */
     private TableColumn<Loutre,Double> y;
+    /**
+     * The textField
+     */
     @FXML private TextField delete;
     public ObservableList<Loutre> data = FXCollections.observableArrayList();
 
@@ -146,6 +150,9 @@ public class Affichage_controller_loutre {
 
 
     }
+    /**
+     * Take text in textfield and delete the row with the id typed
+     */
     @FXML
     public void delete_obs(){
         if (delete.getText().isEmpty()) {
@@ -154,10 +161,13 @@ public class Affichage_controller_loutre {
             
         }
         try{
+            Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "DELETE FROM Obs_Loutre WHERE ObsL= "idL;
-            PreparedStatement stat = c.prepareStatement(sql);
+            PreparedStatement stat = c.prepareStatement("DELETE FROM Obs_Loutre WHERE ObsL= ?");
+            stat.setString(1,delete.getText());
+            int row = stat.executeUpdate();
             //ResultSet rs = stat.executeQuery();
+            System.out.println("ok");
             c.close();
             viewObservation(25);
         }catch (Exception e){
