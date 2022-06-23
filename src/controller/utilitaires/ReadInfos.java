@@ -150,4 +150,32 @@ public class ReadInfos {
         return ret;
     }
 
+
+    /**
+     * Get the maximum number of rows of the table
+     * @param table the table
+     * @return the maximum number of rows of the table
+     */
+    public static int getMaxIdRegistration(){
+
+        int ret = 0;
+
+        try {
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
+            String sql = "SELECT MAX(id) FROM registration";
+            PreparedStatement s = c.prepareStatement(sql);
+            ResultSet r = s.executeQuery();
+            r.next();
+            ret = r.getInt("MAX(id)");
+        
+        
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+
+
+        return ret;
+    }
 }

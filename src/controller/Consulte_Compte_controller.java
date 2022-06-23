@@ -186,6 +186,8 @@ public class Consulte_Compte_controller {
 
         this.viewAdmin();
         this.viewUser();
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML
@@ -228,10 +230,12 @@ public class Consulte_Compte_controller {
         change.go_to("../../view/formulaires/Formulaire_observateur.fxml");
     }
 
+
+
     public void voir(){
 
         if(!id.getText().isEmpty()){
-            if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"))){
+            if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMaxIdRegistration())){
                 this.writeId();
                 Stage actuel = (Stage)user.getScene().getWindow();
                 ChangerPage change = new ChangerPage(actuel);
@@ -252,7 +256,7 @@ public class Consulte_Compte_controller {
                 System.err.println("writeId : the field id must not be empty");
 
             }else{
-                if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMax("registration"))){
+                if((Integer.parseInt(id.getText()) >= 0) && (Integer.parseInt(id.getText()) <= ReadInfos.getMaxIdRegistration())){
                     FileWriter f = new FileWriter("voir.txt");
                     BufferedWriter b = new BufferedWriter(f);
     
@@ -299,4 +303,7 @@ public class Consulte_Compte_controller {
 
         return ret;
     }
+
+
+
 }
