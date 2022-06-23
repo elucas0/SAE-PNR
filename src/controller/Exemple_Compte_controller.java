@@ -31,7 +31,7 @@ public class Exemple_Compte_controller {
     /**
      * The retour button in the fxml file
      */
-    private Button back;
+    private Button retour;
 
     @FXML
     /**
@@ -86,12 +86,12 @@ public class Exemple_Compte_controller {
             System.out.println(Consulte_Compte_controller.getId() +","+ ReadInfos.getId());
 
             if(Consulte_Compte_controller.getId() == ReadInfos.getId()){
-                Stage actuel = (Stage)back.getScene().getWindow();
+                Stage actuel = (Stage)retour.getScene().getWindow();
                 ChangerPage change = new ChangerPage(actuel);
                 change.go_to("../../view/Page_Login.fxml");
             }
             else{
-                Stage actuel = (Stage)back.getScene().getWindow();
+                Stage actuel = (Stage)retour.getScene().getWindow();
                 ChangerPage change = new ChangerPage(actuel);
                 change.go_to("../../view/consulteCompte.fxml");
             }
@@ -107,7 +107,7 @@ public class Exemple_Compte_controller {
      * Switch to the page Accueil_Utilisateur.fxml
     */
     public void retour(){
-        Stage actuel = (Stage)back.getScene().getWindow();
+        Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/consulteCompte.fxml");
 
@@ -118,7 +118,7 @@ public class Exemple_Compte_controller {
      * Switch to the page Affichage_historique.fxml
      */
     public void historique(){
-        Stage actuel = (Stage)back.getScene().getWindow();
+        Stage actuel = (Stage)retour.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/affichage/Affichage_historique.fxml");
     }
