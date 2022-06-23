@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 import controller.utilitaires.ChangerPage;
+import controller.utilitaires.ReadInfos;
 
 /**
  * The controller for compte view
@@ -68,14 +69,20 @@ public class Exemple_Compte_controller {
             String query = "DELETE FROM registration WHERE id = " + Consulte_Compte_controller.getId() + ";";
             s.executeUpdate(query);
 
-            String query2 = "DELETE FROM Observateur WHERE idObservateur = " + Consulte_Compte_controller.getId() + ";";
-            s.executeUpdate(query2);
-
             s.close();
             c.close();
-            Stage actuel = (Stage)user.getScene().getWindow();
-            ChangerPage change = new ChangerPage(actuel);
-            change.go_to("../../view/page_loging.fxml");
+            System.out.println(Consulte_Compte_controller.getId() +","+ ReadInfos.getId());
+
+            if(Consulte_Compte_controller.getId() == ReadInfos.getId()){
+                Stage actuel = (Stage)back.getScene().getWindow();
+                ChangerPage change = new ChangerPage(actuel);
+                change.go_to("../../view/Page_Login.fxml");
+            }
+            else{
+                Stage actuel = (Stage)back.getScene().getWindow();
+                ChangerPage change = new ChangerPage(actuel);
+                change.go_to("../../view/consulteCompte.fxml");
+            }
             
         } catch (Exception e) {
             e.printStackTrace();
