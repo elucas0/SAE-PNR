@@ -226,6 +226,7 @@ public class Consulte_Compte_controller {
 
         Stage actuel = (Stage)user.getScene().getWindow();
         ChangerPage change = new ChangerPage(actuel);
+        this.writeId();
         change.go_to("../../view/exempleCompte.fxml");
     }
 

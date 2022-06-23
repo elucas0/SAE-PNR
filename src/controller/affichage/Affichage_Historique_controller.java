@@ -1,4 +1,5 @@
 package controller.affichage;
+import controller.Consulte_Compte_controller;
 import controller.utilitaires.ChangerPage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,8 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modele.donnee.Observateur;
-import modele.donnee.Observation;
+import modele.donnee.Aobserve;
 import java.sql.*;
 
 /**
@@ -37,23 +37,17 @@ public class Affichage_Historique_controller {
     private Button retour; 
 
     @FXML
-    private TableView<Observation> tabePricipale;
+    private TableView<Aobserve> tabePricipale;
 
     @FXML
-    private TableColumn<Observation,Integer> id;
+    private TableColumn<Aobserve,Integer> idObservateur;
     @FXML
-    private TableColumn<Observation,Date> date;
-    @FXML
-    private TableColumn<Observation,Time> heure;
-    @FXML
-    private TableColumn<Observation,Double> lieuX;
-    @FXML
-    private TableColumn<Observation,Double> lieuY;
+    private TableColumn<Aobserve,Integer> idObservation;
 
     /**
      * ObservableList of observators
      */
-    public ObservableList<Observation> data = FXCollections.observableArrayList();
+    public ObservableList<Aobserve> data = FXCollections.observableArrayList();
 
     /**
      * The content to do when the page linked to is started
@@ -72,26 +66,18 @@ public class Affichage_Historique_controller {
         tabePricipale.getItems().clear();
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
-            String sql = "SELECT * FROM Observation LIMIT " + limite;
+            String sql = "SELECT * FROM aobserve WHERE lobservateur = " + Consulte_Compte_controller.getId() + " LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             while(rs.next()){
-                //data.add(new Observation(rs.getInt(1),rs.getDate(2),rs.getTime(3),rs.getDouble(4)));
-
-                if((rs.getDouble(4) != 0.0) && (rs.getDouble(5) != 0.0)){
-
-                    data.add(new Observation(rs.getInt(1), rs.getDate(2),rs.getTime(3),rs.getDouble(4),rs.getDouble(5)));
-                }
+                data.add(new Aobserve(rs.getInt(1), rs.getInt(2)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        id.setCellValueFactory(new PropertyValueFactory<Observation,Integer>("id"));
-        date.setCellValueFactory(new PropertyValueFactory<Observation,Date>("date"));
-        heure.setCellValueFactory(new PropertyValueFactory<Observation,Time>("heure"));
-        lieuX.setCellValueFactory(new PropertyValueFactory<Observation,Double>("coordX"));
-        lieuY.setCellValueFactory(new PropertyValueFactory<Observation,Double>("coordY"));
+        idObservateur.setCellValueFactory(new PropertyValueFactory<Aobserve,Integer>("idObservateur"));
+        idObservation.setCellValueFactory(new PropertyValueFactory<Aobserve,Integer>("idObservation"));
         tabePricipale.setItems(data);
     }
 
