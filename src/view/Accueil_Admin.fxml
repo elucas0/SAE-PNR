@@ -40,7 +40,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="deco" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: #019367;" stylesheets="@css/style.css" text="Déconnexion" BorderPane.alignment="CENTER">
+                  <Button fx:id="deco" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: #019367;" stylesheets="@css/style.css" text="Déconnexion" textFill="WHITE" BorderPane.alignment="CENTER">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fas-sign-out-alt" iconSize="30" text="" />
                      </graphic>

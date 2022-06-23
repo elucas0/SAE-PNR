@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import controller.Consulte_Compte_controller;
+import controller.utilitaires.ChangerPage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class Modifier_Compte_controller{
@@ -65,10 +68,8 @@ public class Modifier_Compte_controller{
                     showAlert(Alert.AlertType.ERROR, owner, "Observation", "Observateur déjà rentré pour cette observation!");
                 }
                 else{
-                    PreparedStatement querry1 = c.prepareStatement("UPDATE registration SET nom = ?, password = ? WHERE id = ?;");
-                    querry1.setString(1, nom.getText());
-                    querry1.setString(2, mdp.getText());
-                    querry1.setInt(3, x);
+                    String s = "UPDATE registration SET nom = " + nom.getText() + ", password = " + mdp.getText() +" WHERE id = " + Consulte_Compte_controller.getId() + ";";
+                    PreparedStatement querry1 = c.prepareStatement(s);
                     querry1.executeUpdate();
                     showAlert(Alert.AlertType.CONFIRMATION, owner, "Observation", "rentré!");
                 }
@@ -94,5 +95,15 @@ public class Modifier_Compte_controller{
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
+    }
+
+
+    public void retour(){
+
+        Stage actuel = (Stage)mdp.getScene().getWindow();
+        ChangerPage change = new ChangerPage(actuel);
+        change.go_to("../../view/exempleCompte.fxml");
+
+
     }
 }

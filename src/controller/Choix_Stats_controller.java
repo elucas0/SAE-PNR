@@ -9,9 +9,11 @@ import controller.utilitaires.ExportData;
 import controller.utilitaires.ReadInfos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class Choix_Stats_controller {
 
@@ -115,7 +117,9 @@ public class Choix_Stats_controller {
      * @throws ClassNotFoundException if the class is not found
      */
     void exportation_tout(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.exportAll();
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Toutes les tables ont été exportées avec succès");
     }
 
     @FXML
@@ -127,9 +131,11 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_a_observe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("aobserve");
         ExportData.writeCSV("observateur");
         ExportData.writeCSV("observation");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables aobserve, observateur et observation exportées avec succès");
     }
 
     @FXML
@@ -141,7 +147,10 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_lieu(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("lieu");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table lieu exportée avec succès");
+
     }
 
     @FXML
@@ -153,7 +162,10 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_nid_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("nid_gci");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table nid_gci exportée avec succès");
+
     }
 
     @FXML
@@ -165,7 +177,9 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_obs_batracien(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_batracien");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_batracien exportée avec succès");
     }
 
     @FXML
@@ -177,8 +191,10 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_obs_chouette(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_chouette");
         ExportData.writeCSV("chouette");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables obs_chouette et chouette exportées avec succès");
     }
 
     @FXML
@@ -190,7 +206,9 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_obs_gci(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_gci");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_gci exportée avec succès");
     }
 
     @FXML
@@ -202,7 +220,10 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_obs_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_hippocampe");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_hippocampe exportée avec succès");
+
     }
 
     @FXML
@@ -214,7 +235,9 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_obs_loutre(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("obs_loutre");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_loutre exportée avec succès");
     }
 
     @FXML
@@ -226,8 +249,10 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_vegetation(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
+        Window owner = stat.getScene().getWindow();
         ExportData.writeCSV("vegetation");
         ExportData.writeCSV("lieu_vegetation");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Tables vegetation et lieu_vegetation exportées avec succès");
     }
 
 
@@ -240,7 +265,9 @@ public class Choix_Stats_controller {
      * @throws IOException if there is a problem with the IO
      */
     void exportation_hippocampe(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
-        ExportData.writeCSV("vegetation");
+        Window owner = stat.getScene().getWindow();
+        ExportData.writeCSV("obs_hippocampe");
+        showAlert(Alert.AlertType.CONFIRMATION, owner, "Exportation", "Table obs_hippocampe exportée avec succès");
     }
 
 
@@ -323,4 +350,19 @@ public class Choix_Stats_controller {
         }
     }
     
+    /**
+     * Method who create the message and show it in the screen
+     * @param alertType Type of the Alert (CONFIRMATION OR ERROR)
+     * @param owner The owner of the window
+     * @param title Title of the message screen
+     * @param message Message who appear in screen
+     */
+    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
 }
