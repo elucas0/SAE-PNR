@@ -65,20 +65,20 @@
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <PieChart fx:id="pieChart1" title="Effraies" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart1" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" title="Effraies" BorderPane.alignment="CENTER" />
          </center></BorderPane>
    </center>
    <left>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <PieChart fx:id="pieChart0" title="Cheveches" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart0" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" title="Cheveches" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </left>
    <right>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <PieChart fx:id="pieChart2" title="Hulotte" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart2" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" title="Hulotte" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </right>

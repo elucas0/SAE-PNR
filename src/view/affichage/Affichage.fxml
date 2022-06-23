@@ -89,7 +89,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <MenuButton fx:id="filtre_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Ajouter un filtre" GridPane.columnIndex="1">
+                  <MenuButton fx:id="filtre_bouton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #A4A4A4;" text="Ajouter un filtre" textFill="WHITE" GridPane.columnIndex="1">
                     <items>
                       <MenuItem fx:id="observateur" mnemonicParsing="false" onAction="#affichage_observateur" text="Observateur">
                            <graphic>
@@ -138,7 +138,7 @@
                         </MenuItem>
                     </items>
                      <graphic>
-                        <FontIcon iconLiteral="fas-filter" />
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-filter" />
                      </graphic>
                      <GridPane.margin>
                         <Insets bottom="10.0" top="10.0" />

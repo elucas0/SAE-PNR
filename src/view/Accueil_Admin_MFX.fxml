@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Accueil_Admin_controller">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Accueil_Admin_controller">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -50,7 +50,7 @@
          </left></BorderPane>
    </bottom>
    <center>
-      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #4E4E4E;" styleClass="border-pane" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="156.0" minHeight="50.0" minWidth="300.0" prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #767477;" styleClass="border-pane" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -60,7 +60,7 @@
          <left>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <left>
-                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #A4A4A4;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button fx:id="vue" mnemonicParsing="false" onAction="#toData" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Accès aux données" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="20.0" />
                      </BorderPane.margin>
@@ -72,7 +72,7 @@
             </BorderPane>
          </left>
          <center>
-            <MenuButton fx:id="prospec" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A4A4A4;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
+            <MenuButton fx:id="prospec" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Ajouter une prospection" textFill="WHITE" BorderPane.alignment="CENTER">
               <items>
                 <MenuItem fx:id="batracien" mnemonicParsing="false" onAction="#formulaire_obs_batracien" text="Batracien ">
                      <graphic>
@@ -127,7 +127,7 @@
             </MenuButton>
          </center>
          <right>
-            <Button fx:id="gestion" mnemonicParsing="false" onAction="#toManage" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #A4A4A4;" text="Gestion des comptes" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="gestion" mnemonicParsing="false" onAction="#toManage" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" text="Gestion des comptes" textFill="WHITE" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="20.0" />
                </BorderPane.margin>
