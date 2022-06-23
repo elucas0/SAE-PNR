@@ -20,15 +20,27 @@ import java.sql.*;
 public class Vegetation_controller {
 
     @FXML
+    /**
+     * TextField from the fxml file to input the environment
+     */
     private TextField environnement;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the border
+     */
     private TextField bordure;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the ripisyle
+     */
     private TextField ripisyle;
 
     @FXML
+    /**
+     * TextField from the fxml file to input the id of the vegetation zone
+     */
     private TextField idZoneVege;
 
     @FXML
@@ -38,9 +50,15 @@ public class Vegetation_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
 
     @FXML
+    /**
+     * Initialize the controller.
+     */
     private void initialize(){
 
         user.setText(ReadInfos.getStatus());
@@ -49,7 +67,7 @@ public class Vegetation_controller {
     @FXML
     /**
      * Method to create a insert querry to the database
-     * @throws SQLException
+     * @throws SQLException if the querry is not well written
      */
     private void insert() throws SQLException{
         Window owner = effectuer.getScene().getWindow();

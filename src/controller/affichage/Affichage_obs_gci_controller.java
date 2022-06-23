@@ -322,6 +322,9 @@ public class Affichage_obs_gci_controller {
 
 
     @FXML
+    /**
+     * Change the number of lines displayed in the table
+     */
     private void changeLimit(){
 
 

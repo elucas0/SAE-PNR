@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import java.sql.SQLException;
 
 import controller.utilitaires.ChangerPage;

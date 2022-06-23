@@ -77,6 +77,9 @@ public class Nid_Gci_controller{
     private TextField nomPlage;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
     
     @FXML

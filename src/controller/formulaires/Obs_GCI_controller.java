@@ -24,6 +24,9 @@ import javafx.scene.control.DatePicker;
 public class Obs_GCI_controller {
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
 
 

@@ -15,7 +15,6 @@ import controller.utilitaires.ReadInfos;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
