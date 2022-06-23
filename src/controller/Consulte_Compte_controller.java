@@ -231,7 +231,9 @@ public class Consulte_Compte_controller {
     }
 
 
-
+    /**
+     * Go to the page that display the account's information.
+     */
     public void voir(){
 
         if(!id.getText().isEmpty()){
@@ -247,6 +249,10 @@ public class Consulte_Compte_controller {
 
     }
 
+    /**
+     * Write the id of the account you want to see in the text file 
+     * "voir.txt"
+     */
     public void writeId(){
 
         try {
@@ -280,8 +286,8 @@ public class Consulte_Compte_controller {
 
 
     /**
-     * Get the user's id
-     * @return the user's id
+     * Get the entered id
+     * @return the entered id
      */
     public static int getId(){
 

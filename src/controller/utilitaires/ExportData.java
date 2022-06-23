@@ -5,8 +5,18 @@ import java.io.IOException;
 import java.sql.*;
 import com.opencsv.CSVWriter;
 
+/**
+ * Class used to export the database in csv
+ */
 public class ExportData {
 
+    /**
+     * Write the database's table in csv
+     * @param nomTable the table's name
+     * @throws SQLException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void writeCSV(String nomTable) throws SQLException, IOException, ClassNotFoundException {
 
         CSVWriter writer = new CSVWriter(new FileWriter(nomTable + ".csv"));
@@ -23,6 +33,13 @@ public class ExportData {
         writer.close();
     }
 
+
+    /**
+     * Export all the tables en csv
+     * @throws SQLException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void exportAll() throws SQLException, IOException, ClassNotFoundException {
         writeCSV("aobserve");
         writeCSV("lieu");
