@@ -214,7 +214,7 @@ public class Affichage_controller_hippocampe{
      */
     private void initialize()  {
 
-        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("Obs_Chouette"));
+        ObservableList<Integer> liste = FXCollections.observableArrayList(1, 25, 50, 100, ReadInfos.getMax("Obs_Hippocampe"));
         limite.setItems(liste);
 
         viewObservation(25);

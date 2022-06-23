@@ -14,7 +14,6 @@ import controller.utilitaires.ReadInfos;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 import java.sql.*;
-import javafx.scene.control.DatePicker;
 /**
  * The controller of the page Formulaire_zone_humide.fxml. It manages it.
  * @version 1.0
@@ -71,10 +70,10 @@ public class Zone_Humide_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
-
-    
-
 
     @FXML
     /**

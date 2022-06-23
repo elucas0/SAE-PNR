@@ -5,11 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.sql.SQLException;
-import java.time.LocalTime;
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
@@ -20,20 +18,38 @@ import java.sql.*;
 public class Observateur_controller {
 
     @FXML
+    /**
+     * ComboBox containing the admin status possibilities.
+     */
     private ComboBox<String> estAdmin;
 
+    /**
+     * ObservableList<String> to contain the admin status
+     */
     private ObservableList<String> liste;
 
     @FXML
+    /**
+     * TextField containing the name of the user.
+     */
     private TextField nom;
 
     @FXML
+    /**
+     * TextField containing the first name of the user.
+     */
     private TextField prenom;
 
     @FXML
+    /**
+     * TextField containing the id of the user.
+     */
     private TextField idCompte;
 
     @FXML
+    /**
+     * TextField containing the password of the user.
+     */
     private TextField mdp;
 
     @FXML
@@ -43,9 +59,15 @@ public class Observateur_controller {
     private Button effectuer;
 
     @FXML
+    /**
+     * Button access the account page
+     */
     private Button user;
 
     @FXML
+    /**
+     * Initialize the controller class.
+     */
     void initialize(){
 
         liste = FXCollections.observableArrayList("Oui", "Non");

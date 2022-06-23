@@ -44,6 +44,9 @@ public class ObsLoutre extends Observation {
 		}
 	}
 	@Override
+	/**
+	 * Returns the species of the observation
+	 */
 	public EspeceObservee especeObs() {
 		return EspeceObservee.LOUTRE;
 	}
