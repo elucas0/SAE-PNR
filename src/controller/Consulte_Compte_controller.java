@@ -186,6 +186,8 @@ public class Consulte_Compte_controller {
 
         this.viewAdmin();
         this.viewUser();
+        user.setText(ReadInfos.getStatus());
+
     }
 
     @FXML
@@ -227,6 +229,8 @@ public class Consulte_Compte_controller {
         ChangerPage change = new ChangerPage(actuel);
         change.go_to("../../view/formulaires/Formulaire_observateur.fxml");
     }
+
+
 
     public void voir(){
 
@@ -299,4 +303,7 @@ public class Consulte_Compte_controller {
 
         return ret;
     }
+
+
+
 }

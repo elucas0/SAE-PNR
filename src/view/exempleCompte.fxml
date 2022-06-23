@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Exemple_Compte_controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <BorderPane minHeight="-Infinity" prefHeight="75.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
@@ -31,9 +31,9 @@
    <bottom>
       <BorderPane minHeight="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #00B37D;" BorderPane.alignment="CENTER">
          <left>
-            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER" onAction="#retour">
+            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #019367;" BorderPane.alignment="CENTER">
                <graphic>
-                  <FontIcon iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
+                  <FontIcon fx:id="back" iconColor="WHITE" iconLiteral="far-arrow-alt-circle-left" iconSize="30" />
                </graphic>
                <BorderPane.margin>
                   <Insets left="100.0" />
@@ -60,16 +60,15 @@
          <children>
             <Pane maxHeight="90.0" maxWidth="300.0" minHeight="90.0" minWidth="300.0" prefHeight="90.0" prefWidth="300.0" style="-fx-background-color: #4E4E4E;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <Label layoutX="110.0" layoutY="9.0" text="Utilisateur 1" textFill="WHITE" />
-                  <Label layoutX="40.0" layoutY="39.0" text="Compte ajoutée le 05/02/2022" textFill="WHITE" />
                   <AnchorPane layoutY="-77.0" prefHeight="169.0" prefWidth="305.0">
                      <children>
-                        <Button fx:id="pen" layoutX="243.0" layoutY="85.0" maxHeight="25.0" maxWidth="28.0" minHeight="25.0" minWidth="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="A" onAction="#toModifier">
+                        <Button fx:id="modifier" layoutX="229.0" layoutY="99.0" maxHeight="25.0" maxWidth="28.0" minHeight="25.0" minWidth="28.0" mnemonicParsing="false" onAction="#toModifier" prefHeight="30.0" prefWidth="30.0" text="A">
                            <padding>
                               <Insets left="270.0" top="20.0" />
                            </padding>
                         </Button>
-                        <FontIcon iconLiteral="fas-pen-square" iconSize="30" layoutX="244.0" layoutY="108.0" />
+                        <FontIcon iconLiteral="fas-pen-square" iconSize="30" layoutX="230.0" layoutY="123.0" />
+                        <Label fx:id="userName" layoutX="105.0" layoutY="104.0" text="Utilisateur 1" textFill="WHITE" />
                      </children></AnchorPane>
                   <FontIcon accessibleRole="PARENT" iconLiteral="far-user-circle" iconSize="75" x="110.0" y="-10.0" />
                </children>
@@ -77,26 +76,16 @@
             <Pane maxHeight="143.0" maxWidth="300.0" minHeight="143.0" minWidth="300.0" prefHeight="143.0" prefWidth="300.0" style="-fx-background-color: #696969;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
                   <Label layoutX="46.0" layoutY="14.0" text="Description :" textAlignment="CENTER" textFill="WHITE" />
-                  <Label layoutX="74.0" layoutY="30.0" text="[mettre une decription]" textFill="WHITE" />
-                  <Label layoutX="46.0" layoutY="57.0" text="Droits :" textFill="WHITE" />
-                  <Label layoutX="78.0" layoutY="81.0" text="Visualiser les tables" textFill="WHITE">
+                  <Label fx:id="description" layoutX="74.0" layoutY="38.0" text="[mettre une decription]" textFill="WHITE" />
+                  <Label layoutX="50.0" layoutY="72.0" text="Droits :" textFill="WHITE" />
+                  <Label fx:id="droit" layoutX="78.0" layoutY="96.0" text="Droits Administrateur" textFill="WHITE">
                      <graphic>
                         <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="78.0" layoutY="97.0" text="Ajouter des données" textFill="WHITE">
-                     <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="fas-check-square" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="78.0" layoutY="113.0" text="Gérer les droits" textFill="WHITE">
-                     <graphic>
-                        <FontIcon iconColor="WHITE" iconLiteral="far-window-close" />
                      </graphic>
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#historique">
+            <Button fx:id="history" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #696969;" text="Historique" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <graphic>
                   <FontIcon iconColor="WHITE" iconLiteral="far-clock" />
                </graphic>
@@ -104,7 +93,7 @@
                   <Insets right="150.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" onAction="#deleteUser">
+            <Button fx:id="delete" maxHeight="25.0" maxWidth="140.0" minHeight="25.0" minWidth="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #B22222;" text="Supprimer Compte" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="150.0" />
                </GridPane.margin>
