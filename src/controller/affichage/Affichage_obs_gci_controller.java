@@ -32,7 +32,9 @@ public class Affichage_obs_gci_controller {
      */
     @FXML private TextField delete;
 
-
+    /**
+     * ComboBox for the number of rows to display
+     */
     @FXML
     private ComboBox<Integer> limite;
 
@@ -41,44 +43,66 @@ public class Affichage_obs_gci_controller {
      * The retour button in the fxml file
      */
     private Button retour;
-
+    /**
+     * The table in the fxml file
+     */
     @FXML 
     private TableView<ObservationGci> table;
-
+      /**
+     * The table column in the fxml file for the id
+     */  
     @FXML 
     private TableColumn<ObservationGci,Integer> id;
-
+    /**
+     * The table column in the fxml file for the type of nest
+     */  
     @FXML 
     private TableColumn<ObservationGci,String> nature;
-
+    /**
+     * The table column in the fxml file for the number of eggs,nest or bird
+     */  
     @FXML 
     private TableColumn<ObservationGci, Integer> nombre;
-
+    /**
+     * The table column in the fxml file for the type of the name of the observator
+     */
     @FXML 
     private TableColumn<ObservationGci,String> observateur;
-
+    /**
+     * The table column in the fxml file for the id of nest
+     */
     @FXML 
     private TableColumn<ObservationGci, Integer> leNid;
-
+    /**
+     * The table column in the fxml file for know if nothing was see
+     */
     @FXML 
     private TableColumn<ObservationGci,String> presentMaisNonObs;
 
-
+    /**
+     * The table column in the fxml file for the date of the observation
+     */
     @FXML 
     private TableColumn<ObservationGci,Date> date ;
-
+    /**
+     * The table column in the fxml file for the time of the observation
+     */
     @FXML 
     private TableColumn<ObservationGci,Time> heure ;
-
+    /**
+     * The table column in the fxml file for the x coordinate of the observation
+     */
     @FXML 
     private TableColumn<ObservationGci,Lieu> coordX ;
-
+    /**
+     * The table column in the fxml file for the y coordinate of the observation
+     */
     @FXML 
     private TableColumn<ObservationGci,Lieu> coordY ;
-
+    /**
+     * Observable list of GCI
+     */
     public ObservableList<ObservationGci> data = FXCollections.observableArrayList();
-
-    public ObservableList<ObservationGci> data1 = FXCollections.observableArrayList();
 
     @FXML 
     public void viewObsGci(int limite){
@@ -97,8 +121,6 @@ public class Affichage_obs_gci_controller {
             ResultSet rs3 = stat3.executeQuery();
             
             while(rs.next()&& rs2.next()&&rs3.next()){
-                //data.add(new Batracien(id, date, heure, lieu, observateurs)
-                //ArrayList array = new ArrayList<int>(rs3.getInt());
                 data.add(new ObservationGci(rs.getInt(1),rs2.getDate(1),rs2.getTime(2), rs2.getDouble(3), rs2.getDouble(4),rs3.getInt(1), rs.getString("nature"), rs.getInt("nombre"), rs.getInt("leNid"), rs.getInt("presentMaisNonObs")));
             }
             c.close();

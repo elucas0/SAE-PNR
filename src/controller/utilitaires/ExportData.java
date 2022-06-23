@@ -6,16 +6,16 @@ import java.sql.*;
 import com.opencsv.CSVWriter;
 
 /**
- * Class used to export the database in csv
+ * ExportData is a class that allows to export data from a database to a csv file.
  */
 public class ExportData {
 
     /**
-     * Write the database's table in csv
-     * @param nomTable the table's name
-     * @throws SQLException
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Export a table from a database to a csv file.
+     * @param nomTable the name of the table to export.
+     * @throws SQLException if an error occurs while connecting to the database.
+     * @throws IOException if an error occurs while writing the csv file.
+     * @throws ClassNotFoundException if the class of the driver is not found.
      */
     public static void writeCSV(String nomTable) throws SQLException, IOException, ClassNotFoundException {
 
@@ -33,12 +33,11 @@ public class ExportData {
         writer.close();
     }
 
-
     /**
-     * Export all the tables en csv
-     * @throws SQLException
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Export every table from a database to a csv file.
+     * @throws SQLException if an error occurs while connecting to the database.
+     * @throws IOException if an error occurs while writing the csv file.
+     * @throws ClassNotFoundException if the class of the driver is not found.
      */
     public static void exportAll() throws SQLException, IOException, ClassNotFoundException {
         writeCSV("aobserve");
