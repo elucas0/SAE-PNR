@@ -38,10 +38,8 @@ public class Affichage_Historique_controller {
     private Button retour; 
 
     @FXML
-    private TableView<Aobserve> tabePricipale;
+    private TableView<Aobserve> tabePrincipale;
 
-    @FXML
-    private TableColumn<Aobserve,Integer> idObservateur;
     @FXML
     private TableColumn<Aobserve,Integer> idObservation;
 
@@ -66,23 +64,21 @@ public class Affichage_Historique_controller {
      */
     public void viewAobserve(int limite){
 
-        //tabePricipale.getItems().clear();
+        tabePrincipale.getItems().clear();
         try{
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/pnr", "base_donnee", "sC32DnE3ae7Y");
             String sql = "SELECT * FROM aobserve WHERE lobservateur = " + Consulte_Compte_controller.getId() + " LIMIT " + limite;
             PreparedStatement stat = c.prepareStatement(sql);
             ResultSet rs = stat.executeQuery();
             while(rs.next()){
-                System.out.println("passsssssssssssssssssssssssssssssssssssse bien");
-                data.add(new Aobserve(rs.getInt(1), rs.getInt(2)));
+                data.add(new Aobserve(rs.getInt(2)));
             }
             c.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        idObservateur.setCellValueFactory(new PropertyValueFactory<Aobserve,Integer>("idObservateur"));
         idObservation.setCellValueFactory(new PropertyValueFactory<Aobserve,Integer>("idObservation"));
-        tabePricipale.setItems(data);
+        tabePrincipale.setItems(data);
     }
 
 

@@ -22,7 +22,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Scanner;
 
 import controller.utilitaires.ChangerPage;
 import controller.utilitaires.ReadInfos;
@@ -282,9 +281,7 @@ public class Consulte_Compte_controller {
 
             FileReader file = new FileReader("voir.txt");
             BufferedReader in = new BufferedReader(file);
-            System.out.println("paseeeeeeeeeeeeeeeeeeeeeee1");
             ret = Integer.parseInt(in.readLine());
-            System.out.println("paseeeeeeeeeee2");
             in.close();
 
 
