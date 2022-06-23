@@ -1,5 +1,8 @@
 package modele.donnee;
 
+/**
+ * Enumeration for the type of fishing
+ */
 public enum Peche {
 	CASIER_CREVETTES,
 	CASIER_MORGATES,

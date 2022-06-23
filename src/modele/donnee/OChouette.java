@@ -13,16 +13,49 @@ public class OChouette {
 	 */
 	private int id;
 
-
-
+	/**
+	 * The protocol 
+	 */
 	private int protocole;
+
+	/**
+	 * The date of the observation
+	 */
 	private Date date;
+
+	/**
+	 * The time of the observation
+	 */
 	private Time heure;
+
+	/**
+	 * The type of the observation
+	 */
 	private String typeObs;
+
+	/**
+	 * X coordinate of the observation
+	 */
 	private Double coordx;
+
+	/**
+	 * Y coordinate of the observation
+	 */
 	private Double coordy;
+
+	/**
+	 * The id of the animal
+	 */
 	private String lenumIndividu;
+
+	/**
+	 * The genre of the animal
+	 */
 	private String sexe;
+
+	/**
+	 * The species of the animal
+	 */
 	private String espece;
 
 	/**
